@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp">
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:id="@+id/activity_mysteryWord_order_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/game_order"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/activity_mysteryWord_word_linearlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_mysteryWord_order_textview">
+
+    </LinearLayout>
+
+    <Chronometer
+        android:id="@+id/activity_mystery_word_chronometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font_size"
+        android:textColor="@color/colorGray"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/activity_mysteryWord_word_linearlayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/activity_mysteryWord_answer_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font_size"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/activity_mystery_word_chronometer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/activity_mysteryWord_pos1_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/activity_mysteryWord_answer_textview"
+        app:srcCompat="@mipmap/star"
+        android:contentDescription="@string/starPicture" />
+
+    <ImageView
+        android:id="@+id/activity_mysteryWord_ordi_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/activity_mysteryWord_pos1_img"
+        app:srcCompat="@mipmap/ghost"
+        android:contentDescription="@string/ghostPicture" />
+
+    <LinearLayout
+        android:id="@+id/activity_mysteryWord_keyboard_linearlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <LinearLayout
+            android:id="@+id/activity_mysteryWord_keyboard_row1_linearlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_A_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="a"
+                android:textOn="a"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_Z_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="z"
+                android:textOn="z"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_E_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="e"
+                android:textOn="e"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_R_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="r"
+                android:textOn="r"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_T_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="t"
+                android:textOn="t"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_Y_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="y"
+                android:textOn="y"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_U_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="u"
+                android:textOn="u"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_I_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="i"
+                android:textOn="i"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_O_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="o"
+                android:textOn="o"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_P_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="p"
+                android:textOn="p"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/activity_mysteryWord_keyboard_row2_linearlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_Q_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="q"
+                android:textOn="q"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_S_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="s"
+                android:textOn="s"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_D_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="d"
+                android:textOn="d"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_F_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="f"
+                android:textOn="f"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_G_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="g"
+                android:textOn="g"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_H_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="h"
+                android:textOn="h"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_J_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="j"
+                android:textOn="j"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_K_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="k"
+                android:textOn="k"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_L_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="l"
+                android:textOn="l"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_M_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="m"
+                android:textOn="m"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/activity_mysteryWord_keyboard_row3_linearlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_W_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="w"
+                android:textOn="w"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_X_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="x"
+                android:textOn="x"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_C_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="c"
+                android:textOn="c"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_V_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="v"
+                android:textOn="v"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_B_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="b"
+                android:textOn="b"
+                android:textSize="30sp" />
+
+            <ToggleButton
+                android:id="@+id/activity_mysteryWord_N_button"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_background"
+                android:textOff="n"
+                android:textOn="n"
+
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:splitMotionEvents="false">
+
+    <ImageView
+        android:id="@+id/acivity_addition_pos1_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        app:srcCompat="@mipmap/star"
+        android:contentDescription="@string/starPicture" />
+
+    <ImageView
+        android:id="@+id/activity_addition_ordi_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        app:layout_constraintTop_toBottomOf="@+id/acivity_addition_pos1_img"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@mipmap/ghost"
+        android:contentDescription="@string/ghostPicture" />
+
+    <Chronometer
+        android:id="@+id/chronometer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font_size"
+        android:textStyle="bold"
+        android:textColor="@color/colorGray"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/acivity_addition_pos1_img"
+        android:layout_marginTop="110dp"/>
+
+    <LinearLayout
+        android:id="@+id/linear_layout_operation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chronometer2"
+        android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/activity_addition_nombre1_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_size"
+                android:text="@string/demo_first_number"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/activity_addition_operateur_textview"
+                android:padding="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_size"
+                android:textStyle="bold"
+                android:text="@string/demo_sign" />
+
+            <TextView
+                android:id="@+id/activity_addition_nombre2_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_size"
+                android:textStyle="bold"
+                android:text="@string/demo_second_number" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear_layout_operation">
+
+        <Button
+            android:layout_margin="15dp"
+            android:background="#ff0000"
+            android:id="@+id/activity_addition_rep1_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:layout_margin="15dp"
+            android:background="#00ff00"
+            android:id="@+id/activity_addition_rep2_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:layout_margin="15dp"
+            android:background="#0000ff"
+            android:id="@+id/activity_addition_rep3_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:layout_margin="15dp"
+            android:background="#ffff00"
+            android:id="@+id/activity_addition_rep4_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:ignore="ButtonStyle" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/pond"
+        android:contentDescription="@string/pondPicture" />
+
+</android.support.constraint.ConstraintLayout>

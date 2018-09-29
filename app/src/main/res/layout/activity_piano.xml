@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.cassa.entrainementprojettut.pianoGame.PianoActivity"
+    android:background="@color/pink">
+
+    <LinearLayout
+        android:id="@+id/activity_piano_layout_life"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:src="@drawable/elephant"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:contentDescription="@string/elephant_picture" />
+
+        <TextView
+            android:id="@+id/activity_piano_life"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lives"
+            android:textSize="60sp"/>
+
+        <ImageView
+            android:id="@+id/activity_piano_heart_1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/heart"
+            android:contentDescription="@string/heart_picture" />
+
+        <ImageView
+            android:id="@+id/activity_piano_heart_2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/heart"
+            android:contentDescription="@string/heart_picture"/>
+
+        <ImageView
+            android:id="@+id/activity_piano_heart_3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/heart"
+            android:contentDescription="@string/heart_picture"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/activity_piano_linear_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="80dp"
+        android:background="@color/black"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/activity_piano_key_do"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:shadowColor="@color/colorPrimaryDark"
+            android:tag="1"
+            android:text="DO"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/activity_piano_key_re"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:tag="2"
+            android:text="RE"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/activity_piano_key_mi"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:tag="3"
+            android:text="MI"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/activity_piano_key_fa"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:tag="4"
+            android:text="FA"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/activity_piano_key_sol"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:tag="5"
+            android:text="SOL"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/activity_piano_key_la"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:tag="6"
+            android:text="LA"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/activity_piano_key_si"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:tag="7"
+            android:text="SI"
+            android:textSize="40sp" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

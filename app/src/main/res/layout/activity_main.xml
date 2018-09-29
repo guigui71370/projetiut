@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    tools:context="com.example.cassa.entrainementprojettut.MainActivity">
+
+    <LinearLayout
+        android:layout_width="120dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/activity_main_addition_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Addition"
+            android:background="#AEEE00"
+            />
+
+        <Button
+            android:id="@+id/activity_main_mysteryWord_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mot Mystère"
+            android:layout_marginTop="10dp"
+            android:background="#AEEE00"
+            />
+
+        <Button
+            android:id="@+id/activity_main_flagActivity_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Drapeaux"
+            android:layout_marginTop="10dp"
+            android:background="#AEEE00"/>
+
+        <Button
+
+            android:id="@+id/activity_reverse_flagActivity_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Drapeaux inversés"
+            android:layout_marginTop="10dp"
+            android:background="#AEEE00"/>
+
+        <Button
+            android:id="@+id/acivity_main_geographyTag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Géographie"
+            android:background="#AEEE00"/>
+
+        <Button
+            android:id="@+id/acivity_main_piano"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Piano"
+            android:background="#AEEE00"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/chouettes_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+
+</android.support.constraint.ConstraintLayout>
