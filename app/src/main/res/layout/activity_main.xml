@@ -19,9 +19,8 @@
             android:id="@+id/activity_main_addition_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Addition"
             android:background="#AEEE00"
-            />
+            android:text="Addition" />
 
         <Button
             android:id="@+id/activity_main_mysteryWord_btn"
@@ -50,7 +49,7 @@
             android:background="#AEEE00"/>
 
         <Button
-            android:id="@+id/acivity_main_geographyTag"
+            android:id="@+id/activity_main_geographyTag"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -58,7 +57,7 @@
             android:background="#AEEE00"/>
 
         <Button
-            android:id="@+id/acivity_main_piano"
+            android:id="@+id/activity_main_piano"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

@@ -32,8 +32,8 @@ public class MainActivity extends ActivityUtil {
         Button btnMysteryWord = findViewById(R.id.activity_main_mysteryWord_btn);
         Button btnFlagActivity = findViewById(R.id.activity_main_flagActivity_btn);
         Button btnReverseFlagActivity = findViewById(R.id.activity_reverse_flagActivity_btn);
-        Button btnGeographyTag = findViewById(R.id.acivity_main_geographyTag);
-        Button btnPiano = findViewById(R.id.acivity_main_piano);
+        Button btnGeographyTag = findViewById(R.id.activity_main_geographyTag);
+        Button btnPiano = findViewById(R.id.activity_main_piano);
         ImageView owlImg = findViewById(R.id.chouettes_menu);
         owlImg.setBackgroundResource(R.drawable.animation_chouettes_menu);
         mOwlAnimation = (AnimationDrawable) owlImg.getBackground();
