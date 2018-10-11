@@ -15,7 +15,7 @@ class Note {
     public Note(int id, int adressSound) {
         this.id = id;
         this.adressSound = adressSound;
-        song = new MediaPlayer();
+        //song = new MediaPlayer();
     }
 
     public int getId() {
@@ -27,12 +27,21 @@ class Note {
     }
 
     public void playSong(Activity activity){
-        if (song.isPlaying()){
+        //Not release the actif mediaplayer
+        /*if (song.isPlaying()){
             song.stop();
             song.release();
-        }
+        }*/
+
         song = MediaPlayer.create(activity, adressSound);
         song.start();
+        //auto release when finish to use
+        song.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            public void onCompletion(MediaPlayer mp) {
+                mp.release();
+
+            };
+        });
     }
 
 }
