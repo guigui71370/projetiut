@@ -1,21 +1,21 @@
 package com.example.cassa.entrainementprojettut.pianoGame;
 
 import android.app.Activity;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 
 /**
  * Created by clement on 16/01/18.
+ * Modified by brice on 10/10/18
  */
 
 class Note {
     private int id;
     private int adressSound;
-    private MediaPlayer song = new MediaPlayer();
 
     public Note(int id, int adressSound) {
         this.id = id;
         this.adressSound = adressSound;
-        //song = new MediaPlayer();
     }
 
     public int getId() {
@@ -27,21 +27,22 @@ class Note {
     }
 
     public void playSong(Activity activity){
-        //Not release the actif mediaplayer
-        /*if (song.isPlaying()){
-            song.stop();
-            song.release();
-        }*/
 
-        song = MediaPlayer.create(activity, adressSound);
-        song.start();
-        //auto release when finish to use
+        final MediaPlayer song = MediaPlayer.create(activity,adressSound);
+        song.setAudioStreamType(AudioManager.STREAM_MUSIC);
+
         song.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
             public void onCompletion(MediaPlayer mp) {
-                mp.release();
+                song.release();
+            }
+        });
 
-            };
+        song.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.start();
+            }
         });
     }
-
 }
