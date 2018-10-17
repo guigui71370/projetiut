@@ -19,50 +19,50 @@
             android:id="@+id/activity_main_addition_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#AEEE00"
-            android:text="Addition" />
+            android:background="@color/colorGreen"
+            android:text="@string/operation_game" />
 
         <Button
             android:id="@+id/activity_main_mysteryWord_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mot Mystère"
+            android:text="@string/mystery_word_game"
             android:layout_marginTop="10dp"
-            android:background="#AEEE00"
+            android:background="@color/colorGreen"
             />
 
         <Button
             android:id="@+id/activity_main_flagActivity_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Drapeaux"
+            android:text="@string/tag_game"
             android:layout_marginTop="10dp"
-            android:background="#AEEE00"/>
+            android:background="@color/colorGreen"/>
 
         <Button
 
             android:id="@+id/activity_reverse_flagActivity_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Drapeaux inversés"
+            android:text="@string/tag_inv"
             android:layout_marginTop="10dp"
-            android:background="#AEEE00"/>
+            android:background="@color/colorGreen"/>
 
         <Button
             android:id="@+id/activity_main_geographyTag"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Géographie"
-            android:background="#AEEE00"/>
+            android:text="@string/geography_game"
+            android:background="@color/colorGreen"/>
 
         <Button
             android:id="@+id/activity_main_piano"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Piano"
-            android:background="#AEEE00"/>
+            android:text="@string/piano_game"
+            android:background="@color/colorGreen"/>
 
     </LinearLayout>
 

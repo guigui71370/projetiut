@@ -54,7 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/font_size"
-                android:text="@string/demo_first_number"
+                tools:text="@string/demo_first_number"
                 android:textStyle="bold" />
 
             <TextView
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/font_size"
                 android:textStyle="bold"
-                android:text="@string/demo_sign" />
+                tools:text="@string/demo_sign" />
 
             <TextView
                 android:id="@+id/activity_addition_nombre2_textview"
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/font_size"
                 android:textStyle="bold"
-                android:text="@string/demo_second_number" />
+                tools:text="@string/demo_second_number" />
 
     </LinearLayout>
 

@@ -18,7 +18,7 @@
 
     <TextView
         android:id="@+id/level_popup_message-textView"
-        android:text="Choisis ton niveau"
+        android:text="@string/choice_levels"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:textColor="@android:color/white"
