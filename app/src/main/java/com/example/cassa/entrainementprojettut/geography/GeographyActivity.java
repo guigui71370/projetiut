@@ -272,7 +272,7 @@ public class GeographyActivity extends GameActivity {
             }
             return true;
         }
-
+        showText("essaie encore!");
         return false;
     }
 
