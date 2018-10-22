@@ -1,11 +1,16 @@
 package com.example.cassa.entrainementprojettut;
 
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.cassa.entrainementprojettut.flag.FlagActivity;
@@ -19,9 +24,8 @@ import com.example.cassa.entrainementprojettut.pianoGame.PianoActivity;
 public class MainActivity extends ActivityUtil {
 
     private AnimationDrawable mOwlAnimation;
-
-
     MediaPlayer playerEvent;
+    protected static String playerName="noName";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +43,12 @@ public class MainActivity extends ActivityUtil {
         mOwlAnimation = (AnimationDrawable) owlImg.getBackground();
         playerEvent = MediaPlayer.create(MainActivity.this,R.raw.envent_sound);
         music =R.raw.bensound_jazzyfrenchy;
-
         startBackgroundMusic(this, music);
 
-
-
+        //On test la reference ici
+        if(playerName == "noName"){
+            alertDialog();
+        }
 
         mAddition.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,4 +132,28 @@ public class MainActivity extends ActivityUtil {
         }
     }
 
+    private void setPlayerName(String name){
+        playerName = name;
+    }
+
+    public static String getPlayerName(){
+        return playerName;
+    }
+    @SuppressLint("SetTextI18n")
+    public void alertDialog() {
+        final AlertDialog.Builder updateDialog = new AlertDialog.Builder(this);
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.setHint("Entre ton nom");
+        updateDialog.setView(input);
+
+        updateDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String m_Text = input.getText().toString();
+                setPlayerName(m_Text);
+            }
+        });
+        updateDialog.show();
+    }
 }

@@ -62,7 +62,7 @@ public class AdditionActivity extends GameActivity implements View.OnClickListen
 
             } else {
                 AdditionActivity.this.onStop();
-               dialog.show();
+                dialog.show();
             }
 
         }
@@ -71,7 +71,7 @@ public class AdditionActivity extends GameActivity implements View.OnClickListen
         playerEvent= MediaPlayer.create(AdditionActivity.this,R.raw.envent_sound);
 
         rightAnswerCounter = 0;
-// On recupère les widgets
+        // On recupère les widgets
 
         mNumber1 = (TextView) findViewById(R.id.activity_addition_nombre1_textview);
         mNumber2 = (TextView) findViewById(R.id.activity_addition_nombre2_textview);
