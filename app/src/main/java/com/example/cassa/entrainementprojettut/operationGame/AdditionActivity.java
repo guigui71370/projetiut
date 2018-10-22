@@ -148,8 +148,8 @@ public class AdditionActivity extends GameActivity implements View.OnClickListen
             showText(getString(R.string.Well_played));
             playerEvent.start();
 
-            moveImage(playerImage,playerImagePosition+(screenWidth/10),600,playerImagePosition);
-            playerImagePosition = playerImagePosition + (screenWidth/10);
+            moveImage(playerImage,playerImagePosition+(screenWidth/11),600,playerImagePosition);
+            playerImagePosition = playerImagePosition + (screenWidth/11);
 
             if(rightAnswerCounter == 10){
                 unableLoose();

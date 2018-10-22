@@ -134,8 +134,10 @@ public class ReverseFlagActivity extends GameActivity implements View.OnClickLis
     public void checkAnswer(Button button, String mNomPays){
         if(gGoodAnswer.equals(mNomPays)){
 
-            moveImage(playerImage,playerImagePosition+(getScreenWidth()/10),600,playerImagePosition);
-            playerImagePosition = playerImagePosition + (getScreenWidth()/10);
+           if(numericalScore <50 && getScreenWidth()>(playerImagePosition+ (getScreenWidth() / 11))) {
+               moveImage(playerImage, playerImagePosition + (getScreenWidth() / 11), 600, playerImagePosition);
+               playerImagePosition = playerImagePosition + (getScreenWidth() / 11);
+           }
 
             numericalScore+=5;
             mScore.setText(""+numericalScore);

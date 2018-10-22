@@ -230,9 +230,11 @@ public class MysteryWordActivity extends GameActivity {
             gNbReponsesCorrectes++;
 
             float largeurEcran = getScreenWidth();
-            moveImage(gImgPlayer, gPositionImageJoueur + (largeurEcran / 5), 600, gPositionImageJoueur);
 
-            gPositionImageJoueur = gPositionImageJoueur + (largeurEcran / 5);
+            
+            moveImage(gImgPlayer, gPositionImageJoueur + (largeurEcran / 6), 600, gPositionImageJoueur);
+
+            gPositionImageJoueur = gPositionImageJoueur + (largeurEcran / 6);
             partieFinie(5);
         } else {
             int indexCurrentLetter = gBtnLayout.indexOfChild(gSelectedLetter);
