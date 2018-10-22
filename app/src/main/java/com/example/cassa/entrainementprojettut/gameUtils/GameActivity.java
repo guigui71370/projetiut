@@ -52,10 +52,7 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
     protected String currentActivityName;
     protected int currentLevel;
     protected DAOscore daOscore=DAOscore.getInstance(this);
-    private String playerName="noName";
-
-
-
+    protected String playerName = MainActivity.getPlayerName();
 
     protected  void showText(String text){
 
@@ -102,7 +99,7 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
 
         View lvlChoiceView = getLayoutInflater().inflate(R.layout.level_choice_popup, null);
 
-        LinearLayout container = (LinearLayout)lvlChoiceView.findViewById(R.id.level_popup_activity_linearlayout);
+        LinearLayout container = lvlChoiceView.findViewById(R.id.level_popup_activity_linearlayout);
         for(int i = 0; i < levelsNames.length; i++) {
             final Button lvlButton = (Button) this.getLayoutInflater().inflate(R.layout.level_choice_button, container, false);
             lvlButton.setText(levelsNames[i]);
@@ -120,12 +117,11 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
             }
         }
 
-        TextView message = (TextView) lvlChoiceView.findViewById(R.id.level_popup_message_textView);
+        TextView message = lvlChoiceView.findViewById(R.id.level_popup_message_textView);
 
         mBuilder.setView(lvlChoiceView);
         dialog = mBuilder.create();
         dialog.show();
-        alertDialog();
 
         //On prend les caracs de l'écran
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
@@ -161,9 +157,9 @@ if(!activity.isFinishing()) {
 
         View resultView = getLayoutInflater().inflate(R.layout.resultat_popup, null);
 
-        Button replayButton = (Button) resultView.findViewById(R.id.resultat_popup_rejouer_btn);
-        Button menuButton = (Button) resultView.findViewById(R.id.resultat_popup_menu_btn);
-        TextView mTextViewMessage = (TextView) resultView.findViewById(R.id.resultat_popup_messace_textView);
+        Button replayButton = resultView.findViewById(R.id.resultat_popup_rejouer_btn);
+        Button menuButton = resultView.findViewById(R.id.resultat_popup_menu_btn);
+        TextView mTextViewMessage = resultView.findViewById(R.id.resultat_popup_messace_textView);
 
         mBuilder.setView(resultView);
         dialog = mBuilder.create();
@@ -254,9 +250,9 @@ if(!activity.isFinishing()) {
 
             View resultView = getLayoutInflater().inflate(R.layout.resultat_popup, null);
 
-            Button replayButton = (Button) resultView.findViewById(R.id.resultat_popup_rejouer_btn);
-            Button menuButton = (Button) resultView.findViewById(R.id.resultat_popup_menu_btn);
-            TextView mTextViewMessage = (TextView) resultView.findViewById(R.id.resultat_popup_messace_textView);
+            Button replayButton = resultView.findViewById(R.id.resultat_popup_rejouer_btn);
+            Button menuButton = resultView.findViewById(R.id.resultat_popup_menu_btn);
+            TextView mTextViewMessage = resultView.findViewById(R.id.resultat_popup_messace_textView);
 
             mBuilder.setView(resultView);
             dialog = mBuilder.create();
@@ -324,8 +320,8 @@ if(!activity.isFinishing()) {
 
         startChrono(srcActivity,arrivalTime);
 
-        this.playerImage = (ImageView)findViewById(playerImage);
-        this.IAImage = (ImageView)findViewById(IAImage);
+        this.playerImage = findViewById(playerImage);
+        this.IAImage = findViewById(IAImage);
 
 
         float screenWidth = getScreenWidth();
@@ -364,7 +360,7 @@ if(!activity.isFinishing()) {
                 if(srcActivity != null){
                     showResultScreen(srcActivity);
                     checkScore(currentActivityName,currentLevel);
-                };
+                }
 
             }
         };
@@ -418,28 +414,6 @@ if(!activity.isFinishing()) {
         }else{
             return false;
         }
-    }
-
-    private void setPlayerName(String name){
-        playerName = name;
-    }
-
-    @SuppressLint("SetTextI18n")
-    public void alertDialog(){
-        final AlertDialog.Builder updateDialog = new AlertDialog.Builder(this);
-        final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_TEXT);
-        input.setHint("Entre ton nom");
-        updateDialog.setView(input);
-
-        updateDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String m_Text = input.getText().toString();
-                setPlayerName(m_Text);
-            }
-        });
-        updateDialog.show();
     }
 
 }
