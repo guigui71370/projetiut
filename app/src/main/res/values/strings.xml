@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">entrainementProjetTut</string>
+    <string name="app_name">Jeux éducatifs</string>
     <string name="geography_conteneur_rect">conteneur rectangle</string>
     <string name="to_bad">Dommage, la réponse était</string>
     <string name="Well_played">Bravo !</string>
