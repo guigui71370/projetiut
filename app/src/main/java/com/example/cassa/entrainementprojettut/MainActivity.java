@@ -143,15 +143,19 @@ public class MainActivity extends ActivityUtil {
     public void alertDialog() {
         final AlertDialog.Builder updateDialog = new AlertDialog.Builder(this);
         final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.setInputType(InputType.TYPE_TEXT_FLAG_IME_MULTI_LINE);
         input.setHint("Entre ton nom");
         updateDialog.setView(input);
 
         updateDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String m_Text = input.getText().toString();
-                setPlayerName(m_Text);
+                if(!input.getText().toString().equals("")){
+                    String m_Text = input.getText().toString();
+                    setPlayerName(m_Text);
+                }else{
+                    alertDialog();
+                }
             }
         });
         updateDialog.show();
