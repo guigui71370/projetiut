@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.content.DialogInterface;
 import android.widget.Toast;
 
+import com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonActivity;
 import com.example.cassa.entrainementprojettut.flag.FlagActivity;
 import com.example.cassa.entrainementprojettut.flag.ReverseFlagActivity;
 import com.example.cassa.entrainementprojettut.gameUtils.ActivityUtil;
@@ -52,6 +53,7 @@ public class MainActivity extends ActivityUtil {
         Button btnReverseFlagActivity = findViewById(R.id.activity_reverse_flagActivity_btn);
         Button btnGeographyTag = findViewById(R.id.activity_main_geographyTag);
         Button btnPiano = findViewById(R.id.activity_main_piano);
+        Button btnConjugaison = findViewById(R.id.activity_main_conjugaison);
         ImageView owlImg = findViewById(R.id.chouettes_menu);
         owlImg.setBackgroundResource(R.drawable.animation_chouettes_menu);
         mOwlAnimation = (AnimationDrawable) owlImg.getBackground();
@@ -76,6 +78,7 @@ public class MainActivity extends ActivityUtil {
                 finish();
             }
         });
+
 
         btnMysteryWord.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,6 +136,14 @@ public class MainActivity extends ActivityUtil {
                 startActivity(pianoActivityIntent);
 
                 playerEvent.start();
+                finish();
+            }
+        });
+        btnConjugaison.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent conjugaisonActivityIntent = new Intent(MainActivity.this, ConjugaisonActivity.class);
+                startActivity(conjugaisonActivityIntent);
                 finish();
             }
         });

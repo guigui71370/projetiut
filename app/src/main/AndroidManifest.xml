@@ -41,6 +41,9 @@
         <activity android:name=".pianoGame.PianoActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"/>
+        <activity android:name=".conjugaison.ConjugaisonActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>

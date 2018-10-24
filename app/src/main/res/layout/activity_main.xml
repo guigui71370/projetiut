@@ -10,10 +10,8 @@
     <LinearLayout
         android:layout_width="120dp"
         android:layout_height="match_parent"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="30dp">
 
         <Button
             android:id="@+id/activity_main_addition_btn"
@@ -26,43 +24,50 @@
             android:id="@+id/activity_main_mysteryWord_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/mystery_word_game"
             android:layout_marginTop="10dp"
             android:background="@color/colorGreen"
-            />
+            android:text="@string/mystery_word_game" />
 
         <Button
             android:id="@+id/activity_main_flagActivity_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tag_game"
             android:layout_marginTop="10dp"
-            android:background="@color/colorGreen"/>
+            android:background="@color/colorGreen"
+            android:text="@string/tag_game" />
 
         <Button
 
             android:id="@+id/activity_reverse_flagActivity_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tag_inv"
             android:layout_marginTop="10dp"
-            android:background="@color/colorGreen"/>
+            android:background="@color/colorGreen"
+            android:text="@string/tag_inv" />
 
         <Button
             android:id="@+id/activity_main_geographyTag"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/geography_game"
-            android:background="@color/colorGreen"/>
+            android:background="@color/colorGreen"
+            android:text="@string/geography_game" />
 
         <Button
             android:id="@+id/activity_main_piano"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/piano_game"
-            android:background="@color/colorGreen"/>
+            android:background="@color/colorGreen"
+            android:text="@string/piano_game" />
+
+        <Button
+            android:id="@+id/activity_main_conjugaison"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorGreen"
+            android:text="Conjugaison" />
 
     </LinearLayout>
 

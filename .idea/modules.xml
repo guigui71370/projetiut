@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ProjetTutoreAndroid-1.0.iml" filepath="$PROJECT_DIR$/.idea/ProjetTutoreAndroid-1.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projet-tutore.iml" filepath="$PROJECT_DIR$/projet-tutore.iml" />
     </modules>
   </component>
 </project>
