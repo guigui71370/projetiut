@@ -74,8 +74,119 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
 
 
+
+
+
+
+
         private static String DROP_FOURTH_TABLE="DROP TABLE IF EXISTS "+FOURTH_TABLE;
         private static String DROP_FIRST_TABLE="DROP TABLE IF EXISTS "+FIRST_TABLE;
+
+
+
+
+        /* ---------------------------- Tables jeux conjugaison -------------------------------*/
+
+
+
+        // création table verbe infinitif
+        public static String VERB_TABLE = "VERBE_INFINITIF";
+
+        public static  String VERB_ID = "idVerb";
+
+        public static  String VERB_INFINITIF = "global_sentence";
+
+        private static String DATABASE_CREATE_VERB_TABLE = "create table"
+                + Constants.VERB_TABLE + "(" + Constants.VERB_ID
+                + "integer primary key autoincrement, " + Constants.VERB_INFINITIF
+                + "TEXT)";
+
+        private static String DATABASE_INIT_VERB_TABLE ="insert into "+Constants.VERB_TABLE +
+                "("+ Constants.VERB_INFINITIF+ ") VALUES ('être')" +
+                ",('avoir'),('manger'),('aimer'),('commencer'),('acheter')";
+
+
+        //création table temps des verbes
+        public static String TEMPS_TABLE = "TEMPS";
+
+        public static  String TEMPS_ID = "idTemps";
+
+        public static  String TEMPS_name = "nameTemps";
+
+        private static String DATABASE_CREATE_TEMPS_TABLE = "create table"
+                + Constants.TEMPS_TABLE + "(" + Constants.TEMPS_ID
+                + "integer primary key autoincrement, " + Constants.TEMPS_name
+                + "TEXT,)";
+
+        private static String DATABASE_INIT_TEMPS_TABLE ="insert into "+Constants.TEMPS_TABLE +
+                "("+ Constants.TEMPS_name+ ") VALUES ('Présent de l'indicatif')" +
+                ",('Futur de l'indicatif'),('Imparfait de l'indicatif')";
+
+        //création table verbe conjugue
+        public static String CONJUGATE_TABLE = "VERBE_CONJUGUE";
+
+        public static  String CONJUGATE_ID = "idConjugaison";
+
+        public static  String CONJUGATE_verb = "verbeConjugue";
+
+        public static  String CONJUGATE_temps = "temps";
+
+        public static  String CONJUGATE_personne = "personne";
+
+        public static  String CONJUGATE_infinitif = "verbeInfinitif";
+
+        private static String DATABASE_CREATE_CONJUGATE_TABLE = "create table"
+                + Constants.CONJUGATE_TABLE + "(" + Constants.CONJUGATE_ID
+                + "integer primary key autoincrement, " + Constants.CONJUGATE_verb
+                + " TEXT," + Constants.CONJUGATE_infinitif + "integer,"
+                + Constants.CONJUGATE_personne + " integer, "
+                + Constants.CONJUGATE_temps + " integer, "
+                + "FOREIGN KEY("+Constants.CONJUGATE_temps +") references "+Constants.TEMPS_TABLE +"("+
+                Constants.TEMPS_ID+")"
+                + "FOREIGN KEY("+Constants.CONJUGATE_infinitif +") references "+Constants.VERB_TABLE +"("+
+                Constants.VERB_INFINITIF+"))";
+
+        private static String DATABASE_INIT_CONJUGATE_TABLE ="insert into "+Constants.CONJUGATE_TABLE
+                + "("+ Constants.CONJUGATE_verb + "," + Constants.CONJUGATE_infinitif + "," + Constants.CONJUGATE_personne + "," + Constants.CONJUGATE_temps +")"
+                + " VALUES "
+                + "('mange', 3, 1, 1),"
+                + "('mange', 3, 2, 1),"
+                + "('mange', 3, 3, 1),"
+                + "('mange', 3, 4, 1),"
+                + "('mange', 3, 5, 1),"
+                + "('mange', 3, 6, 1)";
+
+
+        //création table phrase
+        public static String SENTENCE_TABLE = "SENTENCE";
+
+        public static  String SENTENCE_ID = "idSentence";
+
+        public static  String SENTENCE_GLOBAL = "global_sentence";
+
+        public static  String SENTENCE_verb = "conjugate_verb";
+
+        private static String DATABASE_CREATE_SENTENCE_TABLE = "create table "
+                + Constants.SENTENCE_TABLE + "(" + Constants.SENTENCE_ID
+                + " integer primary key autoincrement, " + Constants.SENTENCE_GLOBAL
+                + " TEXT, "+ Constants.SENTENCE_verb +" integer,"+
+                "FOREIGN KEY("+Constants.SENTENCE_verb +") references "+Constants.CONJUGATE_TABLE+"("+
+                Constants.CONJUGATE_ID+"))";
+
+        private static String DATABASE_INIT_SENTENCE_TABLE ="insert into "+Constants.SENTENCE_TABLE
+                + "("+ Constants.SENTENCE_GLOBAL + "," + Constants.SENTENCE_verb + ")"
+                + " VALUES "
+                + "('Tu ... une glace.', 2)";
+
+
+        private static String DROP_SENTENCE_TABLE="DROP TABLE IF EXISTS "+SENTENCE_TABLE;
+        private static String DROP_CONJUGATE_TABLE="DROP TABLE IF EXISTS "+CONJUGATE_TABLE;
+        private static String DROP_VERB_TABLE="DROP TABLE IF EXISTS "+VERB_TABLE;
+        private static String DROP_TEMPS_TABLE="DROP TABLE IF EXISTS "+TEMPS_TABLE;
+
+
+
+
     }
 
     public DBOpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory,
@@ -85,6 +196,10 @@ public class DBOpenHelper extends SQLiteOpenHelper {
     public void resetDatabase(SQLiteDatabase sqLiteDatabase ){
         sqLiteDatabase.execSQL(Constants.DROP_FOURTH_TABLE);
         sqLiteDatabase.execSQL(Constants.DROP_FIRST_TABLE);
+        sqLiteDatabase.execSQL(Constants.DROP_SENTENCE_TABLE);
+        sqLiteDatabase.execSQL(Constants.DROP_TEMPS_TABLE);
+        sqLiteDatabase.execSQL(Constants.DROP_CONJUGATE_TABLE);
+        sqLiteDatabase.execSQL(Constants.DROP_VERB_TABLE);
         sqLiteDatabase.execSQL(Constants.DATABASE_INIT_FIRST_TABLE);
         sqLiteDatabase.execSQL(Constants.DATABASE_INIT_FOURTH_TABLE);
     }
@@ -94,18 +209,30 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL(Constants.DROP_FOURTH_TABLE);
         sqLiteDatabase.execSQL(Constants.DROP_FIRST_TABLE);
+        sqLiteDatabase.execSQL(Constants.DROP_SENTENCE_TABLE);
+        sqLiteDatabase.execSQL(Constants.DROP_CONJUGATE_TABLE);
+        sqLiteDatabase.execSQL(Constants.DROP_VERB_TABLE);
+        sqLiteDatabase.execSQL(Constants.DROP_TEMPS_TABLE);
 
         Log.d("score","initDatabase");
 
 
         sqLiteDatabase.execSQL(Constants.DATABASE_CREATE_FIRST_TABLE);
         sqLiteDatabase.execSQL(Constants.DATABASE_CREATE_FOURTH_TABLE);
+        sqLiteDatabase.execSQL(Constants.DATABASE_CREATE_VERB_TABLE);
+        sqLiteDatabase.execSQL(Constants.DATABASE_CREATE_TEMPS_TABLE);
+        sqLiteDatabase.execSQL(Constants.DATABASE_CREATE_CONJUGATE_TABLE);
+        sqLiteDatabase.execSQL(Constants.DATABASE_CREATE_SENTENCE_TABLE);
 
         Log.d("score","create table");
 
         Log.d("score",Constants.DATABASE_INIT_FIRST_TABLE);
         sqLiteDatabase.execSQL(Constants.DATABASE_INIT_FIRST_TABLE);
         sqLiteDatabase.execSQL(Constants.DATABASE_INIT_FOURTH_TABLE);
+        sqLiteDatabase.execSQL(Constants.DATABASE_INIT_VERB_TABLE);
+        sqLiteDatabase.execSQL(Constants.DATABASE_INIT_TEMPS_TABLE);
+        sqLiteDatabase.execSQL(Constants.DATABASE_INIT_CONJUGATE_TABLE);
+        sqLiteDatabase.execSQL(Constants.DATABASE_INIT_SENTENCE_TABLE);
         Log.d("score","populateTable");
 
 
