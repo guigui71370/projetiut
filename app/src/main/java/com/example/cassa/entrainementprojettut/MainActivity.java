@@ -1,17 +1,21 @@
 package com.example.cassa.entrainementprojettut;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.content.DialogInterface;
+import android.widget.Toast;
 
 import com.example.cassa.entrainementprojettut.flag.FlagActivity;
 import com.example.cassa.entrainementprojettut.flag.ReverseFlagActivity;
@@ -23,9 +27,19 @@ import com.example.cassa.entrainementprojettut.pianoGame.PianoActivity;
 
 public class MainActivity extends ActivityUtil {
 
-    private AnimationDrawable mOwlAnimation;
+    protected static String playerName = "noName";
     MediaPlayer playerEvent;
-    protected static String playerName="noName";
+    private AnimationDrawable mOwlAnimation;
+    Toast toast;
+
+
+    public static String getPlayerName() {
+        return playerName;
+    }
+
+    private void setPlayerName(String name) {
+        playerName = name;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +55,12 @@ public class MainActivity extends ActivityUtil {
         ImageView owlImg = findViewById(R.id.chouettes_menu);
         owlImg.setBackgroundResource(R.drawable.animation_chouettes_menu);
         mOwlAnimation = (AnimationDrawable) owlImg.getBackground();
-        playerEvent = MediaPlayer.create(MainActivity.this,R.raw.envent_sound);
-        music =R.raw.bensound_jazzyfrenchy;
+        playerEvent = MediaPlayer.create(MainActivity.this, R.raw.envent_sound);
+        music = R.raw.bensound_jazzyfrenchy;
         startBackgroundMusic(this, music);
 
         //On test la reference ici
-        if(playerName == "noName"){
+        if (playerName == "noName") {
             alertDialog();
         }
 
@@ -125,25 +139,18 @@ public class MainActivity extends ActivityUtil {
     }
 
     @Override
-    public void onWindowFocusChanged(boolean hasFocus){
+    public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-        if(hasFocus){
+        if (hasFocus) {
             mOwlAnimation.start();
         }
     }
 
-    private void setPlayerName(String name){
-        playerName = name;
-    }
-
-    public static String getPlayerName(){
-        return playerName;
-    }
     @SuppressLint("SetTextI18n")
     public void alertDialog() {
         final AlertDialog.Builder updateDialog = new AlertDialog.Builder(this);
         final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_TEXT_FLAG_IME_MULTI_LINE);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
         input.setHint("Entre ton nom");
         updateDialog.setView(input);
 
@@ -154,10 +161,28 @@ public class MainActivity extends ActivityUtil {
                     String m_Text = input.getText().toString();
                     setPlayerName(m_Text);
                 }else{
+                    showText("Erreur : veuillez entrer un nom valide ! ");
                     alertDialog();
                 }
             }
         });
         updateDialog.show();
+    }
+
+    protected void showText(String text) {
+
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+
+        toast = Toast.makeText(context, text, duration);
+        toast.show();
+
+        Handler toastStop = new Handler();
+        toastStop.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                toast.cancel();
+            }
+        }, 500);
     }
 }
