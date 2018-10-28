@@ -96,10 +96,10 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
         public static  String VERB_INFINITIF = "global_sentence";
 
-        private static String DATABASE_CREATE_VERB_TABLE = "create table"
+        private static String DATABASE_CREATE_VERB_TABLE = "create table "
                 + Constants.VERB_TABLE + "(" + Constants.VERB_ID
-                + "integer primary key autoincrement, " + Constants.VERB_INFINITIF
-                + "TEXT)";
+                + " integer primary key autoincrement, " + Constants.VERB_INFINITIF
+                + " TEXT)";
 
         private static String DATABASE_INIT_VERB_TABLE ="insert into "+Constants.VERB_TABLE +
                 "("+ Constants.VERB_INFINITIF+ ") VALUES ('être')" +
@@ -113,14 +113,14 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
         public static  String TEMPS_name = "nameTemps";
 
-        private static String DATABASE_CREATE_TEMPS_TABLE = "create table"
+        private static String DATABASE_CREATE_TEMPS_TABLE = "create table "
                 + Constants.TEMPS_TABLE + "(" + Constants.TEMPS_ID
-                + "integer primary key autoincrement, " + Constants.TEMPS_name
-                + "TEXT,)";
+                + " integer primary key autoincrement, " + Constants.TEMPS_name
+                + " TEXT)";
 
         private static String DATABASE_INIT_TEMPS_TABLE ="insert into "+Constants.TEMPS_TABLE +
-                "("+ Constants.TEMPS_name+ ") VALUES ('Présent de l'indicatif')" +
-                ",('Futur de l'indicatif'),('Imparfait de l'indicatif')";
+                "("+ Constants.TEMPS_name+ ") VALUES ('Présent de lindicatif')" +
+                ",('Futur de lindicatif'),('Imparfait de lindicatif'  )";
 
         //création table verbe conjugue
         public static String CONJUGATE_TABLE = "VERBE_CONJUGUE";
@@ -135,22 +135,22 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
         public static  String CONJUGATE_infinitif = "verbeInfinitif";
 
-        private static String DATABASE_CREATE_CONJUGATE_TABLE = "create table"
+        private static String DATABASE_CREATE_CONJUGATE_TABLE = "create table "
                 + Constants.CONJUGATE_TABLE + "(" + Constants.CONJUGATE_ID
-                + "integer primary key autoincrement, " + Constants.CONJUGATE_verb
-                + " TEXT," + Constants.CONJUGATE_infinitif + "integer,"
+                + " integer primary key autoincrement, " + Constants.CONJUGATE_verb
+                + " TEXT," + Constants.CONJUGATE_infinitif + " integer,"
                 + Constants.CONJUGATE_personne + " integer, "
                 + Constants.CONJUGATE_temps + " integer, "
                 + "FOREIGN KEY("+Constants.CONJUGATE_temps +") references "+Constants.TEMPS_TABLE +"("+
                 Constants.TEMPS_ID+")"
-                + "FOREIGN KEY("+Constants.CONJUGATE_infinitif +") references "+Constants.VERB_TABLE +"("+
-                Constants.VERB_INFINITIF+"))";
+                + ",FOREIGN KEY("+Constants.CONJUGATE_infinitif +") references "+Constants.VERB_TABLE +"("+
+                Constants.VERB_ID+"))";
 
         private static String DATABASE_INIT_CONJUGATE_TABLE ="insert into "+Constants.CONJUGATE_TABLE
                 + "("+ Constants.CONJUGATE_verb + "," + Constants.CONJUGATE_infinitif + "," + Constants.CONJUGATE_personne + "," + Constants.CONJUGATE_temps +")"
                 + " VALUES "
                 + "('mange', 3, 1, 1),"
-                + "('mange', 3, 2, 1),"
+                + "('manges', 3, 2, 1),"
                 + "('mange', 3, 3, 1),"
                 + "('mange', 3, 4, 1),"
                 + "('mange', 3, 5, 1),"
@@ -218,10 +218,20 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
 
         sqLiteDatabase.execSQL(Constants.DATABASE_CREATE_FIRST_TABLE);
+        Log.d("score","create first table");
+
         sqLiteDatabase.execSQL(Constants.DATABASE_CREATE_FOURTH_TABLE);
+        Log.d("score","create fourth table");
+
+
+        Log.d("score",Constants.DATABASE_CREATE_VERB_TABLE);
         sqLiteDatabase.execSQL(Constants.DATABASE_CREATE_VERB_TABLE);
+
+        Log.d("score",Constants.DATABASE_CREATE_TEMPS_TABLE);
         sqLiteDatabase.execSQL(Constants.DATABASE_CREATE_TEMPS_TABLE);
+        Log.d("score",Constants.DATABASE_CREATE_CONJUGATE_TABLE);
         sqLiteDatabase.execSQL(Constants.DATABASE_CREATE_CONJUGATE_TABLE);
+        Log.d("score",Constants.DATABASE_CREATE_SENTENCE_TABLE);
         sqLiteDatabase.execSQL(Constants.DATABASE_CREATE_SENTENCE_TABLE);
 
         Log.d("score","create table");
@@ -229,10 +239,18 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         Log.d("score",Constants.DATABASE_INIT_FIRST_TABLE);
         sqLiteDatabase.execSQL(Constants.DATABASE_INIT_FIRST_TABLE);
         sqLiteDatabase.execSQL(Constants.DATABASE_INIT_FOURTH_TABLE);
+
+
+
+        Log.d("score",Constants.DATABASE_INIT_VERB_TABLE);
         sqLiteDatabase.execSQL(Constants.DATABASE_INIT_VERB_TABLE);
+        Log.d("score",Constants.DATABASE_INIT_TEMPS_TABLE);
         sqLiteDatabase.execSQL(Constants.DATABASE_INIT_TEMPS_TABLE);
+        Log.d("score",Constants.DATABASE_INIT_CONJUGATE_TABLE);
         sqLiteDatabase.execSQL(Constants.DATABASE_INIT_CONJUGATE_TABLE);
+        Log.d("score",Constants.DATABASE_INIT_SENTENCE_TABLE);
         sqLiteDatabase.execSQL(Constants.DATABASE_INIT_SENTENCE_TABLE);
+
         Log.d("score","populateTable");
 
 
