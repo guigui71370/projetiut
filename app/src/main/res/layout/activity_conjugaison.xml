@@ -5,18 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="600dp"
+        android:layout_height="30dp"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@color/orange" />
+        android:id="@+id/activity_conjugaison_starsLayout_linearlayout">
+      </LinearLayout>
 
     <Chronometer
-        android:id="@+id/chronometer2"
+        android:id="@+id/activity_conjugaison_chronometer2_chronometer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -28,52 +30,59 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    android:id="@+id/activity_conjugaison_verbeTemps_linearlayout">
     <TextView
-        android:id="@+id/temps"
+        android:id="@+id/activity_conjugaison_infinitif_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginTop="100dp"
+        android:textSize="18sp"
+        tools:text="Infinitif au "
+        android:textColor="@color/colorPrimaryDark"/>
+
+    <TextView
+        android:id="@+id/activity_conjugaison_temps_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="TextView"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Présent" />
+        tools:text="Temps"
+        android:textColor="@color/colorPrimaryDark"/>
+</LinearLayout>
 
+<LinearLayout
+    android:id="@+id/activity_conjugaison_sujetVerbe_linearlayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="50dp"
+    app:layout_constraintTop_toBottomOf="@+id/activity_conjugaison_verbeTemps_linearlayout"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
     <TextView
-        android:id="@+id/sentence"
+        android:id="@+id/activity_conjugaison_sujet_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="TextView"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/temps"
-        tools:text="Je suis une phrase" />
+        tools:text="Sujet" />
 
     <TextView
-        android:id="@+id/hint"
+        android:id="@+id/activity_conjugaison_verbe_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:text="Voici la règle : blablablablablablablablablabla" />
-
-    <ImageView
-        android:id="@+id/stars"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/orange" />
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="24sp"
+        tools:text="Verbe" />
+</LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -83,49 +92,65 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sentence">
+        app:layout_constraintTop_toBottomOf="@+id/activity_conjugaison_sujetVerbe_linearlayout">
 
         <Button
-            android:id="@+id/verb1"
+            android:id="@+id/activity_conjugaison_verb1_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="160dp"
             android:layout_marginLeft="160dp"
-            android:text="Button"
+            android:text="@string/button"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="257dp" />
+            tools:layout_editor_absoluteY="257dp"
+            tools:ignore="ButtonStyle"/>
 
         <Button
-            android:id="@+id/verb2"
+            android:id="@+id/activity_conjugaison_verb2_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
             android:layout_marginLeft="100dp"
-            android:text="Button"
-            app:layout_constraintBottom_toBottomOf="@+id/verb1"
-            app:layout_constraintStart_toEndOf="@+id/verb1" />
+            android:text="@string/button"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_conjugaison_verb1_button"
+            app:layout_constraintStart_toEndOf="@+id/activity_conjugaison_verb1_button"
+            tools:ignore="ButtonStyle"/>
 
         <Button
-            android:id="@+id/verb3"
+            android:id="@+id/activity_conjugaison_verb3_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
             android:layout_marginLeft="100dp"
-            android:text="Button"
-            app:layout_constraintBottom_toBottomOf="@+id/verb2"
-            app:layout_constraintStart_toEndOf="@+id/verb2" />
+            android:text="@string/button"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_conjugaison_verb2_button"
+            app:layout_constraintStart_toEndOf="@+id/activity_conjugaison_verb2_button"
+            tools:ignore="ButtonStyle"/>
 
         <Button
-            android:id="@+id/verb4"
+            android:id="@+id/activity_conjugaison_verb4_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
             android:layout_marginLeft="100dp"
             android:layout_marginEnd="150dp"
             android:layout_marginRight="150dp"
-            android:text="Button"
-            app:layout_constraintBottom_toBottomOf="@+id/verb3"
+            android:text="@string/button"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_conjugaison_verb3_button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/verb3" />
+            app:layout_constraintStart_toEndOf="@+id/activity_conjugaison_verb3_button"
+            tools:ignore="ButtonStyle"/>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/activity_conjugaison_hint_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:text="Voici la règle : blablablablablablablablablabla" />
+
 </android.support.constraint.ConstraintLayout>
