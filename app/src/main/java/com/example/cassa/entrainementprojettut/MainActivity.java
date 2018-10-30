@@ -26,6 +26,8 @@ import com.example.cassa.entrainementprojettut.mysteryWord.MysteryWordActivity;
 import com.example.cassa.entrainementprojettut.operationGame.AdditionActivity;
 import com.example.cassa.entrainementprojettut.pianoGame.PianoActivity;
 
+import java.util.regex.Pattern;
+
 public class MainActivity extends ActivityUtil {
 
     protected static String playerName = "noName";
@@ -161,14 +163,20 @@ public class MainActivity extends ActivityUtil {
     public void alertDialog() {
         final AlertDialog.Builder updateDialog = new AlertDialog.Builder(this);
         final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_TEXT);
         input.setHint("Entre ton nom");
         updateDialog.setView(input);
 
         updateDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if(!input.getText().toString().equals("")){
+                //Voir https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html
+                /*  Trad du pattern :
+                Autorise "Michelle Martin", "Michelle-Martin", "Jean-Edouart"
+                N'autorise pas "Jean-Edouart Phillipe", "Jean-édouart", "Michelle Martin Matin", "Michelle Martin-Matin"
+                Uniquement l'alphabet latin minuscule et majuscule (ni caracteres speciaux ni chiffres)
+                Au minimum 2 caractere, jusqu'a 15 caracteres par nom et 31 caracteres max
+                */
+                if(Pattern.matches("[a-zA-z]{1,15}([ ]{0,1}|[-]{0,1})[a-zA-z]{1,15}", input.getText().toString())){
                     String m_Text = input.getText().toString();
                     setPlayerName(m_Text);
                 }else{
