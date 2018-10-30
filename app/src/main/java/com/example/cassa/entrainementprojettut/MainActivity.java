@@ -185,7 +185,20 @@ public class MainActivity extends ActivityUtil {
                 }
             }
         });
-        updateDialog.show();
+        updateDialog.setOnDismissListener(new DialogInterface.OnDismissListener(){
+
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                if(Pattern.matches("[a-zA-z]{1,15}([ ]{0,1}|[-]{0,1})[a-zA-z]{1,15}", input.getText().toString())){
+                    String m_Text = input.getText().toString();
+                    setPlayerName(m_Text);
+                }else{
+                    showText("Erreur : veuillez entrer un nom valide ! ");
+                    alertDialog();
+                }
+            }
+        });
+                updateDialog.show();
     }
 
     protected void showText(String text) {
