@@ -2,8 +2,8 @@ package com.example.cassa.entrainementprojettut.geography;
 
 import com.example.cassa.entrainementprojettut.geography.gameSetter.I_Set;
 import com.example.cassa.entrainementprojettut.geography.gameSetter.SetEurope;
-import com.example.cassa.entrainementprojettut.geography.gameSetter.SetWorld;
 import com.example.cassa.entrainementprojettut.geography.gameSetter.SetOccitanie;
+import com.example.cassa.entrainementprojettut.geography.gameSetter.SetWorld;
 
 /**
  * Created by prax on 09/01/2018.

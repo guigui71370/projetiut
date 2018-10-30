@@ -11,9 +11,9 @@ import com.example.cassa.entrainementprojettut.operationGame.SetsOperation.SetOp
  * Created by clement on 09/01/18.
  */
 
-public class FactorySetOperation {
+class FactorySetOperation {
 
-    public I_SetOperation createSetOperation(int difficulty) {
+    I_SetOperation createSetOperation(int difficulty) {
         I_SetOperation setOperation;
         switch (difficulty){
             case 1:

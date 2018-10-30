@@ -19,8 +19,10 @@ import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
+
 import com.example.cassa.entrainementprojettut.R;
+import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -52,7 +54,7 @@ public class GeographyActivity extends GameActivity {
         music = R.raw.geography_music;
         fullScreenMode(); // To avoid the top menu from appearing
         setContentView(R.layout.activity_geographytag);
-        chronometer = (Chronometer)findViewById(R.id.chronometer2);
+        chronometer = findViewById(R.id.chronometer2);
         mainLayout = (RelativeLayout) findViewById(R.id.geographyTag_relativeLayout);
 
         initializeGame();

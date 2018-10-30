@@ -39,11 +39,9 @@ public class SetOperationCP implements I_SetOperation {
         return generateAddition();
     }
 
-    public I_Operation generateAddition() {
+    private I_Operation generateAddition() {
         I_Operation ioperation =new Addition();
-        while (ioperation.displayResult()<3) {
             ioperation.generateOperation(10, 1, 4, 1);
-        }
         return ioperation;
     }
 

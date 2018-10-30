@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 import com.example.cassa.entrainementprojettut.R;
+import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 
 import java.util.List;
 
@@ -84,7 +84,7 @@ public class PianoActivity extends GameActivity implements View.OnClickListener 
             int timeGreen = (id+1)*1000+200;
             int timeGray = ((id+1)*2000)-(id*1000);
 
-            handler.postDelayed(runGreen(idKey, (View) buttonsTab[idKey]), timeGreen);
+            handler.postDelayed(runGreen(idKey, buttonsTab[idKey]), timeGreen);
             handler.postDelayed(runWhite(idKey), timeGray);
         }
 
@@ -143,13 +143,13 @@ public class PianoActivity extends GameActivity implements View.OnClickListener 
         mHeartList[1] = findViewById(R.id.activity_piano_heart_2);
         mHeartList[2] = findViewById(R.id.activity_piano_heart_3);
 
-        buttonsTab[0] = (Button) findViewById(R.id.activity_piano_key_do);
-        buttonsTab[1] = (Button) findViewById(R.id.activity_piano_key_re);
-        buttonsTab[2] = (Button) findViewById(R.id.activity_piano_key_mi);
-        buttonsTab[3] = (Button) findViewById(R.id.activity_piano_key_fa);
-        buttonsTab[4] = (Button) findViewById(R.id.activity_piano_key_sol);
-        buttonsTab[5] = (Button) findViewById(R.id.activity_piano_key_la);
-        buttonsTab[6] = (Button) findViewById(R.id.activity_piano_key_si);
+        buttonsTab[0] = findViewById(R.id.activity_piano_key_do);
+        buttonsTab[1] = findViewById(R.id.activity_piano_key_re);
+        buttonsTab[2] = findViewById(R.id.activity_piano_key_mi);
+        buttonsTab[3] = findViewById(R.id.activity_piano_key_fa);
+        buttonsTab[4] = findViewById(R.id.activity_piano_key_sol);
+        buttonsTab[5] = findViewById(R.id.activity_piano_key_la);
+        buttonsTab[6] = findViewById(R.id.activity_piano_key_si);
 
         buttonsTab[0].setOnClickListener(this);
         buttonsTab[1].setOnClickListener(this);

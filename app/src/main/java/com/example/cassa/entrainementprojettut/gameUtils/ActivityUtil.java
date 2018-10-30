@@ -1,20 +1,13 @@
 package com.example.cassa.entrainementprojettut.gameUtils;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Point;
 import android.media.MediaPlayer;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.text.InputType;
 import android.view.Display;
-import android.widget.EditText;
 
 import com.example.cassa.entrainementprojettut.MainActivity;
-import com.example.cassa.entrainementprojettut.database.DAOscore;
 
 /**
  * Created by prax on 16/01/2018.

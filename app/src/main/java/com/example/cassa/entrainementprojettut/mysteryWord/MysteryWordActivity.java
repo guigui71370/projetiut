@@ -8,15 +8,14 @@ import android.os.SystemClock;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-
 import android.widget.Chronometer;
-import android.widget.ToggleButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
-import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 import com.example.cassa.entrainementprojettut.R;
+import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 import com.example.cassa.entrainementprojettut.mysteryWord.word.I_Word;
 
 
@@ -88,41 +87,41 @@ public class MysteryWordActivity extends GameActivity {
             }
         });
 
-        gKeyboard[0] = (ToggleButton) findViewById(R.id.activity_mysteryWord_A_button);
-        gKeyboard[1] = (ToggleButton) findViewById(R.id.activity_mysteryWord_Z_button);
-        gKeyboard[2] = (ToggleButton) findViewById(R.id.activity_mysteryWord_E_button);
-        gKeyboard[3] = (ToggleButton) findViewById(R.id.activity_mysteryWord_R_button);
-        gKeyboard[4] = (ToggleButton) findViewById(R.id.activity_mysteryWord_T_button);
-        gKeyboard[5] = (ToggleButton) findViewById(R.id.activity_mysteryWord_Y_button);
-        gKeyboard[6] = (ToggleButton) findViewById(R.id.activity_mysteryWord_U_button);
-        gKeyboard[7] = (ToggleButton) findViewById(R.id.activity_mysteryWord_I_button);
-        gKeyboard[8] = (ToggleButton) findViewById(R.id.activity_mysteryWord_O_button);
-        gKeyboard[9] = (ToggleButton) findViewById(R.id.activity_mysteryWord_P_button);
-        gKeyboard[10] = (ToggleButton) findViewById(R.id.activity_mysteryWord_Q_button);
-        gKeyboard[11] = (ToggleButton) findViewById(R.id.activity_mysteryWord_S_button);
-        gKeyboard[12] = (ToggleButton) findViewById(R.id.activity_mysteryWord_D_button);
-        gKeyboard[13] = (ToggleButton) findViewById(R.id.activity_mysteryWord_F_button);
-        gKeyboard[14] = (ToggleButton) findViewById(R.id.activity_mysteryWord_G_button);
-        gKeyboard[15] = (ToggleButton) findViewById(R.id.activity_mysteryWord_H_button);
-        gKeyboard[16] = (ToggleButton) findViewById(R.id.activity_mysteryWord_J_button);
-        gKeyboard[17] = (ToggleButton) findViewById(R.id.activity_mysteryWord_K_button);
-        gKeyboard[18] = (ToggleButton) findViewById(R.id.activity_mysteryWord_L_button);
-        gKeyboard[19] = (ToggleButton) findViewById(R.id.activity_mysteryWord_M_button);
-        gKeyboard[20] = (ToggleButton) findViewById(R.id.activity_mysteryWord_W_button);
-        gKeyboard[21] = (ToggleButton) findViewById(R.id.activity_mysteryWord_X_button);
-        gKeyboard[22] = (ToggleButton) findViewById(R.id.activity_mysteryWord_C_button);
-        gKeyboard[23] = (ToggleButton) findViewById(R.id.activity_mysteryWord_V_button);
-        gKeyboard[24] = (ToggleButton) findViewById(R.id.activity_mysteryWord_B_button);
-        gKeyboard[25] = (ToggleButton) findViewById(R.id.activity_mysteryWord_N_button);
+        gKeyboard[0] = findViewById(R.id.activity_mysteryWord_A_button);
+        gKeyboard[1] = findViewById(R.id.activity_mysteryWord_Z_button);
+        gKeyboard[2] = findViewById(R.id.activity_mysteryWord_E_button);
+        gKeyboard[3] = findViewById(R.id.activity_mysteryWord_R_button);
+        gKeyboard[4] = findViewById(R.id.activity_mysteryWord_T_button);
+        gKeyboard[5] = findViewById(R.id.activity_mysteryWord_Y_button);
+        gKeyboard[6] = findViewById(R.id.activity_mysteryWord_U_button);
+        gKeyboard[7] = findViewById(R.id.activity_mysteryWord_I_button);
+        gKeyboard[8] = findViewById(R.id.activity_mysteryWord_O_button);
+        gKeyboard[9] = findViewById(R.id.activity_mysteryWord_P_button);
+        gKeyboard[10] = findViewById(R.id.activity_mysteryWord_Q_button);
+        gKeyboard[11] = findViewById(R.id.activity_mysteryWord_S_button);
+        gKeyboard[12] = findViewById(R.id.activity_mysteryWord_D_button);
+        gKeyboard[13] = findViewById(R.id.activity_mysteryWord_F_button);
+        gKeyboard[14] = findViewById(R.id.activity_mysteryWord_G_button);
+        gKeyboard[15] = findViewById(R.id.activity_mysteryWord_H_button);
+        gKeyboard[16] = findViewById(R.id.activity_mysteryWord_J_button);
+        gKeyboard[17] = findViewById(R.id.activity_mysteryWord_K_button);
+        gKeyboard[18] = findViewById(R.id.activity_mysteryWord_L_button);
+        gKeyboard[19] = findViewById(R.id.activity_mysteryWord_M_button);
+        gKeyboard[20] = findViewById(R.id.activity_mysteryWord_W_button);
+        gKeyboard[21] = findViewById(R.id.activity_mysteryWord_X_button);
+        gKeyboard[22] = findViewById(R.id.activity_mysteryWord_C_button);
+        gKeyboard[23] = findViewById(R.id.activity_mysteryWord_V_button);
+        gKeyboard[24] = findViewById(R.id.activity_mysteryWord_B_button);
+        gKeyboard[25] = findViewById(R.id.activity_mysteryWord_N_button);
 
-        gTxtAnswer = (TextView) findViewById(R.id.activity_mysteryWord_answer_textview);
-        gTxtOrder = (TextView) findViewById(R.id.activity_mysteryWord_order_textview);
+        gTxtAnswer = findViewById(R.id.activity_mysteryWord_answer_textview);
+        gTxtOrder = findViewById(R.id.activity_mysteryWord_order_textview);
 
-        gImgPlayer = (ImageView) findViewById(R.id.activity_mysteryWord_pos1_img);
+        gImgPlayer = findViewById(R.id.activity_mysteryWord_pos1_img);
 
-        gBtnLayout = (LinearLayout) findViewById(R.id.activity_mysteryWord_word_linearlayout);
+        gBtnLayout = findViewById(R.id.activity_mysteryWord_word_linearlayout);
 
-        chronometer = (Chronometer)findViewById(R.id.activity_mystery_word_chronometer);
+        chronometer = findViewById(R.id.activity_mystery_word_chronometer);
 
         for (int i = 0; i < gKeyboard.length; i++) {
             final int tmp = i;

@@ -68,7 +68,7 @@ public class SetOperationCM2 implements I_SetOperation {
     }
 
     @NonNull
-    public I_Operation generateSoustraction() {
+    private I_Operation generateSoustraction() {
         Soustraction soustraction=new Soustraction();
         while (soustraction.displayResult()<3) {
             soustraction.generateOperation(15, 1, 15, 1);
@@ -77,7 +77,7 @@ public class SetOperationCM2 implements I_SetOperation {
     }
 
     @NonNull
-    public I_Operation generateAddition() {
+    private I_Operation generateAddition() {
         Addition addition=new Addition();
         while (addition.displayResult()<3) {
             addition.generateOperation(15, 1, 15, 1);

@@ -15,12 +15,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.cassa.entrainementprojettut.conjugaisonGame.ConjugaisonActivity;
-import com.example.cassa.entrainementprojettut.flagGame.FlagActivity;
-import com.example.cassa.entrainementprojettut.flagGame.ReverseFlagActivity;
+import com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonActivity;
+import com.example.cassa.entrainementprojettut.flag.FlagActivity;
+import com.example.cassa.entrainementprojettut.flag.ReverseFlagActivity;
 import com.example.cassa.entrainementprojettut.gameUtils.ActivityUtil;
-import com.example.cassa.entrainementprojettut.geographyGame.GeographyActivity;
-import com.example.cassa.entrainementprojettut.mysteryWordGame.MysteryWordActivity;
+import com.example.cassa.entrainementprojettut.geography.GeographyActivity;
+import com.example.cassa.entrainementprojettut.mysteryWord.MysteryWordActivity;
 import com.example.cassa.entrainementprojettut.operationGame.AdditionActivity;
 import com.example.cassa.entrainementprojettut.pianoGame.PianoActivity;
 

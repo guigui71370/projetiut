@@ -75,14 +75,14 @@ public class SetOperationCM1 implements I_SetOperation {
     }
 
     @NonNull
-    public I_Operation generateSoustraction() {
+    private I_Operation generateSoustraction() {
         Soustraction soustraction=new Soustraction();
         generatePositiveOperation(soustraction);
         return soustraction;
     }
 
     @NonNull
-    public I_Operation generateAddition() {
+    private I_Operation generateAddition() {
         Addition addition=new Addition();
         while (addition.displayResult()<3) {
             addition.generateOperation(12, 1, 12, 1);

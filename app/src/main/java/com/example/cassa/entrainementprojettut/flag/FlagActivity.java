@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 import com.example.cassa.entrainementprojettut.R;
+import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 
 import java.util.Random;
 
@@ -65,8 +65,8 @@ public class FlagActivity extends GameActivity implements View.OnClickListener {
 
 
     private void initializeCountryNameAndScore() {
-        mCountryName = (TextView)findViewById(R.id.activity_flag_name01_txt);
-        mScore = (TextView)findViewById(R.id.activity_flag_score_txt);
+        mCountryName = findViewById(R.id.activity_flag_name01_txt);
+        mScore = findViewById(R.id.activity_flag_score_txt);
 
         numericalScore = 0;
         mScore.setText("0");
@@ -74,10 +74,10 @@ public class FlagActivity extends GameActivity implements View.OnClickListener {
 
 
     private void initializeFlag() {
-        mFlag1 = (ImageView)findViewById(R.id.activity_flag_flag01);
-        mFlag2 = (ImageView)findViewById(R.id.activity_flag_flag02);
-        mFlag3 = (ImageView)findViewById(R.id.activity_flag_flag03);
-        mFlag4 = (ImageView)findViewById(R.id.activity_flag_flag04);
+        mFlag1 = findViewById(R.id.activity_flag_flag01);
+        mFlag2 = findViewById(R.id.activity_flag_flag02);
+        mFlag3 = findViewById(R.id.activity_flag_flag03);
+        mFlag4 = findViewById(R.id.activity_flag_flag04);
 
         mFlag1.setOnClickListener(this);
         mFlag2.setOnClickListener(this);

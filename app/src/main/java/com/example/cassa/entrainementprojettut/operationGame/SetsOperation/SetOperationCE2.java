@@ -87,14 +87,14 @@ public class SetOperationCE2 implements I_SetOperation {
     }
 
     @NonNull
-    public I_Operation generateSoustraction() {
+    private I_Operation generateSoustraction() {
         Soustraction soustraction=new Soustraction();
         generatePositiveOperation(soustraction);
         return soustraction;
     }
 
     @NonNull
-    public I_Operation generateAddition() {
+    private I_Operation generateAddition() {
         Addition addition=new Addition();
         generatePositiveOperation(addition);
         return addition;

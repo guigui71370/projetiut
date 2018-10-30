@@ -7,8 +7,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 import com.example.cassa.entrainementprojettut.R;
+import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 
 import java.util.Random;
 
@@ -62,8 +62,8 @@ public class ReverseFlagActivity extends GameActivity implements View.OnClickLis
 
 
     private void initializeAnswersAndScore() {
-        mFlag = (ImageView) findViewById(R.id.activity_reverse_flag_drapeau);
-        mScore = (TextView) findViewById(R.id.activity_reverse_flag_score);
+        mFlag = findViewById(R.id.activity_reverse_flag_drapeau);
+        mScore = findViewById(R.id.activity_reverse_flag_score);
 
 
         numericalScore =0;
@@ -73,10 +73,10 @@ public class ReverseFlagActivity extends GameActivity implements View.OnClickLis
 
 
     private void initializeCountryNames() {
-        mCountryName1 = (Button) findViewById(R.id.activity_reverse_flag_name1);
-        mCountryName2 = (Button) findViewById(R.id.activity_reverse_flag_name2);
-        mCountryName3 = (Button) findViewById(R.id.activity_reverse_flag_name3);
-        mCountryName4 = (Button) findViewById(R.id.activity_reverse_flag_name4);
+        mCountryName1 = findViewById(R.id.activity_reverse_flag_name1);
+        mCountryName2 = findViewById(R.id.activity_reverse_flag_name2);
+        mCountryName3 = findViewById(R.id.activity_reverse_flag_name3);
+        mCountryName4 = findViewById(R.id.activity_reverse_flag_name4);
 
         mCountryName1.setOnClickListener(this);
         mCountryName2.setOnClickListener(this);

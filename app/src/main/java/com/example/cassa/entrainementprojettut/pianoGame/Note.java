@@ -13,7 +13,7 @@ class Note {
     private int id;
     private int adressSound;
 
-    public Note(int id, int adressSound) {
+    Note(int id, int adressSound) {
         this.id = id;
         this.adressSound = adressSound;
     }
@@ -26,7 +26,7 @@ class Note {
         return adressSound;
     }
 
-    public void playSong(Activity activity){
+    void playSong(Activity activity){
 
         final MediaPlayer song = MediaPlayer.create(activity,adressSound);
         song.setAudioStreamType(AudioManager.STREAM_MUSIC);

@@ -11,8 +11,8 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
 
-import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 import com.example.cassa.entrainementprojettut.R;
+import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 
 public class AdditionActivity extends GameActivity implements View.OnClickListener{
 
@@ -53,18 +53,14 @@ public class AdditionActivity extends GameActivity implements View.OnClickListen
         @Override
         public void onDismiss(DialogInterface dialogInterface) {
             if (levelChosen != 0) {
-
                 generateOperation();
                 launchTimer(AdditionActivity.this,60000,R.id.acivity_addition_pos1_img,R.id.activity_addition_ordi_img);
-                generateOperation();
                 chronometer.setBase(SystemClock.elapsedRealtime());
                 chronometer.start();
-
             } else {
                 AdditionActivity.this.onStop();
                 dialog.show();
             }
-
         }
     });
 
@@ -73,16 +69,16 @@ public class AdditionActivity extends GameActivity implements View.OnClickListen
         rightAnswerCounter = 0;
         // On recupère les widgets
 
-        mNumber1 = (TextView) findViewById(R.id.activity_addition_nombre1_textview);
-        mNumber2 = (TextView) findViewById(R.id.activity_addition_nombre2_textview);
-        mSigne =(TextView)findViewById(R.id.activity_addition_operateur_textview);
+        mNumber1 = findViewById(R.id.activity_addition_nombre1_textview);
+        mNumber2 = findViewById(R.id.activity_addition_nombre2_textview);
+        mSigne = findViewById(R.id.activity_addition_operateur_textview);
 
-        mButton1 = (Button)findViewById(R.id.activity_addition_rep1_btn);
-        mButton2 = (Button)findViewById(R.id.activity_addition_rep2_btn);
-        mButton3 = (Button)findViewById(R.id.activity_addition_rep3_btn);
-        mButton4 = (Button)findViewById(R.id.activity_addition_rep4_btn);
+        mButton1 = findViewById(R.id.activity_addition_rep1_btn);
+        mButton2 = findViewById(R.id.activity_addition_rep2_btn);
+        mButton3 = findViewById(R.id.activity_addition_rep3_btn);
+        mButton4 = findViewById(R.id.activity_addition_rep4_btn);
 
-        chronometer = (Chronometer)findViewById(R.id.chronometer2);
+        chronometer = findViewById(R.id.chronometer2);
 
     }
 
