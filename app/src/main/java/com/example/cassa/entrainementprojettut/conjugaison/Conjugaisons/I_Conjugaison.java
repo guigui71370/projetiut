@@ -6,6 +6,7 @@ public interface I_Conjugaison {
     String getVerbe();
     String getTemps();
     String getInfinitif();
-
+     int getIdverbe();
+    int getIdvbconj();
     String displayResult();
 }

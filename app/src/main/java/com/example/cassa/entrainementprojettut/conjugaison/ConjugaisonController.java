@@ -29,4 +29,13 @@ public class ConjugaisonController {
         public int getNbEtoiles(){
             return setConjugaison.getNbEtoiles();
         }
+        public int getidverbe(){
+        return setConjugaison.getidinf();
+    }
+
+        public int getidverbeconj(){
+        return setConjugaison.getidvbc();
+    }
+
+
     }

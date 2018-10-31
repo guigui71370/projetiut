@@ -13,7 +13,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.cassa.entrainementprojettut.R;
+import com.example.cassa.entrainementprojettut.database.DAOconjugaison;
 import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
+
+import java.util.ArrayList;
 
 public class ConjugaisonActivity extends GameActivity implements View.OnClickListener{
     private TextView time;
@@ -35,14 +38,14 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
 
     private int goodAnswer = 0;
     private int badAnswer = 0;
-
+    public static DAOconjugaison dao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conjugaison);
         showMenu();
         initializeGame();
-
+        dao=DAOconjugaison.getInstance(this);
         dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialogInterface) {
@@ -92,6 +95,8 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         verb4.setOnClickListener(this);
     }
 
+
+
     @SuppressLint("SetTextI18n")
     protected void generateOperation(){
 
@@ -100,9 +105,10 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         infinitif.setText(ctrl.getInfinitifConjugaison() + " :");
         sujet.setText(ctrl.getSujetConjugaison());
         time.setText(ctrl.getTempsConjugaison());
-
-        addStars(0, ctrl.getNbEtoiles());
-        setVerbeMalConjugue(ctrl.getVerbeConjugaison());
+        if(goodAnswer==0){
+            addStars(0, ctrl.getNbEtoiles());
+        }
+        setVerbeMalConjugue();
     }
 
     @Override
@@ -111,24 +117,48 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         if(view.getContentDescription() == ctrl.getVerbeConjugaison()){
             showText("Bonne réponse");
             goodAnswer++;
-            if(goodAnswer <= ctrl.getNbEtoiles())
+            if(goodAnswer <= ctrl.getNbEtoiles()){
                 addStars(goodAnswer,ctrl.getNbEtoiles()-goodAnswer);
+                if(goodAnswer < ctrl.getNbEtoiles()){
+                    generateOperation();
+                }
+            }else{
+                //enregistrer les score + mètre fin a l'activiter
+            }
+
         }else{
             badAnswer++;
+            generateOperation();
             showText("Mauvaise réponse");
         }
     }
 
-    public void setVerbeMalConjugue(String verbe){
+    public void setVerbeMalConjugue(){
         //¨Pour les tests
-        verb1.setText("Vois");
-        verb1.setContentDescription("Vois");
-        verb2.setText("Vu");
-        verb2.setContentDescription("Vu");
-        verb3.setText("Voie");
-        verb3.setContentDescription("Voie");
-        verb4.setText("Voix");
-        verb4.setContentDescription("Voix");
+        ArrayList<String> list=dao.listfindvbc(ctrl.getidverbe(),ctrl.getidverbeconj());
+
+        String tab[]=new String[4];
+        int goodPosition=(int)(Math.random() * 4);
+
+        tab[goodPosition]=ctrl.getVerbeConjugaison();
+
+
+
+        for(int i=0;i<tab.length;i++){
+            int answerPosition=(int)(Math.random() * list.size());
+            if(tab[i]==null){
+                tab[i]=list.get(answerPosition);
+            }
+
+        }
+        verb1.setText(tab[0]);
+        verb1.setContentDescription(tab[0]);
+        verb2.setText(tab[1]);
+        verb2.setContentDescription(tab[1]);
+        verb3.setText(tab[2]);
+        verb3.setContentDescription(tab[2]);
+        verb4.setText(tab[3]);
+        verb4.setContentDescription(tab[3]);
     }
 
     private void showMenu(){

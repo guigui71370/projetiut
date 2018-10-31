@@ -1,10 +1,12 @@
 package com.example.cassa.entrainementprojettut.conjugaison.Conjugaisons;
 
+import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonActivity.dao;
+
 public class Sujet {
 
     String generateSujet(){
         int i = (int) (1 + (Math.random() * (6)));
-        switch (i){
+        /*switch (i){
             case 1:
                 return "Je";
             case 2:
@@ -19,6 +21,7 @@ public class Sujet {
                 return "Ils/Elles";
             default:
                 return "Non";
-        }
+        }*/
+        return dao.findSentents(1);
     }
 }

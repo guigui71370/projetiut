@@ -39,7 +39,15 @@ public class SetConjugaisonCM2 implements I_SetConjugaison{
     public String getInfinitifConjugaison(){
         return conjugaison.getInfinitif();
     }
+    @Override
+    public int getidinf() {
+        return this.conjugaison.getIdverbe();
+    }
 
+    @Override
+    public int getidvbc() {
+        return this.conjugaison.getIdvbconj();
+    }
     public I_Conjugaison createASentence() {
         return generateConjugaison();
     }

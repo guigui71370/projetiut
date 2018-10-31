@@ -1,5 +1,7 @@
 package com.example.cassa.entrainementprojettut.conjugaison.Conjugaisons;
 
+import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonActivity.dao;
+
 public class Present extends Sujet implements I_Conjugaison {
 
     private String groupe;
@@ -8,6 +10,10 @@ public class Present extends Sujet implements I_Conjugaison {
     private String verbe;
     private String temps="Present de l'indicatif";
 
+
+
+    private  int idverbe;
+    private int idvbconj;
     public Present(String groupe){
         this.groupe = groupe;
         this.sujet = generateSujet();
@@ -34,7 +40,13 @@ public class Present extends Sujet implements I_Conjugaison {
     public String getInfinitif(){
         return infinitif;
     }
+    public int getIdverbe() {
+        return idverbe;
+    }
 
+    public int getIdvbconj() {
+        return idvbconj;
+    }
     //Renvoi un verbe à l'infinitif du groupe donné
     private String generateVerbeInfinitif(String groupe){
         return "Voir";
@@ -42,7 +54,13 @@ public class Present extends Sujet implements I_Conjugaison {
 
     //Renvoi le verbe conjugué au temps et au sujet donné
     private String getVerbeConjugue(String infinitif, String temps, String sujet) {
-        return "Vois";
+
+
+        this.idverbe=dao.findidvbinf(1);
+        this.idvbconj =dao.findvbcid(1);
+
+        return dao.findvbc(1);
+       // return "Vois";
     }
 
     @Override

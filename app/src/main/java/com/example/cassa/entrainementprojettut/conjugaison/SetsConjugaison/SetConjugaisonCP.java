@@ -36,7 +36,15 @@ public class SetConjugaisonCP implements I_SetConjugaison {
     public int getNbEtoiles() {
         return nbEtoiles;
     }
+    @Override
+    public int getidinf() {
+        return this.conjugaison.getIdverbe();
+    }
 
+    @Override
+    public int getidvbc() {
+        return this.conjugaison.getIdvbconj();
+    }
     public String getInfinitifConjugaison(){
         return conjugaison.getInfinitif();
     }

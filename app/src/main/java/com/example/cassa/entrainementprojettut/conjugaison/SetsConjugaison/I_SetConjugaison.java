@@ -17,4 +17,7 @@ public interface I_SetConjugaison {
         String getInfinitifConjugaison();
 
         int getNbEtoiles();
+
+        int getidinf();
+        int getidvbc();
 }

@@ -36,6 +36,16 @@ public class SetConjugaisonCE1 implements I_SetConjugaison {
         return nbEtoiles;
     }
 
+    @Override
+    public int getidinf() {
+       return this.conjugaison.getIdverbe();
+    }
+
+    @Override
+    public int getidvbc() {
+        return this.conjugaison.getIdvbconj();
+    }
+
     public String getInfinitifConjugaison(){
         return conjugaison.getInfinitif();
     }
