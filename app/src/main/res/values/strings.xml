@@ -47,4 +47,5 @@
     <string name="return_menu">Retour au menu</string>
     <string name="play_again">Rejouer</string>
     <string name="result_popup">Fin de partie!</string>
+    <string name="button">Button</string>
 </resources>
