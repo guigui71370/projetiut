@@ -108,15 +108,15 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
     @Override
     public void onClick(View view) {
         //Pour les tests
-           if(view.getContentDescription() == ctrl.getVerbeConjugaison()){
-               showText("Bonne réponse");
-               goodAnswer++;
-               if(goodAnswer <= ctrl.getNbEtoiles())
-                   addStars(goodAnswer,ctrl.getNbEtoiles()-goodAnswer);
-           }else{
-               badAnswer++;
-               showText("Mauvaise réponse");
-           }
+        if(view.getContentDescription() == ctrl.getVerbeConjugaison()){
+            showText("Bonne réponse");
+            goodAnswer++;
+            if(goodAnswer <= ctrl.getNbEtoiles())
+                addStars(goodAnswer,ctrl.getNbEtoiles()-goodAnswer);
+        }else{
+            badAnswer++;
+            showText("Mauvaise réponse");
+        }
     }
 
     public void setVerbeMalConjugue(String verbe){
@@ -161,4 +161,3 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         }
     }
 }
-
