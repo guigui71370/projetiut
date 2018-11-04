@@ -3,6 +3,7 @@ package com.example.cassa.entrainementprojettut.conjugaison;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
@@ -31,6 +32,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeTemps.FUTURSIMPLE;
+import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeTemps.IMPARFAIT;
 import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeTemps.PASSESIMPLE;
 import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeTemps.PRESENTINDICATIF;
 
@@ -77,29 +79,7 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         showMenu();
         initializeGame();
 
-        database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
-
-        database.getInfinitifDao().removeAllInfinitif(); //Pour les tests
-        //On recupere tous les infinitifs deja dans la BD
-        List<Infinitif> infinitifList = database.getInfinitifDao().getAllInfinitif();
-        //On recupere tous les infinitifs existants
-        List<Infinitif> infinitifs = new InfinitifData().getInfinitif();
-        //Si on a pas d'infinitifs dans la BD, on ajoutes les infinitifs existants
-        if (infinitifList.size()==0) {
-            for (Infinitif inf: infinitifs) {
-                database.getInfinitifDao().addInfinitif(inf);
-            }
-        }
-
-        //Meme fonctionnement avec les verbes conjugués
-        database.getVerbeConjugueDao().removeAllVerbeConjugue();
-        List<VerbeConjugue> verbeConjugueList = database.getVerbeConjugueDao().getAllVerbeConjugue();
-        List<VerbeConjugue> verbeConjugues = new VerbeConjugueData().getVerbeConjugue(getListTerminaison());
-        if(verbeConjugueList.size()==0){
-            for (VerbeConjugue vbc: verbeConjugues) {
-                database.getVerbeConjugueDao().addVerbeConjugue(vbc);
-            }
-        }
+        new addVerbeDatabase().execute();
 
         music = R.raw.bensound_cute;
         startBackgroundMusic(this,music);
@@ -137,11 +117,43 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         layoutStars = findViewById(R.id.activity_conjugaison_starsLayout_linearlayout);
     }
 
+    private class addVerbeDatabase extends AsyncTask<Void,Void,Void>{
+        @Override
+        protected Void doInBackground(Void... voids) {
+            addVerbeDatabase();
+            return null;
+        }
+    }
+
+    private void addVerbeDatabase() {
+        database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
+
+        //On recupere tous les infinitifs deja dans la BD
+        List<Infinitif> infinitifList = database.getInfinitifDao().getAllInfinitif();
+        //On recupere tous les infinitifs existants
+        List<Infinitif> infinitifs = new InfinitifData().getInfinitif();
+        //Si on a pas d'infinitifs dans la BD, on ajoutes les infinitifs existants
+        if (infinitifList.size()==0) {
+            for (Infinitif inf: infinitifs) {
+                database.getInfinitifDao().addInfinitif(inf);
+            }
+        }
+
+        //Meme fonctionnement avec les verbes conjugués
+        List<VerbeConjugue> verbeConjugueList = database.getVerbeConjugueDao().getAllVerbeConjugue();
+        List<VerbeConjugue> verbeConjugues = new VerbeConjugueData().getVerbeConjugue(getListTerminaison());
+        if(verbeConjugueList.size()==0){
+            for (VerbeConjugue vbc: verbeConjugues) {
+                database.getVerbeConjugueDao().addVerbeConjugue(vbc);
+            }
+        }
+    }
+
     //Pour l'instant avec le fichier tests.json, plus tard avec le fichier terminaisons.json
     public String loadJSONFromAsset() {
         String json = null;
         try {
-            InputStream is = getAssets().open("tests.json");
+            InputStream is = getAssets().open("terminaisons.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -233,7 +245,7 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
                 m_li.put("PPRESENT", ppresent_value);
                 m_li.put("PPASSE", ppasse_value);
                 m_li.put(PRESENTINDICATIF.getTemps(), present_value);
-                m_li.put("IMPARFAIT", imparfait_value);
+                m_li.put(IMPARFAIT.getTemps(), imparfait_value);
                 m_li.put(PASSESIMPLE.getTemps(), passe_value);
                 m_li.put(FUTURSIMPLE.getTemps(), futur_value);
                 m_li.put("SPRESENT", spresent_value);
@@ -347,9 +359,6 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         displayLevelchoice(this,menu);
     }
 
-    /**
-     *ON MET DES FANTOMES ICI EN ATTENDANT D'AVOIR DES ETOILES DEJA VIDES
-     */
     private void addStars(int etoilePleine, int etoileVide){
         layoutStars.removeAllViews();
         int emptyStars[] = new int[etoileVide];
