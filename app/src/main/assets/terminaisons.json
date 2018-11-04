@@ -1,13 +1,3 @@
-//Recuperer sur : https://sourceforge.net/projects/fvcr/files/
-//Transformer en json : http://www.utilities-online.info/xmltojson/
-
-/*Note : Pour être utilisables, Des modifications doivent être apporté au fichier original :
-*Suppression de la version, du langage, de "conjugator" -> FAIT
-*Suppression de ?'c' dans les regex -> FAIT
-*Suppression des champs "INFINITIVE" et "RADICAL" -> FAIT
-*Suppression des temps "PPASSE" et "IMPERATIF" pour simplifier -> FAIT
-*Placement des cas générals avant les cas particuliers -> FAIT
-*/
 {
   "prototype": [
     {
@@ -15,38 +5,29 @@
       "ENDING": "er",
       "AUX": "avoir",
       "PPRESENT": "ant",
+      "PPASSE": "é,ée,és,ées",
       "PRESENT": "e,es,e,ons,ez,ent",
       "IMPARFAIT": "ais,ais,ait,ions,iez,aient",
       "PASSE": "ai,as,a,âmes,âtes,èrent",
       "FUTUR": "erai,eras,era,erons,erez,eront",
       "SPRESENT": "e,es,e,ions,iez,ent",
       "SIMPARFAIT": "asse,asses,ât,assions,assiez,assent",
+      "IMPERATIF": ",e,,ons,ez,",
       "CONDITION": "erais,erais,erait,erions,eriez,eraient"
-    },
-    {
-      "REGEX": ".*ir",
-      "ENDING": "ir",
-      "AUX": "avoir",
-      "PPRESENT": "issant",
-      "PRESENT": "is,is,it,issons,issez,issent",
-      "IMPARFAIT": "issais,issais,issait,issions,issiez,issaient",
-      "PASSE": "is,is,it,îmes,îtes,irent",
-      "FUTUR": "irai,iras,ira,irons,irez,iront",
-      "SPRESENT": "isse,isses,isse,issions,issiez,issent",
-      "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
-      "CONDITION": "irais,irais,irait,irions,iriez,iraient"
     },
     {
       "REGEX": ".*ger",
       "ENDING": "er",
       "AUX": "avoir",
       "PPRESENT": "eant",
+      "PPASSE": "é,ée,és,ées",
       "PRESENT": "e,es,e,eons,ez,ent",
       "IMPARFAIT": "eais,eais,eait,ions,iez,eaient",
       "PASSE": "eai,eas,ea,eâmes,eâtes,èrent",
       "FUTUR": "erai,eras,era,erons,erez,eront",
       "SPRESENT": "e,es,e,ions,iez,ent",
       "SIMPARFAIT": "easse,easses,eât,eassions,eassiez,eassent",
+      "IMPERATIF": ",e,,eons,ez,",
       "CONDITION": "erais,erais,erait,erions,eriez,eraient"
     },
     {
@@ -54,12 +35,14 @@
       "ENDING": "équer",
       "AUX": "avoir",
       "PPRESENT": "équant",
+      "PPASSE": "équé,équée,équés,équées",
       "PRESENT": "èque,èques,èque,équons,équez,èquent",
       "IMPARFAIT": "équais,équais,équait,équions,équiez,équaient",
       "PASSE": "équai,équas,équa,équâmes,équâtes,équèrent",
       "FUTUR": "équerai,équeras,équera,équerons,équerez,équeront",
       "SPRESENT": "èque,èques,èque,équions,équiez,èquent",
       "SIMPARFAIT": "équasse,équasses,équât,équassions,équassiez,équassent",
+      "IMPERATIF": ",èque,,équons,équez,",
       "CONDITION": "équerais,équerais,équerait,équerions,équeriez,équeraient"
     },
     {
@@ -67,12 +50,14 @@
       "ENDING": "éger",
       "AUX": "avoir",
       "PPRESENT": "égeant",
+      "PPASSE": "égé,égée,égés,égées",
       "PRESENT": "ège,èges,ège,égeons,égez,ègent",
       "IMPARFAIT": "égeais,égeais,égeait,égions,égiez,égeaient",
       "PASSE": "égeai,égeas,égea,égeâmes,égeâtes,égèrent",
       "FUTUR": "égerai,égeras,égera,égerons,égerez,égeront",
       "SPRESENT": "ège,èges,ège,égions,égiez,ègent",
       "SIMPARFAIT": "égeasse,égeasses,égeât,égeassions,égeassiez,égeassent",
+      "IMPERATIF": ",ège,,égeons,égez,",
       "CONDITION": "égerais,égerais,égerait,égerions,égeriez,égeraient"
     },
     {
@@ -80,12 +65,14 @@
       "ENDING": "égler",
       "AUX": "avoir",
       "PPRESENT": "ég?ant",
+      "PPASSE": "ég?é,ég?ée,ég?és,ég?ées",
       "PRESENT": "èg?e,èg?es,èg?e,ég?ons,ég?ez,èg?ent",
       "IMPARFAIT": "ég?ais,ég?ais,ég?ait,ég?ions,ég?iez,ég?aient",
       "PASSE": "ég?ai,ég?as,ég?a,ég?âmes,ég?âtes,ég?èrent",
       "FUTUR": "ég?erai,ég?eras,ég?era,ég?erons,ég?erez,ég?eront",
       "SPRESENT": "èg?e,èg?es,èg?e,ég?ions,ég?iez,èg?ent",
       "SIMPARFAIT": "ég?asse,ég?asses,ég?ât,ég?assions,ég?assiez,ég?assent",
+      "IMPERATIF": ",èg?e,,ég?ons,ég?ez,",
       "CONDITION": "ég?erais,ég?erais,ég?erait,ég?erions,ég?eriez,ég?eraient"
     },
     {
@@ -93,12 +80,14 @@
       "ENDING": "écher",
       "AUX": "avoir",
       "PPRESENT": "échant",
+      "PPASSE": "éché,échée,échés,échées",
       "PRESENT": "èche,èches,èche,échons,échez,èchent",
       "IMPARFAIT": "échais,échais,échait,échions,échiez,échaient",
       "PASSE": "échai,échas,écha,échâmes,échâtes,échèrent",
       "FUTUR": "écherai,écheras,échera,écherons,écherez,écheront",
       "SPRESENT": "èche,èches,èche,échions,échiez,èchent",
       "SIMPARFAIT": "échasse,échasses,échât,échassions,échassiez,échassent",
+      "IMPERATIF": ",èche,,échons,échez,",
       "CONDITION": "écherais,écherais,écherait,écherions,écheriez,écheraient"
     },
     {
@@ -106,12 +95,14 @@
       "ENDING": "éder",
       "AUX": "avoir",
       "PPRESENT": "é?ant",
+      "PPASSE": "é?é,é?ée,é?és,é?ées",
       "PRESENT": "è?e,è?es,è?e,é?ons,é?ez,è?ent",
       "IMPARFAIT": "é?ais,é?ais,é?ait,é?ions,é?iez,é?aient",
       "PASSE": "é?ai,é?as,é?a,é?âmes,é?âtes,é?èrent",
       "FUTUR": "é?erai,é?eras,é?era,é?erons,é?erez,é?eront",
       "SPRESENT": "è?e,è?es,è?e,é?ions,é?iez,è?ent",
       "SIMPARFAIT": "é?asse,é?asses,é?ât,é?assions,é?assiez,é?assent",
+      "IMPERATIF": ",è?e,,é?ons,é?ez,",
       "CONDITION": "é?erais,é?erais,é?erait,é?erions,é?eriez,é?eraient"
     },
     {
@@ -119,12 +110,14 @@
       "ENDING": "ébrer",
       "AUX": "avoir",
       "PPRESENT": "é?rant",
+      "PPASSE": "é?ré,é?rée,é?rés,é?rées",
       "PRESENT": "è?re,è?res,è?re,é?rons,é?rez,è?rent",
       "IMPARFAIT": "é?rais,é?rais,é?rait,é?rions,é?riez,é?raient",
       "PASSE": "é?rai,é?ras,é?ra,é?râmes,é?râtes,é?rèrent",
       "FUTUR": "é?rerai,é?reras,é?rera,é?rerons,é?rerez,é?reront",
       "SPRESENT": "è?re,è?res,è?re,é?rions,é?riez,è?rent",
       "SIMPARFAIT": "é?rasse,é?rasses,é?rât,é?rassions,é?rassiez,é?rassent",
+      "IMPERATIF": ",è?re,,é?rons,é?rez,",
       "CONDITION": "é?rerais,é?rerais,é?rerait,é?rerions,é?reriez,é?reraient"
     },
     {
@@ -132,12 +125,14 @@
       "ENDING": "yer",
       "AUX": "avoir",
       "PPRESENT": "yant",
+      "PPASSE": "yé,yée,yés,yées",
       "PRESENT": "ie,ies,ie,yons,yez,ient",
       "IMPARFAIT": "yais,yais,yait,yions,yiez,yaient",
       "PASSE": "yai,yas,ya,yâmes,yâtes,yèrent",
       "FUTUR": "ierai,ieras,iera,ierons,ierez,ieront",
       "SPRESENT": "ie,ies,ie,yions,yiez,ient",
       "SIMPARFAIT": "yasse,yasses,yât,yassions,yassiez,yassent",
+      "IMPERATIF": ",ie,,yons,yez,",
       "CONDITION": "ierais,ierais,ierait,ierions,ieriez,ieraient"
     },
     {
@@ -145,6 +140,7 @@
       "ENDING": "er",
       "AUX": "avoir",
       "PPRESENT": "eant",
+      "PPASSE": "é,é,é,é",
       "PRESENT": ",,e,,,ent",
       "IMPARFAIT": ",,eait,,,eaient",
       "PASSE": ",,ea,,,èrent",
@@ -158,12 +154,14 @@
       "ENDING": "evrer",
       "AUX": "avoir",
       "PPRESENT": "evrant",
+      "PPASSE": "evré,evrée,evrés,evrées",
       "PRESENT": "[eè]vre,[eè]vres,[eè]vre,evrons,evrez,[eè]vrent",
       "IMPARFAIT": "evrais,evrais,evrait,evrions,evriez,evraient",
       "PASSE": "evrai,evras,evra,evrâmes,evrâtes,evrèrent",
       "FUTUR": "[eè]vrerai,[eè]vreras,[eè]vrera,[eè]vrerons,[eè]vrerez,[eè]vreront",
       "SPRESENT": "[eè]vre,[eè]vres,[eè]vre,evrions,evriez,[eè]vrent",
       "SIMPARFAIT": "evrasse,evrasses,evrât,evrassions,evrassiez,evrassent",
+      "IMPERATIF": ",[eè]vre,,evrons,evrez,",
       "CONDITION": "[eè]vrerais,[eè]vrerais,[eè]vrerait,[eè]vrerions,[eè]vreriez,[eè]vreraient"
     },
     {
@@ -171,12 +169,14 @@
       "ENDING": "eser",
       "AUX": "avoir",
       "PPRESENT": "e?ant",
+      "PPASSE": "e?é,e?ée,e?és,e?ées",
       "PRESENT": "è?e,è?es,è?e,e?ons,e?ez,è?ent",
       "IMPARFAIT": "e?ais,e?ais,e?ait,e?ions,e?iez,e?aient",
       "PASSE": "e?ai,e?as,e?a,e?âmes,e?âtes,e?èrent",
       "FUTUR": "è?erai,è?eras,è?era,è?erons,è?erez,è?eront",
       "SPRESENT": "è?e,è?es,è?e,e?ions,e?iez,è?ent",
       "SIMPARFAIT": "e?asse,e?asses,e?ât,e?assions,e?assiez,e?assent",
+      "IMPERATIF": ",è?e,,e?ons,e?ez,",
       "CONDITION": "è?erais,è?erais,è?erait,è?erions,è?eriez,è?eraient"
     },
     {
@@ -184,12 +184,14 @@
       "ENDING": "eter",
       "AUX": "avoir",
       "PPRESENT": "e?ant",
+      "PPASSE": "e?é,e?ée,e?és,e?ées",
       "PRESENT": "e??e,e??es,e??e,e?ons,e?ez,e??ent",
       "IMPARFAIT": "e?ais,e?ais,e?ait,e?ions,e?iez,e?aient",
       "PASSE": "e?ai,e?as,e?a,e?âmes,e?âtes,e?èrent",
       "FUTUR": "e??erai,e??eras,e??era,e??erons,e??erez,e??eront",
       "SPRESENT": "e??e,e??es,e??e,e?ions,e?iez,e??ent",
       "SIMPARFAIT": "e?asse,e?asses,e?ât,e?assions,e?assiez,e?assent",
+      "IMPERATIF": ",e??e,,e?ons,e?ez,",
       "CONDITION": "e??erais,e??erais,e??erait,e??erions,e??eriez,e??eraient"
     },
     {
@@ -197,12 +199,14 @@
       "ENDING": "cer",
       "AUX": "avoir",
       "PPRESENT": "çant",
+      "PPASSE": "cé,cée,cés,cées",
       "PRESENT": "ce,ces,ce,çons,cez,cent",
       "IMPARFAIT": "çais,çais,çait,cions,ciez,çaient",
       "PASSE": "çai,ças,ça,çâmes,çâtes,cèrent",
       "FUTUR": "cerai,ceras,cera,cerons,cerez,ceront",
       "SPRESENT": "ce,ces,ce,cions,ciez,cent",
       "SIMPARFAIT": "çasse,çasses,çât,çassions,çassiez,çassent",
+      "IMPERATIF": ",ce,,çons,cez,",
       "CONDITION": "cerais,cerais,cerait,cerions,ceriez,ceraient"
     },
     {
@@ -210,25 +214,44 @@
       "ENDING": "yer",
       "AUX": "avoir",
       "PPRESENT": "yant",
+      "PPASSE": "yé,yée,yés,yées",
       "PRESENT": "ie|ye,ies|yes,ie|ye,yons,yez,ient|yent",
       "IMPARFAIT": "yais,yais,yait,yions,yiez,yaient",
       "PASSE": "yai,yas,ya,yâmes,yâtes,yèrent",
       "FUTUR": "ierai|yerai,ieras|yeras,iera|yera,ierons|yerons,ierez|yerez,ieront|yeront",
       "SPRESENT": "ie|ye,ies|yes,ie|ye,yions,yiez,ient|yent",
       "SIMPARFAIT": "yasse,yasses,yât,yassions,yassiez,yassent",
+      "IMPERATIF": ",ye|ie,,yons,yez,",
       "CONDITION": "ierais|yerais,ierais|yerais,ierait|yerait,ierions|yerions,ieriez|yeriez,ieraient|yeraient"
+    },
+    {
+      "REGEX": ".*ir",
+      "ENDING": "ir",
+      "AUX": "avoir",
+      "PPRESENT": "issant",
+      "PPASSE": "i,ie,is,ies",
+      "PRESENT": "is,is,it,issons,issez,issent",
+      "IMPARFAIT": "issais,issais,issait,issions,issiez,issaient",
+      "PASSE": "is,is,it,îmes,îtes,irent",
+      "FUTUR": "irai,iras,ira,irons,irez,iront",
+      "SPRESENT": "isse,isses,isse,issions,issiez,issent",
+      "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",is,,issons,issez,",
+      "CONDITION": "irais,irais,irait,irions,iriez,iraient"
     },
     {
       "REGEX": ".*vêtir",
       "ENDING": "tir",
       "AUX": "avoir",
       "PPRESENT": "tant",
+      "PPASSE": "tu,tue,tus,tues",
       "PRESENT": "ts,ts,t,tons,tez,tent",
       "IMPARFAIT": "tais,tais,tait,tions,tiez,taient",
       "PASSE": "tis,tis,tit,tîmes,tîtes,tirent",
       "FUTUR": "tirai,tiras,tira,tirons,tirez,tiront",
       "SPRESENT": "te,tes,te,tions,tiez,tent",
       "SIMPARFAIT": "tisse,tisses,tît,tissions,tissiez,tissent",
+      "IMPERATIF": ",ts,,tons,tez,",
       "CONDITION": "tirais,tirais,tirait,tirions,tiriez,tiraient"
     },
     {
@@ -236,12 +259,14 @@
       "ENDING": "oir",
       "AUX": "avoir",
       "PPRESENT": "oyant",
+      "PPASSE": "u,ue,us,ues",
       "PRESENT": "ois,ois,oit,oyons,oyez,oient",
       "IMPARFAIT": "oyais,oyais,oyait,oyions,oyiez,oyaient",
       "PASSE": "is,is,it,îmes,îtes,irent",
       "FUTUR": "errai,erras,erra,errons,errez,erront",
       "SPRESENT": "oie,oies,oie,oyions,oyiez,oient",
       "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",ois,,oyons,oyez,",
       "CONDITION": "errais,errais,errait,errions,erriez,erraient"
     },
     {
@@ -249,12 +274,14 @@
       "ENDING": "ouloir",
       "AUX": "avoir",
       "PPRESENT": "oulant",
+      "PPASSE": "oulu,oulue,oulus,oulues",
       "PRESENT": "eux,eux,eut,oulons,oulez,eulent",
       "IMPARFAIT": "oulais,oulais,oulait,oulions,ouliez,oulaient",
       "PASSE": "oulus,oulus,oulut,oulûmes,oulûtes,oulurent",
       "FUTUR": "oudrai,oudras,oudra,oudrons,oudrez,oudront",
       "SPRESENT": "euille,euilles,euille,oulions,ouliez,euillent",
       "SIMPARFAIT": "oulusse,oulusses,oulût,oulussions,oulussiez,oulussent",
+      "IMPERATIF": ",eux|euille,,oulons|euillons,oulez|euillez,",
       "CONDITION": "oudrais,oudrais,oudrait,oudrions,oudriez,oudraient"
     },
     {
@@ -262,12 +289,14 @@
       "ENDING": "enir",
       "AUX": "être",
       "PPRESENT": "enant",
+      "PPASSE": "enu,enue,enus,enues",
       "PRESENT": "iens,iens,ient,enons,enez,iennent",
       "IMPARFAIT": "enais,enais,enait,enions,eniez,enaient",
       "PASSE": "ins,ins,int,înmes,întes,inrent",
       "FUTUR": "iendrai,iendras,iendra,iendrons,iendrez,iendront",
       "SPRESENT": "ienne,iennes,ienne,enions,eniez,iennent",
       "SIMPARFAIT": "insse,insses,înt,inssions,inssiez,inssent",
+      "IMPERATIF": ",iens,,enons,enez,",
       "CONDITION": "iendrais,iendrais,iendrait,iendrions,iendriez,iendraient"
     },
     {
@@ -275,12 +304,14 @@
       "ENDING": "loir",
       "AUX": "avoir",
       "PPRESENT": "lant",
+      "PPASSE": "lu,lue,lus,lues",
       "PRESENT": "ux,ux,ut,lons,lez,lent",
       "IMPARFAIT": "lais,lais,lait,lions,liez,laient",
       "PASSE": "lus,lus,lut,lûmes,lûtes,lurent",
       "FUTUR": "udrai,udras,udra,udrons,udrez,udront",
       "SPRESENT": "ille,illes,ille,lions,liez,illent",
       "SIMPARFAIT": "lusse,lusses,lût,lussions,lussiez,lussent",
+      "IMPERATIF": ",ux,,lons,lez,",
       "CONDITION": "udrais,udrais,udrait,udrions,udriez,udraient"
     },
     {
@@ -288,12 +319,14 @@
       "ENDING": "vir",
       "AUX": "avoir",
       "PPRESENT": "vant",
+      "PPASSE": "vi,vie,vis,vies",
       "PRESENT": "s,s,t,vons,vez,vent",
       "IMPARFAIT": "vais,vais,vait,vions,viez,vaient",
       "PASSE": "vis,vis,vit,vîmes,vîtes,virent",
       "FUTUR": "virai,viras,vira,virons,virez,viront",
       "SPRESENT": "ve,ves,ve,vions,viez,vent",
       "SIMPARFAIT": "visse,visses,vît,vissions,vissiez,vissent",
+      "IMPERATIF": ",s,,vons,vez,",
       "CONDITION": "virais,virais,virait,virions,viriez,viraient"
     },
     {
@@ -301,6 +334,7 @@
       "ENDING": "eoir",
       "AUX": "avoir",
       "PPRESENT": "éant|eyant",
+      "PPASSE": "is,ise,is,ises",
       "PRESENT": ",,ied,,,iéent",
       "IMPARFAIT": ",,eyait,,,eyaient",
       "FUTUR": ",,iéra,,,iéront",
@@ -312,12 +346,14 @@
       "ENDING": "avoir",
       "AUX": "avoir",
       "PPRESENT": "achant",
+      "PPASSE": "u,ue,us,ues",
       "PRESENT": "ais,ais,ait,avons,avez,avent",
       "IMPARFAIT": "avais,avais,avait,avions,aviez,avaient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
       "FUTUR": "aurai,auras,aura,aurons,aurez,auront",
       "SPRESENT": "ache,aches,ache,achions,achiez,achent",
       "SIMPARFAIT": "usse,usses,ût,ussions,ussiez,ussent",
+      "IMPERATIF": ",ache,,achons,achez,",
       "CONDITION": "aurais,aurais,aurait,aurions,auriez,auraient"
     },
     {
@@ -325,12 +361,14 @@
       "ENDING": "ir",
       "AUX": "avoir",
       "PPRESENT": "ant",
+      "PPASSE": "i,ie,is,ies",
       "PRESENT": "e,es,e,ons,ez,ent",
       "IMPARFAIT": "ais,ais,ait,ions,iez,aient",
       "PASSE": "is,is,it,îmes,îtes,irent",
       "FUTUR": "irai,iras,ira,irons,irez,iront",
       "SPRESENT": "e,es,e,ions,iez,ent",
       "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",e,,ons,ez,",
       "CONDITION": "irais,irais,irait,irions,iriez,iraient"
     },
     {
@@ -338,12 +376,14 @@
       "ENDING": "érir",
       "AUX": "avoir",
       "PPRESENT": "érant",
+      "PPASSE": "is,ise,is,ises",
       "PRESENT": "iers,iers,iert,érons,érez,ièrent",
       "IMPARFAIT": "érais,érais,érait,érions,ériez,éraient",
       "PASSE": "is,is,it,îmes,îtes,irent",
       "FUTUR": "errai,erras,erra,errons,errez,erront",
       "SPRESENT": "ière,ières,ière,érions,ériez,ièrent",
       "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",iers,,érons,érez,",
       "CONDITION": "errais,errais,errait,errions,erriez,erraient"
     },
     {
@@ -351,12 +391,14 @@
       "ENDING": "oir",
       "AUX": "avoir",
       "PPRESENT": "oyant",
+      "PPASSE": "u,ue,us,ues",
       "PRESENT": "ois,ois,oit,oyons,oyez,oient",
       "IMPARFAIT": "oyais,oyais,oyait,oyions,oyiez,oyaient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
       "FUTUR": "oirai,oiras,oira,oirons,oirez,oiront",
       "SPRESENT": "oie,oies,oie,oyions,oyiez,oient",
       "SIMPARFAIT": "usse,usses,ût,ussions,ussiez,ussent",
+      "IMPERATIF": ",ois,,oyons,oyez,",
       "CONDITION": "oirais,oirais,oirait,oirions,oiriez,oiraient"
     },
     {
@@ -364,6 +406,7 @@
       "ENDING": "euvoir",
       "AUX": "avoir",
       "PPRESENT": "euvant",
+      "PPASSE": "u,u,us,us",
       "PRESENT": ",,eut,,,",
       "IMPARFAIT": ",,euvait,,,",
       "PASSE": ",,ut,,,",
@@ -377,12 +420,14 @@
       "ENDING": "rir",
       "AUX": "avoir",
       "PPRESENT": "rant",
+      "PPASSE": "ert,erte,erts,ertes",
       "PRESENT": "re,res,re,rons,rez,rent",
       "IMPARFAIT": "rais,rais,rait,rions,riez,raient",
       "PASSE": "ris,ris,rit,rîmes,rîtes,rirent",
       "FUTUR": "rirai,riras,rira,rirons,rirez,riront",
       "SPRESENT": "re,res,re,rions,riez,rent",
       "SIMPARFAIT": "risse,risses,rît,rissions,rissiez,rissent",
+      "IMPERATIF": ",re,,rons,rez,",
       "CONDITION": "rirais,rirais,rirait,ririons,ririez,riraient"
     },
     {
@@ -390,12 +435,14 @@
       "ENDING": "ouvoir",
       "AUX": "avoir",
       "PPRESENT": "ouvant",
+      "PPASSE": "u,ue,us,ues",
       "PRESENT": "eus,eus,eut,ouvons,ouvez,euvent",
       "IMPARFAIT": "ouvais,ouvais,ouvait,ouvions,ouviez,ouvaient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
       "FUTUR": "ouvrai,ouvras,ouvra,ouvrons,ouvrez,ouvront",
       "SPRESENT": "euve,euves,euve,ouvions,ouviez,euvent",
       "SIMPARFAIT": "usse,usses,ût,ussions,ussiez,ussent",
+      "IMPERATIF": ",eus,,ouvons,ouvez,",
       "CONDITION": "ouvrais,ouvrais,ouvrait,ouvrions,ouvriez,ouvraient"
     },
     {
@@ -403,12 +450,14 @@
       "ENDING": "ïr",
       "AUX": "avoir",
       "PPRESENT": "ïssant",
+      "PPASSE": "ï,ie,ïs,ies",
       "PRESENT": "is,is,it,ïssons,ïssez,ïssent",
       "IMPARFAIT": "ïssais,ïssais,ïssait,ïssions,ïssiez,ïssaient",
       "PASSE": "ïs,ïs,ït,ïmes,ïtes,ïrent",
       "FUTUR": "ïrai,ïras,ïra,ïrons,ïrez,ïront",
       "SPRESENT": "ïsse,ïsses,ïsse,ïssions,ïssiez,ïssent",
       "SIMPARFAIT": "ïsse,ïsses,ït,ïssions,ïssiez,ïssent",
+      "IMPERATIF": ",is,,ïssons,ïssez,",
       "CONDITION": "ïrais,ïrais,ïrait,ïrions,ïriez,ïraient"
     },
     {
@@ -416,12 +465,14 @@
       "ENDING": "ir",
       "AUX": "avoir",
       "PPRESENT": "yant",
+      "PPASSE": "i,ie,is,ies",
       "PRESENT": "is,is,it,yons,yez,ient",
       "IMPARFAIT": "yais,yais,yait,yions,yiez,yaient",
       "PASSE": "is,is,it,îmes,îtes,irent",
       "FUTUR": "irai,iras,ira,irons,irez,iront",
       "SPRESENT": "ie,ies,ie,yions,yiez,ient",
       "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",is,,yons,yez,",
       "CONDITION": "irais,irais,irait,irions,iriez,iraient"
     },
     {
@@ -429,12 +480,14 @@
       "ENDING": "mir",
       "AUX": "avoir",
       "PPRESENT": "mant",
+      "PPASSE": "mi,mi,mis,mis",
       "PRESENT": "s,s,t,mons,mez,ment",
       "IMPARFAIT": "mais,mais,mait,mions,miez,maient",
       "PASSE": "mis,mis,mit,mîmes,mîtes,mirent",
       "FUTUR": "mirai,miras,mira,mirons,mirez,miront",
       "SPRESENT": "me,mes,me,mions,miez,ment",
       "SIMPARFAIT": "misse,misses,mît,missions,missiez,missent",
+      "IMPERATIF": ",s,,mons,mez,",
       "CONDITION": "mirais,mirais,mirait,mirions,miriez,miraient"
     },
     {
@@ -442,12 +495,14 @@
       "ENDING": "mir",
       "AUX": "avoir",
       "PPRESENT": "mant",
+      "PPASSE": "mi,mie,mis,mies",
       "PRESENT": "s,s,t,mons,mez,ment",
       "IMPARFAIT": "mais,mais,mait,mions,miez,maient",
       "PASSE": "mis,mis,mit,mîmes,mîtes,mirent",
       "FUTUR": "mirai,miras,mira,mirons,mirez,miront",
       "SPRESENT": "me,mes,me,mions,miez,ment",
       "SIMPARFAIT": "misse,misses,mît,missions,missiez,missent",
+      "IMPERATIF": ",s,,mons,mez,",
       "CONDITION": "mirais,mirais,mirait,mirions,miriez,miraient"
     },
     {
@@ -455,12 +510,14 @@
       "ENDING": "evoir",
       "AUX": "avoir",
       "PPRESENT": "evant",
+      "PPASSE": "û,ue,ûs,ues",
       "PRESENT": "ois,ois,oit,evons,evez,oivent",
       "IMPARFAIT": "evais,evais,evait,evions,eviez,evaient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
       "FUTUR": "evrai,evras,evra,evrons,evrez,evront",
       "SPRESENT": "oive,oives,oive,evions,eviez,oivent",
       "SIMPARFAIT": "usse,usses,ût,ussions,ussiez,ussent",
+      "IMPERATIF": ",ois,,evons,evez,",
       "CONDITION": "evrais,evrais,evrait,evrions,evriez,evraient"
     },
     {
@@ -468,12 +525,14 @@
       "ENDING": "ir",
       "AUX": "avoir",
       "PPRESENT": "ant",
+      "PPASSE": "i,ie,is,ies",
       "PRESENT": "e,es,e,ons,ez,ent",
       "IMPARFAIT": "ais,ais,ait,ions,iez,aient",
       "PASSE": "is,is,it,îmes,îtes,irent",
       "FUTUR": "erai,eras,era,erons,erez,eront",
       "SPRESENT": "e,es,e,ions,iez,ent",
       "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",e,,ons,ez,",
       "CONDITION": "erais,erais,erait,erions,eriez,eraient"
     },
     {
@@ -481,12 +540,14 @@
       "ENDING": "ir",
       "AUX": "avoir",
       "PPRESENT": "ant",
+      "PPASSE": "u,ue,us,ues",
       "PRESENT": "s,s,t,ons,ez,ent",
       "IMPARFAIT": "ais,ais,ait,ions,iez,aient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
       "FUTUR": "rai,ras,ra,rons,rez,ront",
       "SPRESENT": "e,es,e,ions,iez,ent",
       "SIMPARFAIT": "usse,usses,ût,ussions,ussiez,ussent",
+      "IMPERATIF": ",s,,ons,ez,",
       "CONDITION": "rais,rais,rait,rions,riez,raient"
     },
     {
@@ -494,12 +555,14 @@
       "ENDING": "cevoir",
       "AUX": "avoir",
       "PPRESENT": "cevant",
+      "PPASSE": "çu,çue,çus,çues",
       "PRESENT": "çois,çois,çoit,cevons,cevez,çoivent",
       "IMPARFAIT": "cevais,cevais,cevait,cevions,ceviez,cevaient",
       "PASSE": "çus,çus,çut,çûmes,çûtes,çurent",
       "FUTUR": "cevrai,cevras,cevra,cevrons,cevrez,cevront",
       "SPRESENT": "çoive,çoives,çoive,cevions,ceviez,çoivent",
       "SIMPARFAIT": "çusse,çusses,çût,çussions,çussiez,çussent",
+      "IMPERATIF": ",çois,,cevons,cevez,",
       "CONDITION": "cevrais,cevrais,cevrait,cevrions,cevriez,cevraient"
     },
     {
@@ -507,12 +570,14 @@
       "ENDING": "illir",
       "AUX": "avoir",
       "PPRESENT": "illant",
+      "PPASSE": "illi,illie,illis,illies",
       "PRESENT": "s,s,t,illons,illez,illent",
       "IMPARFAIT": "illais,illais,illait,illions,illiez,illaient",
       "PASSE": "illis,illis,illit,illîmes,illîtes,illirent",
       "FUTUR": "illirai,illiras,illira,illirons,illirez,illiront",
       "SPRESENT": "ille,illes,ille,illions,illiez,illent",
       "SIMPARFAIT": "illisse,illisses,illît,illissions,illissiez,illissent",
+      "IMPERATIF": ",s,,illons,illez,",
       "CONDITION": "illirais,illirais,illirait,illirions,illiriez,illiraient"
     },
     {
@@ -520,12 +585,14 @@
       "ENDING": "oir",
       "AUX": "avoir",
       "PPRESENT": "oyant",
+      "PPASSE": "is,ise,is,ises",
       "PRESENT": "ois,ois,oit,oyons,oyez,oient",
       "IMPARFAIT": "oyais,oyais,oyait,oyions,oyiez,oyaient",
       "PASSE": "is,is,it,îmes,îtes,irent",
       "FUTUR": "oirai,oiras,oira,oirons,oirez,oiront",
       "SPRESENT": "oie,oies,oie,oyions,oyiez,oient",
       "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",ois,,oyons,oyez,",
       "CONDITION": "oirais,oirais,oirait,oirions,oiriez,oiraient"
     },
     {
@@ -533,12 +600,14 @@
       "ENDING": "eoir",
       "AUX": "avoir",
       "PPRESENT": "eyant|oyant",
+      "PPASSE": "is,ise,is,ises",
       "PRESENT": "ieds|ois,ieds|ois,ied|oit,eyons|oyons,eyez|oyez,eyent|oient",
       "IMPARFAIT": "eyais|oyais,eyais|oyais,eyait|oyait,eyions|oyions,eyiez|oyiez,eyaient|oyaient",
       "PASSE": "is,is,it,îmes,îtes,irent",
       "FUTUR": "iérai|oirai,iéras|oiras,iéra|oira,iérons|oirons,iérez|oirez,iéront|oiront",
       "SPRESENT": "eye|oie,eyes|oies,eye|oie,eyions|oyions,eyiez|oyiez,eyent|oient",
       "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",ieds|ois,,eyons|oyons,eyez|oyez,",
       "CONDITION": "iérais|oirais,iérais|oirais,iérait|oirait,iérions|oirions,iériez|oiriez,iéraient|oiraient"
     },
     {
@@ -546,12 +615,14 @@
       "ENDING": "ivre",
       "AUX": "avoir",
       "PPRESENT": "ivant",
+      "PPASSE": "écu,écu,écus,écus",
       "PRESENT": "is,is,it,ivons,ivez,ivent",
       "IMPARFAIT": "ivais,ivais,ivait,ivions,iviez,ivaient",
       "PASSE": "écus,écus,écut,écûmes,écûtes,écurent",
       "FUTUR": "ivrai,ivras,ivra,ivrons,ivrez,ivront",
       "SPRESENT": "ive,ives,ive,ivions,iviez,ivent",
       "SIMPARFAIT": "écusse,écusses,écût,écussions,écussiez,écussent",
+      "IMPERATIF": ",is,,ivons,ivez,",
       "CONDITION": "ivrais,ivrais,ivrait,ivrions,ivriez,ivraient"
     },
     {
@@ -559,12 +630,14 @@
       "ENDING": "cre",
       "AUX": "avoir",
       "PPRESENT": "quant",
+      "PPASSE": "cu,cue,cus,cues",
       "PRESENT": "cs,cs,c,quons,quez,quent",
       "IMPARFAIT": "quais,quais,quait,quions,quiez,quaient",
       "PASSE": "quis,quis,quit,quîmes,quîtes,quirent",
       "FUTUR": "crai,cras,cra,crons,crez,cront",
       "SPRESENT": "que,ques,que,quions,quiez,quent",
       "SIMPARFAIT": "quisse,quisses,quît,quissions,quissiez,quissent",
+      "IMPERATIF": ",cs,,quons,quez,",
       "CONDITION": "crais,crais,crait,crions,criez,craient"
     },
     {
@@ -572,12 +645,14 @@
       "ENDING": "re",
       "AUX": "avoir",
       "PPRESENT": "sant",
+      "PPASSE": "t,te,ts,tes",
       "PRESENT": "s,s,t,sons,sez,sent",
       "IMPARFAIT": "sais,sais,sait,sions,siez,saient",
       "PASSE": "sis,sis,sit,sîmes,sîtes,sirent",
       "FUTUR": "rai,ras,ra,rons,rez,ront",
       "SPRESENT": "se,ses,se,sions,siez,sent",
       "SIMPARFAIT": "sisse,sisses,sît,sissions,sissiez,sissent",
+      "IMPERATIF": ",s,,sons,sez,",
       "CONDITION": "rais,rais,rait,rions,riez,raient"
     },
     {
@@ -585,12 +660,14 @@
       "ENDING": "vre",
       "AUX": "avoir",
       "PPRESENT": "vant",
+      "PPASSE": "vi,vie,vis,vies",
       "PRESENT": "s,s,t,vons,vez,vent",
       "IMPARFAIT": "vais,vais,vait,vions,viez,vaient",
       "PASSE": "vis,vis,vit,vîmes,vîtes,virent",
       "FUTUR": "vrai,vras,vra,vrons,vrez,vront",
       "SPRESENT": "ve,ves,ve,vions,viez,vent",
       "SIMPARFAIT": "visse,visses,vît,vissions,vissiez,vissent",
+      "IMPERATIF": ",s,,vons,vez,",
       "CONDITION": "vrais,vrais,vrait,vrions,vriez,vraient"
     },
     {
@@ -598,10 +675,12 @@
       "ENDING": "udre",
       "AUX": "avoir",
       "PPRESENT": "lvant",
+      "PPASSE": "us|lu,ute|lue,us|lus,utes|lues",
       "PRESENT": "us,us,ut,lvons,lvez,lvent",
       "IMPARFAIT": "lvais,lvais,lvait,lvions,lviez,lvaient",
       "FUTUR": "udrai,udras,udra,udrons,udrez,udront",
       "SPRESENT": "lve,lves,lve,lvions,lviez,lvent",
+      "IMPERATIF": ",us,,lvons,lvez,",
       "CONDITION": "udrais,udrais,udrait,udrions,udriez,udraient"
     },
     {
@@ -609,12 +688,14 @@
       "ENDING": "ire",
       "AUX": "avoir",
       "PPRESENT": "iant",
+      "PPASSE": "i,i,is,is",
       "PRESENT": "is,is,it,ions,iez,ient",
       "IMPARFAIT": "iais,iais,iait,iions,iiez,iaient",
       "PASSE": "is,is,it,îmes,îtes,irent",
       "FUTUR": "irai,iras,ira,irons,irez,iront",
       "SPRESENT": "ie,ies,ie,iions,iiez,ient",
       "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",is,,ions,iez,",
       "CONDITION": "irais,irais,irait,irions,iriez,iraient"
     },
     {
@@ -622,10 +703,12 @@
       "ENDING": "ire",
       "AUX": "avoir",
       "PPRESENT": "yant",
+      "PPASSE": "it,ite,its,ites",
       "PRESENT": "is,is,it,yons,yez,ient",
       "IMPARFAIT": "yais,yais,yait,yions,yiez,yaient",
       "FUTUR": "irai,iras,ira,irons,irez,iront",
       "SPRESENT": "ie,ies,ie,yions,yiez,ient",
+      "IMPERATIF": ",is,,yons,yez,",
       "CONDITION": "irais,irais,irait,irions,iriez,iraient"
     },
     {
@@ -633,12 +716,14 @@
       "ENDING": "aire",
       "AUX": "avoir",
       "PPRESENT": "aisant",
+      "PPASSE": "u,u,us,us",
       "PRESENT": "ais,ais,aît|ait,aisons,aisez,aisent",
       "IMPARFAIT": "aisais,aisais,aisait,aisions,aisiez,aisaient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
       "FUTUR": "airai,airas,aira,airons,airez,airont",
       "SPRESENT": "aise,aises,aise,aisions,aisiez,aisent",
       "SIMPARFAIT": "usse,usses,ût,ussions,ussiez,ussent",
+      "IMPERATIF": ",ais,,aisons,aisez,",
       "CONDITION": "airais,airais,airait,airions,airiez,airaient"
     },
     {
@@ -646,12 +731,14 @@
       "ENDING": "oître",
       "AUX": "avoir",
       "PPRESENT": "oissant",
+      "PPASSE": "u,ue,us,ues",
       "PRESENT": "ois,ois,oît,oissons,oissez,oissent",
       "IMPARFAIT": "oissais,oissais,oissait,oissions,oissiez,oissaient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
       "FUTUR": "oîtrai,oîtras,oîtra,oîtrons,oîtrez,oîtront",
       "SPRESENT": "oisse,oisses,oisse,oissions,oissiez,oissent",
       "SIMPARFAIT": "usse,usses,ût,ussions,ussiez,ussent",
+      "IMPERATIF": ",ois,,oissons,oissez,",
       "CONDITION": "oîtrais,oîtrais,oîtrait,oîtrions,oîtriez,oîtraient"
     },
     {
@@ -659,12 +746,14 @@
       "ENDING": "pre",
       "AUX": "avoir",
       "PPRESENT": "pant",
+      "PPASSE": "pu,pue,pus,pues",
       "PRESENT": "ps,ps,pt,pons,pez,pent",
       "IMPARFAIT": "pais,pais,pait,pions,piez,paient",
       "PASSE": "pis,pis,pit,pîmes,pîtes,pirent",
       "FUTUR": "prai,pras,pra,prons,prez,pront",
       "SPRESENT": "pe,pes,pe,pions,piez,pent",
       "SIMPARFAIT": "pisse,pisses,pît,pissions,pissiez,pissent",
+      "IMPERATIF": ",ps,,pons,pez,",
       "CONDITION": "prais,prais,prait,prions,priez,praient"
     },
     {
@@ -672,12 +761,14 @@
       "ENDING": "ndre",
       "AUX": "avoir",
       "PPRESENT": "gnant",
+      "PPASSE": "nt,nte,nts,ntes",
       "PRESENT": "ns,ns,nt,gnons,gnez,gnent",
       "IMPARFAIT": "gnais,gnais,gnait,gnions,gniez,gnaient",
       "PASSE": "gnis,gnis,gnit,gnîmes,gnîtes,gnirent",
       "FUTUR": "ndrai,ndras,ndra,ndrons,ndrez,ndront",
       "SPRESENT": "gne,gnes,gne,gnions,gniez,gnent",
       "SIMPARFAIT": "gnisse,gnisses,gnît,gnissions,gnissiez,gnissent",
+      "IMPERATIF": ",ns,,gnons,gnez,",
       "CONDITION": "ndrais,ndrais,ndrait,ndrions,ndriez,ndraient"
     },
     {
@@ -685,12 +776,14 @@
       "ENDING": "aître",
       "AUX": "être",
       "PPRESENT": "aissant",
+      "PPASSE": "é,ée,és,ées",
       "PRESENT": "ais,ais,aît,aissons,aissez,aissent",
       "IMPARFAIT": "aissais,aissais,aissait,aissions,aissiez,aissaient",
       "PASSE": "aquis,aquis,aquit,aquîmes,aquîtes,aquirent",
       "FUTUR": "aîtrai,aîtras,aîtra,aîtrons,aîtrez,aîtront",
       "SPRESENT": "aisse,aisses,aisse,aissions,aissiez,aissent",
       "SIMPARFAIT": "aquisse,aquisses,aquît,aquissions,aquissiez,aquissent",
+      "IMPERATIF": ",ais,,aissons,aissez,",
       "CONDITION": "aîtrais,aîtrais,aîtrait,aîtrions,aîtriez,aîtraient"
     },
     {
@@ -698,12 +791,14 @@
       "ENDING": "dre",
       "AUX": "avoir",
       "PPRESENT": "lant",
+      "PPASSE": "lu,lue,lus,lues",
       "PRESENT": "ds,ds,d,lons,lez,lent",
       "IMPARFAIT": "lais,lais,lait,lions,liez,laient",
       "PASSE": "lus,lus,lut,lûmes,lûtes,lurent",
       "FUTUR": "drai,dras,dra,drons,drez,dront",
       "SPRESENT": "le,les,le,lions,liez,lent",
       "SIMPARFAIT": "lusse,lusses,lût,lussions,lussiez,lussent",
+      "IMPERATIF": ",ds,,lons,lez,",
       "CONDITION": "drais,drais,drait,drions,driez,draient"
     },
     {
@@ -711,12 +806,14 @@
       "ENDING": "ettre",
       "AUX": "avoir",
       "PPRESENT": "ettant",
+      "PPASSE": "is,ise,is,ises",
       "PRESENT": "ets,ets,et,ettons,ettez,ettent",
       "IMPARFAIT": "ettais,ettais,ettait,ettions,ettiez,ettaient",
       "PASSE": "is,is,it,îmes,îtes,irent",
       "FUTUR": "ettrai,ettras,ettra,ettrons,ettrez,ettront",
       "SPRESENT": "ette,ettes,ette,ettions,ettiez,ettent",
       "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",ets,,ettons,ettez,",
       "CONDITION": "ettrais,ettrais,ettrait,ettrions,ettriez,ettraient"
     },
     {
@@ -724,12 +821,14 @@
       "ENDING": "ire",
       "AUX": "avoir",
       "PPRESENT": "isant",
+      "PPASSE": "i,i,is,is",
       "PRESENT": "is,is,it,isons,isez,isent",
       "IMPARFAIT": "isais,isais,isait,isions,isiez,isaient",
       "PASSE": "isis|is,isis|is,isit|it,isîmes|îmes,isîtes|îtes,isirent|irent",
       "FUTUR": "irai,iras,ira,irons,irez,iront",
       "SPRESENT": "ise,ises,ise,isions,isiez,isent",
       "SIMPARFAIT": "isisse,isisses,isît,isissions,isissiez,isissent",
+      "IMPERATIF": ",is,,isons,isez,",
       "CONDITION": "irais,irais,irait,irions,iriez,iraient"
     },
     {
@@ -737,12 +836,14 @@
       "ENDING": "ire",
       "AUX": "avoir",
       "PPRESENT": "isant",
+      "PPASSE": "u,ue,us,ues",
       "PRESENT": "is,is,it,isons,isez,isent",
       "IMPARFAIT": "isais,isais,isait,isions,isiez,isaient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
       "FUTUR": "irai,iras,ira,irons,irez,iront",
       "SPRESENT": "ise,ises,ise,isions,isiez,isent",
       "SIMPARFAIT": "usse,usses,ût,ussions,ussiez,ussent",
+      "IMPERATIF": ",is,,isons,isez,",
       "CONDITION": "irais,irais,irait,irions,iriez,iraient"
     },
     {
@@ -750,10 +851,12 @@
       "ENDING": "tre",
       "AUX": "avoir",
       "PPRESENT": "tant",
+      "PPASSE": "tu,tue,tus,tues",
       "PRESENT": "s,s,t,tons,tez,tent",
       "IMPARFAIT": "tais,tais,tait,tions,tiez,taient",
       "FUTUR": "trai,tras,tra,trons,trez,tront",
       "SPRESENT": "te,tes,te,tions,tiez,tent",
+      "IMPERATIF": ",s,,tons,tez,",
       "CONDITION": "trais,trais,trait,trions,triez,traient"
     },
     {
@@ -761,12 +864,14 @@
       "ENDING": "aire",
       "AUX": "avoir",
       "PPRESENT": "aisant",
+      "PPASSE": "ait,aite,aits,aites",
       "PRESENT": "ais,ais,ait,aisons,aites,ont",
       "IMPARFAIT": "aisais,aisais,aisait,aisions,aisiez,aisaient",
       "PASSE": "is,is,it,îmes,îtes,irent",
       "FUTUR": "erai,eras,era,erons,erez,eront",
       "SPRESENT": "asse,asses,asse,assions,assiez,assent",
       "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",ais,,aisons,aites,",
       "CONDITION": "erais,erais,erait,erions,eriez,eraient"
     },
     {
@@ -774,12 +879,14 @@
       "ENDING": "ire",
       "AUX": "avoir",
       "PPRESENT": "isant",
+      "PPASSE": "it,ite,its,ites",
       "PRESENT": "is,is,it,isons,ites,isent",
       "IMPARFAIT": "isais,isais,isait,isions,isiez,isaient",
       "PASSE": "is,is,it,îmes,îtes,irent",
       "FUTUR": "irai,iras,ira,irons,irez,iront",
       "SPRESENT": "ise,ises,ise,isions,isiez,isent",
       "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",is,,isons,ites,",
       "CONDITION": "irais,irais,irait,irions,iriez,iraient"
     },
     {
@@ -787,12 +894,14 @@
       "ENDING": "oître",
       "AUX": "avoir",
       "PPRESENT": "oissant",
+      "PPASSE": "u,ue,us,ues",
       "PRESENT": "ois,ois,o[îi]t,oissons,oissez,oissent",
       "IMPARFAIT": "oissais,oissais,oissait,oissions,oissiez,oissaient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
       "FUTUR": "oîtrai,oîtras,oîtra,oîtrons,oîtrez,oîtront",
       "SPRESENT": "oisse,oisses,oisse,oissions,oissiez,oissent",
       "SIMPARFAIT": "usse,usses,ût,ussions,ussiez,ussent",
+      "IMPERATIF": ",ois,,oissons,oissez,",
       "CONDITION": "oîtrais,oîtrais,oîtrait,oîtrions,oîtriez,oîtraient"
     },
     {
@@ -800,12 +909,14 @@
       "ENDING": "oire",
       "AUX": "avoir",
       "PPRESENT": "oyant",
+      "PPASSE": "u,ue,us,ues",
       "PRESENT": "ois,ois,oit,oyons,oyez,oient",
       "IMPARFAIT": "oyais,oyais,oyait,oyions,oyiez,oyaient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
       "FUTUR": "oirai,oiras,oira,oirons,oirez,oiront",
       "SPRESENT": "oie,oies,oie,oyions,oyiez,oient",
       "SIMPARFAIT": "usse,usses,ût,ussions,ussiez,ussent",
+      "IMPERATIF": ",ois,,oyons,oyez,",
       "CONDITION": "oirais,oirais,oirait,oirions,oiriez,oiraient"
     },
     {
@@ -813,12 +924,14 @@
       "ENDING": "re",
       "AUX": "avoir",
       "PPRESENT": "vant",
+      "PPASSE": "t,te,ts,tes",
       "PRESENT": "s,s,t,vons,vez,vent",
       "IMPARFAIT": "vais,vais,vait,vions,viez,vaient",
       "PASSE": "vis,vis,vit,vîmes,vîtes,virent",
       "FUTUR": "rai,ras,ra,rons,rez,ront",
       "SPRESENT": "ve,ves,ve,vions,viez,vent",
       "SIMPARFAIT": "visse,visses,vît,vissions,vissiez,vissent",
+      "IMPERATIF": ",s,,vons,vez,",
       "CONDITION": "rais,rais,rait,rions,riez,raient"
     },
     {
@@ -826,12 +939,14 @@
       "ENDING": "dre",
       "AUX": "avoir",
       "PPRESENT": "sant",
+      "PPASSE": "su,sue,sus,sues",
       "PRESENT": "ds,ds,d,sons,sez,sent",
       "IMPARFAIT": "sais,sais,sait,sions,siez,saient",
       "PASSE": "sis,sis,sit,sîmes,sîtes,sirent",
       "FUTUR": "drai,dras,dra,drons,drez,dront",
       "SPRESENT": "se,ses,se,sions,siez,sent",
       "SIMPARFAIT": "sisse,sisses,sît,sissions,sissiez,sissent",
+      "IMPERATIF": ",ds,,sons,sez,",
       "CONDITION": "drais,drais,drait,drions,driez,draient"
     },
     {
@@ -839,12 +954,14 @@
       "ENDING": "aître",
       "AUX": "avoir",
       "PPRESENT": "aissant",
+      "PPASSE": "u,ue,us,ues",
       "PRESENT": "ais,ais,aît,aissons,aissez,aissent",
       "IMPARFAIT": "aissais,aissais,aissait,aissions,aissiez,aissaient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
       "FUTUR": "aîtrai,aîtras,aîtra,aîtrons,aîtrez,aîtront",
       "SPRESENT": "aisse,aisses,aisse,aissions,aissiez,aissent",
       "SIMPARFAIT": "usse,usses,ût,ussions,ussiez,ussent",
+      "IMPERATIF": ",ais,,aissons,aissez,",
       "CONDITION": "aîtrais,aîtrais,aîtrait,aîtrions,aîtriez,aîtraient"
     },
     {
@@ -852,12 +969,14 @@
       "ENDING": "ire",
       "AUX": "avoir",
       "PPRESENT": "isant",
+      "PPASSE": "it,ite,its,ites",
       "PRESENT": "is,is,it,isons,isez,isent",
       "IMPARFAIT": "isais,isais,isait,isions,isiez,isaient",
       "PASSE": "is,is,it,îmes,îtes,irent",
       "FUTUR": "irai,iras,ira,irons,irez,iront",
       "SPRESENT": "ise,ises,ise,isions,isiez,isent",
       "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",is,,isons,isez,",
       "CONDITION": "irais,irais,irait,irions,iriez,iraient"
     },
     {
@@ -865,12 +984,14 @@
       "ENDING": "ure",
       "AUX": "avoir",
       "PPRESENT": "uant",
+      "PPASSE": "u,ue,us,ues",
       "PRESENT": "us,us,ut,uons,uez,uent",
       "IMPARFAIT": "uais,uais,uait,uions,uiez,uaient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
       "FUTUR": "urai,uras,ura,urons,urez,uront",
       "SPRESENT": "ue,ues,ue,uions,uiez,uent",
       "SIMPARFAIT": "usse,usses,ût,ussions,ussiez,ussent",
+      "IMPERATIF": ",us,,uons,uez,",
       "CONDITION": "urais,urais,urait,urions,uriez,uraient"
     },
     {
@@ -878,9 +999,11 @@
       "ENDING": "ore",
       "AUX": "avoir",
       "PPRESENT": "osant",
+      "PPASSE": "os,ose,os,oses",
       "PRESENT": "os,os,ôt,,,osent",
       "FUTUR": "orai,oras,ora,orons,orez,oront",
       "SPRESENT": "ose,oses,ose,osions,osiez,osent",
+      "IMPERATIF": ",os,,,,",
       "CONDITION": "orais,orais,orait,orions,oriez,oraient"
     },
     {
@@ -888,12 +1011,14 @@
       "ENDING": "oire",
       "AUX": "avoir",
       "PPRESENT": "uvant",
+      "PPASSE": "u,ue,us,ues",
       "PRESENT": "ois,ois,oit,uvons,uvez,oivent",
       "IMPARFAIT": "uvais,uvais,uvait,uvions,uviez,uvaient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
       "FUTUR": "oirai,oiras,oira,oirons,oirez,oiront",
       "SPRESENT": "oive,oives,oive,uvions,uviez,oivent",
       "SIMPARFAIT": "usse,usses,ût,ussions,ussiez,ussent",
+      "IMPERATIF": ",ois,,uvons,uvez,",
       "CONDITION": "oirais,oirais,oirait,oirions,oiriez,oiraient"
     },
     {
@@ -901,12 +1026,14 @@
       "ENDING": "dre",
       "AUX": "avoir",
       "PPRESENT": "dant",
+      "PPASSE": "du,due,dus,dues",
       "PRESENT": "ds,ds,d,dons,dez,dent",
       "IMPARFAIT": "dais,dais,dait,dions,diez,daient",
       "PASSE": "dis,dis,dit,dîmes,dîtes,dirent",
       "FUTUR": "drai,dras,dra,drons,drez,dront",
       "SPRESENT": "de,des,de,dions,diez,dent",
       "SIMPARFAIT": "disse,disses,dît,dissions,dissiez,dissent",
+      "IMPERATIF": ",ds,,dons,dez,",
       "CONDITION": "drais,drais,drait,drions,driez,draient"
     },
     {
@@ -914,12 +1041,14 @@
       "ENDING": "endre",
       "AUX": "avoir",
       "PPRESENT": "enant",
+      "PPASSE": "is,ise,is,ises",
       "PRESENT": "ends,ends,end,enons,enez,ennent",
       "IMPARFAIT": "enais,enais,enait,enions,eniez,enaient",
       "PASSE": "is,is,it,îmes,îtes,irent",
       "FUTUR": "endrai,endras,endra,endrons,endrez,endront",
       "SPRESENT": "enne,ennes,enne,enions,eniez,ennent",
       "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",ends,,enons,enez,",
       "CONDITION": "endrais,endrais,endrait,endrions,endriez,endraient"
     },
     {
@@ -927,12 +1056,14 @@
       "ENDING": "ndre",
       "AUX": "avoir",
       "PPRESENT": "gnant",
+      "PPASSE": "nt,nte,nts,ntes",
       "PRESENT": "ns,ns,nt,gnons,gnez,gnent",
       "IMPARFAIT": "gnais,gnais,gnait,gnions,gniez,gnaient",
       "PASSE": "gnis,gnis,gnit,gnîmes,gnîtes,gnirent",
       "FUTUR": "ndrai,ndras,ndra,ndrons,ndrez,ndront",
       "SPRESENT": "gne,gnes,gne,gnions,gniez,gnent",
       "SIMPARFAIT": "gnisse,gnisses,gnît,gnissions,gnissiez,gnissent",
+      "IMPERATIF": ",ns,,gnons,gnez,",
       "CONDITION": "ndrais,ndrais,ndrait,ndrions,ndriez,ndraient"
     },
     {
@@ -940,12 +1071,14 @@
       "ENDING": "ttre",
       "AUX": "avoir",
       "PPRESENT": "ttant",
+      "PPASSE": "ttu,ttue,ttus,ttues",
       "PRESENT": "ts,ts,t,ttons,ttez,ttent",
       "IMPARFAIT": "ttais,ttais,ttait,ttions,ttiez,ttaient",
       "PASSE": "ttis,ttis,ttit,ttîmes,ttîtes,ttirent",
       "FUTUR": "ttrai,ttras,ttra,ttrons,ttrez,ttront",
       "SPRESENT": "tte,ttes,tte,ttions,ttiez,ttent",
       "SIMPARFAIT": "ttisse,ttisses,ttît,ttissions,ttissiez,ttissent",
+      "IMPERATIF": ",ts,,ttons,ttez,",
       "CONDITION": "ttrais,ttrais,ttrait,ttrions,ttriez,ttraient"
     },
     {
@@ -953,12 +1086,14 @@
       "ENDING": "ndre",
       "AUX": "avoir",
       "PPRESENT": "gnant",
+      "PPASSE": "nt,nte,nts,ntes",
       "PRESENT": "ns,ns,nt,gnons,gnez,gnent",
       "IMPARFAIT": "gnais,gnais,gnait,gnions,gniez,gnaient",
       "PASSE": "gnis,gnis,gnit,gnîmes,gnîtes,gnirent",
       "FUTUR": "ndrai,ndras,ndra,ndrons,ndrez,ndront",
       "SPRESENT": "gne,gnes,gne,gnions,gniez,gnent",
       "SIMPARFAIT": "gnisse,gnisses,gnît,gnissions,gnissiez,gnissent",
+      "IMPERATIF": ",ns,,gnons,gnez,",
       "CONDITION": "ndrais,ndrais,ndrait,ndrions,ndriez,ndraient"
     },
     {
@@ -966,12 +1101,14 @@
       "ENDING": "eter",
       "AUX": "avoir",
       "PPRESENT": "etant",
+      "PPASSE": "eté,etée,etés,etées",
       "PRESENT": "ète,ètes,ète,etons,etez,ètent",
       "IMPARFAIT": "etais,etais,etait,etions,etiez,etaient",
       "PASSE": "etai,etas,eta,etâmes,etâtes,etèrent",
       "FUTUR": "èterai,èteras,ètera,èterons,èterez,èteront",
       "SPRESENT": "ète,ètes,ète,etions,etiez,ètent",
       "SIMPARFAIT": "etasse,etasses,etât,etassions,etassiez,etassent",
+      "IMPERATIF": ",ète,,etons,etez,",
       "CONDITION": "èterais,èterais,èterait,èterions,èteriez,èteraient"
     },
     {
@@ -979,30 +1116,35 @@
       "ENDING": "eler",
       "AUX": "avoir",
       "PPRESENT": "elant",
+      "PPASSE": "elé,elée,elés,elées",
       "PRESENT": "èle,èles,èle,elons,elez,èlent",
       "IMPARFAIT": "elais,elais,elait,elions,eliez,elaient",
       "PASSE": "elai,elas,ela,elâmes,elâtes,elèrent",
       "FUTUR": "èlerai,èleras,èlera,èlerons,èlerez,èleront",
       "SPRESENT": "èle,èles,èle,elions,eliez,èlent",
       "SIMPARFAIT": "elasse,elasses,elât,elassions,elassiez,elassent",
+      "IMPERATIF": ",èle,,elons,elez,",
       "CONDITION": "èlerais,èlerais,èlerait,èlerions,èleriez,èleraient"
     },
     {
       "REGEX": "adirer|douer",
       "ENDING": "er",
-      "AUX": "avoir"
+      "AUX": "avoir",
+      "PPASSE": "é,ée,és,ées"
     },
     {
       "REGEX": "aller",
       "ENDING": "aller",
       "AUX": "être",
       "PPRESENT": "allant",
+      "PPASSE": "allé,ellée,allés,ellées",
       "PRESENT": "vais,vas,va,allons,allez,vont",
       "IMPARFAIT": "allais,allais,allait,allions,alliez,allaient",
       "PASSE": "allai,allas,alla,allâmes,allâtes,allèrent",
       "FUTUR": "irai,iras,ira,irons,irez,iront",
       "SPRESENT": "aille,ailles,aille,allions,alliez,aillent",
       "SIMPARFAIT": "allasse,allasses,allât,allassions,allassiez,allassent",
+      "IMPERATIF": ",va,,allons,allez,",
       "CONDITION": "irais,irais,irait,irions,iriez,iraient"
     },
     {
@@ -1010,25 +1152,29 @@
       "ENDING": "er",
       "AUX": "être",
       "PPRESENT": "ant",
+      "PPASSE": "é,ée,és,ées",
       "PRESENT": "e,es,e,ons,ez,ent",
       "IMPARFAIT": "ais,ais,ait,ions,iez,aient",
       "PASSE": "ai,as,a,âmes,âtes,èrent",
       "FUTUR": "erai,eras,era,erons,erez,eront",
       "SPRESENT": "e,es,e,ions,iez,ent",
       "SIMPARFAIT": "asse,asses,ât,assions,assiez,assent",
+      "IMPERATIF": ",e,,ons,ez,",
       "CONDITION": "erais,erais,erait,erions,eriez,eraient"
     },
     {
       "REGEX": "becter",
       "ENDING": "er",
       "AUX": "avoir",
-      "PPRESENT": "ant"
+      "PPRESENT": "ant",
+      "PPASSE": "é,ée,és,ées"
     },
     {
       "REGEX": "boumer|bruiner|brumasser|brumer|neigeoter|pleuvasser|pleuviner|pleuvoter|pluviner",
       "ENDING": "er",
       "AUX": "avoir",
       "PPRESENT": "ant",
+      "PPASSE": "é,ée,és,ées",
       "PRESENT": ",,e,,,ent",
       "IMPARFAIT": ",,ait,,,aient",
       "PASSE": ",,a,,,èrent",
@@ -1042,6 +1188,7 @@
       "ENDING": "er",
       "AUX": "avoir",
       "PPRESENT": "ant",
+      "PPASSE": "e,e,es,es",
       "IMPARFAIT": "ais,ais,ait,ions,iez,aient"
     },
     {
@@ -1049,12 +1196,14 @@
       "ENDING": "ecer",
       "AUX": "avoir",
       "PPRESENT": "eçant",
+      "PPASSE": "ecé,ecée,ecés,ecées",
       "PRESENT": "èce,èces,èce,eçons,ecez,ècent",
       "IMPARFAIT": "eçais,eçais,eçait,ecions,eciez,eçaient",
       "PASSE": "eçai,eças,eça,eçâmes,eçâtes,ecèrent",
       "FUTUR": "[eè]cerai,[eè]ceras,[eè]cera,[eè]cerons,[eè]cerez,[eè]ceront",
       "SPRESENT": "[eè]ce,[eè]ces,[eè]ce,ecions,eciez,[eè]cent",
       "SIMPARFAIT": "eçasse,eçasses,eçât,eçassions,eçassiez,eçassent",
+      "IMPERATIF": ",[eè]ce,,eçons,ecez,",
       "CONDITION": "[eè]cerais,[eè]cerais,[eè]cerait,[eè]cerions,[eè]ceriez,[eè]ceraient"
     },
     {
@@ -1062,12 +1211,14 @@
       "ENDING": "urer",
       "AUX": "avoir",
       "PPRESENT": "urant",
+      "PPASSE": "uré|u,urée|ue,urés|us,urées|ues",
       "PRESENT": "ure,ures,ure,urons,urez,urent",
       "IMPARFAIT": "urais,urais,urait,urions,uriez,uraient",
       "PASSE": "urai,uras,ura,urâmes,urâtes,urèrent",
       "FUTUR": "urerai,ureras,urera,urerons,urerez,ureront",
       "SPRESENT": "ure,ures,ure,urions,uriez,urent",
       "SIMPARFAIT": "urasse,urasses,urât,urassions,urassiez,urassent",
+      "IMPERATIF": ",ure,,urons,urez,",
       "CONDITION": "urerais,urerais,urerait,urerions,ureriez,ureraient"
     },
     {
@@ -1080,12 +1231,14 @@
       "ENDING": "ecer",
       "AUX": "avoir",
       "PPRESENT": "eçant",
+      "PPASSE": "ecé,ecée,ecés,ecées",
       "PRESENT": "èce,èces,èce,eçons,ecez,ècent",
       "IMPARFAIT": "eçais,eçais,eçait,ecions,eciez,eçaient",
       "PASSE": "eçai,eças,eça,eçâmes,eçâtes,ecèrent",
       "FUTUR": "[eè]cerai,[eè]ceras,[eè]cera,[eè]cerons,[eè]cerez,[eè]ceront",
       "SPRESENT": "èce,èces,èce,ecions,eciez,ècent",
       "SIMPARFAIT": "eçasse,eçasses,eçât,eçassions,eçassiez,eçassent",
+      "IMPERATIF": ",[eè]ce,,eçons,ecez,",
       "CONDITION": "[eè]cerais,[eè]cerais,[eè]cerait,[eè]cerions,[eè]ceriez,[eè]ceraient"
     },
     {
@@ -1093,12 +1246,14 @@
       "ENDING": "oyer",
       "AUX": "avoir",
       "PPRESENT": "oyant",
+      "PPASSE": "oyé,oyée,oyés,oyées",
       "PRESENT": "oie,oies,oie,oyons,oyez,oient",
       "IMPARFAIT": "oyais,oyais,oyait,oyions,oyiez,oyaient",
       "PASSE": "oyai,oyas,oya,oyâmes,oyâtes,oyèrent",
       "FUTUR": "errai,erras,erra,errons,errez,erront",
       "SPRESENT": "oie,oies,oie,oyions,oyiez,oient",
       "SIMPARFAIT": "oyasse,oyasses,oyât,oyassions,oyassiez,oyassent",
+      "IMPERATIF": ",oie,,oyons,oyez,",
       "CONDITION": "errais,errais,errait,errions,erriez,erraient"
     },
     {
@@ -1106,12 +1261,14 @@
       "ENDING": "er",
       "AUX": "avoir",
       "PPRESENT": "ant",
+      "PPASSE": "é|u,ée|ue,és|us,ées|ues",
       "PRESENT": "e,es,e,ons,ez,ent",
       "IMPARFAIT": "ais,ais,ait,ions,iez,aient",
       "PASSE": "ai,as,a,âmes,âtes,èrent",
       "FUTUR": "erai,eras,era,erons,erez,eront",
       "SPRESENT": "e,es,e,ions,iez,ent",
       "SIMPARFAIT": "asse,asses,ât,assions,assiez,assent",
+      "IMPERATIF": ",e,,ons,ez,",
       "CONDITION": "erais,erais,erait,erions,eriez,eraient"
     },
     {
@@ -1119,6 +1276,7 @@
       "ENDING": "er",
       "AUX": "avoir",
       "PPRESENT": "ant",
+      "PPASSE": "é,ée,és,ées",
       "PRESENT": ",,e,,,ent",
       "IMPARFAIT": ",,ait,,,aient",
       "PASSE": ",,a,,,èrent",
@@ -1130,12 +1288,14 @@
     {
       "REGEX": "moufeter",
       "ENDING": "er",
-      "AUX": "avoir"
+      "AUX": "avoir",
+      "PPASSE": "é,ée,és,ées"
     },
     {
       "REGEX": "moufter",
       "ENDING": "er",
       "AUX": "avoir",
+      "PPASSE": "é,ée,és,ées",
       "IMPARFAIT": "ais,ais,ait,ions,iez,aient"
     },
     {
@@ -1143,12 +1303,14 @@
       "ENDING": "écer",
       "AUX": "avoir",
       "PPRESENT": "é[cç]ant",
+      "PPASSE": "écé,écée,écés,écées",
       "PRESENT": "èce,èces,èce,é[cç]ons,écez,ècent",
       "IMPARFAIT": "é[cç]ais,é[cç]ais,é[cç]ait,écions,éciez,é[cç]aient",
       "PASSE": "é[cç]ai,é[cç]as,é[cç]a,é[cç]âmes,é[cç]âtes,écèrent",
       "FUTUR": "écerai,éceras,écera,écerons,écerez,éceront",
       "SPRESENT": "èce,èces,èce,écions,éciez,ècent",
       "SIMPARFAIT": "é[cç]asse,é[cç]asses,é[cç]ât,é[cç]assions,é[cç]assiez,é[cç]assent",
+      "IMPERATIF": ",èce,,é[cç]ons,écez,",
       "CONDITION": "écerais,écerais,écerait,écerions,éceriez,éceraient"
     },
     {
@@ -1156,6 +1318,7 @@
       "ENDING": "er",
       "AUX": "avoir",
       "PPRESENT": "ant",
+      "PPASSE": "é,ée,és,ées",
       "PRESENT": ",,e,,,",
       "IMPARFAIT": ",,ait,,,",
       "PASSE": ",,a,,,",
@@ -1169,6 +1332,7 @@
       "ENDING": "er",
       "AUX": "avoir",
       "PPRESENT": "eant",
+      "PPASSE": "é,ée,és,ées",
       "PRESENT": ",,e,,,",
       "IMPARFAIT": ",,eait,,,",
       "PASSE": ",,ea,,,",
@@ -1182,6 +1346,7 @@
       "ENDING": "enir",
       "AUX": "avoir",
       "PPRESENT": "enant",
+      "PPASSE": "enu,enue,enus,enues",
       "PRESENT": ",,ient,,,iennent",
       "IMPARFAIT": ",,enait,,,enaient",
       "PASSE": ",,int,,,inrent",
@@ -1201,12 +1366,14 @@
       "ENDING": "ir",
       "AUX": "avoir",
       "PPRESENT": "issant",
+      "PPASSE": "i,ie,is,ies",
       "PRESENT": "is,is,it,issons,issez,issent",
       "IMPARFAIT": "issais,issais,issait,issions,issiez,issaient",
       "PASSE": "is,is,it,îmes,îtes,irent",
       "FUTUR": "irai,iras,ira,irons,irez,iront",
       "SPRESENT": "isse,isses,isse,issions,issiez,issent",
       "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",is,,issons,issez,",
       "CONDITION": "irais,irais,irait,irions,iriez,iraient"
     },
     {
@@ -1220,30 +1387,35 @@
       "ENDING": "avoir",
       "AUX": "avoir",
       "PPRESENT": "ayant",
+      "PPASSE": "eu,eue,eus,eues",
       "PRESENT": "ai,as,a,avons,avez,ont",
       "IMPARFAIT": "avais,avais,avait,avions,aviez,avaient",
       "PASSE": "eus,eus,eut,eûmes,eûtes,eurent",
       "FUTUR": "aurai,auras,aura,aurons,aurez,auront",
       "SPRESENT": "aie,aies,ait,ayons,ayez,aient",
       "SIMPARFAIT": "eusse,eusses,eût,eussions,eussiez,eussent",
+      "IMPERATIF": ",aie,,ayons,ayez,",
       "CONDITION": "aurais,aurais,aurait,aurions,auriez,auraient"
     },
     {
       "REGEX": "bienvenir",
       "ENDING": "enir",
-      "AUX": "avoir"
+      "AUX": "avoir",
+      "PPASSE": "enu,enu,enus,enus"
     },
     {
       "REGEX": "bénir",
       "ENDING": "ir",
       "AUX": "avoir",
       "PPRESENT": "issant",
+      "PPASSE": "i|it,ie|ite,is|its,ies|ites",
       "PRESENT": "is,is,it,issons,issez,issent",
       "IMPARFAIT": "issais,issais,issait,issions,issiez,issaient",
       "PASSE": "is,is,it,îmes,îtes,irent",
       "FUTUR": "irai,iras,ira,irons,irez,iront",
       "SPRESENT": "isse,isses,isse,issions,issiez,issent",
       "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",is,,issons,issez,",
       "CONDITION": "irais,irais,irait,irions,iriez,iraient"
     },
     {
@@ -1256,6 +1428,7 @@
       "REGEX": "choir",
       "ENDING": "oir",
       "AUX": "avoir",
+      "PPASSE": "u,ue,us,ues",
       "PRESENT": "ois,ois,oit,ons,oyez,oient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
       "FUTUR": "oirai|errai,oiras|erras,oira|erra,oirons|errons,oirez|errez,oiront|erront",
@@ -1267,12 +1440,14 @@
       "ENDING": "enir",
       "AUX": "avoir",
       "PPRESENT": "enant",
+      "PPASSE": "enu,enue,enus,enues",
       "PRESENT": "iens,iens,ient,enons,enez,iennent",
       "IMPARFAIT": "enais,enais,enait,enions,eniez,enaient",
       "PASSE": "ins,ins,int,înmes,întes,inrent",
       "FUTUR": "iendrai,iendras,iendra,iendrons,iendrez,iendront",
       "SPRESENT": "ienne,iennes,ienne,enions,eniez,iennent",
       "SIMPARFAIT": "insse,insses,înt,inssions,inssiez,inssent",
+      "IMPERATIF": ",iens,,enons,enez,",
       "CONDITION": "iendrais,iendrais,iendrait,iendrions,iendriez,iendraient"
     },
     {
@@ -1280,18 +1455,21 @@
       "ENDING": "enir",
       "AUX": "avoir",
       "PPRESENT": "enant",
+      "PPASSE": "enu,enu,enus,enus",
       "PRESENT": "iens,iens,ient,enons,enez,iennent",
       "IMPARFAIT": "enais,enais,enait,enions,eniez,enaient",
       "PASSE": "ins,ins,int,înmes,întes,inrent",
       "FUTUR": "iendrai,iendras,iendra,iendrons,iendrez,iendront",
       "SPRESENT": "ienne,iennes,ienne,enions,eniez,iennent",
       "SIMPARFAIT": "insse,insses,înt,inssions,inssiez,inssent",
+      "IMPERATIF": ",iens,,enons,enez,",
       "CONDITION": "iendrais,iendrais,iendrait,iendrions,iendriez,iendraient"
     },
     {
       "REGEX": "déchoir",
       "ENDING": "oir",
       "AUX": "avoir",
+      "PPASSE": "u,ue,us,ues",
       "PRESENT": "ois,ois,oit|et,oyons,oyez,oient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
       "FUTUR": "oirai|errai,oiras|erras,oira|erra,oirons|errons,oirez|errez,oiront|erront",
@@ -1304,12 +1482,14 @@
       "ENDING": "illir",
       "AUX": "avoir",
       "PPRESENT": "illant",
+      "PPASSE": "illi,illie,illis,illies",
       "PRESENT": "ille|us,illes|us,ille|ut,illons,illez,illent",
       "IMPARFAIT": "illais,illais,illait,illions,illiez,illaient",
       "PASSE": "illis,illis,illit,illîmes,illîtes,illirent",
       "FUTUR": "illirai|udrai,illiras|udras,illira|udra,illirons,illirez,illiront",
       "SPRESENT": "ille,illes,ille,illions,illiez,illent",
       "SIMPARFAIT": "illisse,illisses,illît,illissions,illissiez,illissent",
+      "IMPERATIF": ",ille,,illons,illez,",
       "CONDITION": "illirais,illirais,illirait,illirions,illiriez,illiraient"
     },
     {
@@ -1317,18 +1497,21 @@
       "ENDING": "tir",
       "AUX": "avoir",
       "PPRESENT": "tant|tissant",
+      "PPASSE": "ti,tie,tis,ties",
       "PRESENT": "s,s,t|tit,tons,tez,tent",
       "IMPARFAIT": "tais,tais,tait|tissait,tions,tiez,taient",
       "PASSE": "tis,tis,tit,tîmes,tîtes,tirent",
       "FUTUR": "tirai,tiras,tira,tirons,tirez,tiront",
       "SPRESENT": "te,tes,te,tions,tiez,tent",
       "SIMPARFAIT": "tisse,tisses,tît,tissions,tissiez,tissent",
+      "IMPERATIF": ",s,,tons,tez,",
       "CONDITION": "tirais,tirais,tirait,tirions,tiriez,tiraient"
     },
     {
       "REGEX": "dépourvoir",
       "ENDING": "oir",
       "AUX": "avoir",
+      "PPASSE": "u,ue,us,ues",
       "PASSE": "us,us,ut,ûmes,ûtes,urent"
     },
     {
@@ -1336,18 +1519,21 @@
       "ENDING": "illir",
       "AUX": "avoir",
       "PPRESENT": "illant",
+      "PPASSE": "illi,illi,illis,illis",
       "PRESENT": "ille|ux,illes|ux,ille|ut,illons,illez,illent",
       "IMPARFAIT": "illais,illais,illait,illions,illiez,illaient",
       "PASSE": "illis,illis,illit,illîmes,illîtes,illirent",
       "FUTUR": "illirai|udrai,illiras|udras,illira|udra,illirons,illirez,illiront",
       "SPRESENT": "ille,illes,ille,illions,illiez,illent",
       "SIMPARFAIT": "illisse,illisses,illît,illissions,illissiez,illissent",
+      "IMPERATIF": ",ille,,illons,illez,",
       "CONDITION": "illirais|udrais,illirais,illirait,illirions,illiriez,illiraient"
     },
     {
       "REGEX": "falloir",
       "ENDING": "lloir",
       "AUX": "avoir",
+      "PPASSE": "llu,llu,llus,llus",
       "PRESENT": ",,ut,,,",
       "IMPARFAIT": ",,llait,,,",
       "PASSE": ",,llut,,,",
@@ -1359,7 +1545,8 @@
     {
       "REGEX": "férir",
       "ENDING": "ir",
-      "AUX": "avoir"
+      "AUX": "avoir",
+      "PPASSE": "u,u,us,us"
     },
     {
       "REGEX": "gésir",
@@ -1373,30 +1560,35 @@
       "REGEX": "huir",
       "ENDING": "ir",
       "AUX": "avoir",
+      "PPASSE": "i,ie,is,ies",
       "PRESENT": "is,is,it,issons,issez,issent"
     },
     {
       "REGEX": "impartir",
       "ENDING": "ir",
       "AUX": "avoir",
+      "PPASSE": "i,ie,is,ies",
       "PRESENT": "is,is,it,issons,issez,issent"
     },
     {
       "REGEX": "issir",
       "ENDING": "ir",
-      "AUX": "avoir"
+      "AUX": "avoir",
+      "PPASSE": "u,ue,us,ues"
     },
     {
       "REGEX": "mentir",
       "ENDING": "tir",
       "AUX": "avoir",
       "PPRESENT": "tant",
+      "PPASSE": "ti,ti,tis,tis",
       "PRESENT": "s,s,t,tons,tez,tent",
       "IMPARFAIT": "tais,tais,tait,tions,tiez,taient",
       "PASSE": "tis,tis,tit,tîmes,tîtes,tirent",
       "FUTUR": "tirai,tiras,tira,tirons,tirez,tiront",
       "SPRESENT": "te,tes,te,tions,tiez,tent",
       "SIMPARFAIT": "tisse,tisses,tît,tissions,tissiez,tissent",
+      "IMPERATIF": ",s,,tons,tez,",
       "CONDITION": "tirais,tirais,tirait,tirions,tiriez,tiraient"
     },
     {
@@ -1415,12 +1607,14 @@
       "ENDING": "ourir",
       "AUX": "être",
       "PPRESENT": "ourant",
+      "PPASSE": "ort,orte,orts,ortes",
       "PRESENT": "eurs,eurs,eurt,ourons,ourez,eurent",
       "IMPARFAIT": "ourais,ourais,ourait,ourions,ouriez,ouraient",
       "PASSE": "ourus,ourus,ourut,ourûmes,ourûtes,oururent",
       "FUTUR": "ourrai,ourras,ourra,ourrons,ourrez,ourront",
       "SPRESENT": "eure,eures,eure,ourions,ouriez,eurent",
       "SIMPARFAIT": "ourusse,ourusses,ourût,ourussions,ourussiez,ourussent",
+      "IMPERATIF": ",eurs,,ourons,ourez,",
       "CONDITION": "ourrais,ourrais,ourrait,ourrions,ourriez,ourraient"
     },
     {
@@ -1428,12 +1622,14 @@
       "ENDING": "ouvoir",
       "AUX": "avoir",
       "PPRESENT": "ouvant",
+      "PPASSE": "û|u,ue,ûs|us,ues",
       "PRESENT": "eus,eus,eut,ouvons,ouvez,euvent",
       "IMPARFAIT": "ouvais,ouvais,ouvait,ouvions,ouviez,ouvaient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
       "FUTUR": "ouvrai,ouvras,ouvra,ouvrons,ouvrez,ouvront",
       "SPRESENT": "euve,euves,euve,ouvions,ouviez,euvent",
       "SIMPARFAIT": "usse,usses,ût,ussions,ussiez,ussent",
+      "IMPERATIF": ",eus,,ouvons,ouvez,",
       "CONDITION": "ouvrais,ouvrais,ouvrait,ouvrions,ouvriez,ouvraient"
     },
     {
@@ -1441,12 +1637,14 @@
       "ENDING": "uïr",
       "AUX": "avoir",
       "PPRESENT": "yant",
+      "PPASSE": "uï,uïe,uïs,uïes",
       "PRESENT": "is,is,it,yons,yez,ient",
       "IMPARFAIT": "yais,yais,yait,yions,yiez,yaient",
       "PASSE": "uïs,uïs,uït,uïmes,uïtes,uïrent",
       "FUTUR": "uïrai|rrai|irai,uïras|rras,uïra|rra,uïrons|rrons,uïrez|rrez,uïront|rront",
       "SPRESENT": "ie,ies,ie,yions,yiez,ient",
       "SIMPARFAIT": "uïsse,uïsses,uït,uïssions,uïssiez,uïssent",
+      "IMPERATIF": ",is,,yons,yez,",
       "CONDITION": "uïrais|rrais|irais,uïrais|rrais,uïrait|rrait,uïrions|rrions,uïriez|rriez,uïraient|rraient"
     },
     {
@@ -1454,12 +1652,14 @@
       "ENDING": "tir",
       "AUX": "être",
       "PPRESENT": "tant",
+      "PPASSE": "ti,tie,tis,ties",
       "PRESENT": "s,s,t,tons,tez,tent",
       "IMPARFAIT": "tais,tais,tait,tions,tiez,taient",
       "PASSE": "tis,tis,tit,tîmes,tîtes,tirent",
       "FUTUR": "tirai,tiras,tira,tirons,tirez,tiront",
       "SPRESENT": "te,tes,te,tions,tiez,tent",
       "SIMPARFAIT": "tisse,tisses,tît,tissions,tissiez,tissent",
+      "IMPERATIF": ",s,,tons,tez,",
       "CONDITION": "tirais,tirais,tirait,tirions,tiriez,tiraient"
     },
     {
@@ -1467,6 +1667,7 @@
       "ENDING": "ouvoir",
       "AUX": "avoir",
       "PPRESENT": "ouvant",
+      "PPASSE": "u,u,us,us",
       "PRESENT": "eux,eux,eut,ouvons,ouvez,euvent",
       "IMPARFAIT": "ouvais,ouvais,ouvait,ouvions,ouviez,ouvaient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
@@ -1480,12 +1681,14 @@
       "ENDING": "loir",
       "AUX": "avoir",
       "PPRESENT": "lant",
+      "PPASSE": "lu,lue,lus,lues",
       "PRESENT": "ux,ux,ut,lons,lez,lent",
       "IMPARFAIT": "lais,lais,lait,lions,liez,laient",
       "PASSE": "lus,lus,lut,lûmes,lûtes,lurent",
       "FUTUR": "udrai,udras,udra,udrons,udrez,udront",
       "SPRESENT": "le,les,le,lions,liez,lent",
       "SIMPARFAIT": "lusse,lusses,lût,lussions,lussiez,lussent",
+      "IMPERATIF": ",ux,,lons,lez,",
       "CONDITION": "udrais,udrais,udrait,udrions,udriez,udraient"
     },
     {
@@ -1493,30 +1696,35 @@
       "ENDING": "oir",
       "AUX": "avoir",
       "PPRESENT": "oyant",
+      "PPASSE": "u,ue,us,ues",
       "PRESENT": "ois,ois,oit,oyons,oyez,oient",
       "IMPARFAIT": "oyais,oyais,oyait,oyions,oyiez,oyaient",
       "PASSE": "is,is,it,îmes,îtes,irent",
       "FUTUR": "oirai,oiras,oira,oirons,oirez,oiront",
       "SPRESENT": "oie,oies,oie,oyions,oyiez,oient",
       "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",ois,,oyons,oyez,",
       "CONDITION": "oirais,oirais,oirait,oirions,oiriez,oiraient"
     },
     {
       "REGEX": "rassir",
       "ENDING": "ir",
-      "AUX": "avoir"
+      "AUX": "avoir",
+      "PPASSE": "is,ise,is,ises"
     },
     {
       "REGEX": "repentir",
       "ENDING": "tir",
       "AUX": "être",
       "PPRESENT": "tant",
+      "PPASSE": "ti,tie,tis,ties",
       "PRESENT": "s,s,t,tons,tez,tent",
       "IMPARFAIT": "tais,tais,tait,tions,tiez,taient",
       "PASSE": "tis,tis,tit,tîmes,tîtes,tirent",
       "FUTUR": "tirai,tiras,tira,tirons,tirez,tiront",
       "SPRESENT": "te,tes,te,tions,tiez,tent",
       "SIMPARFAIT": "tisse,tisses,tît,tissions,tissiez,tissent",
+      "IMPERATIF": ",s,,tons,tez,",
       "CONDITION": "tirais,tirais,tirait,tirions,tiriez,tiraient"
     },
     {
@@ -1524,12 +1732,14 @@
       "ENDING": "tir",
       "AUX": "avoir",
       "PPRESENT": "tant",
+      "PPASSE": "ti,tie,tis,ties",
       "PRESENT": "s,s,t,tons,tez,tent",
       "IMPARFAIT": "tais,tais,tait,tions,tiez,taient",
       "PASSE": "tis,tis,tit,tîmes,tîtes,tirent",
       "FUTUR": "tirai,tiras,tira,tirons,tirez,tiront",
       "SPRESENT": "te,tes,te,tions,tiez,tent",
       "SIMPARFAIT": "tisse,tisses,tît,tissions,tissiez,tissent",
+      "IMPERATIF": ",s,,tons,tez,",
       "CONDITION": "tirais,tirais,tirait,tirions,tiriez,tiraient"
     },
     {
@@ -1544,6 +1754,7 @@
       "ENDING": "ir",
       "AUX": "avoir",
       "PPRESENT": "ant",
+      "PPASSE": "i,ie,is,ies",
       "PRESENT": ",,e,,,ent",
       "IMPARFAIT": ",,ait|issait,,,aient",
       "PASSE": ",,it,,,irent",
@@ -1557,12 +1768,14 @@
       "ENDING": "tir",
       "AUX": "avoir",
       "PPRESENT": "tant",
+      "PPASSE": "ti,tie,tis,ties",
       "PRESENT": "s,s,t,tons,tez,tent",
       "IMPARFAIT": "tais,tais,tait,tions,tiez,taient",
       "PASSE": "tis,tis,tit,tîmes,tîtes,tirent",
       "FUTUR": "tirai,tiras,tira,tirons,tirez,tiront",
       "SPRESENT": "te,tes,te,tions,tiez,tent",
       "SIMPARFAIT": "tisse,tisses,tît,tissions,tissiez,tissent",
+      "IMPERATIF": ",s,,tons,tez,",
       "CONDITION": "tirais,tirais,tirait,tirions,tiriez,tiraient"
     },
     {
@@ -1570,12 +1783,14 @@
       "ENDING": "eoir",
       "AUX": "avoir",
       "PPRESENT": "oyant",
+      "PPASSE": "is,is,is,is",
       "PRESENT": "ois,ois,oit,oyons,oyez,oient",
       "IMPARFAIT": "oyais,oyais,oyait,oyions,oyiez,oyaient",
       "PASSE": "is,is,it,îmes,îtes,irent",
       "FUTUR": "eoirai,eoiras,eoira,eoirons,eoirez,eoiront",
       "SPRESENT": "oie,oies,oie,oyions,oyiez,oient",
       "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",ois,,oyons,oyez,",
       "CONDITION": "eoirais,eoirais,eoirait,eoirions,eoiriez,eoiraient"
     },
     {
@@ -1583,12 +1798,14 @@
       "ENDING": "tir",
       "AUX": "avoir",
       "PPRESENT": "tant",
+      "PPASSE": "tu,tue,tus,tues",
       "PRESENT": "ts,ts,t,tons,tez,tent",
       "IMPARFAIT": "tais,tais,tait,tions,tiez,taient",
       "PASSE": "tis,tis,tit,tîmes,tîtes,tirent",
       "FUTUR": "tirai,tiras,tira,tirons,tirez,tiront",
       "SPRESENT": "te,tes,te,tions,tiez,tent",
       "SIMPARFAIT": "tisse,tisses,tît,tissions,tissiez,tissent",
+      "IMPERATIF": ",ts,,tons,tez,",
       "CONDITION": "tirais,tirais,tirait,tirions,tiriez,tiraient"
     },
     {
@@ -1596,6 +1813,7 @@
       "ENDING": "oir",
       "AUX": "avoir",
       "PPRESENT": "éant",
+      "PPASSE": "u,ue,us,ues",
       "PRESENT": ",,oit|et,,,oient|éent",
       "IMPARFAIT": ",,oyait,,,oyaient",
       "PASSE": ",,ut,,,urent",
@@ -1609,12 +1827,14 @@
       "ENDING": "tre",
       "AUX": "avoir",
       "PPRESENT": "ttant",
+      "PPASSE": "ttu,ttue,ttus,ttues",
       "PRESENT": "ts,ts,t,ttons,ttez,ttent",
       "IMPARFAIT": "ttais,ttais,ttait,ttions,ttiez,ttaient",
       "PASSE": "ttis,ttis,ttit,ttîmes,ttîtes,ttirent",
       "FUTUR": "ttrai,ttras,ttra,ttrons,ttrez,ttront",
       "SPRESENT": "tte,ttes,tte,ttions,ttiez,ttent",
       "SIMPARFAIT": "ttisse,ttisses,ttît,ttissions,ttissiez,ttissent",
+      "IMPERATIF": ",ts,,ttons,ttez,",
       "CONDITION": "ttrais,ttrais,ttrait,ttrions,ttriez,ttraient"
     },
     {
@@ -1627,6 +1847,7 @@
       "ENDING": "ire",
       "AUX": "avoir",
       "PPRESENT": "issant",
+      "PPASSE": "i,i,is,is",
       "PRESENT": ",,it,,,issent",
       "IMPARFAIT": ",,issait,,,issaient",
       "SPRESENT": ",,isse,,,issent"
@@ -1636,12 +1857,14 @@
       "ENDING": "ire",
       "AUX": "avoir",
       "PPRESENT": "isant",
+      "PPASSE": "is,ise,is,ises",
       "PRESENT": "is,is,it,isons,isez,isent",
       "IMPARFAIT": "isais,isais,isait,isions,isiez,isaient",
       "PASSE": "is,is,it,îmes,îtes,irent",
       "FUTUR": "irai,iras,ira,irons,irez,iront",
       "SPRESENT": "ise,ises,ise,isions,isiez,isent",
       "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",is,,isons,isez,",
       "CONDITION": "irais,irais,irait,irions,iriez,iraient"
     },
     {
@@ -1649,30 +1872,35 @@
       "ENDING": "oître",
       "AUX": "avoir",
       "PPRESENT": "oissant",
+      "PPASSE": "û,ue,us,ues",
       "PRESENT": "oîs,oîs,oît,oissons,oissez,oissent",
       "IMPARFAIT": "oissais,oissais,oissait,oissions,oissiez,oissaient",
       "PASSE": "ûs,ûs,ût,ûmes,ûtes,ûrent",
       "FUTUR": "oîtrai,oîtras,oîtra,oîtrons,oîtrez,oîtront",
       "SPRESENT": "oisse,oisses,oisse,oissions,oissiez,oissent",
       "SIMPARFAIT": "ûsse,ûsses,ût,ûssions,ûssiez,ûssent",
+      "IMPERATIF": ",oîs,,oissons,oissez,",
       "CONDITION": "oîtrais,oîtrais,oîtrait,oîtrions,oîtriez,oîtraient"
     },
     {
       "REGEX": "déclore",
       "ENDING": "ore",
-      "AUX": "avoir"
+      "AUX": "avoir",
+      "PPASSE": "os,ose,os,oses"
     },
     {
       "REGEX": "embatre",
       "ENDING": "tre",
       "AUX": "avoir",
       "PPRESENT": "tant",
+      "PPASSE": "tu,tue,tus,tues",
       "PRESENT": "s,s,,tons,tez,tent",
       "IMPARFAIT": "tais,tais,tait,tions,tiez,taient",
       "PASSE": "tis,tis,tit,tîmes,tîtes,tirent",
       "FUTUR": "trai,tras,tra,trons,trez,tront",
       "SPRESENT": "te,tes,te,tions,tiez,tent",
       "SIMPARFAIT": "tisse,tisses,tît,tissions,tissiez,tissent",
+      "IMPERATIF": ",s,,tons,tez,",
       "CONDITION": "trais,trais,trait,trions,triez,traient"
     },
     {
@@ -1680,9 +1908,11 @@
       "ENDING": "ore",
       "AUX": "avoir",
       "PPRESENT": "osant",
+      "PPASSE": "os,ose,os,oses",
       "PRESENT": "os,os,ot,osons,osez,osent",
       "FUTUR": "orai,oras,ora,orons,orez,oront",
       "SPRESENT": "ose,oses,ose,osions,osiez,osent",
+      "IMPERATIF": ",os,,osons,osez,",
       "CONDITION": "orais,orais,orait,orions,oriez,oraient"
     },
     {
@@ -1690,6 +1920,7 @@
       "ENDING": "vre",
       "AUX": "avoir",
       "PPRESENT": "vant",
+      "PPASSE": "vi,vie,vis,vies",
       "PRESENT": ",,t,,,vent",
       "IMPARFAIT": ",,vait,,,vaient",
       "PASSE": ",,vit,,,virent",
@@ -1701,20 +1932,24 @@
     {
       "REGEX": "forclore",
       "ENDING": "ore",
-      "AUX": "avoir"
+      "AUX": "avoir",
+      "PPASSE": "os,ose,os,oses"
     },
     {
       "REGEX": "forfaire|surfaire",
       "ENDING": "aire",
       "AUX": "avoir",
+      "PPASSE": "ait,aite,aits,aites",
       "PRESENT": "ais,ais,ait,,,"
     },
     {
       "REGEX": "frire",
       "ENDING": "ire",
       "AUX": "avoir",
+      "PPASSE": "it,ite,its,ites",
       "PRESENT": "is,is,it,,,",
       "FUTUR": "irai,iras,ira,irons,irez,iront",
+      "IMPERATIF": ",is,,,,",
       "CONDITION": "irais,irais,irait,irions,iriez,iraient"
     },
     {
@@ -1722,12 +1957,14 @@
       "ENDING": "ure",
       "AUX": "avoir",
       "PPRESENT": "uant",
+      "PPASSE": "us,use,us,uses",
       "PRESENT": "us,us,ut,uons,uez,uent",
       "IMPARFAIT": "uais,uais,uait,uions,uiez,uaient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
       "FUTUR": "urai,uras,ura,urons,urez,uront",
       "SPRESENT": "ue,ues,ue,uions,uiez,uent",
       "SIMPARFAIT": "usse,usses,ût,ussions,ussiez,ussent",
+      "IMPERATIF": ",us,,uons,uez,",
       "CONDITION": "urais,urais,urait,urions,uriez,uraient"
     },
     {
@@ -1735,30 +1972,35 @@
       "ENDING": "ire",
       "AUX": "avoir",
       "PPRESENT": "issant",
+      "PPASSE": "it,ite,its,ites",
       "PRESENT": "is,is,it,issons,issez,issent",
       "IMPARFAIT": "issais,issais,issait,issions,issiez,issaient",
       "PASSE": "is,is,it,îmes,îtes,irent",
       "FUTUR": "irai,iras,ira,irons,irez,iront",
       "SPRESENT": "isse,isses,isse,issions,issiez,issent",
       "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",is,,issons,issez,",
       "CONDITION": "irais,irais,irait,irions,iriez,iraient"
     },
     {
       "REGEX": "occire",
       "ENDING": "re",
-      "AUX": "avoir"
+      "AUX": "avoir",
+      "PPASSE": "s,se,s,ses"
     },
     {
       "REGEX": "oindre",
       "ENDING": "ndre",
       "AUX": "avoir",
       "PPRESENT": "gnant",
+      "PPASSE": "nt,nte,nts,ntes",
       "IMPARFAIT": "gnais,gnais,gnait,gnions,gniez,gnaient"
     },
     {
       "REGEX": "parfaire",
       "ENDING": "aire",
       "AUX": "avoir",
+      "PPASSE": "ait,aite,aits,aites",
       "PRESENT": "ais,ais,ait,aisons,aites,ont"
     },
     {
@@ -1766,10 +2008,12 @@
       "ENDING": "aître",
       "AUX": "avoir",
       "PPRESENT": "aissant",
+      "PPASSE": "u,u,us,us",
       "PRESENT": "ais,ais,aît,aissons,aissez,aissent",
       "IMPARFAIT": "aissais,aissais,aissait,aissions,aissiez,aissaient",
       "FUTUR": "aîtrai,aîtras,aîtra,aîtrons,aîtrez,aîtront",
       "SPRESENT": "aisse,aisses,aisse,aissions,aissiez,aissent",
+      "IMPERATIF": ",ais,,aissons,aissez,",
       "CONDITION": "aîtrais,aîtrais,aîtrait,aîtrions,aîtriez,aîtraient"
     },
     {
@@ -1777,6 +2021,7 @@
       "ENDING": "ndre",
       "AUX": "avoir",
       "PPRESENT": "gnant",
+      "PPASSE": "nt",
       "PRESENT": ",,nt,,,",
       "FUTUR": ",,ndra,,,",
       "CONDITION": ",,|ndrait,,,"
@@ -1786,6 +2031,7 @@
       "ENDING": "ire",
       "AUX": "avoir",
       "PPRESENT": "yant",
+      "PPASSE": "it,ite,its,ites",
       "PRESENT": ",,it,,,ient",
       "IMPARFAIT": ",,yait,,,yaient",
       "FUTUR": ",,ira,,,iront",
@@ -1795,19 +2041,22 @@
     {
       "REGEX": "reclure",
       "ENDING": "ure",
-      "AUX": "avoir"
+      "AUX": "avoir",
+      "PPASSE": "us,use,us,uses"
     },
     {
       "REGEX": "recroître",
       "ENDING": "oître",
       "AUX": "avoir",
       "PPRESENT": "oissant",
+      "PPASSE": "û,ue,us,ues",
       "PRESENT": "ois,ois,oît,oissons,oissez,oissent",
       "IMPARFAIT": "oissais,oissais,oissait,oissions,oissiez,oissaient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
       "FUTUR": "oîtrai,oîtras,oîtra,oîtrons,oîtrez,oîtront",
       "SPRESENT": "oisse,oisses,oisse,oissions,oissiez,oissent",
       "SIMPARFAIT": "usse,usses,ût,ussions,ussiez,ussent",
+      "IMPERATIF": ",ois,,oissons,oissez,",
       "CONDITION": "oîtrais,oîtrais,oîtrait,oîtrions,oîtriez,oîtraient"
     },
     {
@@ -1821,6 +2070,7 @@
       "FUTUR": "aîtrai,aîtras,aîtra,aîtrons,aîtrez,aîtront",
       "SPRESENT": "aisse,aisses,aisse,aissions,aissiez,aissent",
       "SIMPARFAIT": "aquisse,aquisses,aquît,aquissions,aquissiez,aquissent",
+      "IMPERATIF": ",ais,,aissons,aissez,",
       "CONDITION": "aîtrais,aîtrais,aîtrait,aîtrions,aîtriez,aîtraient"
     },
     {
@@ -1828,12 +2078,14 @@
       "ENDING": "aître",
       "AUX": "avoir",
       "PPRESENT": "aissant",
+      "PPASSE": "u,u,us,us",
       "PRESENT": "ais,ais,aît,aissons,aissez,aissent",
       "IMPARFAIT": "aissais,aissais,aissait,aissions,aissiez,aissaient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
       "FUTUR": "aîtrai,aîtras,aîtra,aîtrons,aîtrez,aîtront",
       "SPRESENT": "aisse,aisses,aisse,aissions,aissiez,aissent",
       "SIMPARFAIT": "usse,usses,ût,ussions,ussiez,ussent",
+      "IMPERATIF": ",ais,,aissons,aissez,",
       "CONDITION": "aîtrais,aîtrais,aîtrait,aîtrions,aîtriez,aîtraient"
     },
     {
@@ -1841,12 +2093,14 @@
       "ENDING": "udre",
       "AUX": "avoir",
       "PPRESENT": "lvant",
+      "PPASSE": "lu,lue,lus,lues",
       "PRESENT": "us,us,ut,lvons,lvez,lvent",
       "IMPARFAIT": "lvais,lvais,lvait,lvions,lviez,lvaient",
       "PASSE": "lus,lus,lut,lûmes,lûtes,lurent",
       "FUTUR": "udrai,udras,udra,udrons,udrez,udront",
       "SPRESENT": "lve,lves,lve,lvions,lviez,lvent",
       "SIMPARFAIT": "lusse,lusses,lût,lussions,lussiez,lussent",
+      "IMPERATIF": ",us,,lvons,lvez,",
       "CONDITION": "udrais,udrais,udrait,udrions,udriez,udraient"
     },
     {
@@ -1860,6 +2114,7 @@
       "REGEX": "stupéfaire",
       "ENDING": "aire",
       "AUX": "avoir",
+      "PPASSE": "ait,aite,aits,aites",
       "PRESENT": ",,ait,,,"
     },
     {
@@ -1867,12 +2122,14 @@
       "ENDING": "ire",
       "AUX": "avoir",
       "PPRESENT": "isant",
+      "PPASSE": "i,i,is,is",
       "PRESENT": "is,is,it,isons,isez,isent",
       "IMPARFAIT": "isais,isais,isait,isions,isiez,isaient",
       "PASSE": "is,is,it,îmes,îtes,irent",
       "FUTUR": "irai,iras,ira,irons,irez,iront",
       "SPRESENT": "ise,ises,ise,isions,isiez,isent",
       "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",is,,isons,isez,",
       "CONDITION": "irais,irais,irait,irions,iriez,iraient"
     },
     {
@@ -1880,24 +2137,28 @@
       "ENDING": "aire",
       "AUX": "avoir",
       "PPRESENT": "aisant",
+      "PPASSE": "u,ue,us,ues",
       "PRESENT": "ais,ais,ait,aisons,aisez,aisent",
       "IMPARFAIT": "aisais,aisais,aisait,aisions,aisiez,aisaient",
       "PASSE": "us,us,ut,ûmes,ûtes,urent",
       "FUTUR": "airai,airas,aira,airons,airez,airont",
       "SPRESENT": "aise,aises,aise,aisions,aisiez,aisent",
       "SIMPARFAIT": "usse,usses,ût,ussions,ussiez,ussent",
+      "IMPERATIF": ",ais,,aisons,aisez,",
       "CONDITION": "airais,airais,airait,airions,airiez,airaient"
     },
     {
       "REGEX": "tistre",
       "ENDING": "tre",
-      "AUX": "avoir"
+      "AUX": "avoir",
+      "PPASSE": "su,sue,sus,sues"
     },
     {
       "REGEX": "éclore",
       "ENDING": "ore",
       "AUX": "avoir",
       "PPRESENT": "osant",
+      "PPASSE": "os,ose,os,oses",
       "PRESENT": ",,ot,,,osent",
       "FUTUR": ",,ora,,,oront",
       "SPRESENT": ",,ose,,,osent",
@@ -1908,12 +2169,14 @@
       "ENDING": "être",
       "AUX": "avoir",
       "PPRESENT": "étant",
+      "PPASSE": "été,été,étés,étés",
       "PRESENT": "suis,es,est,sommes,êtes,sont",
       "IMPARFAIT": "étais,étais,était,étions,étiez,étaient",
       "PASSE": "fus,fus,fut,fûmes,fûtes,furent",
       "FUTUR": "serai,seras,sera,serons,serez,seront",
       "SPRESENT": "sois,sois,soit,soyons,soyez,soient",
       "SIMPARFAIT": "fusse,fusses,fût,fussions,fussiez,fussent",
+      "IMPERATIF": ",sois,,soyons,soyez,",
       "CONDITION": "serais,serais,serait,serions,seriez,seraient"
     }
   ]
