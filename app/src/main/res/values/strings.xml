@@ -48,4 +48,5 @@
     <string name="play_again">Rejouer</string>
     <string name="result_popup">Fin de partie!</string>
     <string name="button">Button</string>
+    <string name="conjugaison_game">Conjugaison</string>
 </resources>
