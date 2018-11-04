@@ -6,18 +6,15 @@ public interface I_SetConjugaison {
 
         I_Conjugaison createASentence();
 
-        I_Conjugaison getSentence();
+        String getTempsConjugaison();
 
         String getSujetConjugaison();
 
         String getVerbeConjugaison();
 
-        String getTempsConjugaison();
+        String getComplementConjugaison();
 
         String getInfinitifConjugaison();
 
         int getNbEtoiles();
-
-        int getidinf();
-        int getidvbc();
 }

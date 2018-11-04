@@ -32,7 +32,6 @@ public class MainActivity extends ActivityUtil {
     MediaPlayer playerEvent;
     private AnimationDrawable mOwlAnimation;
     Toast toast;
-
     public static String getPlayerName() {
         return playerName;
     }
@@ -60,7 +59,7 @@ public class MainActivity extends ActivityUtil {
         music = R.raw.bensound_jazzyfrenchy;
         startBackgroundMusic(this, music);
 
-        //On test la reference ici
+        //On terminaisons.json la reference ici
         if (playerName == "noName") {
             alertDialog();
         }
@@ -201,7 +200,7 @@ public class MainActivity extends ActivityUtil {
         updateDialog.show();
     }
 
-    protected void showText(String text) {
+    public void showText(String text) {
 
         Context context = getApplicationContext();
         int duration = Toast.LENGTH_SHORT;

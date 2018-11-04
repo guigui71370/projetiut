@@ -1,5 +1,3 @@
-
-
 package com.example.cassa.entrainementprojettut.gameUtils;
 
 import android.app.Activity;
@@ -25,8 +23,8 @@ import android.widget.Toast;
 
 import com.example.cassa.entrainementprojettut.MainActivity;
 import com.example.cassa.entrainementprojettut.R;
-import com.example.cassa.entrainementprojettut.database.DAOscore;
-import com.example.cassa.entrainementprojettut.playerUtils.Score;
+import com.example.cassa.entrainementprojettut.database.AppDatabase;
+import com.example.cassa.entrainementprojettut.database.Score;
 import com.plattysoft.leonids.ParticleSystem;
 
 public class GameActivity extends ActivityUtil implements AppCompatCallback,
@@ -44,11 +42,11 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
     protected ImageView IAImage;
     protected Runnable looseActivity;
     protected Runnable scoreMode;
-    protected int numericalScore;
+    protected long numericalScore;
     protected long timeScore;
     protected String currentActivityName;
     protected int currentLevel;
-    protected DAOscore daOscore=DAOscore.getInstance(this);
+
     protected String playerName = MainActivity.getPlayerName();
 
     protected  void showText(String text){
@@ -141,9 +139,9 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
             }
         });
     }
+
     protected void showResultScreen(final Activity activity) {
         if(!activity.isFinishing()) {
-            Score score;
             if (looseActivity != null) {
                 handler.removeCallbacks(looseActivity);
             }
@@ -172,18 +170,10 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
                 lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
                 window.setAttributes(lp);
 
-
                 if (numericalScore > 0) {
-                    String highScore = actualHigscore();
-                    score = new Score(currentActivityName, playerName, numericalScore, currentLevel);
-                    highScore = checkScore(score, highScore);
-                    mTextViewMessage.setText("Ton score est de " + numericalScore + " Record actuel " + highScore);
+                    checkTimeScore(mTextViewMessage, numericalScore, "Ton score est de ", " Record actuel :");
                 } else if (timeScore > 0) {
-                    String highScore = actualHigscore();
-                    score = new Score(currentActivityName, playerName, timeScore, currentLevel);
-                    highScore = checkScore(score, highScore);
-                    mTextViewMessage.setText("Bravo, tu as réussi en " + timeScore + " secondes! Record actuel " + highScore);
-
+                    checkTimeScore(mTextViewMessage, timeScore, "Bravo, tu as réussi en ", " secondes! Record actuel :");
                 }
                 dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
@@ -222,16 +212,21 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
         }
     }
 
-    private String checkScore(Score score, String highScore) {
-        if(checkScore(currentActivityName,currentLevel)){
-            highScore=score.standardDisplay();
+    private void checkTimeScore(TextView mTextViewMessage, long Score, String s, String s2) {
+        AppDatabase database;
+        database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
+        long highScore = database.getScoreDao().findScoreForAGame(currentActivityName, currentLevel);
+        if (highScore == 0) {
+            database.getScoreDao().addScore(new Score(playerName, Score, currentActivityName, currentLevel));
+            highScore = Score;
+        } else if (highScore > Score) {
+            database.getScoreDao().updateScore(new Score(playerName, Score, currentActivityName, currentLevel));
+            highScore = Score;
         }
-        return highScore;
+        mTextViewMessage.setText(s + Score + s2 + highScore);
+        database.destroyInstance();
     }
 
-    private String actualHigscore() {
-        return daOscore.findScoreForAGame(currentActivityName,currentLevel).standardDisplay();
-    }
 
     protected void showLooseScreen(final Activity activity){
         if(!activity.isFinishing()) {
@@ -302,8 +297,6 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
         }
     }
 
-
-
     protected void moveImage(ImageView pImage, float pDestination, int pDuration, float pPosDepart){
 
         TranslateAnimation animationTranslation=new TranslateAnimation(pPosDepart,pDestination,0,0);
@@ -338,8 +331,6 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
         handler.removeCallbacks(scoreMode);
     }
 
-
-
     protected void startChrono(final Activity srcActivity, int temps){
         looseActivity = new Runnable() {
             @Override
@@ -356,7 +347,6 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
 
                 if(srcActivity != null){
                     showResultScreen(srcActivity);
-                    checkScore(currentActivityName,currentLevel);
                 }
 
             }
@@ -378,39 +368,6 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
                 .setRotationSpeed(150)
                 .setAcceleration(0.00005f, 90)
                 .oneShot(findViewById(view), 64);
-    }
-
-    protected boolean checkScore(String gameName,int difficulty){
-        Score score;
-        if (numericalScore > 0){
-            score=new Score(gameName,playerName,numericalScore,difficulty);
-            return pointScoreBreaked(score);
-        }
-        else if (timeScore > 0){
-            score=new Score(gameName,playerName,timeScore,difficulty);
-            return timeScoreBreaked(score);
-        }
-        return false;
-    }
-
-    private boolean timeScoreBreaked(Score score) {
-        if (daOscore.timeScoreBreaked(score)){
-            daOscore.updateScore(score);
-            DAOscore.getInstance(this).close();
-            return true;
-        }else {
-            return false;
-        }
-    }
-
-    private boolean pointScoreBreaked(Score score) {
-        if (daOscore.pointScoreBreaked(score)){
-            daOscore.updateScore(score);
-            DAOscore.getInstance(this).close();
-            return true;
-        }else{
-            return false;
-        }
     }
 
 }

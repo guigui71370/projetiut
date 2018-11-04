@@ -1,12 +1,9 @@
 package com.example.cassa.entrainementprojettut.conjugaison.Conjugaisons;
 
 public interface I_Conjugaison {
-
+    String getTemps();
     String getSujet();
     String getVerbe();
-    String getTemps();
+    String getComplement();
     String getInfinitif();
-     int getIdverbe();
-    int getIdvbconj();
-    String displayResult();
 }

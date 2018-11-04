@@ -54,7 +54,7 @@ public class PianoActivity extends GameActivity implements View.OnClickListener 
             @Override
             public void onDismiss(DialogInterface dialogInterface) {
                 if (levelChosen != 0) {
-                    initializeScoreValues("piano",levelChosen);
+                    initializeScoreValues("Piano",levelChosen);
                     generatNewGame();
                 } else {
                     PianoActivity.this.onStop();

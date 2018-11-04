@@ -152,7 +152,7 @@ public class AdditionActivity extends GameActivity implements View.OnClickListen
                 unableScoreMode();
                 chronometer.stop();
                 timeScore =  (SystemClock.elapsedRealtime() - chronometer.getBase())/1000;
-                initializeScoreValues("operation",levelChosen);
+                initializeScoreValues("Operation",levelChosen);
                 showResultScreen(this);
 
             }

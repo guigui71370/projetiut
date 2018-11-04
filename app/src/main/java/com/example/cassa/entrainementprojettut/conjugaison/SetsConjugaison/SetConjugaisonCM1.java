@@ -1,19 +1,25 @@
 package com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison;
 
 import com.example.cassa.entrainementprojettut.conjugaison.Conjugaisons.I_Conjugaison;
-import com.example.cassa.entrainementprojettut.conjugaison.Conjugaisons.Present;
+import com.example.cassa.entrainementprojettut.conjugaison.Conjugaisons.Phrase;
+
+import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeTemps.PASSESIMPLE;
+import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeTemps.PRESENTINDICATIF;
 
 public class SetConjugaisonCM1 implements I_SetConjugaison {
     private I_Conjugaison conjugaison;
-    private String groupe = "Groupe1";
+    private int groupe;
+    private int randomTemps;
     private int nbEtoiles = 5;
+    private String temps;
 
     public SetConjugaisonCM1() {
         this.conjugaison = createASentence();
     }
 
-    public I_Conjugaison getSentence() {
-        return conjugaison;
+    @Override
+    public String getTempsConjugaison() {
+        return conjugaison.getTemps();
     }
 
     @Override
@@ -27,8 +33,8 @@ public class SetConjugaisonCM1 implements I_SetConjugaison {
     }
 
     @Override
-    public String getTempsConjugaison() {
-        return conjugaison.getTemps();
+    public String getComplementConjugaison() {
+        return conjugaison.getComplement();
     }
 
     public int getNbEtoiles() {
@@ -38,21 +44,25 @@ public class SetConjugaisonCM1 implements I_SetConjugaison {
     public String getInfinitifConjugaison(){
         return conjugaison.getInfinitif();
     }
-    @Override
-    public int getidinf() {
-        return this.conjugaison.getIdverbe();
-    }
 
-    @Override
-    public int getidvbc() {
-        return this.conjugaison.getIdvbconj();
-    }
     public I_Conjugaison createASentence() {
         return generateConjugaison();
     }
 
     private I_Conjugaison generateConjugaison() {
-        I_Conjugaison iconjugaison = new Present(groupe);
-        return iconjugaison;
+        groupe = (int) (1 + (Math.random() * (3))); //1er ou 2e ou 3e groupe
+        randomTemps = (int) (1 + (Math.random() * (2))); //PresentIndicatif ou PasseSimple
+        switch (randomTemps){
+            case 1:
+                temps = PRESENTINDICATIF.getTemps();
+                I_Conjugaison iconjugaisonPresentIndicatif= new Phrase(groupe,temps);
+                return iconjugaisonPresentIndicatif;
+            case 2:
+                temps = PASSESIMPLE.getTemps();
+                I_Conjugaison iconjugaisonPasseSimple = new Phrase(groupe,temps);
+                return iconjugaisonPasseSimple;
+            default:
+                return null;
+        }
     }
 }

@@ -49,7 +49,7 @@ public class FlagActivity extends GameActivity implements View.OnClickListener {
                 if (levelChosen != 0) {
 
                     generateNewGame();
-                    initializeScoreValues("flag",levelChosen);
+                    initializeScoreValues("Flag",levelChosen);
                     launchTimer(FlagActivity.this,30000,R.id.acivity_flag_player_img,R.id.activity_flag_IA_img);
 
                 } else {

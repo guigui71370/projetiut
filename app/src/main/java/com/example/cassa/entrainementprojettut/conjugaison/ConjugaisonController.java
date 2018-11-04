@@ -14,14 +14,17 @@ public class ConjugaisonController {
             return setConjugaison.getTempsConjugaison();
         }
 
+        public String getSujetConjugaison(){
+        return setConjugaison.getSujetConjugaison();
+    }
+
         public String getVerbeConjugaison(){
             return setConjugaison.getVerbeConjugaison();
         }
 
-        public String getSujetConjugaison(){
-            return setConjugaison.getSujetConjugaison();
+        public String getComplementConjugaison() {
+            return setConjugaison.getComplementConjugaison();
         }
-
         public String getInfinitifConjugaison() {
             return setConjugaison.getInfinitifConjugaison();
         }
@@ -29,13 +32,4 @@ public class ConjugaisonController {
         public int getNbEtoiles(){
             return setConjugaison.getNbEtoiles();
         }
-        public int getidverbe(){
-        return setConjugaison.getidinf();
-    }
-
-        public int getidverbeconj(){
-        return setConjugaison.getidvbc();
-    }
-
-
     }
