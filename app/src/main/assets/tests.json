@@ -1,0 +1,49 @@
+{
+  "prototype":[
+    {
+      "REGEX": ".*er",
+      "ENDING": "er",
+      "AUX": "avoir",
+      "PPRESENT": "ant,ant,ant,ant,ant,ant",
+      "PPASSE": "é,ée,és,ées",
+      "PRESENT": "e,es,e,ons,ez,ent",
+      "IMPARFAIT": "ais,ais,ait,ions,iez,aient",
+      "PASSE": "ai,as,a,âmes,âtes,èrent",
+      "FUTUR": "erai,eras,era,erons,erez,eront",
+      "SPRESENT": "e,es,e,ions,iez,ent",
+      "SIMPARFAIT": "asse,asses,ât,assions,assiez,assent",
+      "IMPERATIF": " ,e, ,ons,ez, ",
+      "CONDITION": "erais,erais,erait,erions,eriez,eraient"
+    },
+    {
+      "REGEX": ".*ir",
+      "ENDING": "ir",
+      "AUX": "avoir",
+      "PPRESENT": "issant",
+      "PPASSE": "i,ie,is,ies",
+      "PRESENT": "is,is,it,issons,issez,issent",
+      "IMPARFAIT": "issais,issais,issait,issions,issiez,issaient",
+      "PASSE": "is,is,it,îmes,îtes,irent",
+      "FUTUR": "irai,iras,ira,irons,irez,iront",
+      "SPRESENT": "isse,isses,isse,issions,issiez,issent",
+      "SIMPARFAIT": "isse,isses,ît,issions,issiez,issent",
+      "IMPERATIF": ",is,,issons,issez,",
+      "CONDITION": "irais,irais,irait,irions,iriez,iraient"
+    },
+    {
+      "REGEX": ".*e([lt])er",
+      "ENDING": "eter",
+      "AUX": "avoir",
+      "PPRESENT": "e?ant,e?ant,e?ant,e?ant,e?ant,e?ant",
+      "PPASSE": "e?é,e?ée,e?és,e?ées",
+      "PRESENT": "e??e,e??es,e??e,e?ons,e?ez,e??ent",
+      "IMPARFAIT": "e?ais,e?ais,e?ait,e?ions,e?iez,e?aient",
+      "PASSE": "e?ai,e?as,e?a,e?âmes,e?âtes,e?èrent",
+      "FUTUR": "e??erai,e??eras,e??era,e??erons,e??erez,e??eront",
+      "SPRESENT": "e??e,e??es,e??e,e?ions,e?iez,e??ent",
+      "SIMPARFAIT": "e?asse,e?asses,e?ât,e?assions,e?assiez,e?assent",
+      "IMPERATIF": ",e??e,,e?ons,e?ez,",
+      "CONDITION": "e??erais,e??erais,e??erait,e??erions,e??eriez,e??eraient"
+    }
+  ]
+}
