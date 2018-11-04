@@ -101,8 +101,6 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
             }
         }
 
-        database.destroyInstance();
-
         music = R.raw.bensound_cute;
         startBackgroundMusic(this,music);
 
