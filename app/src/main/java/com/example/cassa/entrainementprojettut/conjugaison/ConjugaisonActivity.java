@@ -80,8 +80,8 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         initializeGame();
 
         database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
-       //database.getInfinitifDao().removeAllInfinitif();
-       //database.getVerbeConjugueDao().removeAllVerbeConjugue();
+        database.getInfinitifDao().removeAllInfinitif();
+        database.getVerbeConjugueDao().removeAllVerbeConjugue();
         new addVerbeDatabase().execute();
 
         music = R.raw.bensound_cute;
