@@ -26,6 +26,9 @@ public interface VerbeConjugueDao {
     @Query("SELECT verbeConjugue FROM VerbeConjugue V JOIN INFINITIF I ON V.infinitifId = I.idInfinitif " +
             "WHERE temps= :temps AND sujet = :sujet AND I.infinitifVerbe= :infinitif")
     String findVerbeConjugue(String temps, String sujet, String infinitif);
-
+    
+    @Query("SELECT verbeConjugue FROM VerbeConjugue V JOIN INFINITIF I ON V.infinitifId = I.idInfinitif "
+            +"WHERE temps= :temps and sujet!= :sujet and I.infinitifVerbe= :infinitif")
+    String[] listfindVerbeConjugue(String temps, String sujet, String infinitif);
 
 }

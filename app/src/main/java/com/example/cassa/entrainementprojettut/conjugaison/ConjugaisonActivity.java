@@ -79,6 +79,9 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         showMenu();
         initializeGame();
 
+        database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
+       //database.getInfinitifDao().removeAllInfinitif();
+       //database.getVerbeConjugueDao().removeAllVerbeConjugue();
         new addVerbeDatabase().execute();
 
         music = R.raw.bensound_cute;
@@ -126,7 +129,7 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
     }
 
     private void addVerbeDatabase() {
-        database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
+        //database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
 
         //On recupere tous les infinitifs deja dans la BD
         List<Infinitif> infinitifList = database.getInfinitifDao().getAllInfinitif();
@@ -175,8 +178,6 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
             HashMap<String, String> m_li;
 
             String regex_value = "Pas de regex";
-            String infinitive_value = "Pas d'infinitive";
-            String radical_value = "Pas de radical";
             String ending_value = "Pas de ending";
             String aux_value = "Pas d'auxiliaire";
             String ppasse_value = "Pas de Participe Passe";
@@ -339,14 +340,28 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
 
     public void setVerbeMalConjugue(){
         //¨Pour les tests
-        verb1.setText(ctrl.getVerbeConjugaison());
-        verb1.setContentDescription(ctrl.getVerbeConjugaison());
-        verb2.setText(ctrl.getInfinitifConjugaison()+"ait");
-        verb2.setContentDescription(ctrl.getInfinitifConjugaison()+"ait");
-        verb3.setText(ctrl.getInfinitifConjugaison()+"es");
-        verb3.setContentDescription(ctrl.getInfinitifConjugaison()+"es");
-        verb4.setText(ctrl.getInfinitifConjugaison()+"is");
-        verb4.setContentDescription(ctrl.getInfinitifConjugaison()+"is");
+        String[] badAnswer=database.getVerbeConjugueDao().listfindVerbeConjugue(ctrl.getTempsConjugaison(), ctrl.getSujetConjugaison(),ctrl.getInfinitifConjugaison());
+        String[] placement=new  String[4];
+
+        int goodPosition=(int)(Math.random() * 4);
+        placement[goodPosition]=ctrl.getVerbeConjugaison();
+
+        for(int i=0;i<placement.length;i++){
+            int answerPosition=(int)(Math.random() * badAnswer.length);
+            if(placement[i]==null){
+                placement[i]=badAnswer[answerPosition];
+            }
+
+        }
+
+        verb1.setText(placement[0]);
+        verb1.setContentDescription(placement[0]);
+        verb2.setText(placement[1]);
+        verb2.setContentDescription(placement[1]);
+        verb3.setText(placement[2]);
+        verb3.setContentDescription(placement[2]);
+        verb4.setText(placement[3]);
+        verb4.setContentDescription(placement[3]);
     }
 
     private void showMenu(){
