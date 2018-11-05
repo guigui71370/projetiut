@@ -70,7 +70,6 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
     };
 
     private int goodAnswer = 0;
-    private int badAnswer = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,9 +78,9 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         showMenu();
         initializeGame();
 
-        database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
+        /*database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
         database.getInfinitifDao().removeAllInfinitif();
-        database.getVerbeConjugueDao().removeAllVerbeConjugue();
+        database.getVerbeConjugueDao().removeAllVerbeConjugue();*/
         new addVerbeDatabase().execute();
 
         music = R.raw.bensound_cute;
@@ -129,7 +128,7 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
     }
 
     private void addVerbeDatabase() {
-        //database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
+        database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
 
         //On recupere tous les infinitifs deja dans la BD
         List<Infinitif> infinitifList = database.getInfinitifDao().getAllInfinitif();
@@ -152,7 +151,7 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         }
     }
 
-    //Pour l'instant avec le fichier tests.json, plus tard avec le fichier terminaisons.json
+    //Plus tard avec le fichier terminaisons.json
     public String loadJSONFromAsset() {
         String json = null;
         try {
@@ -332,7 +331,6 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
        }else{
            showText(getString(R.string.to_bad) + " " +ctrl.getVerbeConjugaison());
            verbe.setText(ctrl.getVerbeConjugaison().toLowerCase());
-           badAnswer++;
            handler.postDelayed(activateButton, 2100);
            handler.postDelayed(generateConjugaison,2100);
        }
@@ -341,18 +339,24 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
     public void setVerbeMalConjugue(){
         //¨Pour les tests
         String[] badAnswer=database.getVerbeConjugueDao().listfindVerbeConjugue(ctrl.getTempsConjugaison(), ctrl.getSujetConjugaison(),ctrl.getInfinitifConjugaison());
-        String[] placement=new  String[4];
+        String[] placement=new String[4];
 
         int goodPosition=(int)(Math.random() * 4);
         placement[goodPosition]=ctrl.getVerbeConjugaison();
 
         for(int i=0;i<placement.length;i++){
-            int answerPosition=(int)(Math.random() * badAnswer.length);
+            int answerPosition=(int)(Math.random() * (badAnswer.length-1));
             if(placement[i]==null){
                 placement[i]=badAnswer[answerPosition];
             }
 
         }
+
+       /*TEST String[] placement=new  String[4];
+        placement[0] = "Bonjour";
+        placement[1] = "Bonjour";
+        placement[2] = "Bonjour";
+        placement[3] = "Bonjour";*/
 
         verb1.setText(placement[0]);
         verb1.setContentDescription(placement[0]);
