@@ -19,6 +19,10 @@ public interface ScoreDao {
     @Query("SELECT * FROM Score")
     List<Score> getAllScore();
 
+
+    @Query("SELECT * FROM Score WHERE gameName = :gameName")
+    List<Score> getAllScoreforgame(String gameName);
+
     @Query("SELECT value FROM Score WHERE gameName = :gameName AND difficulty = :difficulty")
     long findScoreForAGame(String gameName, int difficulty);
 }
