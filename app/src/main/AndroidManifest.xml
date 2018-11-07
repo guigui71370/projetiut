@@ -51,6 +51,9 @@
             android:launchMode="singleTask"
             android:screenOrientation="landscape"/>
 
+        <activity android:name=".score.ScoreActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>

@@ -23,7 +23,7 @@ import com.example.cassa.entrainementprojettut.geography.GeographyActivity;
 import com.example.cassa.entrainementprojettut.mysteryWord.MysteryWordActivity;
 import com.example.cassa.entrainementprojettut.operationGame.AdditionActivity;
 import com.example.cassa.entrainementprojettut.pianoGame.PianoActivity;
-
+import com.example.cassa.entrainementprojettut.score.ScoreActivity;
 import java.util.regex.Pattern;
 
 public class MainActivity extends ActivityUtil {
@@ -52,6 +52,7 @@ public class MainActivity extends ActivityUtil {
         Button btnGeographyTag = findViewById(R.id.activity_main_geographyTag);
         Button btnPiano = findViewById(R.id.activity_main_piano);
         Button btnConjugaison = findViewById(R.id.activity_main_conjugaison);
+        Button scoreTest=findViewById(R.id.button8);
         ImageView owlImg = findViewById(R.id.chouettes_menu);
         owlImg.setBackgroundResource(R.drawable.animation_chouettes_menu);
         mOwlAnimation = (AnimationDrawable) owlImg.getBackground();
@@ -148,6 +149,20 @@ public class MainActivity extends ActivityUtil {
                 finish();
             }
         });
+
+
+
+        scoreTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent scoreActivityIntent = new Intent(MainActivity.this, ScoreActivity.class);
+                startActivity(scoreActivityIntent);
+
+                playerEvent.start();
+                finish();
+            }
+        });
     }
 
     @Override
@@ -216,4 +231,5 @@ public class MainActivity extends ActivityUtil {
             }
         }, 500);
     }
+
 }

@@ -49,4 +49,7 @@
     <string name="result_popup">Fin de partie!</string>
     <string name="button">Button</string>
     <string name="conjugaison_game">Conjugaison</string>
+    <string name="tabscore">Tableau des score</string>
+    <string name="text_viewscore">veulliez cliquer sur un boutton pour affiché les score</string>
+    <string name="Score_activity">Score</string>
 </resources>

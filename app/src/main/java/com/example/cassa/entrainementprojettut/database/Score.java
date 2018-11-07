@@ -20,6 +20,15 @@ public class Score {
         this.difficulty = difficulty;
     }
 
+    @Override
+    public String toString() {
+        return
+                "niveau:" + difficulty +
+                ":le joueur: " + playerName+
+                "a obtenu un de score :" + value ;
+
+    }
+
     public long getValue() {
         return value;
     }
