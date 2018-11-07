@@ -42,28 +42,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:text="Button" />
+                android:text="@string/operation_game" />
 
             <Button
                 android:id="@+id/button2"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:text="Button" />
+                android:text="@string/mystery_word_game" />
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:text="Button" />
+                android:text="@string/tag_game" />
 
             <Button
                 android:id="@+id/button4"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="20dp"
-                android:text="Button" />
+                android:text="@string/tag_inv" />
 
             <Button
                 android:id="@+id/button5"
