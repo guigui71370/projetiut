@@ -3,7 +3,7 @@ package com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil;
 public enum ListeSujet {
 
     //ListeSujet
-    JE("Je/J'"),
+    JE("Je"),
     TU("Tu"),
     IL("Il"),
     NOUS("Nous"),
@@ -18,5 +18,9 @@ public enum ListeSujet {
 
     public String getSujet(){
         return sujet;
+    }
+
+    public void setSujet(String sujet) {
+        this.sujet = sujet;
     }
 }

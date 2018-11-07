@@ -49,20 +49,20 @@ public class AdditionActivity extends GameActivity implements View.OnClickListen
         music = R.raw.bensound_retrosoul;
         startBackgroundMusic(this,music);
 
-    dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-        @Override
-        public void onDismiss(DialogInterface dialogInterface) {
-            if (levelChosen != 0) {
-                generateOperation();
-                launchTimer(AdditionActivity.this,60000,R.id.acivity_addition_pos1_img,R.id.activity_addition_ordi_img);
-                chronometer.setBase(SystemClock.elapsedRealtime());
-                chronometer.start();
-            } else {
-                AdditionActivity.this.onStop();
-                dialog.show();
+        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialogInterface) {
+                if (levelChosen != 0) {
+                    generateOperation();
+                    launchTimer(AdditionActivity.this,60000,R.id.acivity_addition_pos1_img,R.id.activity_addition_ordi_img);
+                    chronometer.setBase(SystemClock.elapsedRealtime());
+                    chronometer.start();
+                } else {
+                    AdditionActivity.this.onStop();
+                    dialog.show();
+                }
             }
-        }
-    });
+        });
 
         playerEvent= MediaPlayer.create(AdditionActivity.this,R.raw.envent_sound);
 
@@ -86,7 +86,7 @@ public class AdditionActivity extends GameActivity implements View.OnClickListen
     protected void generateOperation(){
 
 
-         ctrl = new OperationController(levelChosen);
+        ctrl = new OperationController(levelChosen);
 
 
         //Affichage de l'opération
@@ -122,7 +122,7 @@ public class AdditionActivity extends GameActivity implements View.OnClickListen
                 tabAnswer[i] = ctrl.getAnswer();
             }
             else{
-               tabAnswer[i] = ctrl.getAnswer() + (i - answerPosition);
+                tabAnswer[i] = ctrl.getAnswer() + (i - answerPosition);
             }
         }
 
@@ -195,7 +195,7 @@ public class AdditionActivity extends GameActivity implements View.OnClickListen
 
         mButton1.setBackgroundColor(Color.rgb(255,0,0));
         mButton2.setBackgroundColor(Color.rgb(0,255,0));
-        mButton3.setBackgroundColor(Color.rgb(0,0,255));
+        mButton3.setBackgroundColor(Color.rgb(60,80,255));
         mButton4.setBackgroundColor(Color.rgb(255,255,0));
     }
 
@@ -203,14 +203,14 @@ public class AdditionActivity extends GameActivity implements View.OnClickListen
     public void onClick(View view) {
         int reponseEnvoyee = (int) view.getTag();
         disableButton();
-       if(checkAnswer(reponseEnvoyee)) {
+        if(checkAnswer(reponseEnvoyee)) {
 
-           handler.postDelayed(activateButton, 800);
-       }
-       else{
-           handler.postDelayed(activateButton, 2100);
+            handler.postDelayed(activateButton, 800);
+        }
+        else{
+            handler.postDelayed(activateButton, 2100);
 
-       }
+        }
 
     }
 

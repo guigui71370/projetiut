@@ -12,6 +12,7 @@ import android.widget.Chronometer;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cassa.entrainementprojettut.R;
 import com.example.cassa.entrainementprojettut.database.AppDatabase;
@@ -70,7 +71,6 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
     };
 
     private int goodAnswer = 0;
-    private int badAnswer = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,9 +80,17 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         initializeGame();
 
         database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
-        database.getInfinitifDao().removeAllInfinitif();
-        database.getVerbeConjugueDao().removeAllVerbeConjugue();
-        new addVerbeDatabase().execute();
+        //Pour les tests
+        /*database.getInfinitifDao().removeAllInfinitif();
+        database.getVerbeConjugueDao().removeAllVerbeConjugue();*/
+
+        //On regarde avant si il y a des infinitifs et des verbes, pour ne pas avoir à afficher le message à chaque fois
+        List<Infinitif> infinitifList = database.getInfinitifDao().getAllInfinitif();
+        List<VerbeConjugue> verbeConjugueList = database.getVerbeConjugueDao().getAllVerbeConjugue();
+
+        if (infinitifList.size()==0 || verbeConjugueList.size()==0) {
+            new addVerbeDatabase().execute();
+        }
 
         music = R.raw.bensound_cute;
         startBackgroundMusic(this,music);
@@ -122,37 +130,39 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
 
     private class addVerbeDatabase extends AsyncTask<Void,Void,Void>{
         @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            Toast.makeText(getApplicationContext(),"Génération des verbes en cours",Toast.LENGTH_LONG).show();
+        }
+
+        @Override
         protected Void doInBackground(Void... voids) {
             addVerbeDatabase();
+            publishProgress();
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            Toast.makeText(getApplicationContext(),"Génération des verbes terminés",Toast.LENGTH_LONG).show();
         }
     }
 
     private void addVerbeDatabase() {
-        //database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
-
-        //On recupere tous les infinitifs deja dans la BD
-        List<Infinitif> infinitifList = database.getInfinitifDao().getAllInfinitif();
         //On recupere tous les infinitifs existants
         List<Infinitif> infinitifs = new InfinitifData().getInfinitif();
-        //Si on a pas d'infinitifs dans la BD, on ajoutes les infinitifs existants
-        if (infinitifList.size()==0) {
-            for (Infinitif inf: infinitifs) {
-                database.getInfinitifDao().addInfinitif(inf);
-            }
+        for (Infinitif inf: infinitifs) {
+            database.getInfinitifDao().addInfinitif(inf);
         }
 
         //Meme fonctionnement avec les verbes conjugués
-        List<VerbeConjugue> verbeConjugueList = database.getVerbeConjugueDao().getAllVerbeConjugue();
         List<VerbeConjugue> verbeConjugues = new VerbeConjugueData().getVerbeConjugue(getListTerminaison());
-        if(verbeConjugueList.size()==0){
-            for (VerbeConjugue vbc: verbeConjugues) {
-                database.getVerbeConjugueDao().addVerbeConjugue(vbc);
-            }
+        for (VerbeConjugue vbc: verbeConjugues) {
+            database.getVerbeConjugueDao().addVerbeConjugue(vbc);
         }
     }
 
-    //Pour l'instant avec le fichier tests.json, plus tard avec le fichier terminaisons.json
+    //Plus tard avec le fichier terminaisons.json
     public String loadJSONFromAsset() {
         String json = null;
         try {
@@ -271,7 +281,7 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
 
         verb1.setBackgroundColor(Color.rgb(255,0,0));
         verb2.setBackgroundColor(Color.rgb(0,255,0));
-        verb3.setBackgroundColor(Color.rgb(0,0,255));
+        verb3.setBackgroundColor(Color.rgb(60,80,255));
         verb4.setBackgroundColor(Color.rgb(255,255,0));
 
         verb1.setOnClickListener(this);
@@ -299,9 +309,9 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         ctrl = new ConjugaisonController(levelChosen);
 
         sujet.setText(ctrl.getSujetConjugaison());
-        verbe.setText("");
+        verbe.setText("[" + ctrl.getInfinitifConjugaison().toUpperCase() + "]");
         complement.setText(ctrl.getComplementConjugaison());
-        infinitif.setText(ctrl.getInfinitifConjugaison() + " :");
+        //infinitif.setText("[" + ctrl.getInfinitifConjugaison() + "]");
         time.setText(ctrl.getTempsConjugaison());
 
         setVerbeMalConjugue();
@@ -310,44 +320,43 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
     @Override
     public void onClick(View view) {
         //Pour les tests
-       disableButton();
-       if(view.getContentDescription().equals(ctrl.getVerbeConjugaison())){
-           showText(getString(R.string.Well_played));
-           verbe.setText(ctrl.getVerbeConjugaison().toLowerCase());
-           goodAnswer++;
-           handler.postDelayed(activateButton, 800);
-           if(goodAnswer < ctrl.getNbEtoiles()) {
-               addStars(goodAnswer, ctrl.getNbEtoiles() - goodAnswer);
-               handler.postDelayed(generateConjugaison,800);
-           }else{
-               addStars(goodAnswer, ctrl.getNbEtoiles() - goodAnswer);
-               unableLoose();
-               unableScoreMode();
-               chronometer.stop();
-               timeScore = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 1000;
-               initializeScoreValues("operation", levelChosen);
-               showResultScreen(this);
-           }
+        disableButton();
+        if(view.getContentDescription().equals(ctrl.getVerbeConjugaison())){
+            showText(getString(R.string.Well_played));
+            verbe.setText(ctrl.getVerbeConjugaison().toLowerCase());
+            goodAnswer++;
+            handler.postDelayed(activateButton, 800);
+            if(goodAnswer < ctrl.getNbEtoiles()) {
+                addStars(goodAnswer, ctrl.getNbEtoiles() - goodAnswer);
+                handler.postDelayed(generateConjugaison,800);
+            }else{
+                addStars(goodAnswer, ctrl.getNbEtoiles() - goodAnswer);
+                unableLoose();
+                unableScoreMode();
+                chronometer.stop();
+                timeScore = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 1000;
+                initializeScoreValues("conjugaison", levelChosen);
+                showResultScreen(this);
+            }
 
-       }else{
-           showText(getString(R.string.to_bad) + " " +ctrl.getVerbeConjugaison());
-           verbe.setText(ctrl.getVerbeConjugaison().toLowerCase());
-           badAnswer++;
-           handler.postDelayed(activateButton, 2100);
-           handler.postDelayed(generateConjugaison,2100);
-       }
+        }else{
+            showText(getString(R.string.to_bad) + " " +ctrl.getVerbeConjugaison());
+            verbe.setText(ctrl.getVerbeConjugaison().toLowerCase());
+            handler.postDelayed(activateButton, 2100);
+            handler.postDelayed(generateConjugaison,2100);
+        }
     }
 
     public void setVerbeMalConjugue(){
         //¨Pour les tests
         String[] badAnswer=database.getVerbeConjugueDao().listfindVerbeConjugue(ctrl.getTempsConjugaison(), ctrl.getSujetConjugaison(),ctrl.getInfinitifConjugaison());
-        String[] placement=new  String[4];
+        String[] placement=new String[4];
 
         int goodPosition=(int)(Math.random() * 4);
         placement[goodPosition]=ctrl.getVerbeConjugaison();
 
         for(int i=0;i<placement.length;i++){
-            int answerPosition=(int)(Math.random() * badAnswer.length);
+            int answerPosition=(int)(Math.random() * (badAnswer.length-1));
             if(placement[i]==null){
                 placement[i]=badAnswer[answerPosition];
             }

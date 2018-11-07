@@ -19,8 +19,8 @@ public class Phrase implements I_Conjugaison {
 
     public Phrase(int groupe, String temps){
         this.temps = temps;
-        this.sujet = generateSujet();
         this.infinitif = generateVerbeInfinitif(groupe);
+        this.sujet = generateSujet();
         this.complement = getComplementInfinitif(this.infinitif);
         this.verbe = getVerbeConjugue(this.temps,this.sujet,this.infinitif);
     }
@@ -60,6 +60,9 @@ public class Phrase implements I_Conjugaison {
         int indice = (int) (1 + (Math.random() * (6)));
         switch (indice){
             case 1:
+                if(getInfinitif().toLowerCase().matches("(a|e|i|o|u|y).*")) {
+                    return "J'";
+                }
                 return JE.getSujet();
             case 2:
                 return TU.getSujet();
