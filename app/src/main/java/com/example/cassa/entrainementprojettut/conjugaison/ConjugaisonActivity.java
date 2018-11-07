@@ -79,7 +79,7 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         showMenu();
         initializeGame();
 
-<<<<<<< HEAD
+
         database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
         //Pour les tests
         /*database.getInfinitifDao().removeAllInfinitif();
@@ -92,12 +92,12 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         if (infinitifList.size()==0 || verbeConjugueList.size()==0) {
             new addVerbeDatabase().execute();
         }
-=======
+
         /*database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
         database.getInfinitifDao().removeAllInfinitif();
         database.getVerbeConjugueDao().removeAllVerbeConjugue();*/
         new addVerbeDatabase().execute();
->>>>>>> score
+
 
         music = R.raw.bensound_cute;
         startBackgroundMusic(this,music);
@@ -156,13 +156,12 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
     }
 
     private void addVerbeDatabase() {
-<<<<<<< HEAD
-=======
+
         database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
 
         //On recupere tous les infinitifs deja dans la BD
         List<Infinitif> infinitifList = database.getInfinitifDao().getAllInfinitif();
->>>>>>> score
+
         //On recupere tous les infinitifs existants
         List<Infinitif> infinitifs = new InfinitifData().getInfinitif();
         for (Infinitif inf: infinitifs) {
@@ -334,7 +333,7 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
     @Override
     public void onClick(View view) {
         //Pour les tests
-<<<<<<< HEAD
+
         disableButton();
         if(view.getContentDescription().equals(ctrl.getVerbeConjugaison())){
             showText(getString(R.string.Well_played));
@@ -360,7 +359,7 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
             handler.postDelayed(activateButton, 2100);
             handler.postDelayed(generateConjugaison,2100);
         }
-=======
+
        disableButton();
        if(view.getContentDescription().equals(ctrl.getVerbeConjugaison())){
            showText(getString(R.string.Well_played));
@@ -386,7 +385,7 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
            handler.postDelayed(activateButton, 2100);
            handler.postDelayed(generateConjugaison,2100);
        }
->>>>>>> score
+
     }
 
     public void setVerbeMalConjugue(){
