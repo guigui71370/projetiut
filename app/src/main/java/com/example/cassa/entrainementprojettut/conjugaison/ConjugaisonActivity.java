@@ -70,7 +70,7 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         }
     };
 
-    private int goodAnswer = 0;
+    private int numberOfCompetenceAcquired = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,8 +102,9 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
             public void onDismiss(DialogInterface dialogInterface) {
                 if (levelChosen != 0) {
                     activateButtons();
+                    ctrl = new ConjugaisonController(levelChosen);
                     generateConjugaison();
-                    addStars(0, ctrl.getNbEtoiles());
+                    addStars(numberOfCompetenceAcquired, ctrl.getCompétences().size());
                     chronometer.setBase(SystemClock.elapsedRealtime());
                     chronometer.start();
                 } else {
@@ -307,9 +308,7 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
 
     @SuppressLint("SetTextI18n")
     protected void generateConjugaison(){
-
-        ctrl = new ConjugaisonController(levelChosen);
-
+        ctrl.nextSentence();
         sujet.setText(ctrl.getSujetConjugaison());
         verbe.setText("[" + ctrl.getInfinitifConjugaison().toUpperCase() + "]");
         complement.setText(ctrl.getComplementConjugaison());
@@ -326,14 +325,17 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         disableButton();
         if(view.getContentDescription().equals(ctrl.getVerbeConjugaison())){
             showText(getString(R.string.Well_played));
+            ctrl.getCompetence().addTry();
             verbe.setText(ctrl.getVerbeConjugaison().toLowerCase());
-            goodAnswer++;
             handler.postDelayed(activateButton, 800);
-            if(goodAnswer < ctrl.getNbEtoiles()) {
-                addStars(goodAnswer, ctrl.getNbEtoiles() - goodAnswer);
-                handler.postDelayed(generateConjugaison,800);
+            if(ctrl.succedCompetence()) {
+                numberOfCompetenceAcquired++;
+                ctrl.removeCompetence();
+                addStars(numberOfCompetenceAcquired, ctrl.getCompétences().size());
+            }
+            if(ctrl.getCompétences().size()>0) {
+                handler.postDelayed(generateConjugaison, 800);
             }else{
-                addStars(goodAnswer, ctrl.getNbEtoiles() - goodAnswer);
                 unableLoose();
                 unableScoreMode();
                 chronometer.stop();
@@ -344,6 +346,7 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
 
         }else{
             showText(getString(R.string.to_bad) + " " +ctrl.getVerbeConjugaison());
+            ctrl.getCompetence().reset();
             verbe.setText(ctrl.getVerbeConjugaison().toLowerCase());
             handler.postDelayed(activateButton, 2100);
             handler.postDelayed(generateConjugaison,2100);

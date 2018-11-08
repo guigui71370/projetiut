@@ -2,6 +2,9 @@ package com.example.cassa.entrainementprojettut.conjugaison.Conjugaisons;
 
 import com.example.cassa.entrainementprojettut.database.AppDatabase;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeSujet.ELLES;
 import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeSujet.IL;
 import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeSujet.JE;
@@ -12,14 +15,18 @@ import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUti
 public class Phrase implements I_Conjugaison {
     private String sujet;
     private String verbe;
+    private int groupeVerbe;
     private String complement;
     private String infinitif;
     private String temps;
+    private Competence competence;
     private AppDatabase db = AppDatabase.getInstanceOfAppDatabase(null);
 
-    public Phrase(int groupe, String temps){
-        this.temps = temps;
-        this.infinitif = generateVerbeInfinitif(groupe);
+    public Phrase(Competence c){
+        this.competence = c;
+        this.temps = this.competence.getTemps().getTemps();
+        this.groupeVerbe = randomGroup();
+        this.infinitif = generateVerbeInfinitif(this.groupeVerbe);
         this.sujet = generateSujet();
         this.complement = getComplementInfinitif(this.infinitif);
         this.verbe = getVerbeConjugue(this.temps,this.sujet,this.infinitif);
@@ -48,6 +55,14 @@ public class Phrase implements I_Conjugaison {
     @Override
     public String getInfinitif(){
         return infinitif;
+    }
+
+    @Override
+    public Competence getCompetence() {return competence;}
+
+    @Override
+    public int getGroupeVerbe() {
+        return groupeVerbe;
     }
 
     //Renvoi un verbe à l'infinitif du groupe donné
@@ -89,5 +104,11 @@ public class Phrase implements I_Conjugaison {
     private String getVerbeConjugue(String temps, String sujet, String infinitif) {
         String verbeConjugue = db.getVerbeConjugueDao().findVerbeConjugue(temps,sujet,infinitif);
         return verbeConjugue;
+    }
+
+    //Retourne un numero de groupe aléatoire dans une liste de groupe
+    public int randomGroup(){
+        ArrayList<Integer> list = competence.getListOfGroup();
+        return list.get(new  Random().nextInt(list.size())).intValue();
     }
 }
