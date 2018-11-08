@@ -69,7 +69,7 @@ public class SetConjugaisonCP implements I_SetConjugaison {
         // compétence 1
         ArrayList<Integer> groupe1 = new ArrayList<Integer>();
         groupe1.add(new Integer(1));
-        Competence c1 = new Competence("présent de l'indicatif, verbe du premier groupe", groupe1, ListeTemps.PRESENTINDICATIF,5);
+        Competence c1 = new Competence("présent de l'indicatif, verbe du premier groupe", groupe1, ListeTemps.PRESENTINDICATIF,4);
 
         // ajout des compétences dans la liste
         listCompetence.add(c1);

@@ -325,7 +325,6 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         disableButton();
         if(view.getContentDescription().equals(ctrl.getVerbeConjugaison())){
             showText(getString(R.string.Well_played));
-            ctrl.getCompetence().addTry();
             verbe.setText(ctrl.getVerbeConjugaison().toLowerCase());
             handler.postDelayed(activateButton, 800);
             if(ctrl.succedCompetence()) {
