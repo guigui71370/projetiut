@@ -6,6 +6,8 @@ import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 @Dao
@@ -24,11 +26,11 @@ public interface VerbeConjugueDao {
 
     //Renvoi le verbeConjugue au temps, au sujet et à l'infinitif donné
     @Query("SELECT verbeConjugue FROM VerbeConjugue V JOIN INFINITIF I ON V.infinitifId = I.idInfinitif " +
-            "WHERE temps= :temps AND sujet = :sujet AND I.infinitifVerbe= :infinitif")
+            "WHERE temps = :temps AND sujet = :sujet AND I.infinitifVerbe = :infinitif")
     String findVerbeConjugue(String temps, String sujet, String infinitif);
     
     @Query("SELECT verbeConjugue FROM VerbeConjugue V JOIN INFINITIF I ON V.infinitifId = I.idInfinitif "
-            +"WHERE temps= :temps and sujet!= :sujet and I.infinitifVerbe= :infinitif")
-    String[] listfindVerbeConjugue(String temps, String sujet, String infinitif);
+            +"WHERE temps = :temps and sujet != :sujet AND I.infinitifVerbe = :infinitif AND verbeConjugue != :verbeConjugue GROUP BY verbeConjugue")
+    List<String> listVerbeMalConjugue(String temps, String sujet, String infinitif, String verbeConjugue);
 
 }

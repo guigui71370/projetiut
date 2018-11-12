@@ -47,7 +47,9 @@ public class AdditionActivity extends GameActivity implements View.OnClickListen
         showMenu();
         initializeGame();
         music = R.raw.bensound_retrosoul;
-        startBackgroundMusic(this,music);
+        if(isSong()){
+            startBackgroundMusic(this,music);
+        }
 
         dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
@@ -64,7 +66,7 @@ public class AdditionActivity extends GameActivity implements View.OnClickListen
             }
         });
 
-        playerEvent= MediaPlayer.create(AdditionActivity.this,R.raw.envent_sound);
+        playerEvent = MediaPlayer.create(AdditionActivity.this,R.raw.envent_sound);
 
         rightAnswerCounter = 0;
         // On recupère les widgets

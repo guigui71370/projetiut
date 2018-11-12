@@ -8,30 +8,34 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 
 import com.example.cassa.entrainementprojettut.MainActivity;
-import com.example.cassa.entrainementprojettut.database.AppDatabase;
 
 /**
  * Created by prax on 16/01/2018.
  */
 
 public class ActivityUtil extends AppCompatActivity {
+    protected boolean song;
     protected int music = 0;
     protected MediaPlayer bgPlayer;
 
     protected void startBackgroundMusic(Context activityContext, int idMusic) {
-
         if (idMusic != 0) {
             if (bgPlayer != null) {
                 bgPlayer.stop();
             }
-
             bgPlayer = MediaPlayer.create(activityContext, idMusic);
             bgPlayer.setLooping(true);
             bgPlayer.start();
-
         }
     }
 
+    public boolean isSong() {
+        return song;
+    }
+
+    public void setSong(boolean song) {
+        this.song = song;
+    }
 
     protected float getScreenWidth(){
         Display display = getWindowManager().getDefaultDisplay();

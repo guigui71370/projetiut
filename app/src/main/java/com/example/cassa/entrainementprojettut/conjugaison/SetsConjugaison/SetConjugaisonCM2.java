@@ -84,7 +84,7 @@ public class SetConjugaisonCM2 implements I_SetConjugaison {
         listCompetence.add(c1);
         listCompetence.add(c2);
         listCompetence.add(c3);
-
+        listCompetence.add(c4);
 
         return new Phrase(randomCompetence());
     }

@@ -59,7 +59,9 @@ public class MysteryWordActivity extends GameActivity {
         setContentView(R.layout.activity_mystery_word);
 
         music = R.raw.bensound_cute;
-        startBackgroundMusic(this, music);
+        if(isSong()) {
+            startBackgroundMusic(this, music);
+        }
         initializeGame();
         showMenu();
         startingTime = System.currentTimeMillis();

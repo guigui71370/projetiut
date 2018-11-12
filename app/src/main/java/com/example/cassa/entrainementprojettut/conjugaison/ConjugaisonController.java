@@ -35,7 +35,7 @@ public class ConjugaisonController {
             return setConjugaison.getInfinitifConjugaison();
         }
 
-    public ArrayList<Competence> getCompétences(){
+    public ArrayList<Competence> getListCompetence(){
         return setConjugaison.getListCompetence();
     }
 

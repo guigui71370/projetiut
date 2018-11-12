@@ -82,7 +82,7 @@
                 android:text="@string/conjugaison_game" />
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/activity_main_score_btn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/colorGreen"
@@ -96,8 +96,18 @@
         android:id="@+id/chouettes_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="@string/chouette"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
+
+    <ImageButton
+        android:id="@+id/activity_main_song_imgbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/volume_unmute"
+        android:contentDescription="@string/mute"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

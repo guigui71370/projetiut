@@ -37,16 +37,6 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     android:id="@+id/activity_conjugaison_verbeTemps_linearlayout">
-    <TextView
-        android:id="@+id/activity_conjugaison_infinitif_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginTop="100dp"
-        android:textSize="18sp"
-        tools:text="Infinitif au "
-        android:textColor="@color/colorPrimaryDark"/>
 
     <TextView
         android:id="@+id/activity_conjugaison_temps_textview"

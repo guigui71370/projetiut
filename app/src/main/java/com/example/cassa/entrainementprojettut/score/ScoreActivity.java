@@ -24,15 +24,13 @@ public class ScoreActivity  extends GameActivity {
     public static final String MYSTERY_WORD = "MysteryWord";
     public static final String OPERATION = "Operation";
     public static final String CONJUGAISON = "Conjugaison";
-    public static final String LES_RECORD_DU_JEUX = "les record du jeux ";
+    public static final String LES_RECORD_DU_JEUX = "Les records du jeux ";
     public static final String PAR_NIVEAU_SONT = " par niveau sont:\n";
-    public static final String AUCUN_SCORE_N_A_ÉTÉ_ÉTABLIE_DANS_CE_JEUX_POUR_LE_MOMMENT = "aucun score n'a été établie dans ce jeux pour le momment \n ";
+    public static final String AUCUN_SCORE_N_A_ÉTÉ_ÉTABLIE_DANS_CE_JEUX_POUR_LE_MOMENT = "Aucun score n'a été établie dans ce jeu pour le moment \n ";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
-
-
 
         Button mAddition = findViewById(R.id.score_op);
         Button btnMysteryWord = findViewById(R.id.score_mm);
@@ -60,7 +58,7 @@ public class ScoreActivity  extends GameActivity {
 
                     }
                 }else{
-                    contenuScore.setText(contenuScore.getText()+"\n"+ AUCUN_SCORE_N_A_ÉTÉ_ÉTABLIE_DANS_CE_JEUX_POUR_LE_MOMMENT);
+                    contenuScore.setText(contenuScore.getText()+"\n"+ AUCUN_SCORE_N_A_ÉTÉ_ÉTABLIE_DANS_CE_JEUX_POUR_LE_MOMENT);
                 }
 
             }
@@ -84,7 +82,7 @@ public class ScoreActivity  extends GameActivity {
 
                     }
                 }else{
-                    contenuScore.setText(contenuScore.getText()+"\n"+ AUCUN_SCORE_N_A_ÉTÉ_ÉTABLIE_DANS_CE_JEUX_POUR_LE_MOMMENT);
+                    contenuScore.setText(contenuScore.getText()+"\n"+ AUCUN_SCORE_N_A_ÉTÉ_ÉTABLIE_DANS_CE_JEUX_POUR_LE_MOMENT);
                 }
 
             }
@@ -107,7 +105,7 @@ public class ScoreActivity  extends GameActivity {
 
                     }
                 }else{
-                    contenuScore.setText(contenuScore.getText()+"\n"+ AUCUN_SCORE_N_A_ÉTÉ_ÉTABLIE_DANS_CE_JEUX_POUR_LE_MOMMENT);
+                    contenuScore.setText(contenuScore.getText()+"\n"+ AUCUN_SCORE_N_A_ÉTÉ_ÉTABLIE_DANS_CE_JEUX_POUR_LE_MOMENT);
                 }
             }
         });
@@ -130,7 +128,7 @@ public class ScoreActivity  extends GameActivity {
 
                     }
                 }else{
-                    contenuScore.setText(contenuScore.getText()+"\n"+ AUCUN_SCORE_N_A_ÉTÉ_ÉTABLIE_DANS_CE_JEUX_POUR_LE_MOMMENT);
+                    contenuScore.setText(contenuScore.getText()+"\n"+ AUCUN_SCORE_N_A_ÉTÉ_ÉTABLIE_DANS_CE_JEUX_POUR_LE_MOMENT);
                 }
 
 
@@ -154,7 +152,7 @@ public class ScoreActivity  extends GameActivity {
 
                     }
                 }else{
-                    contenuScore.setText(contenuScore.getText()+"\n"+ AUCUN_SCORE_N_A_ÉTÉ_ÉTABLIE_DANS_CE_JEUX_POUR_LE_MOMMENT);
+                    contenuScore.setText(contenuScore.getText()+"\n"+ AUCUN_SCORE_N_A_ÉTÉ_ÉTABLIE_DANS_CE_JEUX_POUR_LE_MOMENT);
                 }
             }
         });
@@ -176,7 +174,7 @@ public class ScoreActivity  extends GameActivity {
 
                     }
                 }else{
-                    contenuScore.setText(contenuScore.getText()+"\n"+ AUCUN_SCORE_N_A_ÉTÉ_ÉTABLIE_DANS_CE_JEUX_POUR_LE_MOMMENT);
+                    contenuScore.setText(contenuScore.getText()+"\n"+ AUCUN_SCORE_N_A_ÉTÉ_ÉTABLIE_DANS_CE_JEUX_POUR_LE_MOMENT);
                 }
             }
         });
@@ -197,7 +195,7 @@ public class ScoreActivity  extends GameActivity {
 
                     }
                 }else{
-                    contenuScore.setText(contenuScore.getText()+"\n"+ AUCUN_SCORE_N_A_ÉTÉ_ÉTABLIE_DANS_CE_JEUX_POUR_LE_MOMMENT);
+                    contenuScore.setText(contenuScore.getText()+"\n"+ AUCUN_SCORE_N_A_ÉTÉ_ÉTABLIE_DANS_CE_JEUX_POUR_LE_MOMENT);
                 }
             }
         });

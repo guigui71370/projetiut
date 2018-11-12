@@ -1,6 +1,7 @@
 package com.example.cassa.entrainementprojettut;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,6 +13,7 @@ import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -28,6 +30,7 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends ActivityUtil {
 
+    public boolean mute = false;
     protected static String playerName = "noName";
     MediaPlayer playerEvent;
     private AnimationDrawable mOwlAnimation;
@@ -52,7 +55,8 @@ public class MainActivity extends ActivityUtil {
         Button btnGeographyTag = findViewById(R.id.activity_main_geographyTag);
         Button btnPiano = findViewById(R.id.activity_main_piano);
         Button btnConjugaison = findViewById(R.id.activity_main_conjugaison);
-        Button scoreTest=findViewById(R.id.button8);
+        Button scoreTest = findViewById(R.id.activity_main_score_btn);
+        final ImageButton ImgBtnsong = findViewById(R.id.activity_main_song_imgbtn);
         ImageView owlImg = findViewById(R.id.chouettes_menu);
         owlImg.setBackgroundResource(R.drawable.animation_chouettes_menu);
         mOwlAnimation = (AnimationDrawable) owlImg.getBackground();
@@ -110,6 +114,8 @@ public class MainActivity extends ActivityUtil {
 
                 Intent reverseFlagActivityIntent = new Intent(MainActivity.this, ReverseFlagActivity.class);
                 startActivity(reverseFlagActivityIntent);
+
+                playerEvent.start();
                 finish();
 
             }
@@ -161,6 +167,26 @@ public class MainActivity extends ActivityUtil {
 
                 playerEvent.start();
                 finish();
+            }
+        });
+
+        ImgBtnsong.setOnClickListener(new View.OnClickListener() {
+            @Override @TargetApi(16)
+            public void onClick(View v) {
+                if(mute){
+                    mute = false;
+                    setSong(true);
+                    startBackgroundMusic(getApplicationContext(),music);
+                    ImgBtnsong.setBackground(getResources().getDrawable(R.drawable.volume_unmute));
+                    playerEvent.setVolume(1,1);
+                    bgPlayer.setVolume(1,1);
+                }else{
+                    mute = true;
+                    setSong(false);
+                    ImgBtnsong.setBackground(getResources().getDrawable(R.drawable.volume_mute));
+                    bgPlayer.setVolume(0,0);
+                    playerEvent.setVolume(0,0);
+                }
             }
         });
     }

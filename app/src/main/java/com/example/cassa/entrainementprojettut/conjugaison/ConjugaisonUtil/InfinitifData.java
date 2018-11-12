@@ -10,7 +10,6 @@ import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUti
 import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeInfinitif.BALAYER;
 import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeInfinitif.CEDER;
 import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeInfinitif.CELEBRER;
-import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeInfinitif.CLAMECER;
 import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeInfinitif.COUDRE;
 import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeInfinitif.EMPLOYER;
 import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeInfinitif.FINIR;
@@ -39,7 +38,6 @@ public class InfinitifData {
         listInfinitif.add(new Infinitif(EMPLOYER.getVerbe(),EMPLOYER.getGroupe(), "une femme de ménage"));
         listInfinitif.add(new Infinitif(BALAYER.getVerbe(),BALAYER.getGroupe(),"la poussière"));
         listInfinitif.add(new Infinitif(JETER.getVerbe(),JETER.getGroupe(),"les poubelles"));
-        listInfinitif.add(new Infinitif(CLAMECER.getVerbe(),CLAMECER.getGroupe(),"violemment"));
 
         //2e Groupe
         listInfinitif.add(new Infinitif(FINIR.getVerbe(),FINIR.getGroupe(), "mon goûter"));

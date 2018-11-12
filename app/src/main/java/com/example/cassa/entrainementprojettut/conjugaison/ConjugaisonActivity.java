@@ -29,6 +29,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -42,7 +43,6 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
     private TextView sujet;
     private TextView verbe;
     private TextView complement;
-    private TextView infinitif;
     private TextView hint;
 
     private Button verb1;
@@ -76,14 +76,12 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conjugaison);
-        showMenu();
         initializeGame();
-
 
         database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
         //Pour les tests
-        database.getInfinitifDao().removeAllInfinitif();
-        database.getVerbeConjugueDao().removeAllVerbeConjugue();
+        /*database.getInfinitifDao().removeAllInfinitif();
+        database.getVerbeConjugueDao().removeAllVerbeConjugue();*/
 
         //On regarde avant si il y a des infinitifs et des verbes, pour ne pas avoir à afficher le message à chaque fois
         List<Infinitif> infinitifList = database.getInfinitifDao().getAllInfinitif();
@@ -92,11 +90,12 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         if (infinitifList.size()==0 || verbeConjugueList.size()==0) {
             new addVerbeDatabase().execute();
         }
-
+        showMenu();
 
         music = R.raw.bensound_cute;
-        startBackgroundMusic(this,music);
-
+        if(isSong()) {
+            startBackgroundMusic(this, music);
+        }
         dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialogInterface) {
@@ -104,7 +103,7 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
                     activateButtons();
                     ctrl = new ConjugaisonController(levelChosen);
                     generateConjugaison();
-                    addStars(numberOfCompetenceAcquired, ctrl.getCompétences().size());
+                    addStars(numberOfCompetenceAcquired, ctrl.getListCompetence().size());
                     chronometer.setBase(SystemClock.elapsedRealtime());
                     chronometer.start();
                 } else {
@@ -118,7 +117,6 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         sujet =  findViewById(R.id.activity_conjugaison_sujet_textview);
         verbe =  findViewById(R.id.activity_conjugaison_verbe_textview);
         complement = findViewById(R.id.activity_conjugaison_complement_textview);
-        infinitif = findViewById(R.id.activity_conjugaison_infinitif_textview);
         hint = findViewById(R.id.activity_conjugaison_hint_textview);
 
         verb1 = findViewById(R.id.activity_conjugaison_verb1_button);
@@ -136,6 +134,8 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         protected void onPreExecute() {
             super.onPreExecute();
             Toast.makeText(getApplicationContext(),"Génération des verbes en cours",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Veuillez patienter",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Veuillez patienter",Toast.LENGTH_LONG).show();
         }
 
         @Override
@@ -312,7 +312,6 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         sujet.setText(ctrl.getSujetConjugaison());
         verbe.setText("[" + ctrl.getInfinitifConjugaison().toUpperCase() + "]");
         complement.setText(ctrl.getComplementConjugaison());
-        //infinitif.setText("[" + ctrl.getInfinitifConjugaison() + "]");
         time.setText(ctrl.getTempsConjugaison());
 
         setVerbeMalConjugue();
@@ -325,22 +324,21 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         disableButton();
         if(view.getContentDescription().equals(ctrl.getVerbeConjugaison())){
             showText(getString(R.string.Well_played));
-            ctrl.getCompetence().addTry();
             verbe.setText(ctrl.getVerbeConjugaison().toLowerCase());
             handler.postDelayed(activateButton, 800);
             if(ctrl.succedCompetence()) {
                 numberOfCompetenceAcquired++;
                 ctrl.removeCompetence();
-                addStars(numberOfCompetenceAcquired, ctrl.getCompétences().size());
+                addStars(numberOfCompetenceAcquired, ctrl.getListCompetence().size());
             }
-            if(ctrl.getCompétences().size()>0) {
+            if(ctrl.getListCompetence().size()>0) {
                 handler.postDelayed(generateConjugaison, 800);
             }else{
                 unableLoose();
                 unableScoreMode();
                 chronometer.stop();
                 timeScore = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 1000;
-                initializeScoreValues("conjugaison", levelChosen);
+                initializeScoreValues("Conjugaison", levelChosen);
                 showResultScreen(this);
             }
 
@@ -354,19 +352,18 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
     }
 
     public void setVerbeMalConjugue(){
-        //¨Pour les tests
-        String[] badAnswer=database.getVerbeConjugueDao().listfindVerbeConjugue(ctrl.getTempsConjugaison(), ctrl.getSujetConjugaison(),ctrl.getInfinitifConjugaison());
-        String[] placement=new String[4];
+        List<String> listBadAnswer=database.getVerbeConjugueDao().listVerbeMalConjugue(ctrl.getTempsConjugaison(), ctrl.getSujetConjugaison(),ctrl.getInfinitifConjugaison(),ctrl.getVerbeConjugaison());
+        Collections.shuffle(listBadAnswer);
+        String[] badAnswer = listBadAnswer.toArray(new String[listBadAnswer.size()]);
+        String[] placement = new String[4];
 
         int goodPosition=(int)(Math.random() * 4);
         placement[goodPosition]=ctrl.getVerbeConjugaison();
 
         for(int i=0;i<placement.length;i++){
-            int answerPosition=(int)(Math.random() * (badAnswer.length-1));
             if(placement[i]==null){
-                placement[i]=badAnswer[answerPosition];
+                placement[i]=badAnswer[i];
             }
-
         }
 
         verb1.setText(placement[0]);

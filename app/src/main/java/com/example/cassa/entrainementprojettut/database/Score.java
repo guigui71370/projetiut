@@ -23,9 +23,9 @@ public class Score {
     @Override
     public String toString() {
         return
-                "niveau:" + difficulty +
-                ":le joueur: " + playerName+
-                "a obtenu un de score :" + value ;
+                "Niveau " + difficulty +
+                ": Le joueur " + playerName+
+                " a obtenu un de score  "+ value ;
 
     }
 

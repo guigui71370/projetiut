@@ -16,7 +16,7 @@ public class Competence {
     public Competence(String nameCompetence, ListeTemps tempsConjugaison){
         name = nameCompetence;
         numberOfTry = 0;
-        numberToSucced = 4;
+        numberToSucced = 3;
         acquired = false;
         listOfGroup = new ArrayList<Integer>();
         listOfGroup.add(new Integer(1));
