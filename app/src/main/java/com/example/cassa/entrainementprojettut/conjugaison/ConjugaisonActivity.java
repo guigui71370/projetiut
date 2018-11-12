@@ -77,6 +77,7 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conjugaison);
         initializeGame();
+        showMenu();
 
         database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
         //Pour les tests
@@ -88,9 +89,11 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         List<VerbeConjugue> verbeConjugueList = database.getVerbeConjugueDao().getAllVerbeConjugue();
 
         if (infinitifList.size()==0 || verbeConjugueList.size()==0) {
-            new addVerbeDatabase().execute();
+            disableLevelMenu();
+            addVerbeDatabase runVerbeDataBase = new addVerbeDatabase();
+            runVerbeDataBase.execute();
         }
-        showMenu();
+
 
         music = R.raw.bensound_cute;
         if(isSong()) {
@@ -148,6 +151,8 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         @Override
         protected void onPostExecute(Void aVoid) {
             Toast.makeText(getApplicationContext(),"Génération des verbes terminés",Toast.LENGTH_LONG).show();
+            enableLevelMenu();
+
         }
     }
 

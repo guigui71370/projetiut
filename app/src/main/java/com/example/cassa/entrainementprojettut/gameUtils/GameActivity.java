@@ -46,6 +46,7 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
     protected long timeScore;
     protected String currentActivityName;
     protected int currentLevel;
+    protected View lvlChoiceView;
 
     protected String playerName = MainActivity.getPlayerName();
 
@@ -92,7 +93,7 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(activityContext);
         String colorsTab[] = {"#77dd6c", "#eebf38", "#ee3838", "#c847ea", "#47aaea"};
 
-        View lvlChoiceView = getLayoutInflater().inflate(R.layout.level_choice_popup, null);
+        lvlChoiceView = getLayoutInflater().inflate(R.layout.level_choice_popup, null);
 
         LinearLayout container = lvlChoiceView.findViewById(R.id.level_popup_activity_linearlayout);
         for(int i = 0; i < levelsNames.length; i++) {
@@ -138,6 +139,24 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
                 startActivity(ecranMenu);
             }
         });
+    }
+
+    protected void disableLevelMenu(){
+        LinearLayout container = lvlChoiceView.findViewById(R.id.level_popup_activity_linearlayout);
+        View child;
+        for(int i = 0; i < container.getChildCount(); i++) {
+            child = container.getChildAt(i);
+            child.setEnabled(false);
+        }
+    }
+
+    protected void enableLevelMenu(){
+        LinearLayout container = lvlChoiceView.findViewById(R.id.level_popup_activity_linearlayout);
+        View child;
+        for(int i = 0; i < container.getChildCount(); i++) {
+            child = container.getChildAt(i);
+            child.setEnabled(true);
+        }
     }
 
     protected void showResultScreen(final Activity activity) {
