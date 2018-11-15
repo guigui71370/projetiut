@@ -190,14 +190,14 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
                 window.setAttributes(lp);
 
                 if (numericalScore > 0) {
-                    checkTimeScore(mTextViewMessage, numericalScore, "Ton score est de ", " Record actuel :");
+                    checkNumericalScore(mTextViewMessage, numericalScore, "Ton score est de ", " Record actuel :");
                 } else if (timeScore > 0) {
                     checkTimeScore(mTextViewMessage, timeScore, "Bravo, tu as réussi en ", " secondes! Record actuel :");
                 }
                 dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialogInterface) {
-                        if (canLeave[0] == true) {
+                        if (canLeave[0]) {
                             dialog.dismiss();
 
                         } else {
@@ -246,6 +246,20 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
         database.destroyInstance();
     }
 
+    private void checkNumericalScore(TextView mTextViewMessage, long Score, String s, String s2) {
+        AppDatabase database;
+        database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
+        long highScore = database.getScoreDao().findScoreForAGame(currentActivityName, currentLevel);
+        if (highScore == 0) {
+            database.getScoreDao().addScore(new Score(playerName, Score, currentActivityName, currentLevel));
+            highScore = Score;
+        } else if (highScore < Score) {
+            database.getScoreDao().updateScore(new Score(playerName, Score, currentActivityName, currentLevel));
+            highScore = Score;
+        }
+        mTextViewMessage.setText(s + Score + s2 + highScore);
+        database.destroyInstance();
+    }
 
     protected void showLooseScreen(final Activity activity){
         if(!activity.isFinishing()) {
