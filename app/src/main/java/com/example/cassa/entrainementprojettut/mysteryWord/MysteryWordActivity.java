@@ -202,8 +202,11 @@ public class MysteryWordActivity extends GameActivity {
 
     protected void onDestroy(){
         super.onDestroy();
+        try {
+            bgPlayer.stop();
+        }catch (Exception e){
 
-        bgPlayer.stop();
+        }
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 

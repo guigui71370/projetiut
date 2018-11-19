@@ -1,9 +1,11 @@
 package com.example.cassa.entrainementprojettut.gameUtils;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Point;
 import android.media.MediaPlayer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 
@@ -14,7 +16,7 @@ import com.example.cassa.entrainementprojettut.MainActivity;
  */
 
 public class ActivityUtil extends AppCompatActivity {
-    protected boolean song;
+    protected static boolean song=true;
     protected int music = 0;
     protected MediaPlayer bgPlayer;
 
@@ -29,12 +31,12 @@ public class ActivityUtil extends AppCompatActivity {
         }
     }
 
-    public boolean isSong() {
+    public static boolean isSong() {
         return song;
     }
 
-    public void setSong(boolean song) {
-        this.song = song;
+    public static  void setSong(boolean song) {
+        ActivityUtil.song = song;
     }
 
     protected float getScreenWidth(){
@@ -58,16 +60,35 @@ public class ActivityUtil extends AppCompatActivity {
         }
     }
 
-    @Override
+   @Override
     public void onBackPressed(){
-        if (bgPlayer != null) {
-            bgPlayer.stop();
-        }
-        Intent back = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(back);
-        super.onBackPressed();
-    }
+      if(!this.getClass().equals(MainActivity.class)) {
 
+          if (bgPlayer != null) {
+              bgPlayer.stop();
+          }
+          Intent back = new Intent(getApplicationContext(), MainActivity.class);
+
+          startActivity(back);
+
+      }else {
+          MainActivity.setPlayerName("noName") ;
+      }
+        super.onBackPressed();
+
+/*
+       new AlertDialog.Builder(this)
+               .setTitle("Really Exit?")
+               .setMessage("Are you sure you want to exit?")
+               .setNegativeButton(android.R.string.no, null)
+               .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                   public void onClick(DialogInterface arg0, int arg1) {
+                       //ActivityUtil.super.onBackPressed();
+                       finish();
+                   }
+               }).create().show();*/
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();

@@ -30,7 +30,8 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends ActivityUtil {
 
-    public boolean mute = false;
+    public static boolean mute = false;
+    private static final String STRING_MUTE="STRING_MUTE";
     protected static String playerName = "noName";
     MediaPlayer playerEvent;
     private AnimationDrawable mOwlAnimation;
@@ -39,12 +40,12 @@ public class MainActivity extends ActivityUtil {
         return playerName;
     }
 
-    private void setPlayerName(String name) {
+    public static void  setPlayerName(String name) {
         playerName = name;
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    @Override @TargetApi(16)
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -62,10 +63,40 @@ public class MainActivity extends ActivityUtil {
         mOwlAnimation = (AnimationDrawable) owlImg.getBackground();
         playerEvent = MediaPlayer.create(MainActivity.this, R.raw.envent_sound);
         music = R.raw.bensound_jazzyfrenchy;
-        startBackgroundMusic(this, music);
+        //startBackgroundMusic(this, music);
+
+        /*if(savedInstanceState!=null){
+            mute=savedInstanceState.getBoolean(STRING_MUTE);
+        }*/
+        //
+
+
+
+
+
+
+
+        if(!mute){
+            mute = false;
+            setSong(true);
+            startBackgroundMusic(getApplicationContext(),music);
+            ImgBtnsong.setBackground(getResources().getDrawable(R.drawable.volume_unmute));
+            playerEvent.setVolume(1,1);
+            bgPlayer.setVolume(1,1);
+        }else{
+            mute = true;
+            setSong(false);
+            ImgBtnsong.setBackground(getResources().getDrawable(R.drawable.volume_mute));
+            /*bgPlayer.setVolume(0,0);
+            playerEvent.setVolume(0,0);*/
+        }
+
+
+
+
 
         //On terminaisons.json la reference ici
-        if (playerName == "noName") {
+        if (playerName .equals( "noName")) {
             alertDialog();
         }
 
@@ -78,6 +109,7 @@ public class MainActivity extends ActivityUtil {
                 startActivity(additionIntent);
 
                 playerEvent.start();
+
                 finish();
             }
         });
@@ -257,5 +289,21 @@ public class MainActivity extends ActivityUtil {
             }
         }, 500);
     }
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState=new Bundle();
+        outState.putBoolean(STRING_MUTE,mute);
+        super.onSaveInstanceState(outState);
 
+    }
+
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if(savedInstanceState != null){
+            this.mute = savedInstanceState.getBoolean(STRING_MUTE, false);
+
+        }
+    }
 }

@@ -137,6 +137,7 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
                 Context c = getApplicationContext();
                 Intent ecranMenu = new Intent(c, MainActivity.class);
                 startActivity(ecranMenu);
+                finish();
             }
         });
     }
