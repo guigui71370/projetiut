@@ -32,7 +32,7 @@ public class MainActivity extends ActivityUtil {
 
     public static boolean mute = false;
     private static final String STRING_MUTE="STRING_MUTE";
-    protected static String playerName = "noName";
+    protected static String playerName = "";
     MediaPlayer playerEvent;
     private AnimationDrawable mOwlAnimation;
     Toast toast;
@@ -96,7 +96,7 @@ public class MainActivity extends ActivityUtil {
 
 
         //On terminaisons.json la reference ici
-        if (playerName .equals( "noName")) {
+        if (playerName.isEmpty()) {
             alertDialog();
         }
 
@@ -237,6 +237,7 @@ public class MainActivity extends ActivityUtil {
         final EditText input = new EditText(this);
         input.setHint("Entre ton nom");
         updateDialog.setView(input);
+        updateDialog.setCancelable(false);
 
         updateDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
@@ -257,20 +258,8 @@ public class MainActivity extends ActivityUtil {
                 }
             }
         });
-        updateDialog.setOnDismissListener(new DialogInterface.OnDismissListener(){
-
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                if(Pattern.matches("[a-zA-z]{1,15}([ ]{0,1}|[-]{0,1})[a-zA-z]{1,15}", input.getText().toString())){
-                    String m_Text = input.getText().toString();
-                    setPlayerName(m_Text);
-                }else{
-                    showText("Erreur : veuillez entrer un nom valide ! ");
-                    alertDialog();
-                }
-            }
-        });
         updateDialog.show();
+
     }
 
     public void showText(String text) {

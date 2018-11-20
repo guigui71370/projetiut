@@ -91,6 +91,7 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
     protected void displayLevelchoice(Context activityContext, String[] levelsNames){
 
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(activityContext);
+        mBuilder.setCancelable(false);
         String colorsTab[] = {"#77dd6c", "#eebf38", "#ee3838", "#c847ea", "#47aaea"};
 
         lvlChoiceView = getLayoutInflater().inflate(R.layout.level_choice_popup, null);
