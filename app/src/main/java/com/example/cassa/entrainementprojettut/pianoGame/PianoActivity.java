@@ -55,7 +55,7 @@ public class PianoActivity extends GameActivity implements View.OnClickListener 
             public void onDismiss(DialogInterface dialogInterface) {
                 if (levelChosen != 0) {
                     initializeScoreValues("Piano",levelChosen);
-                    generatNewGame();
+                    generateNewGame();
                 } else {
                     PianoActivity.this.onStop();
                     dialog.show();
@@ -66,7 +66,7 @@ public class PianoActivity extends GameActivity implements View.OnClickListener 
 
     }
 
-    private void generatNewGame() {
+    private void generateNewGame() {
         //controlerMusic = new ControlerMusicEasy(levelChosen);
         controlerMusic = FactoryMusicControler.createControlerMusic(levelChosen);
         showSequence();

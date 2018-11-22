@@ -36,7 +36,9 @@ public class FlagActivity extends GameActivity implements View.OnClickListener {
         setContentView(R.layout.activity_flag);
         music = R.raw.bensound_funnysong;
 
-        startBackgroundMusic(this, music);
+        if(isSong()) {
+            startBackgroundMusic(this, music);
+        }
         showMenu();
         initializeGame();
         initializeFlag();

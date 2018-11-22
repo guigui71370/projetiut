@@ -62,7 +62,9 @@ public class GeographyActivity extends GameActivity {
 
         initializeSizeOfATag();
         initializeGameAfterMenuDismiss();
-        startBackgroundMusic(GeographyActivity.this, R.raw.geography_music);
+        if(isSong()) {
+            startBackgroundMusic(GeographyActivity.this, R.raw.geography_music);
+        }
         playerEvent=MediaPlayer.create(GeographyActivity.this,R.raw.envent_sound);
 
     }

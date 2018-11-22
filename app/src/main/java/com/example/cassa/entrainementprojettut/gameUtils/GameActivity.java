@@ -27,6 +27,8 @@ import com.example.cassa.entrainementprojettut.database.AppDatabase;
 import com.example.cassa.entrainementprojettut.database.Score;
 import com.plattysoft.leonids.ParticleSystem;
 
+import java.util.regex.Pattern;
+
 public class GameActivity extends ActivityUtil implements AppCompatCallback,
         TaskStackBuilder.SupportParentable, ActionBarDrawerToggle.DelegateProvider {
 
@@ -46,6 +48,7 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
     protected long timeScore;
     protected String currentActivityName;
     protected int currentLevel;
+    protected View lvlChoiceView;
 
     protected String playerName = MainActivity.getPlayerName();
 
@@ -63,7 +66,7 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
             public void run() {
                 toast.cancel();
             }
-        }, 500);
+        }, 1500);
     }
 
     protected int levelChosen = 0;
@@ -90,9 +93,20 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
     protected void displayLevelchoice(Context activityContext, String[] levelsNames){
 
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(activityContext);
-        String colorsTab[] = {"#77dd6c", "#eebf38", "#ee3838", "#c847ea", "#47aaea"};
+        mBuilder.setCancelable(false);
+        mBuilder.setNegativeButton("Retour au menu",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which){
+                        Intent back = new Intent(getApplicationContext(), MainActivity.class);
 
-        View lvlChoiceView = getLayoutInflater().inflate(R.layout.level_choice_popup, null);
+                        startActivity(back);
+                        finish();
+                    }
+                });
+
+            String colorsTab[] = {"#77dd6c", "#eebf38", "#ee3838", "#c847ea", "#47aaea"};
+
+        lvlChoiceView = getLayoutInflater().inflate(R.layout.level_choice_popup, null);
 
         LinearLayout container = lvlChoiceView.findViewById(R.id.level_popup_activity_linearlayout);
         for(int i = 0; i < levelsNames.length; i++) {
@@ -136,8 +150,27 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
                 Context c = getApplicationContext();
                 Intent ecranMenu = new Intent(c, MainActivity.class);
                 startActivity(ecranMenu);
+                finish();
             }
         });
+    }
+
+    protected void disableLevelMenu(){
+        LinearLayout container = lvlChoiceView.findViewById(R.id.level_popup_activity_linearlayout);
+        View child;
+        for(int i = 0; i < container.getChildCount(); i++) {
+            child = container.getChildAt(i);
+            child.setEnabled(false);
+        }
+    }
+
+    protected void enableLevelMenu(){
+        LinearLayout container = lvlChoiceView.findViewById(R.id.level_popup_activity_linearlayout);
+        View child;
+        for(int i = 0; i < container.getChildCount(); i++) {
+            child = container.getChildAt(i);
+            child.setEnabled(true);
+        }
     }
 
     protected void showResultScreen(final Activity activity) {
@@ -171,14 +204,14 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
                 window.setAttributes(lp);
 
                 if (numericalScore > 0) {
-                    checkTimeScore(mTextViewMessage, numericalScore, "Ton score est de ", " Record actuel :");
+                    checkNumericalScore(mTextViewMessage, numericalScore, "Ton score est de ", " Record actuel :");
                 } else if (timeScore > 0) {
                     checkTimeScore(mTextViewMessage, timeScore, "Bravo, tu as réussi en ", " secondes! Record actuel :");
                 }
                 dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialogInterface) {
-                        if (canLeave[0] == true) {
+                        if (canLeave[0]) {
                             dialog.dismiss();
 
                         } else {
@@ -227,6 +260,20 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
         database.destroyInstance();
     }
 
+    private void checkNumericalScore(TextView mTextViewMessage, long Score, String s, String s2) {
+        AppDatabase database;
+        database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
+        long highScore = database.getScoreDao().findScoreForAGame(currentActivityName, currentLevel);
+        if (highScore == 0) {
+            database.getScoreDao().addScore(new Score(playerName, Score, currentActivityName, currentLevel));
+            highScore = Score;
+        } else if (highScore < Score) {
+            database.getScoreDao().updateScore(new Score(playerName, Score, currentActivityName, currentLevel));
+            highScore = Score;
+        }
+        mTextViewMessage.setText(s + Score + s2 + highScore);
+        database.destroyInstance();
+    }
 
     protected void showLooseScreen(final Activity activity){
         if(!activity.isFinishing()) {

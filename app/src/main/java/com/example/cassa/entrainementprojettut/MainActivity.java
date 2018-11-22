@@ -1,6 +1,7 @@
 package com.example.cassa.entrainementprojettut;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,6 +13,7 @@ import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -23,12 +25,14 @@ import com.example.cassa.entrainementprojettut.geography.GeographyActivity;
 import com.example.cassa.entrainementprojettut.mysteryWord.MysteryWordActivity;
 import com.example.cassa.entrainementprojettut.operationGame.AdditionActivity;
 import com.example.cassa.entrainementprojettut.pianoGame.PianoActivity;
-
+import com.example.cassa.entrainementprojettut.score.ScoreActivity;
 import java.util.regex.Pattern;
 
 public class MainActivity extends ActivityUtil {
 
-    protected static String playerName = "noName";
+    public static boolean mute = false;
+    private static final String STRING_MUTE="STRING_MUTE";
+    protected static String playerName = "";
     MediaPlayer playerEvent;
     private AnimationDrawable mOwlAnimation;
     Toast toast;
@@ -36,12 +40,12 @@ public class MainActivity extends ActivityUtil {
         return playerName;
     }
 
-    private void setPlayerName(String name) {
+    public static void  setPlayerName(String name) {
         playerName = name;
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    @Override @TargetApi(16)
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -52,15 +56,47 @@ public class MainActivity extends ActivityUtil {
         Button btnGeographyTag = findViewById(R.id.activity_main_geographyTag);
         Button btnPiano = findViewById(R.id.activity_main_piano);
         Button btnConjugaison = findViewById(R.id.activity_main_conjugaison);
+        Button scoreTest = findViewById(R.id.activity_main_score_btn);
+        final ImageButton ImgBtnsong = findViewById(R.id.activity_main_song_imgbtn);
         ImageView owlImg = findViewById(R.id.chouettes_menu);
         owlImg.setBackgroundResource(R.drawable.animation_chouettes_menu);
         mOwlAnimation = (AnimationDrawable) owlImg.getBackground();
         playerEvent = MediaPlayer.create(MainActivity.this, R.raw.envent_sound);
         music = R.raw.bensound_jazzyfrenchy;
-        startBackgroundMusic(this, music);
+        //startBackgroundMusic(this, music);
+
+        /*if(savedInstanceState!=null){
+            mute=savedInstanceState.getBoolean(STRING_MUTE);
+        }*/
+        //
+
+
+
+
+
+
+
+        if(!mute){
+            mute = false;
+            setSong(true);
+            startBackgroundMusic(getApplicationContext(),music);
+            ImgBtnsong.setBackground(getResources().getDrawable(R.drawable.volume_unmute));
+            playerEvent.setVolume(1,1);
+            bgPlayer.setVolume(1,1);
+        }else{
+            mute = true;
+            setSong(false);
+            ImgBtnsong.setBackground(getResources().getDrawable(R.drawable.volume_mute));
+            /*bgPlayer.setVolume(0,0);
+            playerEvent.setVolume(0,0);*/
+        }
+
+
+
+
 
         //On terminaisons.json la reference ici
-        if (playerName == "noName") {
+        if (playerName.isEmpty()) {
             alertDialog();
         }
 
@@ -73,6 +109,7 @@ public class MainActivity extends ActivityUtil {
                 startActivity(additionIntent);
 
                 playerEvent.start();
+
                 finish();
             }
         });
@@ -109,6 +146,8 @@ public class MainActivity extends ActivityUtil {
 
                 Intent reverseFlagActivityIntent = new Intent(MainActivity.this, ReverseFlagActivity.class);
                 startActivity(reverseFlagActivityIntent);
+
+                playerEvent.start();
                 finish();
 
             }
@@ -148,6 +187,40 @@ public class MainActivity extends ActivityUtil {
                 finish();
             }
         });
+
+
+
+        scoreTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent scoreActivityIntent = new Intent(MainActivity.this, ScoreActivity.class);
+                startActivity(scoreActivityIntent);
+
+                playerEvent.start();
+                finish();
+            }
+        });
+
+        ImgBtnsong.setOnClickListener(new View.OnClickListener() {
+            @Override @TargetApi(16)
+            public void onClick(View v) {
+                if(mute){
+                    mute = false;
+                    setSong(true);
+                    startBackgroundMusic(getApplicationContext(),music);
+                    ImgBtnsong.setBackground(getResources().getDrawable(R.drawable.volume_unmute));
+                    playerEvent.setVolume(1,1);
+                    bgPlayer.setVolume(1,1);
+                }else{
+                    mute = true;
+                    setSong(false);
+                    ImgBtnsong.setBackground(getResources().getDrawable(R.drawable.volume_mute));
+                    bgPlayer.setVolume(0,0);
+                    playerEvent.setVolume(0,0);
+                }
+            }
+        });
     }
 
     @Override
@@ -164,6 +237,7 @@ public class MainActivity extends ActivityUtil {
         final EditText input = new EditText(this);
         input.setHint("Entre ton nom");
         updateDialog.setView(input);
+        updateDialog.setCancelable(false);
 
         updateDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
@@ -184,20 +258,8 @@ public class MainActivity extends ActivityUtil {
                 }
             }
         });
-        updateDialog.setOnDismissListener(new DialogInterface.OnDismissListener(){
-
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                if(Pattern.matches("[a-zA-z]{1,15}([ ]{0,1}|[-]{0,1})[a-zA-z]{1,15}", input.getText().toString())){
-                    String m_Text = input.getText().toString();
-                    setPlayerName(m_Text);
-                }else{
-                    showText("Erreur : veuillez entrer un nom valide ! ");
-                    alertDialog();
-                }
-            }
-        });
         updateDialog.show();
+
     }
 
     public void showText(String text) {
@@ -215,5 +277,22 @@ public class MainActivity extends ActivityUtil {
                 toast.cancel();
             }
         }, 500);
+    }
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState=new Bundle();
+        outState.putBoolean(STRING_MUTE,mute);
+        super.onSaveInstanceState(outState);
+
+    }
+
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if(savedInstanceState != null){
+            this.mute = savedInstanceState.getBoolean(STRING_MUTE, false);
+
+        }
     }
 }

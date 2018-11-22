@@ -11,7 +11,6 @@ public enum ListeInfinitif {
     EMPLOYER("Employer",1),
     BALAYER("Balayer",1),
     JETER("Jeter",1),
-    CLAMECER("Clamecer",1),
 
     //Groupe 2
     FINIR("Finir",2),

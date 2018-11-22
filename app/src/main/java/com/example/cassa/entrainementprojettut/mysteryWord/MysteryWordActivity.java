@@ -59,7 +59,9 @@ public class MysteryWordActivity extends GameActivity {
         setContentView(R.layout.activity_mystery_word);
 
         music = R.raw.bensound_cute;
-        startBackgroundMusic(this, music);
+        if(isSong()) {
+            startBackgroundMusic(this, music);
+        }
         initializeGame();
         showMenu();
         startingTime = System.currentTimeMillis();
@@ -200,8 +202,11 @@ public class MysteryWordActivity extends GameActivity {
 
     protected void onDestroy(){
         super.onDestroy();
+        try {
+            bgPlayer.stop();
+        }catch (Exception e){
 
-        bgPlayer.stop();
+        }
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 

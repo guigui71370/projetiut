@@ -2,6 +2,9 @@ package com.example.cassa.entrainementprojettut.conjugaison.Conjugaisons;
 
 import com.example.cassa.entrainementprojettut.database.AppDatabase;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeSujet.ELLES;
 import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeSujet.IL;
 import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeSujet.JE;
@@ -12,15 +15,19 @@ import static com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUti
 public class Phrase implements I_Conjugaison {
     private String sujet;
     private String verbe;
+    private int groupeVerbe;
     private String complement;
     private String infinitif;
     private String temps;
+    private Competence competence;
     private AppDatabase db = AppDatabase.getInstanceOfAppDatabase(null);
 
-    public Phrase(int groupe, String temps){
-        this.temps = temps;
+    public Phrase(Competence c){
+        this.competence = c;
+        this.temps = this.competence.getTemps().getTemps();
+        this.groupeVerbe = randomGroup();
+        this.infinitif = generateVerbeInfinitif(this.groupeVerbe);
         this.sujet = generateSujet();
-        this.infinitif = generateVerbeInfinitif(groupe);
         this.complement = getComplementInfinitif(this.infinitif);
         this.verbe = getVerbeConjugue(this.temps,this.sujet,this.infinitif);
     }
@@ -50,6 +57,14 @@ public class Phrase implements I_Conjugaison {
         return infinitif;
     }
 
+    @Override
+    public Competence getCompetence() {return competence;}
+
+    @Override
+    public int getGroupeVerbe() {
+        return groupeVerbe;
+    }
+
     //Renvoi un verbe à l'infinitif du groupe donné
     private String generateVerbeInfinitif(int groupe){
         String randomInfinitif = db.getInfinitifDao().findARandomInfinitif(groupe);
@@ -60,6 +75,9 @@ public class Phrase implements I_Conjugaison {
         int indice = (int) (1 + (Math.random() * (6)));
         switch (indice){
             case 1:
+                if(getInfinitif().toLowerCase().matches("(a|e|i|o|u|y).*")) {
+                    return "J'";
+                }
                 return JE.getSujet();
             case 2:
                 return TU.getSujet();
@@ -86,5 +104,11 @@ public class Phrase implements I_Conjugaison {
     private String getVerbeConjugue(String temps, String sujet, String infinitif) {
         String verbeConjugue = db.getVerbeConjugueDao().findVerbeConjugue(temps,sujet,infinitif);
         return verbeConjugue;
+    }
+
+    //Retourne un numero de groupe aléatoire dans une liste de groupe
+    public int randomGroup(){
+        ArrayList<Integer> list = competence.getListOfGroup();
+        return list.get(new  Random().nextInt(list.size())).intValue();
     }
 }
