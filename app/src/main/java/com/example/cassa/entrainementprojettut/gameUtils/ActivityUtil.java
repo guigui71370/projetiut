@@ -72,7 +72,9 @@ public class ActivityUtil extends AppCompatActivity {
           startActivity(back);
 
       }else {
-          MainActivity.setPlayerName("noName") ;
+          MainActivity.setPlayerName("") ;
+
+
       }
         super.onBackPressed();
 

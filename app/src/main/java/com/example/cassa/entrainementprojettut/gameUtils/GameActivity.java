@@ -27,6 +27,8 @@ import com.example.cassa.entrainementprojettut.database.AppDatabase;
 import com.example.cassa.entrainementprojettut.database.Score;
 import com.plattysoft.leonids.ParticleSystem;
 
+import java.util.regex.Pattern;
+
 public class GameActivity extends ActivityUtil implements AppCompatCallback,
         TaskStackBuilder.SupportParentable, ActionBarDrawerToggle.DelegateProvider {
 
@@ -64,7 +66,7 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
             public void run() {
                 toast.cancel();
             }
-        }, 500);
+        }, 1500);
     }
 
     protected int levelChosen = 0;
@@ -92,7 +94,17 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
 
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(activityContext);
         mBuilder.setCancelable(false);
-        String colorsTab[] = {"#77dd6c", "#eebf38", "#ee3838", "#c847ea", "#47aaea"};
+        mBuilder.setNegativeButton("Retour au menu",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which){
+                        Intent back = new Intent(getApplicationContext(), MainActivity.class);
+
+                        startActivity(back);
+                        finish();
+                    }
+                });
+
+            String colorsTab[] = {"#77dd6c", "#eebf38", "#ee3838", "#c847ea", "#47aaea"};
 
         lvlChoiceView = getLayoutInflater().inflate(R.layout.level_choice_popup, null);
 
