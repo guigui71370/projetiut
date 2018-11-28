@@ -1,28 +1,32 @@
 package com.example.cassa.entrainementprojettut.connect4;
 
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.media.MediaPlayer;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.annotation.RequiresApi;
+import android.support.v4.content.res.TypedArrayUtils;
 import android.view.View;
 import android.widget.Chronometer;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.cassa.entrainementprojettut.R;
 import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Connect4Activity extends GameActivity implements View.OnClickListener {
 
+    private GridLayout gridLayout;
     private Chronometer chronometer;
     private MediaPlayer playerEvent;
 
-    private int nbYellowAlign;
-    private int nbRedAlign;
+    private ImageView[][] board = new ImageView[6][7];
+    ControlerConnect4 controlerConnect4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
             public void onDismiss(DialogInterface dialogInterface) {
                 if (levelChosen != 0) {
                     //launchTimer(Connect4Activity.this,60000,R.id.acivity_addition_pos1_img,R.id.activity_addition_ordi_img);
+                    generateNewGame();
                     chronometer.setBase(SystemClock.elapsedRealtime());
                     chronometer.start();
                 } else {
@@ -49,37 +54,83 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
             }
         });
 
+        gridLayout = findViewById(R.id.gridLayout);
+        chronometer = findViewById(R.id.activity_connect4_chrono_chronometer);
+        playerEvent = MediaPlayer.create(Connect4Activity.this,R.raw.envent_sound);
 
-        GridLayout gridLayout  =findViewById(R.id.gridLayout);
+        createGameBoard(gridLayout);
+    }
+
+    private void generateNewGame() {
+        controlerConnect4 = new ControlerConnect4();
+        //disableImage();
+    }
+
+    private void disableImage(){
+        int i, j;
+        for(i=0; i<board.length; i++) {
+            for(j=0; j<board[i].length; j++) {
+                board[i][j].setEnabled(false);
+            }
+        }
+    }
+
+    private void enableImage(){
+        int i, j;
+        for(i=0; i<board.length; i++) {
+            for(j=0; j<board[i].length; j++) {
+                board[i][j].setEnabled(true);
+            }
+        }
+    }
+
+    private void createGameBoard(GridLayout gridLayout) {
         for(int y = 0; y < gridLayout.getRowCount(); y++) {
-            GridLayout.Spec row = GridLayout.spec(y);
             for (int x = 0; x < gridLayout.getColumnCount(); x++) {
-                 ImageView image=new ImageView(this );
+                 ImageView image = new ImageView(this);
+                 image.setOnClickListener(this);
                  image.setImageResource(R.drawable.circle);
                  LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(100, 100);
                  image.setLayoutParams(layoutParams);
-                 GridLayout.Spec col = GridLayout.spec(x);
+                 //Le tag indique la colonne
+                 image.setTag(R.id.gridLayout,x);
+                 board[y][x] = image;
                  gridLayout.addView(image);
             }
         }
-
-
-
-        playerEvent = MediaPlayer.create(Connect4Activity.this,R.raw.envent_sound);
-        chronometer = findViewById(R.id.activity_connect4_chrono_chronometer);
     }
 
     private void showMenu(){
-        String[] menu = new String[4];
-        menu[0]= "niveau 1";
-        menu[1]= "niveau 2";
-        menu[2]= "niveau 3";
-        menu[3]= "niveau 4";
+        String[] menu = new String[2];
+        menu[0]= "Facile";
+        menu[1]= "Difficile";
 
         displayLevelchoice(this,menu);
     }
 
     @Override
     public void onClick(View view) {
+        if (view instanceof ImageView) {
+            int column = (int)view.getTag(R.id.gridLayout);
+            int row = controlerConnect4.insertCheckers(column);
+            board[row][column].setColorFilter(Color.RED);
+            disableImage();
+            iaPlaying();
+        }
+        /*
+        if(controlerConnect4.hasWinner()){
+            showText("Le vainqueur est le joueur");
+        }*/
+    }
+
+    public void iaPlaying(){
+        int column = controlerConnect4.calculateCheckersPosition(levelChosen, board).getColumn();
+        int row = controlerConnect4.calculateCheckersPosition(levelChosen, board).getRow();
+        board[row][column].setColorFilter(Color.YELLOW);
+        enableImage();
+        /*
+        if(controlerConnect4.hasWinner()){
+            showText("Le vainqueur est l'ordinateur");
+        }*/
     }
 }
