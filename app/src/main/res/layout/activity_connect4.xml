@@ -23,7 +23,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:columnCount="7"
-        android:rowCount="6">
+        android:rowCount="6"
+        android:background="#1d25c4"
+        >
 
 
 

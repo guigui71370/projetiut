@@ -70,12 +70,12 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
     }
 
     private void showMenu(){
-        String[] menu = new String[5];
-        menu[0]= getString(R.string.first_year_of_primary_school);
-        menu[1]= getString(R.string.second_year_of_primary_school);
-        menu[2]= getString(R.string.third_year_of_primary_school);
-        menu[3]= getString(R.string.fourth_year_of_primary_school);
-        menu[4]= getString(R.string.fifth_year_of_primary_school);
+        String[] menu = new String[4];
+        menu[0]= "niveau 1";
+        menu[1]= "niveau 2";
+        menu[2]= "niveau 3";
+        menu[3]= "niveau 4";
+
         displayLevelchoice(this,menu);
     }
 
