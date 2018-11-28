@@ -20,7 +20,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayout2"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
             tools:layout_editor_absoluteY="30dp">
@@ -75,19 +75,27 @@
 
             <Button
                 android:id="@+id/activity_main_conjugaison"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@color/colorGreen"
                 android:text="@string/conjugaison_game" />
 
             <Button
+                android:id="@+id/activity_main_geometry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorGreen"
+                android:text="@string/geometry_game" />
+
+            <Button
                 android:id="@+id/activity_main_score_btn"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="@color/colorGreen"
-                android:text="@string/Score_activity"
-                android:layout_marginTop="10dp"/>
+                android:text="@string/Score_activity" />
 
         </LinearLayout>
     </ScrollView>

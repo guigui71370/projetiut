@@ -122,8 +122,8 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         complement = findViewById(R.id.activity_conjugaison_complement_textview);
         hint = findViewById(R.id.activity_conjugaison_hint_textview);
 
-        verb1 = findViewById(R.id.activity_conjugaison_verb1_button);
-        verb2 = findViewById(R.id.activity_conjugaison_verb2_button);
+        verb1 = findViewById(R.id.activity_geometry_button_true);
+        verb2 = findViewById(R.id.activity_geometry_button_false);
         verb3 = findViewById(R.id.activity_conjugaison_verb3_button);
         verb4 = findViewById(R.id.activity_conjugaison_verb4_button);
 

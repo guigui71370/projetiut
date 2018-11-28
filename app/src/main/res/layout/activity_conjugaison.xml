@@ -94,13 +94,13 @@
         app:layout_constraintTop_toBottomOf="@+id/activity_conjugaison_sujetVerbe_linearlayout">
 
         <Button
-            android:id="@+id/activity_conjugaison_verb1_button"
+            android:id="@+id/activity_geometry_button_true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
             android:text="@string/button"
-            app:layout_constraintEnd_toStartOf="@+id/activity_conjugaison_verb2_button"
+            app:layout_constraintEnd_toStartOf="@+id/activity_geometry_button_false"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ButtonStyle"
@@ -108,7 +108,7 @@
             tools:layout_conversion_absoluteWidth="88dp" />
 
         <Button
-            android:id="@+id/activity_conjugaison_verb2_button"
+            android:id="@+id/activity_geometry_button_false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -116,9 +116,9 @@
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
             android:text="@string/button"
-            app:layout_constraintBottom_toBottomOf="@+id/activity_conjugaison_verb1_button"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_geometry_button_true"
             app:layout_constraintEnd_toStartOf="@+id/activity_conjugaison_verb3_button"
-            app:layout_constraintStart_toEndOf="@+id/activity_conjugaison_verb1_button"
+            app:layout_constraintStart_toEndOf="@+id/activity_geometry_button_true"
             tools:ignore="ButtonStyle"
             tools:layout_conversion_absoluteHeight="48dp"
             tools:layout_conversion_absoluteWidth="88dp" />
@@ -132,9 +132,9 @@
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
             android:text="@string/button"
-            app:layout_constraintBottom_toBottomOf="@+id/activity_conjugaison_verb2_button"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_geometry_button_false"
             app:layout_constraintEnd_toStartOf="@+id/activity_conjugaison_verb4_button"
-            app:layout_constraintStart_toEndOf="@+id/activity_conjugaison_verb2_button"
+            app:layout_constraintStart_toEndOf="@+id/activity_geometry_button_false"
             tools:ignore="ButtonStyle"
             tools:layout_conversion_absoluteHeight="54dp"
             tools:layout_conversion_absoluteWidth="65dp" />
