@@ -2,10 +2,16 @@ package com.example.cassa.entrainementprojettut.connect4;
 
 import android.content.DialogInterface;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.widget.Chronometer;
+import android.widget.GridLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.example.cassa.entrainementprojettut.R;
 import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
@@ -33,7 +39,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
             @Override
             public void onDismiss(DialogInterface dialogInterface) {
                 if (levelChosen != 0) {
-                    launchTimer(Connect4Activity.this,60000,R.id.acivity_addition_pos1_img,R.id.activity_addition_ordi_img);
+                    //launchTimer(Connect4Activity.this,60000,R.id.acivity_addition_pos1_img,R.id.activity_addition_ordi_img);
                     chronometer.setBase(SystemClock.elapsedRealtime());
                     chronometer.start();
                 } else {
@@ -42,6 +48,22 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
                 }
             }
         });
+
+
+        GridLayout gridLayout  =findViewById(R.id.gridLayout);
+        for(int y = 0; y < gridLayout.getRowCount(); y++) {
+            GridLayout.Spec row = GridLayout.spec(y);
+            for (int x = 0; x < gridLayout.getColumnCount(); x++) {
+                 ImageView image=new ImageView(this );
+                 image.setImageResource(R.drawable.circle);
+                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(100, 100);
+                 image.setLayoutParams(layoutParams);
+                 GridLayout.Spec col = GridLayout.spec(x);
+                 gridLayout.addView(image);
+            }
+        }
+
+
 
         playerEvent = MediaPlayer.create(Connect4Activity.this,R.raw.envent_sound);
         chronometer = findViewById(R.id.activity_connect4_chrono_chronometer);
