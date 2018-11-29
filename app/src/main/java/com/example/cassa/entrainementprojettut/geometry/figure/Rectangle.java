@@ -29,12 +29,17 @@ public class Rectangle implements Figure {
         Rect r = new Rect(0, 0, canvas.getWidth(), canvas.getHeight());
         Paint p = new Paint();
         p.setColor(Color.RED);
-        p.setStyle(Paint.Style.FILL);
+        p.setStyle(Paint.Style.STROKE);
         canvas.drawRect( r,  p);
     }
 
     @Override
     public ArrayList<FigureProperties> getProperties() {
         return null;
+    }
+
+    @Override
+    public String getName() {
+        return "Rectangle";
     }
 }

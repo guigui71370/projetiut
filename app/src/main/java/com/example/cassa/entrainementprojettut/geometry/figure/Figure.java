@@ -13,4 +13,5 @@ public interface Figure {
 
     public ArrayList<FigureProperties> getProperties();
 
+    String getName();
 }

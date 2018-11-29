@@ -2,6 +2,7 @@ package com.example.cassa.entrainementprojettut.geometry;
 
 import android.content.DialogInterface;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.SurfaceHolder;
@@ -13,6 +14,7 @@ import com.example.cassa.entrainementprojettut.R;
 import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 import com.example.cassa.entrainementprojettut.geometry.controller.*;
 import com.example.cassa.entrainementprojettut.geometry.figure.Figure;
+import com.example.cassa.entrainementprojettut.geometry.view.DrawingView;
 
 
 public class GeometryActivity extends GameActivity implements View.OnClickListener{
@@ -20,7 +22,7 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
 
     private ControlerFigure ctrlFigure;
     private MediaPlayer playerEvent;
-    protected SurfaceView surface;
+    protected DrawingView drawingView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +35,15 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
             startBackgroundMusic(this,music);
         }
 
+        playerEvent = MediaPlayer.create(GeometryActivity.this,R.raw.envent_sound);
+        drawingView = (DrawingView) findViewById(R.id.activity_geometry_drawing);
+
+
         dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialogInterface) {
                 if (levelChosen != 0) {
+                    ctrlFigure = new ControlerFigure();
                     generateFigure();
                     //launchTimer(GeometryActivity.this,60000,R.id.acivity_addition_pos1_img,R.id.playerImage);
                 } else {
@@ -46,36 +53,12 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
             }
         });
 
-        playerEvent = MediaPlayer.create(GeometryActivity.this,R.raw.envent_sound);
-
-        surface = (SurfaceView) findViewById(R.id.activity_geometry_surfaceView);
-
-
     }
 
 
     private void generateFigure(){
 
-
-        surface.getHolder().addCallback(new SurfaceHolder.Callback() {
-
-            @Override
-            public void surfaceCreated(SurfaceHolder holder) {
-                // Do some drawing when surface is ready
-                Canvas canvas = holder.lockCanvas();
-                Figure figure = new ControlerFigure().getFigure();
-                figure.draw(canvas);
-                holder.unlockCanvasAndPost(canvas);
-            }
-
-            @Override
-            public void surfaceDestroyed(SurfaceHolder holder) {
-            }
-
-            @Override
-            public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-            }
-        });
+        ctrlFigure.updateDrawingView(drawingView);
 
 
     }

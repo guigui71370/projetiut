@@ -17,17 +17,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ghost" />
 
-    <SurfaceView
-        android:id="@+id/activity_geometry_surfaceView"
-        android:layout_width="0dp"
-        android:layout_height="92dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
+    <com.example.cassa.entrainementprojettut.geometry.view.DrawingView
+        android:id="@+id/activity_geometry_drawing"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playerImage" />
 
@@ -40,7 +39,7 @@
         android:text="Propriété de la figure"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_geometry_surfaceView" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_geometry_drawing" />
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/linearLayout"
