@@ -27,6 +27,10 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
 
     private ImageView[][] board = new ImageView[6][7];
     ControlerConnect4 controlerConnect4;
+    private int playerColor;
+    private int computerColor;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +68,44 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
     private void generateNewGame() {
         controlerConnect4 = new ControlerConnect4();
         //disableImage();
+        initializePlayer();
     }
+
+    public char coloria;
+    public char colorjoueur;
+    private void initializePlayer() {
+        //Pour la couleur
+        switch ((int)(Math.random() * 2)){
+            case 0:
+                colorjoueur='r';
+                playerColor = Color.RED;
+
+                coloria='y';
+                computerColor = Color.YELLOW;
+
+                break;
+            case 1:
+                colorjoueur='y';
+                playerColor = Color.YELLOW;
+                coloria='r';
+                computerColor = Color.RED;
+                break;
+        }
+        //Pour celui qui joue en premier
+        switch ((int)(Math.random() * 2)){
+            // 0 equivaut au joueur
+            case 0:
+                enableImage();
+                break;
+            // 1 equivaut a l'IA
+            case 1:
+                disableImage();
+                iaPlaying();
+                break;
+        }
+    }
+
+
 
     private void disableImage(){
         int i, j;
@@ -108,29 +149,39 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
         displayLevelchoice(this,menu);
     }
 
+
+
     @Override
     public void onClick(View view) {
         if (view instanceof ImageView) {
             int column = (int)view.getTag(R.id.gridLayout);
-            int row = controlerConnect4.insertCheckers(column);
-            board[row][column].setColorFilter(Color.RED);
-            disableImage();
-            iaPlaying();
+            int row = controlerConnect4.insertCheckers(column,colorjoueur);
+            if(row!=-1){
+
+                board[row][column].setColorFilter(playerColor);
+                disableImage();
+                iaPlaying();
+            }
+
         }
-        /*
-        if(controlerConnect4.hasWinner()){
-            showText("Le vainqueur est le joueur");
-        }*/
+
+        if(controlerConnect4.hasWinner()==2){
+            showText("match nulle");
+        }
     }
 
     public void iaPlaying(){
-        int column = controlerConnect4.calculateCheckersPosition(levelChosen, board).getColumn();
-        int row = controlerConnect4.calculateCheckersPosition(levelChosen, board).getRow();
-        board[row][column].setColorFilter(Color.YELLOW);
+        int column = controlerConnect4.calculateCheckersPosition(levelChosen).getColumn();
+        //int row = controlerConnect4.calculateCheckersPosition(levelChosen, board).getRow();
+        int row = controlerConnect4.insertCheckers(column,coloria);
+        if(row!=-1){
+            board[row][column].setColorFilter(computerColor);
+        }
         enableImage();
-        /*
-        if(controlerConnect4.hasWinner()){
-            showText("Le vainqueur est l'ordinateur");
-        }*/
+        //showText("ia joue");
+
+        if(controlerConnect4.hasWinner()==2){
+            showText("match nulle");
+        }
     }
 }
