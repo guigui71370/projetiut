@@ -161,7 +161,13 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
 
                 board[row][column].setColorFilter(playerColor);
                 disableImage();
-                iaPlaying();
+                if(controlerConnect4.hasWinner()==1 ||controlerConnect4.hasWinner()==0){
+                    showText("partie finie joueur win");
+                }else if(controlerConnect4.hasWinner()==2) {
+                    showText("match nulle");
+                }else {
+                    iaPlaying();
+                }
             }
 
         }
@@ -169,6 +175,11 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
         if(controlerConnect4.hasWinner()==2){
             showText("match nulle");
         }
+
+
+       /* if(controlerConnect4.hasWinner()==1 ||controlerConnect4.hasWinner()==0){
+            showText("match nulle");
+        }*/
     }
 
     public void iaPlaying(){
@@ -178,11 +189,15 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
         if(row!=-1){
             board[row][column].setColorFilter(computerColor);
         }
-        enableImage();
+        if(controlerConnect4.hasWinner()==1 ||controlerConnect4.hasWinner()==0){
+            showText("partie finie ia win");
+        }else  if(controlerConnect4.hasWinner()==2) {
+            showText("match nulle");
+        }else {
+            enableImage();
+        }
         //showText("ia joue");
 
-        if(controlerConnect4.hasWinner()==2){
-            showText("match nulle");
-        }
+
     }
 }

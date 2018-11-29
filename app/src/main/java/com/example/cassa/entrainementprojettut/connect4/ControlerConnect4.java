@@ -38,7 +38,7 @@ public class ControlerConnect4 {
             return 2;
         }else if(plateau.win('r')){
             return 0;
-        }else if(plateau.win('j')){
+        }else if(plateau.win('y')){
             return 1;
         }else
 
