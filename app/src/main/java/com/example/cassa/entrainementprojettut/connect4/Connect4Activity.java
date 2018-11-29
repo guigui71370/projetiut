@@ -63,6 +63,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
         playerEvent = MediaPlayer.create(Connect4Activity.this,R.raw.envent_sound);
 
         createGameBoard(gridLayout);
+        disableImage();
     }
 
     private void generateNewGame() {
