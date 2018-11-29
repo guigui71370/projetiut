@@ -23,6 +23,8 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
 
     private GridLayout gridLayout;
     private Chronometer chronometer;
+    private int playerColor;
+    private int computerColor;
     private MediaPlayer playerEvent;
 
     private ImageView[][] board = new ImageView[6][7];
@@ -59,11 +61,39 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
         playerEvent = MediaPlayer.create(Connect4Activity.this,R.raw.envent_sound);
 
         createGameBoard(gridLayout);
+        disableImage();
     }
 
     private void generateNewGame() {
         controlerConnect4 = new ControlerConnect4();
-        //disableImage();
+        initializePlayer();
+    }
+
+    private void initializePlayer() {
+        //Pour la couleur
+        switch ((int)(Math.random() * 2)){
+            case 0:
+                playerColor = Color.RED;
+                computerColor = Color.YELLOW;
+                break;
+            case 1:
+                playerColor = Color.YELLOW;
+                computerColor = Color.RED;
+                break;
+        }
+
+        //Pour celui qui joue en premier
+        switch ((int)(Math.random() * 2)){
+            // 0 equivaut au joueur
+            case 0:
+                enableImage();
+                break;
+            // 1 equivaut a l'IA
+            case 1:
+                disableImage();
+                iaPlaying();
+                break;
+        }
     }
 
     private void disableImage(){
@@ -113,7 +143,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
         if (view instanceof ImageView) {
             int column = (int)view.getTag(R.id.gridLayout);
             int row = controlerConnect4.insertCheckers(column);
-            board[row][column].setColorFilter(Color.RED);
+            board[row][column].setColorFilter(playerColor);
             disableImage();
             iaPlaying();
         }
@@ -126,7 +156,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
     public void iaPlaying(){
         int column = controlerConnect4.calculateCheckersPosition(levelChosen, board).getColumn();
         int row = controlerConnect4.calculateCheckersPosition(levelChosen, board).getRow();
-        board[row][column].setColorFilter(Color.YELLOW);
+        board[row][column].setColorFilter(computerColor);
         enableImage();
         /*
         if(controlerConnect4.hasWinner()){
