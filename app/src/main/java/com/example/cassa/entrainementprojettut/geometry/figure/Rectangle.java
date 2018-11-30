@@ -9,14 +9,16 @@ import com.example.cassa.entrainementprojettut.geometry.FigureProperties;
 
 import java.util.ArrayList;
 
-public class Rectangle implements Figure {
+public class Rectangle extends Parralellogramme {
 
     private int x;
     private int y;
+    private ArrayList<FigureProperties> properties;
 
-    public Rectangle(int x, int y) {
+    public Rectangle() {
         this.x = x;
         this.y = y;
+        properties = super.getProperties();
     }
 
     @Override

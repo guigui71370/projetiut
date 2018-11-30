@@ -1,4 +1,29 @@
 package com.example.cassa.entrainementprojettut.geometry.figure;
 
-public class TriangleIR implements Figure {
+import android.graphics.Canvas;
+
+import com.example.cassa.entrainementprojettut.geometry.FigureProperties;
+
+import java.util.ArrayList;
+
+public class TriangleIR extends TriangleI {
+    @Override
+    public int getAire() {
+        return 0;
+    }
+
+    @Override
+    public void draw(Canvas canvas) {
+
+    }
+
+    @Override
+    public ArrayList<FigureProperties> getProperties() {
+        return null;
+    }
+
+    @Override
+    public String getName() {
+        return null;
+    }
 }

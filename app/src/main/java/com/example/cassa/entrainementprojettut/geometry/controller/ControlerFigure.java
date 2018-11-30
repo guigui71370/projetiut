@@ -8,7 +8,7 @@ public class ControlerFigure {
     private Figure f;
 
     public ControlerFigure(){
-        f = new Rectangle(2,4);
+        f = new Rectangle();
     }
 
     public void updateDrawingView(DrawingView drawingView){
