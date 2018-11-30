@@ -1,7 +1,8 @@
 package com.example.cassa.entrainementprojettut.connect4;
 
 
-
+import com.example.cassa.entrainementprojettut.connect4.ia.I_Ia;
+import com.example.cassa.entrainementprojettut.connect4.ia.I_IaFacile;
 
 public class ControlerConnect4 {
 
@@ -54,7 +55,7 @@ public class ControlerConnect4 {
         return result;
     }
 
-    public Position calculateCheckersPosition(int levelChosen){
+    public I_Ia calculateCheckersPosition(int levelChosen){
         //On calcule la position ou le pion doit etre placé selon le niveau de difficulté
         return plateau.calculateCheckersPosition(levelChosen);
     }

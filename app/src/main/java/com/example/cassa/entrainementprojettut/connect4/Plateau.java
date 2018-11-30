@@ -1,6 +1,11 @@
 package com.example.cassa.entrainementprojettut.connect4;
 
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
+import com.example.cassa.entrainementprojettut.connect4.ia.I_Ia;
+import com.example.cassa.entrainementprojettut.connect4.ia.I_IaFacile;
 
 public class Plateau {
 
@@ -22,11 +27,24 @@ public class Plateau {
 
 
 
-    public Position calculateCheckersPosition(int levelChosen){
+    public I_Ia calculateCheckersPosition(int levelChosen){
         //On calcule la position ou le pion doit etre placé selon le niveau de difficulté
-        Position solution = new Position();
-        solution.calculateRowAndColumn(levelChosen);
-        return solution;
+        switch (levelChosen){
+            //Facile
+            case 1:
+                I_IaFacile iaFacile = new I_IaFacile();
+                iaFacile.calculateColumn(this.plateau);
+                return iaFacile;
+            //Difficile
+            case 2:
+                I_IaFacile iaFacile1 = new I_IaFacile();
+                iaFacile1.calculateColumn(this.plateau);
+                return iaFacile1;
+            default:
+                I_IaFacile iaFacile2 = new I_IaFacile();
+                iaFacile2.calculateColumn(this.plateau);
+                return iaFacile2;
+        }
     }
 
     /*
