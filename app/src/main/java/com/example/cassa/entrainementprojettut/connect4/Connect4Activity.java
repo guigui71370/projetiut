@@ -1,12 +1,15 @@
 package com.example.cassa.entrainementprojettut.connect4;
 
+import android.annotation.TargetApi;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.content.res.TypedArrayUtils;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Chronometer;
 import android.widget.GridLayout;
 import android.widget.ImageView;
@@ -132,7 +135,9 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
                  ImageView image = new ImageView(this);
                  image.setOnClickListener(this);
                  image.setImageResource(R.drawable.circle);
-                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(100, 100);
+                 GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams();
+                 layoutParams.width = 100;
+                 layoutParams.height = 100;
                  image.setLayoutParams(layoutParams);
                  //Le tag indique la colonne
                  image.setTag(R.id.gridLayout,x);
