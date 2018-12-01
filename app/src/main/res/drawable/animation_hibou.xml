@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item android:drawable="@drawable/owl_01" android:duration="3500" />
+    <item android:drawable="@drawable/owl_02" android:duration="80" />
+    <item android:drawable="@drawable/owl_03" android:duration="80" />
+    <item android:drawable="@drawable/owl_04" android:duration="80" />
+    <item android:drawable="@drawable/owl_05" android:duration="80" />
+    <item android:drawable="@drawable/owl_06" android:duration="80" />
+    <item android:drawable="@drawable/owl_07" android:duration="80" />
+    <item android:drawable="@drawable/owl_08" android:duration="3500" />
+    <item android:drawable="@drawable/owl_07" android:duration="80" />
+    <item android:drawable="@drawable/owl_06" android:duration="80" />
+    <item android:drawable="@drawable/owl_05" android:duration="80" />
+    <item android:drawable="@drawable/owl_04" android:duration="80" />
+    <item android:drawable="@drawable/owl_03" android:duration="80" />
+    <item android:drawable="@drawable/owl_02" android:duration="80" />
+
+</animation-list>

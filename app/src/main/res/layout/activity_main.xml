@@ -117,5 +117,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
+    <ImageView
+        android:id="@+id/im_titre"
+        android:layout_width="275dp"
+        android:layout_height="139dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginLeft="200dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/titre" />
+
 
 </android.support.constraint.ConstraintLayout>

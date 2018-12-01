@@ -11,9 +11,9 @@ import java.util.ArrayList;
 
 public class Rectangle extends Parralellogramme {
 
-    private int x;
-    private int y;
-    private ArrayList<FigureProperties> properties;
+    protected int x;
+    protected int y;
+    protected ArrayList<FigureProperties> properties;
 
     public Rectangle() {
         this.x = x;

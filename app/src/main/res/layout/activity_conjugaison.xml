@@ -172,4 +172,14 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="20dp" />
 
+    <ImageView
+        android:id="@+id/hibou"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

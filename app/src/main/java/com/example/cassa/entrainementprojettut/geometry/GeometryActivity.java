@@ -5,9 +5,11 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.Chronometer;
 
 import com.example.cassa.entrainementprojettut.R;
 
@@ -23,6 +25,7 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
     private ControlerFigure ctrlFigure;
     private MediaPlayer playerEvent;
     protected DrawingView drawingView;
+    private Chronometer chronometer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +49,15 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
                     ctrlFigure = new ControlerFigure();
                     generateFigure();
                     //launchTimer(GeometryActivity.this,60000,R.id.acivity_addition_pos1_img,R.id.playerImage);
+                    chronometer.setBase(SystemClock.elapsedRealtime());
+                    chronometer.start();
                 } else {
                     GeometryActivity.this.onStop();
                     dialog.show();
                 }
             }
         });
-
+        chronometer = findViewById(R.id.activity_geometry_chronometer2_chronometer);
     }
 
 
