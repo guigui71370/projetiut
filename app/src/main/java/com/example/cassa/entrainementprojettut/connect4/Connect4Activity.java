@@ -186,9 +186,12 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
         int column = controlerConnect4.calculateCheckersPosition(levelChosen).getColumn();
         //int row = controlerConnect4.calculateCheckersPosition(levelChosen, board).getRow();
         int row = controlerConnect4.insertCheckers(column,coloria);
-        if(row!=-1){
-            board[row][column].setColorFilter(computerColor);
+        while(row==-1){
+             column = controlerConnect4.calculateCheckersPosition(levelChosen).getColumn();
+            //int row = controlerConnect4.calculateCheckersPosition(levelChosen, board).getRow();
+             row = controlerConnect4.insertCheckers(column,coloria);
         }
+        board[row][column].setColorFilter(computerColor);
         if(controlerConnect4.hasWinner()==1 ||controlerConnect4.hasWinner()==0){
             showText("partie finie ia win");
         }else  if(controlerConnect4.hasWinner()==2) {
