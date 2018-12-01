@@ -75,12 +75,13 @@ public class SetConjugaisonCM1 implements I_SetConjugaison {
         // compétence 3
         Competence c3 = new Competence("Imparfait de l'indicatif, tous les verbes", ListeTemps.IMPARFAIT);
 
-
+        Competence c4 = new Competence("Passé simple de l'indicatif, tous les verbes", ListeTemps.PASSESIMPLE);
 
         // ajout des compétences dans la liste
         listCompetence.add(c1);
         listCompetence.add(c2);
         listCompetence.add(c3);
+        listCompetence.add(c4);
 
 
         return new Phrase(randomCompetence());
