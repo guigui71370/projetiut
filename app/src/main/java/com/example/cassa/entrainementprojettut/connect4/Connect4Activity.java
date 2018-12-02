@@ -167,6 +167,14 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
                 board[row][column].setColorFilter(playerColor);
                 disableImage();
                 if(controlerConnect4.hasWinner()==1 ||controlerConnect4.hasWinner()==0){
+
+                    unableLoose();
+                    unableScoreMode();
+                    chronometer.stop();
+                    timeScore = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 1000;
+                    initializeScoreValues("puissances 4", levelChosen);
+                    showResultScreen(this);
+
                     showText("partie finie joueur win");
                 }else if(controlerConnect4.hasWinner()==2) {
                     showText("match nulle");
@@ -199,6 +207,10 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
         board[row][column].setColorFilter(computerColor);
         if(controlerConnect4.hasWinner()==1 ||controlerConnect4.hasWinner()==0){
             showText("partie finie ia win");
+
+
+
+            showResultScreen(this);
         }else  if(controlerConnect4.hasWinner()==2) {
             showText("match nulle");
         }else {
