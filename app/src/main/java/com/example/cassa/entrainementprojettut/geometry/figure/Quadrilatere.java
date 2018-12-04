@@ -24,6 +24,6 @@ public class Quadrilatere implements Figure {
 
     @Override
     public String getName() {
-        return null;
+        return "Quadrilatère";
     }
 }

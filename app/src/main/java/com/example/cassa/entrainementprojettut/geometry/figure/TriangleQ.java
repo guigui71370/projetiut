@@ -24,6 +24,6 @@ public class TriangleQ implements Figure {
 
     @Override
     public String getName() {
-        return null;
+        return "TriangleQ";
     }
 }

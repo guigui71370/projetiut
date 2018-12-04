@@ -53,7 +53,7 @@
 
         <activity android:name=".geometry.GeometryActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="portrait"/>
 
         <activity android:name=".score.ScoreActivity"
             android:launchMode="singleTask"

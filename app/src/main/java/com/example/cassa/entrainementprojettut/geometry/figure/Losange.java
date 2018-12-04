@@ -24,6 +24,6 @@ public class Losange extends Parralellogramme {
 
     @Override
     public String getName() {
-        return null;
+        return "Losange";
     }
 }

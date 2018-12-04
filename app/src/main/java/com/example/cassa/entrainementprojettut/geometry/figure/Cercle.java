@@ -24,6 +24,6 @@ public class Cercle implements Figure {
 
     @Override
     public String getName() {
-        return null;
+        return "Cercle";
     }
 }

@@ -24,6 +24,6 @@ public class TriangleI extends TriangleQ {
 
     @Override
     public String getName() {
-        return null;
+        return "TriangleI";
     }
 }

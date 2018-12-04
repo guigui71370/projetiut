@@ -24,6 +24,6 @@ public class Trapeze extends Parralellogramme {
 
     @Override
     public String getName() {
-        return null;
+        return "Trapèze";
     }
 }

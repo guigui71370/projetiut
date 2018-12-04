@@ -24,6 +24,6 @@ public class Parralellogramme extends Quadrilatere {
 
     @Override
     public String getName() {
-        return null;
+        return "Parralélogramme";
     }
 }

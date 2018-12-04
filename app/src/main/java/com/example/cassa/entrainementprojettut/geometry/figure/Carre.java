@@ -29,6 +29,6 @@ public class Carre extends Rectangle {
 
     @Override
     public String getName() {
-        return null;
+        return "Carré";
     }
 }
