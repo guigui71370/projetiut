@@ -23,6 +23,7 @@ import com.example.cassa.entrainementprojettut.flag.FlagActivity;
 import com.example.cassa.entrainementprojettut.flag.ReverseFlagActivity;
 import com.example.cassa.entrainementprojettut.gameUtils.ActivityUtil;
 import com.example.cassa.entrainementprojettut.geography.GeographyActivity;
+import com.example.cassa.entrainementprojettut.geometry.GeometryActivity;
 import com.example.cassa.entrainementprojettut.mysteryWord.MysteryWordActivity;
 import com.example.cassa.entrainementprojettut.operationGame.AdditionActivity;
 import com.example.cassa.entrainementprojettut.pianoGame.PianoActivity;
@@ -57,6 +58,7 @@ public class MainActivity extends ActivityUtil {
         Button btnGeographyTag = findViewById(R.id.activity_main_geographyTag);
         Button btnPiano = findViewById(R.id.activity_main_piano);
         Button btnConjugaison = findViewById(R.id.activity_main_conjugaison);
+        Button btnGeometry = findViewById(R.id.activity_main_geometry);
         Button btnConnect4 = findViewById(R.id.activity_main_connect4);
         Button scoreTest = findViewById(R.id.activity_main_score_btn);
         final ImageButton ImgBtnsong = findViewById(R.id.activity_main_song_imgbtn);
@@ -184,6 +186,18 @@ public class MainActivity extends ActivityUtil {
 
                 Intent scoreActivityIntent = new Intent(MainActivity.this, Connect4Activity.class);
                 startActivity(scoreActivityIntent);
+              
+                playerEvent.start();
+                finish();
+            }
+        });
+
+        btnGeometry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent geometryActivityIntent = new Intent(MainActivity.this, GeometryActivity.class);
+                startActivity(geometryActivityIntent);
 
                 playerEvent.start();
                 finish();
