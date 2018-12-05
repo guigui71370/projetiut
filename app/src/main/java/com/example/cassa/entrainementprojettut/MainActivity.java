@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonActivity;
+import com.example.cassa.entrainementprojettut.connect4.Connect4Activity;
 import com.example.cassa.entrainementprojettut.flag.FlagActivity;
 import com.example.cassa.entrainementprojettut.flag.ReverseFlagActivity;
 import com.example.cassa.entrainementprojettut.gameUtils.ActivityUtil;
@@ -58,6 +59,7 @@ public class MainActivity extends ActivityUtil {
         Button btnPiano = findViewById(R.id.activity_main_piano);
         Button btnConjugaison = findViewById(R.id.activity_main_conjugaison);
         Button btnGeometry = findViewById(R.id.activity_main_geometry);
+        Button btnConnect4 = findViewById(R.id.activity_main_connect4);
         Button scoreTest = findViewById(R.id.activity_main_score_btn);
         final ImageButton ImgBtnsong = findViewById(R.id.activity_main_song_imgbtn);
         ImageView owlImg = findViewById(R.id.chouettes_menu);
@@ -71,12 +73,6 @@ public class MainActivity extends ActivityUtil {
             mute=savedInstanceState.getBoolean(STRING_MUTE);
         }*/
         //
-
-
-
-
-
-
 
         if(!mute){
             mute = false;
@@ -93,10 +89,6 @@ public class MainActivity extends ActivityUtil {
             playerEvent.setVolume(0,0);*/
         }
 
-
-
-
-
         //On terminaisons.json la reference ici
         if (playerName.isEmpty()) {
             alertDialog();
@@ -106,7 +98,6 @@ public class MainActivity extends ActivityUtil {
             @Override
             public void onClick(View view) {
 
-
                 Intent additionIntent = new Intent(MainActivity.this, AdditionActivity.class);
                 startActivity(additionIntent);
 
@@ -115,7 +106,6 @@ public class MainActivity extends ActivityUtil {
                 finish();
             }
         });
-
 
         btnMysteryWord.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -190,6 +180,17 @@ public class MainActivity extends ActivityUtil {
             }
         });
 
+        btnConnect4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent scoreActivityIntent = new Intent(MainActivity.this, Connect4Activity.class);
+                startActivity(scoreActivityIntent);
+              
+                playerEvent.start();
+                finish();
+            }
+        });
 
         btnGeometry.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -202,8 +203,6 @@ public class MainActivity extends ActivityUtil {
                 finish();
             }
         });
-
-
 
         scoreTest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -300,7 +299,6 @@ public class MainActivity extends ActivityUtil {
         super.onSaveInstanceState(outState);
 
     }
-
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {

@@ -55,6 +55,10 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".connect4.Connect4Activity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"/>
+
         <activity android:name=".score.ScoreActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"/>

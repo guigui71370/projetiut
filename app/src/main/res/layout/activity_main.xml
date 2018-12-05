@@ -20,8 +20,9 @@
 
         <LinearLayout
             android:id="@+id/linearLayout2"
-            android:layout_width="120dp"
-            android:layout_height="match_parent"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             tools:layout_editor_absoluteY="30dp">
 
@@ -88,6 +89,14 @@
                 android:layout_marginTop="10dp"
                 android:background="@color/colorGreen"
                 android:text="@string/geometry_game" />
+      
+            <Button
+                  android:id="@+id/activity_main_connect4"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="10dp"
+                  android:background="@color/colorGreen"
+                  android:text="@string/connect4_game" />
 
             <Button
                 android:id="@+id/activity_main_score_btn"
