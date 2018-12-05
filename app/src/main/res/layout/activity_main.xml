@@ -20,6 +20,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayout2"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -75,27 +76,35 @@
 
             <Button
                 android:id="@+id/activity_main_conjugaison"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@color/colorGreen"
                 android:text="@string/conjugaison_game" />
 
             <Button
-                android:id="@+id/activity_main_connect4"
+                android:id="@+id/activity_main_geometry"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@color/colorGreen"
-                android:text="@string/connect4_game" />
+                android:text="@string/geometry_game" />
+      
+            <Button
+                  android:id="@+id/activity_main_connect4"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="10dp"
+                  android:background="@color/colorGreen"
+                  android:text="@string/connect4_game" />
 
             <Button
                 android:id="@+id/activity_main_score_btn"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="@color/colorGreen"
-                android:text="@string/Score_activity"
-                android:layout_marginTop="10dp"/>
+                android:text="@string/Score_activity" />
 
         </LinearLayout>
     </ScrollView>
@@ -116,6 +125,16 @@
         android:contentDescription="@string/mute"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/im_titre"
+        android:layout_width="275dp"
+        android:layout_height="139dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginLeft="200dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/titre" />
 
 
 </android.support.constraint.ConstraintLayout>

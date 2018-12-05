@@ -3,6 +3,7 @@ package com.example.cassa.entrainementprojettut.conjugaison;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -71,7 +72,7 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
     };
 
     private int numberOfCompetenceAcquired = 0;
-
+    private AnimationDrawable mOwlAnimation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,7 +94,9 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
             addVerbeDatabase runVerbeDataBase = new addVerbeDatabase();
             runVerbeDataBase.execute();
         }
-
+        ImageView owlImg = findViewById(R.id.hibou);
+        owlImg.setBackgroundResource(R.drawable.animation_hibou);
+        mOwlAnimation = (AnimationDrawable) owlImg.getBackground();
 
         music = R.raw.bensound_cute;
         if(isSong()) {
@@ -122,14 +125,22 @@ public class ConjugaisonActivity extends GameActivity implements View.OnClickLis
         complement = findViewById(R.id.activity_conjugaison_complement_textview);
         hint = findViewById(R.id.activity_conjugaison_hint_textview);
 
-        verb1 = findViewById(R.id.activity_conjugaison_verb1_button);
-        verb2 = findViewById(R.id.activity_conjugaison_verb2_button);
+        verb1 = findViewById(R.id.activity_geometry_button_true);
+        verb2 = findViewById(R.id.activity_geometry_button_false);
         verb3 = findViewById(R.id.activity_conjugaison_verb3_button);
         verb4 = findViewById(R.id.activity_conjugaison_verb4_button);
 
         chronometer = findViewById(R.id.activity_conjugaison_chronometer2_chronometer);
 
         layoutStars = findViewById(R.id.activity_conjugaison_starsLayout_linearlayout);
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            mOwlAnimation.start();
+        }
     }
 
     private class addVerbeDatabase extends AsyncTask<Void,Void,Void>{

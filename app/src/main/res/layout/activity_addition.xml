@@ -21,12 +21,12 @@
         android:id="@+id/activity_addition_ordi_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        app:layout_constraintTop_toBottomOf="@+id/acivity_addition_pos1_img"
+        android:layout_alignParentLeft="true"
         android:layout_marginTop="20dp"
-        app:srcCompat="@mipmap/ghost"
-        android:contentDescription="@string/ghostPicture" />
+        android:contentDescription="@string/ghostPicture"
+        app:layout_constraintTop_toBottomOf="@+id/acivity_addition_pos1_img"
+        app:srcCompat="@mipmap/ghost" />
 
     <Chronometer
         android:id="@+id/chronometer2"
