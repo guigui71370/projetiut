@@ -19,10 +19,8 @@ import com.example.cassa.entrainementprojettut.geometry.controller.*;
 import com.example.cassa.entrainementprojettut.geometry.figure.Figure;
 import com.example.cassa.entrainementprojettut.geometry.view.DrawingView;
 
-
 public class GeometryActivity extends GameActivity implements View.OnClickListener{
 
-//Test modif geometrie
     private ControlerFigure ctrlFigure;
     private MediaPlayer playerEvent;
     protected DrawingView drawingView;
@@ -62,37 +60,27 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
                 }
             }
         });
-
-
     }
 
     private void activateButtons() {
-
         trueAnswer.setEnabled(true);
         falseAnswer.setEnabled(true);
         trueAnswer.setOnClickListener(this);
         falseAnswer.setOnClickListener(this);
-
     }
 
-
     private void generateFigure(){
-
         ctrlFigure.updateDrawingView(drawingView);
-
-
     }
 
 
     @Override
     public void onClick(View v) {
         ctrlFigure.updateDrawingView(drawingView);
-
     }
 
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
-
     }
 
     private void showMenu(){

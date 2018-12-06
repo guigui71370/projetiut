@@ -12,7 +12,6 @@ import android.view.View;
 
 import com.example.cassa.entrainementprojettut.geometry.figure.Figure;
 
-
 public class DrawingView extends View {
 
     private Figure figure; // figure qui doit être dessiné
@@ -40,9 +39,7 @@ public class DrawingView extends View {
         init();
     }
 
-
     private void init() {
-
         // un objet Paint représente le pinceau
 
         // ici c'est un pinceau de couleur noir et de taille 20
@@ -62,7 +59,6 @@ public class DrawingView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-
         float width = this.getWidth(); // largeur de la view
         float height = this.getHeight(); // hauteur de la view
 
@@ -127,13 +123,10 @@ public class DrawingView extends View {
             canvas.drawLine(3*width/4, 0, width/4, 0, paintBord);
             canvas.drawLine(width/4, 0, 0, height, paintInside);
         }
-
     }
-
 
     public void updateFigure(Figure f){
         figure = f;
         postInvalidate();
     }
-
 }

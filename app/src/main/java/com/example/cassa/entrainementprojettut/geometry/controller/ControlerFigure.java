@@ -11,10 +11,8 @@ public class ControlerFigure {
     private Figure lastFigure;
 
     public ControlerFigure(){
-
         f = null;
         lastFigure = null;
-
     }
 
     public void updateDrawingView(DrawingView drawingView) {
@@ -24,7 +22,6 @@ public class ControlerFigure {
             }
         }
         else f = generateFigure();
-
 
         drawingView.updateFigure(f);
         lastFigure = f;
@@ -70,6 +67,4 @@ public class ControlerFigure {
 
         return f;
     }
-
-
 }
