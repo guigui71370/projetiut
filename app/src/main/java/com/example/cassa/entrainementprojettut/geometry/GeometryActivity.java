@@ -22,7 +22,7 @@ import com.example.cassa.entrainementprojettut.geometry.view.DrawingView;
 
 public class GeometryActivity extends GameActivity implements View.OnClickListener{
 
-//Test modif geo
+//Test modif geometrie
     private ControlerFigure ctrlFigure;
     private MediaPlayer playerEvent;
     protected DrawingView drawingView;
