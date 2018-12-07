@@ -6,21 +6,18 @@ import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.v4.content.res.TypedArrayUtils;
-import android.view.Gravity;
+
 import android.view.View;
-import android.view.ViewGroup;
+
 import android.widget.Chronometer;
 import android.widget.GridLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Toast;
+
 
 import com.example.cassa.entrainementprojettut.R;
 import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
+
 
 public class Connect4Activity extends GameActivity implements View.OnClickListener {
 
@@ -163,8 +160,15 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
             int column = (int)view.getTag(R.id.gridLayout);
             int row = controlerConnect4.insertCheckers(column,colorjoueur);
             if(row!=-1){
+                final  ImageView t=board[row][column];
 
-                board[row][column].setColorFilter(playerColor);
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        t.setColorFilter(playerColor);
+                    }
+                }).start();
                 disableImage();
                 if(controlerConnect4.hasWinner()==1 ||controlerConnect4.hasWinner()==0){
                     try {
@@ -183,6 +187,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
                 }else if(controlerConnect4.hasWinner()==2) {
                     showText("match nulle");
                 }else {
+
                     iaPlaying();
                 }
             }
@@ -219,6 +224,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
                         e.printStackTrace();
                     }
                     t.setColorFilter(computerColor);
+                    enableImage();
                 }
             }).start();
 
@@ -226,18 +232,14 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
 
         if(controlerConnect4.hasWinner()==1 ||controlerConnect4.hasWinner()==0){
             showText("partie finie ia win");
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
 
 
             showResultScreen(this);
         }else  if(controlerConnect4.hasWinner()==2) {
             showText("match nulle");
         }else {
-            enableImage();
+            //enableImage();
         }
         //showText("ia joue");
 
