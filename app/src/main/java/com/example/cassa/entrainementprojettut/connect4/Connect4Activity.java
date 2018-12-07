@@ -167,7 +167,11 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
                 board[row][column].setColorFilter(playerColor);
                 disableImage();
                 if(controlerConnect4.hasWinner()==1 ||controlerConnect4.hasWinner()==0){
-
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     unableLoose();
                     unableScoreMode();
                     chronometer.stop();
@@ -204,10 +208,29 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
 
              row = controlerConnect4.insertCheckers(column,coloria);
         }
-        board[row][column].setColorFilter(computerColor);
+            final  ImageView t=board[row][column];
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    t.setColorFilter(computerColor);
+                }
+            }).start();
+
+
+
         if(controlerConnect4.hasWinner()==1 ||controlerConnect4.hasWinner()==0){
             showText("partie finie ia win");
-
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
 
             showResultScreen(this);
