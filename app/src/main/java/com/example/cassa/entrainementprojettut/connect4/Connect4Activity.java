@@ -67,7 +67,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
     }
 
     private void generateNewGame() {
-        controlerConnect4 = new ControlerConnect4();
+        controlerConnect4 = new ControlerConnect4(levelChosen);
         //disableImage();
         initializePlayer();
     }
@@ -92,6 +92,8 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
                 computerColor = Color.RED;
                 break;
         }
+        controlerConnect4.setPlateauCia(coloria);
+
         //Pour celui qui joue en premier
         switch ((int)(Math.random() * 2)){
             // 0 equivaut au joueur
@@ -205,14 +207,10 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
     }
 
     public void iaPlaying(){
-        int column = controlerConnect4.calculateCheckersPosition(levelChosen).getColumn();
+        int column = controlerConnect4.calculateCheckersPosition(levelChosen);
 
         int row = controlerConnect4.insertCheckers(column,coloria);
-        while(row==-1){
-             column = controlerConnect4.calculateCheckersPosition(levelChosen).getColumn();
 
-             row = controlerConnect4.insertCheckers(column,coloria);
-        }
             final  ImageView t=board[row][column];
 
             new Thread(new Runnable() {

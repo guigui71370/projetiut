@@ -10,8 +10,8 @@ public class ControlerConnect4 extends Observable {
 
     private int[] nbCheckersColumn = new int[7];
     private Plateau plateau;
-    public ControlerConnect4(){
-        plateau=new Plateau();
+    public ControlerConnect4(int levelchosen){
+        plateau=new Plateau(levelchosen);
     }
 
     public int insertCheckers(int column, char color){
@@ -59,8 +59,12 @@ public class ControlerConnect4 extends Observable {
         return plateau.summcheker();
     }
 
-    public I_Ia calculateCheckersPosition(int levelChosen){
+    public int calculateCheckersPosition(int levelChosen){
         //On calcule la position ou le pion doit etre placé selon le niveau de difficulté
         return plateau.calculateCheckersPosition(levelChosen);
+    }
+
+    public void setPlateauCia(char cia) {
+        this.plateau.setCia(cia);
     }
 }

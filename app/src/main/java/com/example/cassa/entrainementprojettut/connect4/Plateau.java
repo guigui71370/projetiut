@@ -1,8 +1,7 @@
 package com.example.cassa.entrainementprojettut.connect4;
 
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
 
 import com.example.cassa.entrainementprojettut.connect4.ia.I_Ia;
 import com.example.cassa.entrainementprojettut.connect4.ia.I_IaFacile;
@@ -10,16 +9,43 @@ import com.example.cassa.entrainementprojettut.connect4.ia.I_IaFacile;
 public class Plateau {
 
     private char[][] plateau;
+    private I_Ia iaDeLaPartie;
 
 
-    public Plateau(){
+
+    private char cia;
+    //private char cjo;
+
+    public Plateau(int levelChosen){
       plateau=new char[6][7];
       for(int x=0;x<plateau.length;x++) {
           for (int y = 0; y < plateau[1].length; y++) {
               plateau[x][y] = ' ';
           }
       }
+        iaDeLaPartie=FactoryIa.factory ( levelChosen);
     }
+
+    public Plateau(Plateau copie){
+        plateau=new char[6][7];
+        for(int x=0;x<plateau.length;x++) {
+            for (int y = 0; y < plateau[1].length; y++) {
+                plateau[x][y] = copie.plateau[x][y];
+            }
+        }
+        iaDeLaPartie=copie.iaDeLaPartie;
+         cia=copie.cia;
+    }
+
+    public char getCia() {
+        return cia;
+    }
+
+    public void setCia(char cia) {
+        this.cia = cia;
+    }
+
+
 
     public void setColorCase(int column, int row,char c) {
         this.plateau[row][column]=c;
@@ -27,24 +53,14 @@ public class Plateau {
 
 
 
-    public I_Ia calculateCheckersPosition(int levelChosen){
+    public int calculateCheckersPosition(int levelChosen){
         //On calcule la position ou le pion doit etre placé selon le niveau de difficulté
-        switch (levelChosen){
-            //Facile
-            case 1:
-                I_IaFacile iaFacile = new I_IaFacile();
-                iaFacile.calculateColumn(this.plateau);
-                return iaFacile;
-            //Difficile
-            case 2:
-                I_IaFacile iaFacile1 = new I_IaFacile();
-                iaFacile1.calculateColumn(this.plateau);
-                return iaFacile1;
-            default:
-                I_IaFacile iaFacile2 = new I_IaFacile();
-                iaFacile2.calculateColumn(this.plateau);
-                return iaFacile2;
-        }
+        //I_Ia level=FactoryIa.factory ( levelChosen);
+        iaDeLaPartie.calculateColumn(new Plateau(this));
+        return iaDeLaPartie.getColumn();
+
+
+
     }
 
     /*

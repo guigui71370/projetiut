@@ -27,7 +27,7 @@ import com.example.cassa.entrainementprojettut.database.AppDatabase;
 import com.example.cassa.entrainementprojettut.database.Score;
 import com.plattysoft.leonids.ParticleSystem;
 
-import java.util.regex.Pattern;
+
 
 public class GameActivity extends ActivityUtil implements AppCompatCallback,
         TaskStackBuilder.SupportParentable, ActionBarDrawerToggle.DelegateProvider {
