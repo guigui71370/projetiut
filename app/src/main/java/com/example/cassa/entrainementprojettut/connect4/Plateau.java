@@ -166,4 +166,31 @@ public class Plateau {
         }
         return result;
     }
+
+    public int insertCheckers(int column, char color) {
+        int result=0;
+        boolean test =false;
+        for(result=this.plateau.length-1;result>=0 && test==false;result--) {
+
+                if (this.plateau[result][column]==' ') {
+                   test=true;
+                }
+        }
+
+
+
+        if(test){
+
+            result++;
+            this.setColorCase(column,result,color);
+            return result;
+
+        }else {
+            return -1;
+
+        }
+
+
+
+    }
 }

@@ -28,7 +28,7 @@ public class ControlerConnect4 extends Observable {
 
         */
 
-        return 0;//this.plateau.insertCheckers(column,color);
+        return this.plateau.insertCheckers(column,color);
     }
     /*
     *   description: vérifie verifie si il y a un gagnant un gagnant ou non

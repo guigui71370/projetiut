@@ -197,11 +197,11 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
 
     public void iaPlaying(){
         int column = controlerConnect4.calculateCheckersPosition(levelChosen).getColumn();
-        //int row = controlerConnect4.calculateCheckersPosition(levelChosen, board).getRow();
+
         int row = controlerConnect4.insertCheckers(column,coloria);
         while(row==-1){
              column = controlerConnect4.calculateCheckersPosition(levelChosen).getColumn();
-            //int row = controlerConnect4.calculateCheckersPosition(levelChosen, board).getRow();
+
              row = controlerConnect4.insertCheckers(column,coloria);
         }
         board[row][column].setColorFilter(computerColor);
