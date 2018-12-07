@@ -2,9 +2,11 @@ package com.example.cassa.entrainementprojettut.connect4;
 
 
 import com.example.cassa.entrainementprojettut.connect4.ia.I_Ia;
-import com.example.cassa.entrainementprojettut.connect4.ia.I_IaFacile;
 
-public class ControlerConnect4 {
+
+import java.util.Observable;
+
+public class ControlerConnect4 extends Observable {
 
     private int[] nbCheckersColumn = new int[7];
     private Plateau plateau;
@@ -15,7 +17,7 @@ public class ControlerConnect4 {
     public int insertCheckers(int column, char color){
         //On insert le pion en verifiant les collisions pour une colonne donnée
         //retourne -1 si il est imposible placé un pion dans la colonne
-        nbCheckersColumn[column]++;
+        /*  nbCheckersColumn[column]++;
         if(nbCheckersColumn[column]>6){
             nbCheckersColumn[column]--;
             return -1;
@@ -24,6 +26,9 @@ public class ControlerConnect4 {
             return 6-nbCheckersColumn[column];
         }
 
+        */
+
+        return 0;//this.plateau.insertCheckers(column,color);
     }
     /*
     *   description: vérifie verifie si il y a un gagnant un gagnant ou non
@@ -35,7 +40,7 @@ public class ControlerConnect4 {
     * */
     public int hasWinner(){
 
-        if(summRow()==(6*7)){
+        if(summcheker()==(6*7)){
             return 2;
         }else if(plateau.win('r')){
             return 0;
@@ -48,11 +53,10 @@ public class ControlerConnect4 {
 
         return -1;
     }
-    private int summRow(){
-        int result =0;
-        for(int i=0;i<this.nbCheckersColumn.length;i++)
-        result=this.nbCheckersColumn[i]+result;
-        return result;
+    private int summcheker(){
+
+
+        return plateau.summcheker();
     }
 
     public I_Ia calculateCheckersPosition(int levelChosen){
