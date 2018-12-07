@@ -155,6 +155,15 @@ public class Plateau {
     }
 
 
-
-
+    public int summcheker() {
+        int result=0;
+        for(int x=0;x<this.plateau.length ;x++) {
+            for (int y = 0; y < this.plateau[1].length ; y++) {
+                if ('r' == this.plateau[x][y]||'y' == this.plateau[x][y]) {
+                    result++;
+                }
+            }
+        }
+        return result;
+    }
 }
