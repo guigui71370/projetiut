@@ -53,7 +53,7 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
                     ctrlFigure = new ControlerFigure();
                     generateFigure();
                     activateButtons();
-                    //launchTimer(GeometryActivity.this,60000,R.id.acivity_addition_pos1_img,R.id.playerImage);
+                    launchGhost(GeometryActivity.this,60000,R.id.playerImage);
                 } else {
                     GeometryActivity.this.onStop();
                     dialog.show();

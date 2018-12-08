@@ -371,6 +371,21 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
         moveImage(this.IAImage,screenWidth-IApictureWidth,arrivalTime,0);
 
     }
+
+    protected void launchGhost(final Activity srcActivity, int arrivalTime,int IAImage){
+
+        startChrono(srcActivity,arrivalTime);
+
+        this.IAImage = findViewById(IAImage);
+
+
+        float screenWidth = getScreenWidth();
+        int IApictureWidth = this.IAImage.getDrawable().getIntrinsicWidth();
+
+
+        moveImage(this.IAImage,screenWidth-IApictureWidth,arrivalTime,0);
+
+    }
     protected void unableLoose(){
         handler.removeCallbacks(looseActivity);
     }
