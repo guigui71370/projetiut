@@ -56,4 +56,7 @@
     <string name="text_viewscore">veulliez cliquer sur un boutton pour affiché les scores</string>
     <string name="Score_activity">Scores</string>
     <string name="geometry_game">Géométrie</string>
+    <string name="figureProperty">Propriété de la figure</string>
+    <string name="True">True</string>
+    <string name="False">False</string>
 </resources>

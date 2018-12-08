@@ -40,7 +40,7 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
         }
 
         playerEvent = MediaPlayer.create(GeometryActivity.this,R.raw.envent_sound);
-        drawingView = (DrawingView) findViewById(R.id.activity_geometry_drawing);
+        drawingView = findViewById(R.id.activity_geometry_drawing);
 
         trueAnswer = findViewById(R.id.activity_geometry_button_true);
         falseAnswer = findViewById(R.id.activity_geometry_button_false);
@@ -53,7 +53,7 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
                     ctrlFigure = new ControlerFigure();
                     generateFigure();
                     activateButtons();
-                    launchGhost(GeometryActivity.this,60000,R.id.playerImage);
+                    //launchGhost(GeometryActivity.this,60000,R.id.playerImage);
                 } else {
                     GeometryActivity.this.onStop();
                     dialog.show();

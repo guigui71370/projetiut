@@ -14,7 +14,11 @@ public class Quadrilatere implements Figure {
 
     @Override
     public void draw(Canvas canvas) {
+    }
 
+    @Override
+    public int[] getCote(){
+        return null;
     }
 
     @Override

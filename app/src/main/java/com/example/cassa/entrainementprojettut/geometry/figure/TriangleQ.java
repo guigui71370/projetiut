@@ -14,9 +14,12 @@ public class TriangleQ implements Figure {
 
     @Override
     public void draw(Canvas canvas) {
-
     }
 
+    @Override
+    public int[] getCote(){
+        return null;
+    }
     @Override
     public ArrayList<FigureProperties> getProperties() {
         return null;

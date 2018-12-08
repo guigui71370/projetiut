@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 public interface Figure {
 
+    public int[] getCote();
+
     public int getAire();
 
     public void draw(Canvas canvas);

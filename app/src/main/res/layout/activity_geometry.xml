@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
 
     <ImageView
@@ -17,15 +17,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ghost" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <com.example.cassa.entrainementprojettut.geometry.view.DrawingView
         android:id="@+id/activity_geometry_drawing"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:layout_marginStart="50dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/activity_geometry_textview_propertie"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/playerImage" />
@@ -35,21 +41,21 @@
         android:id="@+id/activity_geometry_textview_propertie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="Propriété de la figure"
+        android:layout_marginBottom="16dp"
+        android:text="@string/figureProperty"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_geometry_drawing" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginBottom="64dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_geometry_textview_propertie">
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/activity_geometry_button_true"
@@ -57,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="100dp"
             android:layout_marginRight="100dp"
-            android:text="VRAI"
+            android:text="@string/True"
             app:layout_constraintEnd_toStartOf="@+id/activity_geometry_button_false"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -71,7 +77,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
             android:layout_marginLeft="100dp"
-            android:text="FAUX"
+            android:text="@string/False"
             app:layout_constraintBottom_toBottomOf="@+id/activity_geometry_button_true"
             app:layout_constraintStart_toEndOf="@+id/activity_geometry_button_true"
             tools:ignore="ButtonStyle"
