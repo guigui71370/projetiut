@@ -102,12 +102,42 @@ public class Plateau {
     public int conect4In1Turn(char c){
         boolean test=false;
 
-        for(int x = 0; x<this.plateau.length && !test; x++) {
-            for (int y = 0; y < this.plateau[1].length && !test; y++) {
+        final String  chaine1=c+c+c+" ";
+        final String  chaine2=c+c+" "+c;
+        final String  chaine3=c+" "+c+c;
+        final String  chaine4=" "+c+c+c;
+        int x=0;
+        int y=0;
+
+
+        for( x = 0; x<this.plateau.length && !test; x++) {
+            for ( y = 0; y < this.plateau[1].length && !test; y++) {
+                if(chaine1.charAt(0)==this.plateau[x][y]){
+                   test=horizontalRight(y,x,chaine1)||DiagonalLeftDown(y,x,chaine1)||DiagonalRightDown(y,x,chaine1);
+                }
+                if(chaine2.charAt(0)==this.plateau[x][y]){
+
+                    test=horizontalRight(y,x,chaine2)||DiagonalLeftDown(y,x,chaine2)||DiagonalRightDown(y,x,chaine2);
+                }
+                if(chaine3.charAt(0)==this.plateau[x][y]){
+                    test=horizontalRight(y,x,chaine3)||DiagonalLeftDown(y,x,chaine3)||DiagonalRightDown(y,x,chaine3);
+                }
+                if(chaine4.charAt(0)==this.plateau[x][y]){
+                    test=verticalDown(y,x,chaine4)||horizontalRight(y,x,chaine4)||DiagonalLeftDown(y,x,chaine4)||DiagonalRightDown(y,x,chaine4);
+
+                }
+
+
+
 
 
             }
         }
+        x--;
+        y--;
+
+
+
 
         return  -1;
     }
