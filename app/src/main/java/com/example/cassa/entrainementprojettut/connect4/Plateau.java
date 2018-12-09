@@ -4,7 +4,6 @@ package com.example.cassa.entrainementprojettut.connect4;
 
 
 import com.example.cassa.entrainementprojettut.connect4.ia.I_Ia;
-import com.example.cassa.entrainementprojettut.connect4.ia.I_IaFacile;
 
 public class Plateau {
 

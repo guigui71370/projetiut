@@ -2,7 +2,7 @@ package com.example.cassa.entrainementprojettut.connect4.ia;
 
 import com.example.cassa.entrainementprojettut.connect4.Plateau;
 
-public class I_IaFacile implements I_Ia {
+public class IaLevel1 implements I_Ia {
     private int column;
 
     public void calculateColumn(Plateau plateau){

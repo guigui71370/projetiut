@@ -148,8 +148,8 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
 
     private void showMenu(){
         String[] menu = new String[2];
-        menu[0]= "Facile";
-        menu[1]= "Difficile";
+        menu[0]= "Niveau 1";
+        menu[1]= "Niveau 2";
 
         displayLevelchoice(this,menu);
     }
