@@ -72,23 +72,8 @@ public class Plateau {
     * */
     public boolean win(char r) {
         boolean test=false;
-       /* int x=0;
-        int y=0;
-
-        while(x<this.plateau.length && test==false){
-            while(y<this.plateau[1].length && test==false){
-               y++;
-               test=true;
-            }
-            y=0;
-            x++;
-        }*/
-
-
-
-
-      for(int x=0;x<this.plateau.length && test==false;x++){
-            for(int y=0;y<this.plateau[1].length && test==false;y++){
+        for(int x = 0; x<this.plateau.length && !test; x++){
+            for(int y = 0; y<this.plateau[1].length && !test; y++){
                 if( r==this.plateau[x][y]){
                     test =verticalDown(y,x,r) ||horizontalRight(y,x,r) || DiagonalRightDown(y,x,r)||DiagonalLeftDown(y,x,r);
                 }
@@ -100,6 +85,23 @@ public class Plateau {
 
 
         return test;
+    }
+
+
+    /*
+    * parametre: char C la couleur du puissance 4 en 1 coup rechecher
+    * resultat: retourne l'indice de la column ou il y a un puissance 4 en 1 coup ou  retourne -1 si aucun puissance 4 trouver
+    *
+    *
+    * */
+
+
+
+    public int conect4In1Turn(char c){
+
+
+
+        return  1;
     }
 
 
@@ -185,7 +187,7 @@ public class Plateau {
     public int insertCheckers(int column, char color) {
         int result=0;
         boolean test =false;
-        for(result=this.plateau.length-1;result>=0 && test==false;result--) {
+        for(result=this.plateau.length-1; result>=0 && !test; result--) {
 
                 if (this.plateau[result][column]==' ') {
                    test=true;
