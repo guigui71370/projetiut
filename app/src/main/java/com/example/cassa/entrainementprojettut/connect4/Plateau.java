@@ -72,10 +72,12 @@ public class Plateau {
     * */
     public boolean win(char r) {
         boolean test=false;
+        final String comparer = "" + r + r + r + r;
         for(int x = 0; x<this.plateau.length && !test; x++){
             for(int y = 0; y<this.plateau[1].length && !test; y++){
                 if( r==this.plateau[x][y]){
-                    test =verticalDown(y,x,r) ||horizontalRight(y,x,r) || DiagonalRightDown(y,x,r)||DiagonalLeftDown(y,x,r);
+
+                    test =verticalDown(y,x,comparer) ||horizontalRight(y,x, comparer) || DiagonalRightDown(y,x,comparer)||DiagonalLeftDown(y,x,comparer);
                 }
 
 
@@ -98,21 +100,31 @@ public class Plateau {
 
 
     public int conect4In1Turn(char c){
+        boolean test=false;
+
+        for(int x = 0; x<this.plateau.length && !test; x++) {
+            for (int y = 0; y < this.plateau[1].length && !test; y++) {
 
 
+            }
+        }
 
-        return  1;
+        return  -1;
     }
 
 
 
-    private boolean verticalDown(int column, int row, char r){
-
-        if(row<this.plateau.length-1 && r==this.plateau[row+1][column]){
-            if((row+1)<this.plateau.length-1 && r==this.plateau[row+2][column]){
-                if((row+2)<this.plateau.length-1 && r==this.plateau[row+3][column]){
-                    return true;//puisanse 4
+    private boolean verticalDown(int column, int row, String comparer){
+        String atester=""+this.plateau[row][column];
+        if(row<this.plateau.length-1 ){
+            atester+=this.plateau[row+1][column];
+            if((row+1)<this.plateau.length-1 ){
+                atester+=this.plateau[row+2][column];
+                if( (row+2)<this.plateau.length-1){
+                    atester+= this.plateau[row+3][column];
+                    return comparer.equals(atester);//puisanse 4
                 }
+
 
             }
         }
@@ -140,12 +152,36 @@ public class Plateau {
         return false;
     }
 
-    private boolean DiagonalRightDown(int column, int row, char r){
 
-        if(row<this.plateau.length-1 && column<this.plateau[1].length-1 && r==this.plateau[row+1][column+1]){
-            if((row+1)<this.plateau.length-1  &&  (column+1)<this.plateau[1].length-1 && r==this.plateau[row+2][column+2]){
-                if((row+2)<this.plateau.length-1 &&  (column+2)<this.plateau[1].length-1 &&r==this.plateau[row+3][column+3]){
-                    return true;//puisanse 4
+    private boolean horizontalRight(int column, int row,String comparer){
+        String atester=""+this.plateau[row][column];
+        if(column<this.plateau[1].length-1){
+            atester+=this.plateau[row][column+1];
+            if((column+1)<this.plateau[1].length-1){
+                atester+=this.plateau[row][column+2];
+
+                if((column+2)<this.plateau[1].length-1){
+                    atester+=this.plateau[row][column+3];
+
+                    return comparer.equals(atester);//puisanse 4
+                }
+
+            }
+        }
+
+
+        return false;
+    }
+
+    private boolean DiagonalRightDown(int column, int row, String comparer){
+        String atester=""+this.plateau[row][column];
+        if(row<this.plateau.length-1 && column<this.plateau[1].length-1){
+            atester+=this.plateau[row+1][column+1];
+            if((row+1)<this.plateau.length-1  &&  (column+1)<this.plateau[1].length-1 ){
+                atester+=this.plateau[row+2][column+2];
+                if((row+2)<this.plateau.length-1 &&  (column+2)<this.plateau[1].length-1 ){
+                    atester+=this.plateau[row+3][column+3];
+                    return comparer.equals(atester);//puisanse 4
                 }
 
             }
@@ -157,12 +193,16 @@ public class Plateau {
 
 
 
-    private boolean DiagonalLeftDown(int column, int row, char r){
+    private boolean DiagonalLeftDown(int column, int row, String comparer){
+        String atester=""+this.plateau[row][column];
+        if(row<this.plateau.length-1 && column>0  ){
+            atester+=this.plateau[row+1][column-1];
+            if((row+1)<this.plateau.length-1  &&  (column-1)>0 ){
+                atester+=this.plateau[row+2][column-2];
+                if((row+2)<this.plateau.length-1 &&  (column-2)>0 ){
+                    atester+=this.plateau[row+3][column-3];
 
-        if(row<this.plateau.length-1 && column>0 && r==this.plateau[row+1][column-1]){
-            if((row+1)<this.plateau.length-1  &&  (column-1)>0 && r==this.plateau[row+2][column-2]){
-                if((row+2)<this.plateau.length-1 &&  (column-2)>0 &&r==this.plateau[row+3][column-3]){
-                    return true;//puisanse 4
+                    return comparer.equals(atester);//puisanse 4
                 }
 
             }

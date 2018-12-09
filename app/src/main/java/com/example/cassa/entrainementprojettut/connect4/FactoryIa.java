@@ -2,6 +2,7 @@ package com.example.cassa.entrainementprojettut.connect4;
 
 import com.example.cassa.entrainementprojettut.connect4.ia.I_Ia;
 import com.example.cassa.entrainementprojettut.connect4.ia.IaLevel1;
+import com.example.cassa.entrainementprojettut.connect4.ia.Ialevel2;
 
 public class FactoryIa {
 
@@ -17,7 +18,7 @@ public class FactoryIa {
                 return ia;
             //Difficile
             case 2:
-                ia  = new IaLevel1();
+                ia  = new Ialevel2();
                 //iaFacile1.calculateColumn(this.plateau);
                 return ia;
             default:
