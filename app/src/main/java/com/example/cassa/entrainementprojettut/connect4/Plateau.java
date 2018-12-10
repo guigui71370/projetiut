@@ -5,6 +5,8 @@ package com.example.cassa.entrainementprojettut.connect4;
 
 import com.example.cassa.entrainementprojettut.connect4.ia.I_Ia;
 
+import java.util.ArrayList;
+
 public class Plateau {
 
     private char[][] plateau;
@@ -101,7 +103,9 @@ public class Plateau {
 
     public int conect4In1Turn(char c){
         boolean test=false;
-        int result=-1;
+        //int result=-1;
+        ArrayList<Integer> result=new ArrayList<Integer>();
+
         final String  chaine1=""+c+c+c+" ";
         final String  chaine2=""+c+c+" "+c;
         final String  chaine3=""+c+" "+c+c;
@@ -115,24 +119,27 @@ public class Plateau {
                 if(chaine4.charAt(0)==this.plateau[x][y]) {
                     test = verticalDown(y, x, chaine4) || horizontalRight(y, x, chaine4) || DiagonalLeftDown(y, x, chaine4) || DiagonalRightDown(y, x, chaine4);
                     if (test) {
-                        result = y;
+                        result.add(y);
                     }
-                }
-                if(chaine3.charAt(0)==this.plateau[x][y]){
-                    test=horizontalRight(y,x,chaine3)||DiagonalLeftDown(y,x,chaine3)||DiagonalRightDown(y,x,chaine3);
+                }   if(chaine3.charAt(0)==this.plateau[x][y]){
+                    boolean cond1;
+                    boolean cond2;
+                    boolean cond3;
+                    cond1=horizontalRight(y,x,chaine3)||DiagonalLeftDown(y,x,chaine3)||DiagonalRightDown(y,x,chaine3);
                     if(test){
-                        result=y+1;
+                        result.add(y+1);
                     }
-                    test=horizontalRight(y,x,chaine2)||DiagonalLeftDown(y,x,chaine2)||DiagonalRightDown(y,x,chaine2);
+                    cond2=horizontalRight(y,x,chaine2)||DiagonalLeftDown(y,x,chaine2)||DiagonalRightDown(y,x,chaine2);
                     if(test){
-                        result=y+2;
+                        result.add(y+2);
                     }
 
 
-                    test=horizontalRight(y,x,chaine1)||DiagonalLeftDown(y,x,chaine1)||DiagonalRightDown(y,x,chaine1);
+                    cond3=horizontalRight(y,x,chaine1)||DiagonalLeftDown(y,x,chaine1)||DiagonalRightDown(y,x,chaine1);
                     if(test){
-                        result=y+3;
+                        result.add(y+3);
                     }
+                    test=cond1||cond2||cond3;
                 }
 
 
@@ -144,16 +151,24 @@ public class Plateau {
         //return result;
       /* if(result==y){
             return result;
-        }else */if(result==-1){
+        }else */
+      if(result.size()==0){
            return -1;
-        }else{
-            this.insertCheckers(result,c);
+      }else{
+          int i=0;
+          while(i<result.size()){
+
+            this.insertCheckers(result.get(i),c);
             if(this.win(c)){
-                return result;
+                return result.get(0);
             }else {
-                this.removeCheckers(result);
-                return -1;
+                this.removeCheckers(result.get(i));
+                i++;
+                //return -1;
             }
+          }
+
+          return -1;
         }
 
 
