@@ -241,7 +241,7 @@ public class Plateau {
         return false;
     }
 
-    public boolean DiagonalRightDown(int column, int row, String comparer){
+    private boolean DiagonalRightDown(int column, int row, String comparer){
         String atester=""+this.plateau[row][column];
         if(row<this.plateau.length-1 && column<this.plateau[1].length-1){
             atester+=this.plateau[row+1][column+1];
@@ -261,7 +261,7 @@ public class Plateau {
 
 
 
-    public boolean DiagonalLeftDown(int column, int row, String comparer){
+    private boolean DiagonalLeftDown(int column, int row, String comparer){
         String atester=""+this.plateau[row][column];
         if(row<this.plateau.length-1 && column>0  ){
             atester+=this.plateau[row+1][column-1];
