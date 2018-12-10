@@ -101,10 +101,10 @@ public class Plateau {
 
     public int conect4In1Turn(char c){
         boolean test=false;
-
-        final String  chaine1=c+c+c+" ";
-        final String  chaine2=c+c+" "+c;
-        final String  chaine3=c+" "+c+c;
+        int result=-1;
+        final String  chaine1=""+c+c+c+" ";
+        final String  chaine2=""+c+c+" "+c;
+        final String  chaine3=""+c+" "+c+c;
         final String  chaine4=" "+c+c+c;
         int x=0;
         int y=0;
@@ -112,34 +112,57 @@ public class Plateau {
 
         for( x = 0; x<this.plateau.length && !test; x++) {
             for ( y = 0; y < this.plateau[1].length && !test; y++) {
-                if(chaine1.charAt(0)==this.plateau[x][y]){
-                   test=horizontalRight(y,x,chaine1)||DiagonalLeftDown(y,x,chaine1)||DiagonalRightDown(y,x,chaine1);
-                }
-                if(chaine2.charAt(0)==this.plateau[x][y]){
-
-                    test=horizontalRight(y,x,chaine2)||DiagonalLeftDown(y,x,chaine2)||DiagonalRightDown(y,x,chaine2);
+                if(chaine4.charAt(0)==this.plateau[x][y]) {
+                    test = verticalDown(y, x, chaine4) || horizontalRight(y, x, chaine4) || DiagonalLeftDown(y, x, chaine4) || DiagonalRightDown(y, x, chaine4);
+                    if (test) {
+                        result = y;
+                    }
                 }
                 if(chaine3.charAt(0)==this.plateau[x][y]){
                     test=horizontalRight(y,x,chaine3)||DiagonalLeftDown(y,x,chaine3)||DiagonalRightDown(y,x,chaine3);
+                    if(test){
+                        result=y+1;
+                    }
+                    test=horizontalRight(y,x,chaine2)||DiagonalLeftDown(y,x,chaine2)||DiagonalRightDown(y,x,chaine2);
+                    if(test){
+                        result=y+2;
+                    }
+
+
+                    test=horizontalRight(y,x,chaine1)||DiagonalLeftDown(y,x,chaine1)||DiagonalRightDown(y,x,chaine1);
+                    if(test){
+                        result=y+3;
+                    }
                 }
-                if(chaine4.charAt(0)==this.plateau[x][y]){
-                    test=verticalDown(y,x,chaine4)||horizontalRight(y,x,chaine4)||DiagonalLeftDown(y,x,chaine4)||DiagonalRightDown(y,x,chaine4);
-
-                }
-
-
-
 
 
             }
         }
-        x--;
+
         y--;
 
+        //return result;
+      /* if(result==y){
+            return result;
+        }else */if(result==-1){
+           return -1;
+        }else{
+            this.insertCheckers(result,c);
+            if(this.win(c)){
+                return result;
+            }else {
+                this.removeCheckers(result);
+                return -1;
+            }
+        }
 
 
 
-        return  -1;
+
+
+
+
+        //return  result;
     }
 
 
@@ -203,7 +226,7 @@ public class Plateau {
         return false;
     }
 
-    private boolean DiagonalRightDown(int column, int row, String comparer){
+    public boolean DiagonalRightDown(int column, int row, String comparer){
         String atester=""+this.plateau[row][column];
         if(row<this.plateau.length-1 && column<this.plateau[1].length-1){
             atester+=this.plateau[row+1][column+1];
@@ -223,7 +246,7 @@ public class Plateau {
 
 
 
-    private boolean DiagonalLeftDown(int column, int row, String comparer){
+    public boolean DiagonalLeftDown(int column, int row, String comparer){
         String atester=""+this.plateau[row][column];
         if(row<this.plateau.length-1 && column>0  ){
             atester+=this.plateau[row+1][column-1];
@@ -263,9 +286,6 @@ public class Plateau {
                    test=true;
                 }
         }
-
-
-
         if(test){
 
             result++;
@@ -277,7 +297,27 @@ public class Plateau {
 
         }
 
+    }
 
+    private int removeCheckers(int column) {
+        int result=0;
+        boolean test =false;
+        for(result=this.plateau.length-1; result>=0 && !test; result--) {
+
+            if (this.plateau[result][column]==' ') {
+                test=true;
+            }
+        }
+        if(test){
+
+            result+=2;
+            this.setColorCase(column,result,' ');
+            return result;
+
+        }else {
+            return -1;
+
+        }
 
     }
 }

@@ -19,12 +19,14 @@ public class Ialevel2 implements I_Ia {
 
 
 
-        int column;
-        if((column=plateau.conect4In1Turn(plateau.getCia()))!=-1){
+        int column=plateau.conect4In1Turn(plateau.getCia());
+        int column2=plateau.conect4In1Turn(joueur);
+        if(column!=-1){
             this.column=column;
 
-        }else if((column=plateau.conect4In1Turn(joueur))!=-1){
-            this.column=column;
+        }else if(column2!=-1){
+
+            this.column=column2;
         }else {
 
             //Ici on calcul la position que va jouer l'ordinateur selon le plateau
