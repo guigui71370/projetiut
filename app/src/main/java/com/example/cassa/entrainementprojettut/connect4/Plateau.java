@@ -126,17 +126,17 @@ public class Plateau {
                     boolean cond2;
                     boolean cond3;
                     cond1=horizontalRight(y,x,chaine3)||DiagonalLeftDown(y,x,chaine3)||DiagonalRightDown(y,x,chaine3);
-                    if(test){
+                    if(cond1){
                         result.add(y+1);
                     }
                     cond2=horizontalRight(y,x,chaine2)||DiagonalLeftDown(y,x,chaine2)||DiagonalRightDown(y,x,chaine2);
-                    if(test){
+                    if(cond2){
                         result.add(y+2);
                     }
 
 
                     cond3=horizontalRight(y,x,chaine1)||DiagonalLeftDown(y,x,chaine1)||DiagonalRightDown(y,x,chaine1);
-                    if(test){
+                    if(cond3){
                         result.add(y+3);
                     }
                     test=cond1||cond2||cond3;
@@ -160,7 +160,8 @@ public class Plateau {
 
             this.insertCheckers(result.get(i),c);
             if(this.win(c)){
-                return result.get(0);
+                //this.removeCheckers(result.get(i));
+                return result.get(i);
             }else {
                 this.removeCheckers(result.get(i));
                 i++;

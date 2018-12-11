@@ -108,6 +108,18 @@ public class PlateauTest {
     }
 
 
+    @Test
+    public void horizontaltestcc_c2_game() throws Exception {
+        Plateau plateau=new Plateau(2);
+        plateau.insertCheckers(2,'r');
+        plateau.insertCheckers(3,'r');
+        plateau.insertCheckers(5,'r');
+        plateau.insertCheckers(6,'y');
+        plateau.insertCheckers(2,'y');
+
+        assertEquals(4, plateau.conect4In1Turn('r'));
+    }
+
 
 
 
