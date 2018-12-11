@@ -1,47 +1,41 @@
 package com.example.cassa.entrainementprojettut.geometry.figure;
 
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Rect;
+import com.example.cassa.entrainementprojettut.geometry.GeometryUtil.FigureProperties;
+import com.example.cassa.entrainementprojettut.geometry.GeometryUtil.ListFigure;
 
-import com.example.cassa.entrainementprojettut.geometry.FigureProperties;
+import java.util.Random;
 
-import java.util.ArrayList;
-
-public class Rectangle extends Parralellogramme {
-
-    protected int x;
-    protected int y;
-    protected ArrayList<FigureProperties> properties;
+public class Rectangle extends Parallelogramme {
 
     public Rectangle() {
-        this.x = x;
-        this.y = y;
-        properties = super.getProperties();
+        super();
+        changeCote();
+        addProperties();
     }
 
-    @Override
-    public int getAire() {
-        return 0;
+    private void changeCote(){
+        Random r = new Random();
+        int longueur = r.nextInt(11);
+        int largeur = r.nextInt(11);
+        for(int i=0;i<this.getCote().length;i++){
+            if (i%2 == 0)
+                this.getCote()[i] = longueur;
+            if (i%2 == 1)
+                this.getCote()[i] = largeur;
+        }
     }
 
-    @Override
-    public void draw(Canvas canvas) {
-        Rect r = new Rect(0, 0, canvas.getWidth(), canvas.getHeight());
-        Paint p = new Paint();
-        p.setColor(Color.RED);
-        p.setStyle(Paint.Style.STROKE);
-        canvas.drawRect( r,  p);
-    }
-
-    @Override
-    public ArrayList<FigureProperties> getProperties() {
-        return null;
+    private void addProperties()
+    {
+        for (FigureProperties foo: FigureProperties.values()) {
+            if (foo.getFigureName().equals(ListFigure.RECTANGLE.toString())){
+                this.properties.add(foo.getProperties());
+            }
+        }
     }
 
     @Override
     public String getName() {
-        return "Rectangle";
+        return ListFigure.RECTANGLE.toString();
     }
 }

@@ -1,6 +1,17 @@
 package com.example.cassa.entrainementprojettut.geometry.controller;
 
-import com.example.cassa.entrainementprojettut.geometry.figure.*;
+import com.example.cassa.entrainementprojettut.geometry.figure.Carre;
+import com.example.cassa.entrainementprojettut.geometry.figure.Cercle;
+import com.example.cassa.entrainementprojettut.geometry.figure.Figure;
+import com.example.cassa.entrainementprojettut.geometry.figure.Losange;
+import com.example.cassa.entrainementprojettut.geometry.figure.Parallelogramme;
+import com.example.cassa.entrainementprojettut.geometry.figure.Quadrilatere;
+import com.example.cassa.entrainementprojettut.geometry.figure.Rectangle;
+import com.example.cassa.entrainementprojettut.geometry.figure.Trapeze;
+import com.example.cassa.entrainementprojettut.geometry.figure.TriangleI;
+import com.example.cassa.entrainementprojettut.geometry.figure.TriangleIR;
+import com.example.cassa.entrainementprojettut.geometry.figure.TriangleQ;
+import com.example.cassa.entrainementprojettut.geometry.figure.TriangleR;
 import com.example.cassa.entrainementprojettut.geometry.view.DrawingView;
 
 import java.util.Random;
@@ -40,7 +51,7 @@ public class ControlerFigure {
             f = new Losange();
         }
         else if (i == 3){
-            f = new Parralellogramme();
+            f = new Parallelogramme();
         }
         else if (i == 4){
             f = new Quadrilatere();

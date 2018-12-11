@@ -1,29 +1,40 @@
 package com.example.cassa.entrainementprojettut.geometry.figure;
 
-import android.graphics.Canvas;
+import android.util.Log;
 
-import com.example.cassa.entrainementprojettut.geometry.FigureProperties;
+import com.example.cassa.entrainementprojettut.geometry.GeometryUtil.FigureProperties;
+import com.example.cassa.entrainementprojettut.geometry.GeometryUtil.ListFigure;
 
-import java.util.ArrayList;
+import java.util.Random;
 
-public class Losange extends Parralellogramme {
-    @Override
-    public int getAire() {
-        return 0;
+import static android.content.ContentValues.TAG;
+
+public class Losange extends Parallelogramme{
+
+    public Losange() {
+        super();
+        changeCote();
+        addProperties();
     }
 
-    @Override
-    public void draw(Canvas canvas) {
-
+    private void changeCote(){
+        Random r = new Random();
+        int sameValues = r.nextInt(11);
+        for(int i=0;i<this.getCote().length;i++){
+            this.getCote()[i] = sameValues;
+        }
     }
 
-    @Override
-    public ArrayList<FigureProperties> getProperties() {
-        return null;
+    private void addProperties() {
+        for (FigureProperties foo: FigureProperties.values()) {
+            if (foo.getFigureName().equals(ListFigure.LOSANGE.toString())){
+                this.properties.add(foo.getProperties());
+            }
+        }
     }
 
     @Override
     public String getName() {
-        return "Losange";
+        return ListFigure.LOSANGE.toString();
     }
 }

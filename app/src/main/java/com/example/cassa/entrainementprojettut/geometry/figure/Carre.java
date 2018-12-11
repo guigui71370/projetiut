@@ -1,51 +1,25 @@
 package com.example.cassa.entrainementprojettut.geometry.figure;
 
-import android.graphics.Canvas;
-import android.graphics.Rect;
+import com.example.cassa.entrainementprojettut.geometry.GeometryUtil.FigureProperties;
+import com.example.cassa.entrainementprojettut.geometry.GeometryUtil.ListFigure;
 
-import com.example.cassa.entrainementprojettut.geometry.FigureProperties;
+public class Carre extends Losange {
 
-import java.util.ArrayList;
-import java.util.Random;
-
-public class Carre extends Rectangle {
-
-    private final static int NBCOTE = 4;
-    private int[] cote;
     public Carre() {
         super();
+        addProperties();
     }
 
-    public int[] getCote() {
-        return generateRandomCote();
-    }
-
-    public int[] generateRandomCote(){
-        Random r = new Random();
-        int randomValues = r.nextInt(11);
-        int[] arrayValues = new int[4];
-        for(int i=0;i<NBCOTE;i++){
-            arrayValues[i] = randomValues;
+    private void addProperties(){
+        for (FigureProperties foo: FigureProperties.values()) {
+            if (foo.getFigureName().equals(ListFigure.CARRE.toString())){
+                this.properties.add(foo.getProperties());
+            }
         }
-        return arrayValues;
-    }
-
-    @Override
-    public int getAire() {
-        return 0;
-    }
-
-    @Override
-    public void draw(Canvas canvas) {
-    }
-
-    @Override
-    public ArrayList<FigureProperties> getProperties() {
-        return null;
     }
 
     @Override
     public String getName() {
-        return "Carré";
+        return ListFigure.CARRE.toString();
     }
 }
