@@ -1,13 +1,9 @@
 package com.example.cassa.entrainementprojettut.geometry.figure;
 
-import android.util.Log;
-
 import com.example.cassa.entrainementprojettut.geometry.GeometryUtil.FigureProperties;
 import com.example.cassa.entrainementprojettut.geometry.GeometryUtil.ListFigure;
 
 import java.util.Random;
-
-import static android.content.ContentValues.TAG;
 
 public class Losange extends Parallelogramme{
 

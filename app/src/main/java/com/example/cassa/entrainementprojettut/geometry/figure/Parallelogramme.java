@@ -1,11 +1,7 @@
 package com.example.cassa.entrainementprojettut.geometry.figure;
 
-import android.util.Log;
-
 import com.example.cassa.entrainementprojettut.geometry.GeometryUtil.FigureProperties;
 import com.example.cassa.entrainementprojettut.geometry.GeometryUtil.ListFigure;
-
-import static android.content.ContentValues.TAG;
 
 public class Parallelogramme extends Quadrilatere{
 

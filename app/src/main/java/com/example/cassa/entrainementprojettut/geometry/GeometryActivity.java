@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.TextView;
 
 import com.example.cassa.entrainementprojettut.R;
 import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 import com.example.cassa.entrainementprojettut.geometry.controller.ControlerFigure;
+import com.example.cassa.entrainementprojettut.geometry.figure.Figure;
 import com.example.cassa.entrainementprojettut.geometry.view.DrawingView;
 
 public class GeometryActivity extends GameActivity implements View.OnClickListener{
@@ -17,6 +19,7 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
     private ControlerFigure ctrlFigure;
     private MediaPlayer playerEvent;
     protected DrawingView drawingView;
+    private TextView properties;
     private Chronometer chronometer;
     private Button trueAnswer;
     private Button falseAnswer;
@@ -35,6 +38,7 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
         playerEvent = MediaPlayer.create(GeometryActivity.this,R.raw.envent_sound);
         drawingView = findViewById(R.id.activity_geometry_drawing);
 
+        properties = findViewById(R.id.activity_geometry_textview_propertie);
         trueAnswer = findViewById(R.id.activity_geometry_button_true);
         falseAnswer = findViewById(R.id.activity_geometry_button_false);
 
@@ -64,12 +68,14 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
 
     private void generateFigure(){
         ctrlFigure.updateDrawingView(drawingView);
+        properties.setText(ctrlFigure.getProperties());
     }
 
 
     @Override
     public void onClick(View v) {
         ctrlFigure.updateDrawingView(drawingView);
+        properties.setText(ctrlFigure.getProperties());
     }
 
     @Override

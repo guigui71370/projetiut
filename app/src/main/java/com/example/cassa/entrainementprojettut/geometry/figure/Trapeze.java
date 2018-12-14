@@ -3,7 +3,7 @@ package com.example.cassa.entrainementprojettut.geometry.figure;
 import com.example.cassa.entrainementprojettut.geometry.GeometryUtil.FigureProperties;
 import com.example.cassa.entrainementprojettut.geometry.GeometryUtil.ListFigure;
 
-public class Trapeze extends Parallelogramme {
+public class Trapeze extends Quadrilatere {
 
     public Trapeze(){
         super();

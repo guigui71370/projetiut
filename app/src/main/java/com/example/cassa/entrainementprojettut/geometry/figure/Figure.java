@@ -9,7 +9,7 @@ public abstract class Figure {
     //Les cotes pas le nombre de côtés
     public abstract int[] getCote();
 
-    abstract ArrayList<String> getProperties();
+    public abstract ArrayList<String> getProperties();
 
     public abstract String getName();
 }

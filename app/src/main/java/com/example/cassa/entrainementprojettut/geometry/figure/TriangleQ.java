@@ -11,7 +11,7 @@ public class TriangleQ extends Figure {
     private final static int NBCOTE = 3;
     private int[] cote;
     private float hauteur;
-    ArrayList<String> properties;
+    ArrayList<String> properties = new ArrayList<>();
 
     public TriangleQ(){
         this.cote = generateRandomCote();

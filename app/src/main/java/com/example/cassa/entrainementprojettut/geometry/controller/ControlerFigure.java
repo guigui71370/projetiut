@@ -78,4 +78,8 @@ public class ControlerFigure {
 
         return f;
     }
+
+    public String getProperties(){
+        return f.getProperties().toString();
+    }
 }

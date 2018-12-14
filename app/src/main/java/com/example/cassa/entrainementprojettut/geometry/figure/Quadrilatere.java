@@ -1,14 +1,10 @@
 package com.example.cassa.entrainementprojettut.geometry.figure;
 
-import android.util.Log;
-
 import com.example.cassa.entrainementprojettut.geometry.GeometryUtil.FigureProperties;
 import com.example.cassa.entrainementprojettut.geometry.GeometryUtil.ListFigure;
 
 import java.util.ArrayList;
 import java.util.Random;
-
-import static android.content.ContentValues.TAG;
 
 public class Quadrilatere extends Figure {
     private final static int NBCOTE = 4;
@@ -28,12 +24,11 @@ public class Quadrilatere extends Figure {
         Random r = new Random();
         int[] arrayValues = new int[NBCOTE];
         for(int i=0;i<NBCOTE;i++){
-            arrayValues[i] = r.nextInt(11);
+            arrayValues[i] = r.nextInt(10)+1;
         }
         return arrayValues;
     }
 
-    @Override
     public float getAire() {
         return this.cote[0] * this.cote[1];
     }
@@ -43,7 +38,6 @@ public class Quadrilatere extends Figure {
         return this.cote[0] + this.cote[1] + this.cote[2] + this.cote[3];
     }
 
-    @Override
     public ArrayList<String> getProperties(){
         return this.properties;
     }
