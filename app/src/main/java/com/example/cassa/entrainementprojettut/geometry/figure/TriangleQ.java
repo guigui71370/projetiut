@@ -36,7 +36,7 @@ public class TriangleQ extends Figure {
         Random r = new Random();
         int[] arrayValues = new int[NBCOTE];
         for(int i=0;i<NBCOTE;i++){
-            arrayValues[i] = r.nextInt(11);
+            arrayValues[i] = r.nextInt(10)+1;
         }
         return arrayValues;
     }

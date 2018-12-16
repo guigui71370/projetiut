@@ -9,7 +9,7 @@ import java.util.Random;
 public class Cercle extends Figure {
     private int rayon;
     private int diametre = 2 * rayon;
-    ArrayList<String> properties = new ArrayList<>();
+    private ArrayList<String> properties = new ArrayList<>();
 
     public Cercle(){
         this.rayon = generateRandomRayon();

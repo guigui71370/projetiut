@@ -15,7 +15,7 @@ public class Losange extends Parallelogramme{
 
     private void changeCote(){
         Random r = new Random();
-        int sameValues = r.nextInt(11);
+        int sameValues = r.nextInt(10)+1;
         for(int i=0;i<this.getCote().length;i++){
             this.getCote()[i] = sameValues;
         }

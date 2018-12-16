@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
 
 
     <ImageView
-        android:id="@+id/playerImage"
+        android:id="@+id/activity_geometry_imageview_ghost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -17,9 +18,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ghost" />
 
-    <ImageView
+    <TextView
+        android:id="@+id/activity_geometry_textview_figurename"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:textSize="@dimen/font_size"
+        android:text="@string/figureName"
+        app:layout_constraintBottom_toTopOf="@+id/activity_geometry_drawing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.example.cassa.entrainementprojettut.geometry.view.DrawingView
         android:id="@+id/activity_geometry_drawing"
@@ -34,7 +42,8 @@
         app:layout_constraintBottom_toTopOf="@+id/activity_geometry_textview_propertie"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playerImage" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_geometry_imageview_ghost"
+        app:layout_constraintVertical_bias="0.0" />
 
 
     <TextView
@@ -42,6 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:textSize="@dimen/font_size"
         android:text="@string/figureProperty"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +61,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="48dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="100dp"
             android:layout_marginRight="100dp"
-            android:text="@string/True"
+            android:text="@string/Vrai"
             app:layout_constraintEnd_toStartOf="@+id/activity_geometry_button_false"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -77,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
             android:layout_marginLeft="100dp"
-            android:text="@string/False"
+            android:text="@string/Faux"
             app:layout_constraintBottom_toBottomOf="@+id/activity_geometry_button_true"
             app:layout_constraintStart_toEndOf="@+id/activity_geometry_button_true"
             tools:ignore="ButtonStyle"

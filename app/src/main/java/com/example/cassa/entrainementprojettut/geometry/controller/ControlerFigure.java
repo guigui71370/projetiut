@@ -14,6 +14,7 @@ import com.example.cassa.entrainementprojettut.geometry.figure.TriangleQ;
 import com.example.cassa.entrainementprojettut.geometry.figure.TriangleR;
 import com.example.cassa.entrainementprojettut.geometry.view.DrawingView;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class ControlerFigure {
@@ -79,7 +80,11 @@ public class ControlerFigure {
         return f;
     }
 
-    public String getProperties(){
-        return f.getProperties().toString();
+    public String getName(){
+        return f.getName();
+    }
+
+    public ArrayList<String> getProperties(){
+        return f.getProperties();
     }
 }

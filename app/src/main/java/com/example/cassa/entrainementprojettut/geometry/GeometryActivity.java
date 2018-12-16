@@ -14,12 +14,15 @@ import com.example.cassa.entrainementprojettut.geometry.controller.ControlerFigu
 import com.example.cassa.entrainementprojettut.geometry.figure.Figure;
 import com.example.cassa.entrainementprojettut.geometry.view.DrawingView;
 
+import java.util.Random;
+
 public class GeometryActivity extends GameActivity implements View.OnClickListener{
 
     private ControlerFigure ctrlFigure;
     private MediaPlayer playerEvent;
     protected DrawingView drawingView;
     private TextView properties;
+    private TextView name;
     private Chronometer chronometer;
     private Button trueAnswer;
     private Button falseAnswer;
@@ -39,6 +42,7 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
         drawingView = findViewById(R.id.activity_geometry_drawing);
 
         properties = findViewById(R.id.activity_geometry_textview_propertie);
+        name = findViewById(R.id.activity_geometry_textview_figurename);
         trueAnswer = findViewById(R.id.activity_geometry_button_true);
         falseAnswer = findViewById(R.id.activity_geometry_button_false);
 
@@ -50,7 +54,7 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
                     ctrlFigure = new ControlerFigure();
                     generateFigure();
                     activateButtons();
-                    //launchGhost(GeometryActivity.this,60000,R.id.playerImage);
+                    //launchGhost(GeometryActivity.this,60000,R.id.activity_geometry_imageview_ghost);
                 } else {
                     GeometryActivity.this.onStop();
                     dialog.show();
@@ -68,14 +72,24 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
 
     private void generateFigure(){
         ctrlFigure.updateDrawingView(drawingView);
-        properties.setText(ctrlFigure.getProperties());
+        setProperties();
+        setName();
     }
 
+    public void setName(){
+        name.setText(ctrlFigure.getName());
+    }
+
+    public void setProperties(){
+        Random r = new Random();
+        int nbProperties = ctrlFigure.getProperties().size();
+        int i = r.nextInt(nbProperties);
+        properties.setText(ctrlFigure.getProperties().get(i));
+    }
 
     @Override
     public void onClick(View v) {
-        ctrlFigure.updateDrawingView(drawingView);
-        properties.setText(ctrlFigure.getProperties());
+        generateFigure();
     }
 
     @Override
