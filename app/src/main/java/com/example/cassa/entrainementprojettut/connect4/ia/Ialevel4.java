@@ -2,7 +2,7 @@ package com.example.cassa.entrainementprojettut.connect4.ia;
 
 import com.example.cassa.entrainementprojettut.connect4.Plateau;
 
-public class Ialevel2 implements I_Ia {
+public class Ialevel4 implements I_Ia {
     private int column;
     @Override
     public int getColumn() {
@@ -16,26 +16,15 @@ public class Ialevel2 implements I_Ia {
             joueur='y';
         else
             joueur='r';
-        int column;
-        if(Math.random()<0.8){
-            column=-1;
-        }else{
-            column=plateau.conect4In1Turn(plateau.getCia());
-        }
-        int column2;
-        if(Math.random()<0.2){
-            column2=-1;
-        }else{
-            column2=plateau.conect4In1Turn(joueur);
-        }
 
 
 
-
-        if(column!=-1 ){
+        int column=plateau.conect4In1Turn(plateau.getCia());
+        int column2=plateau.conect4In1Turn(joueur);
+        if(column!=-1){
             this.column=column;
 
-        }else if(column2!=-1 && Math.random()<0.5){
+        }else if(column2!=-1){
 
             this.column=column2;
         }else {
