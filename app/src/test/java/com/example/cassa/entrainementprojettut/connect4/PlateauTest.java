@@ -121,6 +121,45 @@ public class PlateauTest {
     }
 
 
+    @Test
+    public void testdepartiencour() throws Exception {
+        Plateau plateau=new Plateau(2);
+        plateau.insertCheckers(0,'y');
+        plateau.insertCheckers(0,'r');
+
+
+
+
+
+
+        plateau.insertCheckers(1,'y');
+        plateau.insertCheckers(1,'y');
+        plateau.insertCheckers(1,'y');
+        plateau.insertCheckers(1,'r');
+
+
+
+        plateau.insertCheckers(2,'r');
+        plateau.insertCheckers(2,'y');
+
+
+        plateau.insertCheckers(3,'y');
+        plateau.insertCheckers(3,'y');
+
+        plateau.insertCheckers(4,'r');
+
+        plateau.insertCheckers(5,'y');
+        plateau.insertCheckers(5,'r');
+
+        plateau.insertCheckers(6,'r');
+        plateau.insertCheckers(6,'r');
+
+
+
+        assertEquals(4, plateau.conect4In1Turn('y'));
+    }
+
+
 
 
 }

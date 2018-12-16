@@ -69,6 +69,25 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
         }, 1500);
     }
 
+
+
+    protected  void showTextdurration(String text, int time){
+
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+
+        toast = Toast.makeText(context, text, duration);
+        toast.show();
+
+        Handler toastStop = new Handler();
+        toastStop.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                toast.cancel();
+            }
+        }, time);
+    }
+
     protected int levelChosen = 0;
     protected AlertDialog dialog;
 

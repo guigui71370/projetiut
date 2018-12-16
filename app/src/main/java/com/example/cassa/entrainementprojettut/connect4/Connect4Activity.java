@@ -165,19 +165,11 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
                 final  ImageView t=board[row][column];
 
 
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        t.setColorFilter(playerColor);
-                    }
-                }).start();
+
+                t.setColorFilter(playerColor);
                 disableImage();
                 if(controlerConnect4.hasWinner()==1 ||controlerConnect4.hasWinner()==0){
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+
                     unableLoose();
                     unableScoreMode();
                     chronometer.stop();
@@ -185,9 +177,9 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
                     initializeScoreValues("puissances 4", levelChosen);
                     showResultScreen(this);
 
-                    showText("partie finie joueur win");
+                    showTextdurration("partie finie joueur win",2000);
                 }else if(controlerConnect4.hasWinner()==2) {
-                    showText("match nulle");
+                    showTextdurration("match nulle",2000);
                 }else {
 
                     iaPlaying();
@@ -196,9 +188,9 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
 
         }
 
-        if(controlerConnect4.hasWinner()==2){
-            showText("match nulle");
-        }
+       /* if(controlerConnect4.hasWinner()==2){
+            showTextdurration("match nulle",2000);
+        }*/
 
 
        /* if(controlerConnect4.hasWinner()==1 ||controlerConnect4.hasWinner()==0){
@@ -222,22 +214,38 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
                         e.printStackTrace();
                     }
                     t.setColorFilter(computerColor);
-                    enableImage();
+                    //enableImage();
                 }
             }).start();
 
 
 
         if(controlerConnect4.hasWinner()==1 ||controlerConnect4.hasWinner()==0){
-            showText("partie finie ia win");
+
+
+            showTextdurration("partie finie ia win",2000);
 
 
 
+
+
+
+
+           /* try {
+                Thread.sleep(100000);
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }*/
             showResultScreen(this);
+
+
+
         }else  if(controlerConnect4.hasWinner()==2) {
-            showText("match nulle");
+            showResultScreen(this);
+            showTextdurration("match nulle",2000);
         }else {
-            //enableImage();
+            enableImage();
         }
         //showText("ia joue");
 

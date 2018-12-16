@@ -110,21 +110,21 @@ public class Plateau {
         final String  chaine2=""+c+c+" "+c;
         final String  chaine3=""+c+" "+c+c;
         final String  chaine4=" "+c+c+c;
-        int x=0;
-        int y=0;
+        ;
 
 
-        for( x = 0; x<this.plateau.length && !test; x++) {
-            for ( y = 0; y < this.plateau[1].length && !test; y++) {
+
+        for( int x=0; x<this.plateau.length ; x++) {
+            for ( int y=0; y < this.plateau[1].length ; y++) {
                 if(chaine4.charAt(0)==this.plateau[x][y]) {
                     test = verticalDown(y, x, chaine4) || horizontalRight(y, x, chaine4) || DiagonalLeftDown(y, x, chaine4) || DiagonalRightDown(y, x, chaine4);
                     if (test) {
                         result.add(y);
                     }
                 }   if(chaine3.charAt(0)==this.plateau[x][y]){
-                    boolean cond1;
-                    boolean cond2;
-                    boolean cond3;
+                    boolean cond1=false;
+                    boolean cond2=false;
+                    boolean cond3=false;
                     cond1=horizontalRight(y,x,chaine3)||DiagonalLeftDown(y,x,chaine3)||DiagonalRightDown(y,x,chaine3);
                     if(cond1){
                         result.add(y+1);
@@ -146,7 +146,7 @@ public class Plateau {
             }
         }
 
-        y--;
+        //y--;
 
         //return result;
       /* if(result==y){
