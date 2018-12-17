@@ -1,19 +1,28 @@
 package com.example.cassa.entrainementprojettut.connect4;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.SystemClock;
 
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
+import com.example.cassa.entrainementprojettut.MainActivity;
 import com.example.cassa.entrainementprojettut.R;
 import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 
@@ -164,11 +173,19 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
             int column = (int)view.getTag(R.id.gridLayout);
             int row = controlerConnect4.insertCheckers(column,colorjoueur);
             if(row!=-1){
+
                 final  ImageView t=board[row][column];
 
+                handlers.postDelayed(new Runnable() {
+                    @Override
+                    public void run(){
+                        t.setColorFilter(computerColor);
+                        //enableImage();
+                    }
+                },20);
 
 
-                t.setColorFilter(playerColor);
+
                 disableImage();
                 if(controlerConnect4.hasWinner()==1 ||controlerConnect4.hasWinner()==0){
 
@@ -181,7 +198,13 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
 
                     showTextdurration("partie finie joueur win",2000);
                 }else if(controlerConnect4.hasWinner()==2) {
-                    showTextdurration("match nulle",2000);
+                    final Connect4Activity nulls=this;
+                    handlers.postDelayed(new Runnable(){
+                        @Override
+                        public void run() {
+                            showNullSreen(nulls);
+                        }
+                    },2000);
                 }else {
 
                     iaPlaying();
@@ -199,7 +222,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
             showText("match nulle");
         }*/
     }
-
+    protected  final  Handler handlers = new Handler();
     public void iaPlaying(){
         int column = controlerConnect4.calculateCheckersPosition(levelChosen);
 
@@ -207,18 +230,13 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
 
             final  ImageView t=board[row][column];
 
-            new Thread(new Runnable() {
+        handlers.postDelayed(new Runnable() {
                 @Override
-                public void run() {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                public void run(){
                     t.setColorFilter(computerColor);
                     //enableImage();
                 }
-            }).start();
+            },1000);
 
 
 
@@ -230,8 +248,13 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
 
 
 
-
-
+            final Connect4Activity loose=this;
+            handlers.postDelayed(new Runnable(){
+                @Override
+                public void run() {
+                    showLooseScreen(loose);
+                }
+            },2000);
 
            /* try {
                 Thread.sleep(100000);
@@ -239,12 +262,20 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }*/
-            showResultScreen(this);
+
 
 
 
         }else  if(controlerConnect4.hasWinner()==2) {
-            showResultScreen(this);
+            final Connect4Activity nulls=this;
+            handlers.postDelayed(new Runnable(){
+                @Override
+                public void run() {
+                    showNullSreen(nulls);
+                }
+            },2000);
+
+
             showTextdurration("match nulle",2000);
         }else {
             enableImage();
@@ -253,4 +284,75 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
 
 
     }
+
+
+
+    protected void showNullSreen(final Activity activity) {
+        if(!activity.isFinishing()) {
+
+            final boolean[] canLeave = {false};
+            if (scoreMode != null) {
+                handler.removeCallbacks(scoreMode);
+            }
+
+            levelChosen = 0;
+
+            AlertDialog.Builder mBuilder = new AlertDialog.Builder(activity);
+
+            View resultView = getLayoutInflater().inflate(R.layout.resultat_popup, null);
+
+            Button replayButton = resultView.findViewById(R.id.resultat_popup_rejouer_btn);
+            Button menuButton = resultView.findViewById(R.id.resultat_popup_menu_btn);
+            TextView mTextViewMessage = resultView.findViewById(R.id.resultat_popup_messace_textView);
+
+            mBuilder.setView(resultView);
+            dialog = mBuilder.create();
+            dialog.show();
+
+            //On prend les caracs de l'écran
+            WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+            Window window = dialog.getWindow();
+            lp.copyFrom(window.getAttributes());
+
+            //On l'applique au dialogue
+            lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+            lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+            window.setAttributes(lp);
+
+
+            mTextViewMessage.setText("Dommage, match null");
+
+            dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                @Override
+                public void onDismiss(DialogInterface dialogInterface) {
+                    if (canLeave[0] == true) {
+                        dialog.dismiss();
+
+                    } else {
+                        dialog.show();
+                    }
+
+                }
+            });
+            replayButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    canLeave[0] = true;
+                    activity.recreate();
+                    dialog.dismiss();
+
+                }
+            });
+            menuButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    canLeave[0] = true;
+                    Intent additionIntent = new Intent(activity, MainActivity.class);
+                    startActivity(additionIntent);
+                    activity.finish();
+
+                }
+            });
+        }
+           }
 }
