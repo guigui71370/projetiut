@@ -179,7 +179,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
                 handlers.postDelayed(new Runnable() {
                     @Override
                     public void run(){
-                        t.setColorFilter(computerColor);
+                        t.setColorFilter(playerColor);
                         //enableImage();
                     }
                 },20);
@@ -188,13 +188,18 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
 
                 disableImage();
                 if(controlerConnect4.hasWinner()==1 ||controlerConnect4.hasWinner()==0){
+                    final Connect4Activity win=this;
+                    handlers.postDelayed(new Runnable() {
 
-                    unableLoose();
-                    unableScoreMode();
-                    chronometer.stop();
-                    timeScore = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 1000;
-                    initializeScoreValues("puissances 4", levelChosen);
-                    showResultScreen(this);
+                        @Override
+                        public void run(){
+                          unableLoose();
+                          unableScoreMode();
+                          chronometer.stop();
+                          timeScore = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 1000;
+                           initializeScoreValues("puissances 4", levelChosen);
+                           showResultScreen(win);
+                        }},2000);
 
                     showTextdurration("partie finie joueur win",2000);
                 }else if(controlerConnect4.hasWinner()==2) {
@@ -235,6 +240,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
                 public void run(){
                     t.setColorFilter(computerColor);
                     //enableImage();
+                    enableImage();
                 }
             },1000);
 
@@ -272,13 +278,14 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
                 @Override
                 public void run() {
                     showNullSreen(nulls);
+
                 }
             },2000);
 
 
             showTextdurration("match nulle",2000);
         }else {
-            enableImage();
+
         }
         //showText("ia joue");
 
