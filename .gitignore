@@ -21,3 +21,4 @@ captures/
 .settings
 .classpath
 .project
+*.iml

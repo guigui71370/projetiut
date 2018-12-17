@@ -27,7 +27,7 @@ import com.example.cassa.entrainementprojettut.database.AppDatabase;
 import com.example.cassa.entrainementprojettut.database.Score;
 import com.plattysoft.leonids.ParticleSystem;
 
-import java.util.regex.Pattern;
+
 
 public class GameActivity extends ActivityUtil implements AppCompatCallback,
         TaskStackBuilder.SupportParentable, ActionBarDrawerToggle.DelegateProvider {
@@ -67,6 +67,25 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
                 toast.cancel();
             }
         }, 1500);
+    }
+
+
+
+    protected  void showTextdurration(String text, int time){
+
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+
+        toast = Toast.makeText(context, text, duration);
+        toast.show();
+
+        Handler toastStop = new Handler();
+        toastStop.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                toast.cancel();
+            }
+        }, time);
     }
 
     protected int levelChosen = 0;
@@ -111,6 +130,8 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
         LinearLayout container = lvlChoiceView.findViewById(R.id.level_popup_activity_linearlayout);
         for(int i = 0; i < levelsNames.length; i++) {
             final Button lvlButton = (Button) this.getLayoutInflater().inflate(R.layout.level_choice_button, container, false);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+            params.leftMargin = 20;
             lvlButton.setText(levelsNames[i]);
             lvlButton.setTag(i + 1);
             lvlButton.getBackground().setColorFilter(Color.parseColor(colorsTab[i]), PorterDuff.Mode.MULTIPLY);
@@ -121,8 +142,9 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
                     dialog.dismiss();
                 }
             });
+
             if(container != null) {
-                container.addView(lvlButton);
+                container.addView(lvlButton,params);
             }
         }
 
