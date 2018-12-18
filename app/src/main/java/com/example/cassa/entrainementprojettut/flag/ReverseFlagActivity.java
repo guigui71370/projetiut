@@ -49,7 +49,7 @@ public class ReverseFlagActivity extends GameActivity implements View.OnClickLis
 
                     generateNewGame();
                     initializeScoreValues("InvertFlag",levelChosen);
-                    launchTimer(ReverseFlagActivity.this,35000,R.id.acivity_flag_player_img,R.id.activity_flag_IA_img);
+                    launchGhost(ReverseFlagActivity.this,35000,R.id.activity_flag_IA_img);
 
                 }else{
                     ReverseFlagActivity.this.onStop();
@@ -133,11 +133,6 @@ public class ReverseFlagActivity extends GameActivity implements View.OnClickLis
 
     public void checkAnswer(Button button, String mNomPays){
         if(gGoodAnswer.equals(mNomPays)){
-
-           if(numericalScore <50 && getScreenWidth()>(playerImagePosition+ (getScreenWidth() / 11))) {
-               moveImage(playerImage, playerImagePosition + (getScreenWidth() / 11), 600, playerImagePosition);
-               playerImagePosition = playerImagePosition + (getScreenWidth() / 11);
-           }
 
             numericalScore+=5;
             mScore.setText(""+numericalScore);

@@ -107,10 +107,12 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
         switch ((int)(Math.random() * 2)){
             // 0 equivaut au joueur
             case 0:
+                showTextdurration("Vous commencez à jouer",2000);
                 enableImage();
                 break;
             // 1 equivaut a l'IA
             case 1:
+                showTextdurration("L'ordinateur commence à jouer",2000);
                 disableImage();
                 iaPlaying();
                 break;
@@ -140,17 +142,17 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
     private void createGameBoard(GridLayout gridLayout) {
         for(int y = 0; y < gridLayout.getRowCount(); y++) {
             for (int x = 0; x < gridLayout.getColumnCount(); x++) {
-                 ImageView image = new ImageView(this);
-                 image.setOnClickListener(this);
-                 image.setImageResource(R.drawable.circle);
-                 GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams();
-                 layoutParams.width = 100;
-                 layoutParams.height = 100;
-                 image.setLayoutParams(layoutParams);
-                 //Le tag indique la colonne
-                 image.setTag(R.id.gridLayout,x);
-                 board[y][x] = image;
-                 gridLayout.addView(image);
+                ImageView image = new ImageView(this);
+                image.setOnClickListener(this);
+                image.setImageResource(R.drawable.circle);
+                GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams();
+                layoutParams.width = 100;
+                layoutParams.height = 100;
+                image.setLayoutParams(layoutParams);
+                //Le tag indique la colonne
+                image.setTag(R.id.gridLayout,x);
+                board[y][x] = image;
+                gridLayout.addView(image);
             }
         }
     }
@@ -193,15 +195,15 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
 
                         @Override
                         public void run(){
-                          unableLoose();
-                          unableScoreMode();
-                          chronometer.stop();
-                          timeScore = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 1000;
-                           initializeScoreValues("puissances 4", levelChosen);
-                           showResultScreen(win);
+                            unableLoose();
+                            unableScoreMode();
+                            chronometer.stop();
+                            timeScore = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 1000;
+                            initializeScoreValues("puissances 4", levelChosen);
+                            showResultScreen(win);
                         }},2000);
 
-                    showTextdurration("partie finie joueur win",2000);
+                    showTextdurration("Vous avez gagné",2000);
                 }else if(controlerConnect4.hasWinner()==2) {
                     final Connect4Activity nulls=this;
                     handlers.postDelayed(new Runnable(){
@@ -233,23 +235,23 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
 
         int row = controlerConnect4.insertCheckers(column,coloria);
 
-            final  ImageView t=board[row][column];
+        final  ImageView t=board[row][column];
 
         handlers.postDelayed(new Runnable() {
-                @Override
-                public void run(){
-                    t.setColorFilter(computerColor);
-                    //enableImage();
-                    enableImage();
-                }
-            },1000);
+            @Override
+            public void run(){
+                t.setColorFilter(computerColor);
+                //enableImage();
+                enableImage();
+            }
+        },1000);
 
 
 
         if(controlerConnect4.hasWinner()==1 ||controlerConnect4.hasWinner()==0){
 
 
-            showTextdurration("partie finie ia win",2000);
+            showTextdurration("L'ordinateur a gagné",2000);
 
 
 
@@ -361,5 +363,5 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
                 }
             });
         }
-           }
+    }
 }
