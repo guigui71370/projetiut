@@ -35,7 +35,7 @@ public class Ialevel2 implements I_Ia {
         if(column!=-1 ){
             this.column=column;
 
-        }else if(column2!=-1 && Math.random()<0.5){
+        }else if(column2!=-1){
 
             this.column=column2;
         }else {
