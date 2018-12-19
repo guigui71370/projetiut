@@ -66,7 +66,7 @@ public class DrawingView extends View {
         paintBord = new Paint();
         paintBord.setColor(Color.BLACK);
         paintBord.setStyle(Paint.Style.STROKE);
-        paintBord.setStrokeWidth(10);
+        paintBord.setStrokeWidth(5);
 
         paintInside = new Paint();
         paintInside.setColor(Color.WHITE);
@@ -166,10 +166,13 @@ public class DrawingView extends View {
 
         }
         else if (figure!=null && figure.getName().equals(ListFigure.CERCLE.toString())) {
-            canvas.drawCircle(this.getWidth()/2, this.getHeight()/2, this.getWidth()/2-10, paintBord);
-            canvas.drawCircle(this.getWidth()/2, this.getHeight()/2, this.getWidth()/2-10, paintInside);
-            canvas.drawText("r = "+String.valueOf(figure.getCote()[0]) + " m",(float)(width/1.5),height/2-10,paintNumber);
-            canvas.drawLine(width/2, height/2, width-10, height/2, paintBord);
+            canvas.drawCircle(this.getWidth()/2, this.getHeight()/2, (figure.getCote()[0] * 34)/2 , paintBord);
+            canvas.drawCircle(this.getWidth()/2, this.getHeight()/2, (figure.getCote()[0] * 34)/2 , paintInside);
+            canvas.drawText("r = "+String.valueOf(figure.getCote()[0]) + " m",width/2,height/2-10,paintNumber);
+            paintBord.setStrokeWidth(3);
+            canvas.drawLine(width/2, height/2, width/2 + (figure.getCote()[0] * 34)/2, height/2, paintBord);
+            paintBord.setStrokeWidth(5);
+
         }
         else if (figure!=null && figure.getName().equals(ListFigure.TRIANGLEI.toString())) {
             int[] cote =  figure.getCote();
