@@ -111,6 +111,7 @@ public class AstrnomieActivity extends GameActivity implements View.OnClickListe
             Log.d("astronmie","ok");
             this.nbgoodAnswer++;
             this.generatedNewGame();
+            showText(getString(R.string.Well_played));
         }else if(this.nbgoodAnswer==10){
             unableLoose();
             unableScoreMode();
@@ -121,7 +122,7 @@ public class AstrnomieActivity extends GameActivity implements View.OnClickListe
         }else {
 
 
-
+            showText("mauvaise réponse");
             generatedNewGame();
         }
 
