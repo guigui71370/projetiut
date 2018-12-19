@@ -1,5 +1,6 @@
 package com.example.cassa.entrainementprojettut.geometry.controller;
 
+import com.example.cassa.entrainementprojettut.geometry.FactorySetGeometry;
 import com.example.cassa.entrainementprojettut.geometry.figure.Carre;
 import com.example.cassa.entrainementprojettut.geometry.figure.Cercle;
 import com.example.cassa.entrainementprojettut.geometry.figure.Figure;
@@ -12,6 +13,7 @@ import com.example.cassa.entrainementprojettut.geometry.figure.TriangleI;
 import com.example.cassa.entrainementprojettut.geometry.figure.TriangleIR;
 import com.example.cassa.entrainementprojettut.geometry.figure.TriangleQ;
 import com.example.cassa.entrainementprojettut.geometry.figure.TriangleR;
+import com.example.cassa.entrainementprojettut.geometry.setGeometry.I_SetGeometry;
 import com.example.cassa.entrainementprojettut.geometry.view.DrawingView;
 
 import java.util.ArrayList;
@@ -21,10 +23,14 @@ public class ControlerFigure {
 
     private Figure f;
     private Figure lastFigure;
+    private Random r;
+    private I_SetGeometry set;
 
-    public ControlerFigure(){
+    public ControlerFigure(int levelChosen){
         f = null;
         lastFigure = null;
+        r = new Random();
+        set = new FactorySetGeometry().createSetGeometry(levelChosen);
     }
 
     public void updateDrawingView(DrawingView drawingView) {
@@ -40,7 +46,6 @@ public class ControlerFigure {
     }
 
     private Figure generateFigure(){
-        Random r = new Random();
         int i = r.nextInt(11);
         if (i == 0){
             f = new Carre();
@@ -84,7 +89,7 @@ public class ControlerFigure {
         return f.getName();
     }
 
-    public ArrayList<String> getProperties(){
-        return f.getProperties();
+    public String getPropertie(){
+        return set.getPropertie(f);
     }
 }

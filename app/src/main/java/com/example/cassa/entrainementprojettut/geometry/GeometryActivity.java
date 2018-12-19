@@ -51,7 +51,7 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
             @Override
             public void onDismiss(DialogInterface dialogInterface) {
                 if (levelChosen != 0) {
-                    ctrlFigure = new ControlerFigure();
+                    ctrlFigure = new ControlerFigure(levelChosen);
                     generateFigure();
                     activateButtons();
                     //launchGhost(GeometryActivity.this,60000,R.id.activity_geometry_imageview_ghost);
@@ -81,10 +81,7 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
     }
 
     public void setProperties(){
-        Random r = new Random();
-        int nbProperties = ctrlFigure.getProperties().size();
-        int i = r.nextInt(nbProperties);
-        properties.setText(ctrlFigure.getProperties().get(i));
+        properties.setText(ctrlFigure.getPropertie());
     }
 
     @Override

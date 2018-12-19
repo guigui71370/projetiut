@@ -27,6 +27,36 @@ public class Cercle extends Figure {
         return arrayValues;
     }
 
+    @Override
+    public String getPropertieLV1() {
+        return null;
+    }
+
+    @Override
+    public String getPropertieLV2() {
+        return null;
+    }
+
+    @Override
+    public String getPropertieLV3() {
+        return null;
+    }
+
+    @Override
+    public String getFalsePropertieLV1() {
+        return null;
+    }
+
+    @Override
+    public String getFalsePropertieLV2() {
+        return null;
+    }
+
+    @Override
+    public String getFalsePropertieLV3() {
+        return null;
+    }
+
     private int generateRandomRayon(){
         Random r = new Random();
         return r.nextInt(11);
@@ -44,7 +74,6 @@ public class Cercle extends Figure {
         return (float)perimetre;
     }
 
-    @Override
     public ArrayList<String> getProperties(){
         return this.properties;
     }
