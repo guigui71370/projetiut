@@ -262,7 +262,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
                 public void run() {
                     showLooseScreen(loose);
                 }
-            },2000);
+            },10000);
 
            /* try {
                 Thread.sleep(100000);
