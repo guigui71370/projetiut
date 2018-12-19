@@ -84,13 +84,13 @@ public class DrawingView extends View {
         float width = this.getWidth(); // largeur de la view
         float height = this.getHeight(); // hauteur de la view
 
-        if (figure!=null && figure.getName().equals(ListFigure.QUADRILATERE.toString())) {
+        /*if (figure!=null && figure.getName().equals(ListFigure.QUADRILATERE.toString())) {
             canvas.drawLine(0, 0, 0, this.getHeight(), paintBord);
             canvas.drawLine(0, this.getHeight(), this.getWidth(), this.getHeight(), paintBord);
             canvas.drawLine(this.getWidth(), this.getHeight(), this.getWidth()/2, this.getHeight()*(float)0.75, paintBord);
             canvas.drawLine(this.getWidth()/2, this.getHeight()*(float)0.75, 0, 0, paintBord);
-        }
-        else if (figure!=null && figure.getName().equals(ListFigure.RECTANGLE.toString())) {
+        }*/
+        if (figure!=null && figure.getName().equals(ListFigure.RECTANGLE.toString())) {
             topLeft[0]=35;
             topLeft[1]=35;
 
@@ -127,7 +127,7 @@ public class DrawingView extends View {
             canvas.drawText(String.valueOf(figure.getCote()[0]),0,(figure.getCote()[0] * 34)/2,paintNumber);
             canvas.drawText("m",0,(figure.getCote()[0] * 34)/2 + 30,paintNumber);
 
-        }else if (figure!=null && figure.getName().equals(ListFigure.PARALELLOGRAMME.toString())) {
+        }/*else if (figure!=null && figure.getName().equals(ListFigure.PARALELLOGRAMME.toString())) {
             canvas.drawLine(0, 0, 0, this.getHeight()/2, paintBord);
             canvas.drawLine(0, this.getHeight()/2, this.getWidth(), this.getHeight(), paintBord);
             canvas.drawLine(this.getWidth(), this.getHeight(), this.getWidth(), this.getHeight()/2, paintBord);
@@ -138,18 +138,18 @@ public class DrawingView extends View {
             canvas.drawLine(this.getWidth()/4, this.getHeight()/2, this.getWidth()/2, this.getHeight(), paintBord);
             canvas.drawLine(this.getWidth()/2, this.getHeight(), 3*this.getWidth()/4, this.getHeight()/2, paintBord);
             canvas.drawLine(3*this.getWidth()/4, this.getHeight()/2, this.getWidth()/2, 0, paintBord);
-        }
+        }*/
         else if (figure!=null && figure.getName().equals(ListFigure.CERCLE.toString())) {
             canvas.drawCircle(this.getWidth()/2, this.getHeight()/2, this.getWidth()/2-10, paintBord);
             canvas.drawCircle(this.getWidth()/2, this.getHeight()/2, this.getWidth()/2-10, paintInside);
             canvas.drawText("r = "+String.valueOf(figure.getCote()[0]) + " m",(float)(width/1.5),height/2-10,paintNumber);
             canvas.drawLine(width/2, height/2, width-10, height/2, paintBord);
-        }
+        }/*
         else if (figure!=null && figure.getName().equals(ListFigure.TRIANGLEQ.toString())) {
             canvas.drawLine(0, height, 3*width/4, 3*height/4, paintBord);
             canvas.drawLine(3*width/4, 3*height/4, width, height, paintBord);
             canvas.drawLine(width, height, 0, height, paintBord);
-        }
+        }*/
         else if (figure!=null && figure.getName().equals(ListFigure.TRIANGLEI.toString())) {
             canvas.drawLine(width/4, height, 3*width/4, height, paintBord);
             canvas.drawLine(3*width/4, height, width/2, 0, paintBord);
@@ -159,7 +159,7 @@ public class DrawingView extends View {
             canvas.drawLine(0, height/2, 0, height, paintBord);
             canvas.drawLine(0, height, width, height, paintBord);
             canvas.drawLine(width, height, 0, height/2, paintBord);
-        }
+        }/*
         else if (figure!=null && figure.getName().equals(ListFigure.TRIANGLEIR.toString())) {
             canvas.drawLine(0, 0, 0, height, paintBord);
             canvas.drawLine(0, height, width, height, paintBord);
@@ -170,7 +170,7 @@ public class DrawingView extends View {
             canvas.drawLine(width, height, 3*width/4, 0, paintBord);
             canvas.drawLine(3*width/4, 0, width/4, 0, paintBord);
             canvas.drawLine(width/4, 0, 0, height, paintBord);
-        }
+        }*/
     }
 
     public void updateFigure(Figure f) {
