@@ -27,6 +27,9 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
     private Button trueAnswer;
     private Button falseAnswer;
 
+    private boolean propertie;
+    int score;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,11 +84,27 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
     }
 
     public void setProperties(){
-        properties.setText(ctrlFigure.getPropertie());
+        properties.setText(ctrlFigure.getTruePropertie());
     }
 
     @Override
     public void onClick(View v) {
+        boolean answer;
+        if(v.getContentDescription().equals(R.string.Vrai)){
+            answer = true;
+        }
+        else{
+            answer = false;
+        }
+        if(answer == propertie){
+            showText(getString(R.string.Well_played));
+            score += 5;
+        }
+        else{
+            showText(getString(R.string.Too_bad));
+            score -= 5;
+        }
+
         generateFigure();
     }
 

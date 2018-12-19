@@ -6,19 +6,19 @@ import java.util.Random;
 
 public class SetGeometryLV1 implements I_SetGeometry {
 
-    Random r;
 
     public SetGeometryLV1(){
-        r = new Random();
+
     }
 
     @Override
-    public String getPropertie(Figure f) {
-        if(r.nextBoolean()){
-            return f.getFalsePropertieLV1();
-        }
-        else return f.getPropertieLV1();
+    public String getFalsePropertie(Figure f) {
+        return f.getPropertieLV1();
+    }
 
+    @Override
+    public String getTruePropertie(Figure f) {
+        return f.getFalsePropertieLV1();
     }
 
 }
