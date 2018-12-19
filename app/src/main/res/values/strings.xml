@@ -56,4 +56,5 @@
     <string name="text_viewscore">veulliez cliquer sur un boutton pour affiché les scores</string>
     <string name="Score_activity">Scores</string>
     <string name="geometry_game">Géométrie</string>
+    <string name="astronomie_game">Astronomie</string>
 </resources>

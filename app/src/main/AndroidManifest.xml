@@ -22,46 +22,48 @@
             android:name=".operationGame.AdditionActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape" />
-
         <activity
             android:name=".mysteryWord.MysteryWordActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape" />
-
         <activity
             android:name=".flag.FlagActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape" />
-
         <activity
             android:name=".flag.ReverseFlagActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape" />
-
         <activity
             android:name=".geography.GeographyActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape" />
-
-        <activity android:name=".pianoGame.PianoActivity"
+        <activity
+            android:name=".pianoGame.PianoActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".conjugaison.ConjugaisonActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".geometry.GeometryActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".connect4.Connect4Activity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".score.ScoreActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape" />
+        <activity android:name=".astronomie.AstrnomieActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"/>
 
-        <activity android:name=".conjugaison.ConjugaisonActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape"/>
 
-        <activity android:name=".geometry.GeometryActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"/>
 
-        <activity android:name=".connect4.Connect4Activity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape"/>
-
-        <activity android:name=".score.ScoreActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>
