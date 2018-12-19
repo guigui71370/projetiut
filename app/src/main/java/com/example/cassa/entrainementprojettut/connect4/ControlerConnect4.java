@@ -39,18 +39,13 @@ public class ControlerConnect4 extends Observable {
     *           -retourne 2 si match nul
     * */
     public int hasWinner(){
-
-        if(summcheker()==(6*7)){
+        if(plateau.win('y')){
             return 2;
         }else if(plateau.win('r')){
             return 0;
-        }else if(plateau.win('y')){
+        }else if(summcheker()==(6*7)){
             return 1;
         }else
-
-
-
-
         return -1;
     }
     private int summcheker(){
