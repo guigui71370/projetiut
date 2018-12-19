@@ -114,16 +114,16 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(activityContext);
         mBuilder.setCancelable(false);
         mBuilder.setNegativeButton("Retour au menu",new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which){
-                        Intent back = new Intent(getApplicationContext(), MainActivity.class);
+            @Override
+            public void onClick(DialogInterface dialog, int which){
+                Intent back = new Intent(getApplicationContext(), MainActivity.class);
 
-                        startActivity(back);
-                        finish();
-                    }
-                });
+                startActivity(back);
+                finish();
+            }
+        });
 
-            String colorsTab[] = {"#77dd6c", "#eebf38", "#ee3838", "#c847ea", "#47aaea"};
+        String colorsTab[] = {"#77dd6c", "#eebf38", "#ee3838", "#c847ea", "#47aaea"};
 
         lvlChoiceView = getLayoutInflater().inflate(R.layout.level_choice_popup, null);
 
@@ -389,6 +389,19 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
 
         playerImagePosition = this.playerImage.getX();
 
+
+        moveImage(this.IAImage,screenWidth-IApictureWidth,arrivalTime,0);
+
+    }
+
+    protected void launchGhost(final Activity srcActivity, int arrivalTime, int IAImage){
+
+        startChrono(srcActivity,arrivalTime);
+        this.IAImage = findViewById(IAImage);
+
+
+        float screenWidth = getScreenWidth();
+        int IApictureWidth = this.IAImage.getDrawable().getIntrinsicWidth();
 
         moveImage(this.IAImage,screenWidth-IApictureWidth,arrivalTime,0);
 
