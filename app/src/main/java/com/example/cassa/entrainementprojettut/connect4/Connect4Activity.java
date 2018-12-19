@@ -47,7 +47,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
         setContentView(R.layout.activity_connect4);
         showMenu();
         initializeGame();
-        music = R.raw.bensound_retrosoul;
+        music = R.raw.bensound_smile;
         if(isSong()){
             startBackgroundMusic(this,music);
         }
@@ -285,7 +285,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
             },2000);
 
 
-            showTextdurration("match nulle",2000);
+            showTextdurration("match nul",2000);
         }else {
 
         }
@@ -329,7 +329,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
             window.setAttributes(lp);
 
 
-            mTextViewMessage.setText("Dommage, match null");
+            mTextViewMessage.setText("Dommage, match nul");
 
             dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                 @Override
