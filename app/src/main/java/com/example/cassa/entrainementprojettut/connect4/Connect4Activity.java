@@ -47,7 +47,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
         setContentView(R.layout.activity_connect4);
         showMenu();
         initializeGame();
-        music = R.raw.bensound_retrosoul;
+        music = R.raw.bensound_smile;
         if(isSong()){
             startBackgroundMusic(this,music);
         }
