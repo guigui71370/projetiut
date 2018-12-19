@@ -79,7 +79,10 @@ public class AstrnomieActivity extends GameActivity implements View.OnClickListe
         String te= getResources().getResourceEntryName(R.drawable.mercury);
 
         ImageFactoriesSize.factorisize(image1,te,scale );
-
+        image1.setOnClickListener(this);
+        image2.setOnClickListener(this);
+        image3.setOnClickListener(this);
+        image14.setOnClickListener(this);
 
 
     }
@@ -94,8 +97,10 @@ public class AstrnomieActivity extends GameActivity implements View.OnClickListe
 
         for(int i=0;i<reponce.length;i++){
             tab[i].setImageResource(reponce[i]);
-             ImageFactoriesSize.factorisize(image1,getResources().getResourceEntryName(reponce[i]),scale );
+            ImageFactoriesSize.factorisize(tab[i],getResources().getResourceEntryName(reponce[i]),scale );
+            tab[i].setTag(getResources().getResourceEntryName(reponce[i]));
         }
+        enableImage();
 
     }
 
@@ -103,6 +108,7 @@ public class AstrnomieActivity extends GameActivity implements View.OnClickListe
     public  void checkAnswer(String planetname){
 
         if(this.goodAnswer.equals(planetname)&& this.nbgoodAnswer<10){
+            Log.d("astronmie","ok");
             this.nbgoodAnswer++;
             this.generatedNewGame();
         }else if(this.nbgoodAnswer==10){
@@ -134,10 +140,29 @@ public class AstrnomieActivity extends GameActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if(v instanceof ImageView){
+
+           // Log.d("astronmie", v.getBackground().getClass().getName());
+
+            String paysSelectione = (String) v.getTag();
+            Log.d("astronmie",    paysSelectione+" ");
             Log.d("astronmie",getResources().getResourceEntryName(v.getId()));
-            checkAnswer(getResources().getResourceEntryName(v.getId()));
+
+
+
+            checkAnswer(paysSelectione);
         }else {
             Log.d("astronmie","eror");
+
+        }
+    }
+
+
+
+
+    private void enableImage(){
+        int i, j;
+        for(i=0; i<tab.length; i++) {
+                tab[i].setEnabled(true);
 
         }
     }

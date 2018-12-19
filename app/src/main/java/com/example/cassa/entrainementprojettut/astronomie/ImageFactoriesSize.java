@@ -60,8 +60,8 @@ public class ImageFactoriesSize {
             }else if(name.equals("neptune")){
 
 
-                d.getLayoutParams().height =(int) (60*density);
-                d.getLayoutParams().width=(int) (60*density);
+                d.getLayoutParams().height =(int) (100*density);
+                d.getLayoutParams().width=(int) (100*density);
 
 
 
