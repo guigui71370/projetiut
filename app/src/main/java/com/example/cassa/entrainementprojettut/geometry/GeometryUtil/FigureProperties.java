@@ -86,7 +86,7 @@ public enum FigureProperties {
 
     private String properties;
 
-    FigureProperties(String name){
+    FigureProperties(String properties){
         this.properties = properties;
     }
     public String getProperties(){

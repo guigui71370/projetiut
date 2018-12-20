@@ -13,11 +13,11 @@ public class SetGeometryLV3 implements I_SetGeometry {
 
     @Override
     public String getFalsePropertie(Figure f) {
-        return f.getPropertieLV3();
+        return f.getFalsePropertieLV3();
     }
 
     @Override
     public String getTruePropertie(Figure f) {
-        return f.getFalsePropertieLV3();
+        return f.getPropertieLV3();
     }
 }
