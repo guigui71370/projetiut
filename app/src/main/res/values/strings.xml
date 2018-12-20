@@ -43,6 +43,7 @@
     <string name="geography_game">Géographie</string>
     <string name="piano_game">Piano</string>
     <string name="connect4_game">Puissance 4</string>
+    <string name="astronomie_game">Astronomie</string>
     <string name="choice_levels">Choisis ton niveau</string>
     <string name="return_menu">Retour au menu</string>
     <string name="play_again">Rejouer</string>
