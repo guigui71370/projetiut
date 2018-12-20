@@ -57,8 +57,8 @@ public class Rectangle extends Parallelogramme {
 
     private void changeCote(){
 
-        longueur =r.nextInt(11);
-        largeur = r.nextInt(11);
+        longueur =r.nextInt(6) + 5;
+        largeur = r.nextInt(6) + 5;
         for(int i=0;i<this.getCote().length;i++){
             if (i%2 == 0)
                 this.getCote()[i] = longueur;

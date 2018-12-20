@@ -45,7 +45,7 @@ public class TriangleI extends TriangleQ {
     }
     @Override
     public String getName() {
-        return ListFigure.TRIANGLEQ.toString();
+        return ListFigure.TRIANGLEI.toString();
     }
 
 

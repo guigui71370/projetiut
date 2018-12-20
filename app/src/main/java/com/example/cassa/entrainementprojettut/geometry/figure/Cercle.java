@@ -62,7 +62,7 @@ public class Cercle extends Figure {
     }
 
     private int generateRandomRayon(){
-        return r.nextInt(11);
+        return r.nextInt(6) + 5;
     }
 
     @Override
