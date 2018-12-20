@@ -123,8 +123,6 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
             Log.d("astronmie",    paysSelectione+" ");
             Log.d("astronmie",getResources().getResourceEntryName(v.getId()));
 
-
-
             checkAnswer(paysSelectione);
         }else {
             Log.d("astronmie","eror");
