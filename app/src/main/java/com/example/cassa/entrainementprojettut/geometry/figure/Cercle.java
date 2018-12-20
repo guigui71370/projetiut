@@ -66,15 +66,15 @@ public class Cercle extends Figure {
     }
 
     @Override
-    public float getAire() {
+    public int getAire() {
         double aire = this.rayon*this.rayon*3.14;
-        return (float)aire;
+        return (int) aire;
     }
 
     @Override
-    public float getPerimetre() {
+    public int getPerimetre() {
         double perimetre = this.diametre*3.14;
-        return (float)perimetre;
+        return (int)perimetre;
     }
 
     @Override

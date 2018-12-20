@@ -3,8 +3,8 @@ import java.util.ArrayList;
 
 public abstract class Figure {
 
-    abstract float getAire();
-    abstract float getPerimetre();
+    abstract int getAire();
+    abstract int getPerimetre();
 
 
     //Les cotes pas le nombre de côtés

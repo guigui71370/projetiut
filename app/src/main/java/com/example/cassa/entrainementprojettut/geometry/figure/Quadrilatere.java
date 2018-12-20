@@ -58,12 +58,12 @@ public class Quadrilatere extends Figure {
         return arrayValues;
     }
 
-    public float getAire() {
+    public int getAire() {
         return this.cote[0] * this.cote[1];
     }
 
     @Override
-    public float getPerimetre() {
+    public int getPerimetre() {
         return this.cote[0] + this.cote[1] + this.cote[2] + this.cote[3];
     }
 

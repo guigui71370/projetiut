@@ -55,7 +55,7 @@ public enum FigureProperties {
     //TriangleI
     TRIANGLEI_P_1("J'ai deux côté de la même longueur"),
     TRIANGLEI_P_2("Je suis un triangle isocèle"),
-    TRIANGLEI_P_3("Je suis non équilatéral"),
+    TRIANGLEI_P_3("Je possède un axe de symétrie"),
 
     TRIANGLEI_FP_1("J'ai trois côté de la même longueur"),
     TRIANGLEI_FP_2("J'ai aucun côté de la même longueur"),

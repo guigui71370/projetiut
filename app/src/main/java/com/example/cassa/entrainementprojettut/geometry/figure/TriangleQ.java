@@ -71,12 +71,12 @@ public class TriangleQ extends Figure {
     }
 
     @Override
-    public float getAire() {
+    public int getAire() {
         return 0;
     }
 
     @Override
-    public float getPerimetre() {
+    public int getPerimetre() {
         return this.cote[0] + this.cote[1] + this.cote[2];
     }
 

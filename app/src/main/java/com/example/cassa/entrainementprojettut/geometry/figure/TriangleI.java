@@ -37,8 +37,8 @@ public class TriangleI extends TriangleQ {
 
         falsePropertiesLV2 = new ArrayList<String>();
         falsePropertiesLV2.add(FigureProperties.TRIANGLEI_FP_2.getProperties());
-        propertiesLV2.add(FigureProperties.FIGURE_P_1.getProperties() + (getPerimetre())
-            + r.nextInt(4));
+        propertiesLV2.add(FigureProperties.FIGURE_P_1.getProperties() + (getPerimetre()
+            + r.nextInt(4)));
 
         falsePropertiesLV3 = new ArrayList<String>();
         falsePropertiesLV3.add(FigureProperties.TRIANGLEI_FP_3.getProperties());
