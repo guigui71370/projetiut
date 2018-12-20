@@ -22,7 +22,9 @@ public class Rectangle extends Parallelogramme {
 
     public Rectangle() {
         super();
-        changeCote();
+
+
+        r = new Random();
 
         propertiesLV1 = new ArrayList<String>();
         propertiesLV1.add(FigureProperties.RECTANGLE_P_0.getProperties());
@@ -49,11 +51,13 @@ public class Rectangle extends Parallelogramme {
         falsePropertiesLV3.add(FigureProperties.FIGURE_P_2.getProperties()
                 + this.getAire() + 1 + r.nextInt(5));
 
+        changeCote();
 
     }
 
     private void changeCote(){
-        longueur = r.nextInt(11);
+
+        longueur =r.nextInt(11);
         largeur = r.nextInt(11);
         for(int i=0;i<this.getCote().length;i++){
             if (i%2 == 0)
@@ -62,6 +66,7 @@ public class Rectangle extends Parallelogramme {
                 this.getCote()[i] = largeur;
         }
     }
+
 
     @Override
     public float getAire() {

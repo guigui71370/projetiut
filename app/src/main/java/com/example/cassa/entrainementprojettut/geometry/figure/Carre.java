@@ -21,6 +21,8 @@ public class Carre extends Rectangle {
     public Carre() {
         super();
 
+        r = new Random();
+
         propertiesLV1 = new ArrayList<String>(super.propertiesLV1);
         propertiesLV1.add(FigureProperties.CARRE_P_1.getProperties());
 

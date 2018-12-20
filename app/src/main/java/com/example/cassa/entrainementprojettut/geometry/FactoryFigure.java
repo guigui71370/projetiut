@@ -25,7 +25,7 @@ public class FactoryFigure {
     public Figure createFigure() {
 
         Figure f;
-        switch (r.nextInt(11)){
+        switch (r.nextInt(5)){
             case 0:
                 f = new Carre();
                 break;

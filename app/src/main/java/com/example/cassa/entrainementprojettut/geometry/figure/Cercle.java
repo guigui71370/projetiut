@@ -21,7 +21,8 @@ public class Cercle extends Figure {
     Random r;
 
     public Cercle() {
-        this.rayon = generateRandomRayon();
+
+        r = new Random();
 
         propertiesLV1 = new ArrayList<String>();
         propertiesLV1.add(FigureProperties.CERCLE_P_0.getProperties());
@@ -44,6 +45,8 @@ public class Cercle extends Figure {
         falsePropertiesLV3.add(FigureProperties.CERCLE_FP_3.getProperties());
 
 
+
+        this.rayon = generateRandomRayon();
     }
 
 
