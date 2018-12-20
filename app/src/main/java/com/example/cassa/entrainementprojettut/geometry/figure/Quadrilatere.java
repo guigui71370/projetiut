@@ -13,7 +13,6 @@ public class Quadrilatere extends Figure {
 
     public Quadrilatere(){
         cote = generateRandomCote();
-        addProperties();
     }
 
     public int[] getCote() {
@@ -72,13 +71,6 @@ public class Quadrilatere extends Figure {
         return this.properties;
     }
 
-    private void addProperties() {
-        for (FigureProperties foo: FigureProperties.values()) {
-            if (foo.getFigureName().equals(ListFigure.QUADRILATERE.toString())){
-                properties.add(foo.getProperties());
-            }
-        }
-    }
 
     @Override
     public String getName() {

@@ -7,15 +7,6 @@ public class Parallelogramme extends Quadrilatere{
 
     public Parallelogramme(){
         super();
-        addProperties();
-    }
-
-    private void addProperties(){
-        for (FigureProperties foo: FigureProperties.values()) {
-            if (foo.getFigureName().equals(ListFigure.PARALELLOGRAMME.toString())){
-                this.properties.add(foo.getProperties());
-            }
-        }
     }
 
     @Override

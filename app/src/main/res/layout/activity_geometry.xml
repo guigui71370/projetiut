@@ -73,8 +73,10 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="100dp"
             android:layout_marginRight="100dp"
+            android:contentDescription="@string/Vrai"
             android:text="@string/Vrai"
             app:layout_constraintEnd_toStartOf="@+id/activity_geometry_button_false"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ButtonStyle"
@@ -87,6 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
             android:layout_marginLeft="100dp"
+            android:contentDescription="@string/Faux"
             android:text="@string/Faux"
             app:layout_constraintBottom_toBottomOf="@+id/activity_geometry_button_true"
             app:layout_constraintStart_toEndOf="@+id/activity_geometry_button_true"
@@ -95,6 +98,18 @@
             tools:layout_conversion_absoluteWidth="88dp" />
 
     </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/activity_geometry_textview_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/score"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 
 </android.support.constraint.ConstraintLayout>

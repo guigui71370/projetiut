@@ -16,7 +16,6 @@ public class TriangleQ extends Figure {
     public TriangleQ(){
         this.cote = generateRandomCote();
         this.hauteur = caculHauteur();
-        addProperties();
     }
 
     private float caculHauteur(){
@@ -85,14 +84,6 @@ public class TriangleQ extends Figure {
         return this.properties;
     }
 
-    private void addProperties()
-    {
-        for (FigureProperties foo: FigureProperties.values()) {
-            if (foo.getFigureName().equals(ListFigure.TRIANGLEQ.toString())){
-                this.properties.add(foo.getProperties());
-            }
-        }
-    }
 
     @Override
     public String getName() {

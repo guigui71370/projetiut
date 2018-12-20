@@ -9,12 +9,43 @@ import java.util.Random;
 public class Cercle extends Figure {
     private int rayon;
     private int diametre = 2 * rayon;
-    private ArrayList<String> properties = new ArrayList<>();
 
-    public Cercle(){
+    protected ArrayList<String> propertiesLV1;
+    protected ArrayList<String> propertiesLV2;
+    protected ArrayList<String> propertiesLV3;
+
+    protected ArrayList<String> falsePropertiesLV1;
+    protected ArrayList<String> falsePropertiesLV2;
+    protected ArrayList<String> falsePropertiesLV3;
+
+    Random r;
+
+    public Cercle() {
         this.rayon = generateRandomRayon();
-        addProperties();
+
+        propertiesLV1 = new ArrayList<String>();
+        propertiesLV1.add(FigureProperties.CERCLE_P_0.getProperties());
+
+        propertiesLV2 = new ArrayList<String>();
+        propertiesLV2.add(FigureProperties.CERCLE_P_1.getProperties());
+
+        propertiesLV3 = new ArrayList<String>();
+        propertiesLV3.add(FigureProperties.CERCLE_P_2.getProperties());
+        propertiesLV3.add(FigureProperties.CERCLE_P_3.getProperties() + this.getAire());
+
+        falsePropertiesLV1 = new ArrayList<String>();
+        falsePropertiesLV1.add(FigureProperties.CERCLE_FP_0.getProperties());
+
+        falsePropertiesLV2 = new ArrayList<String>();
+        falsePropertiesLV2.add(FigureProperties.CERCLE_FP_1.getProperties());
+
+        falsePropertiesLV3 = new ArrayList<String>();
+        falsePropertiesLV3.add(FigureProperties.CERCLE_FP_2.getProperties());
+        falsePropertiesLV3.add(FigureProperties.CERCLE_FP_3.getProperties());
+
+
     }
+
 
     public int getRayon() {
         return this.rayon;
@@ -27,38 +58,7 @@ public class Cercle extends Figure {
         return arrayValues;
     }
 
-    @Override
-    public String getPropertieLV1() {
-        return null;
-    }
-
-    @Override
-    public String getPropertieLV2() {
-        return null;
-    }
-
-    @Override
-    public String getPropertieLV3() {
-        return null;
-    }
-
-    @Override
-    public String getFalsePropertieLV1() {
-        return null;
-    }
-
-    @Override
-    public String getFalsePropertieLV2() {
-        return null;
-    }
-
-    @Override
-    public String getFalsePropertieLV3() {
-        return null;
-    }
-
     private int generateRandomRayon(){
-        Random r = new Random();
         return r.nextInt(11);
     }
 
@@ -74,18 +74,37 @@ public class Cercle extends Figure {
         return (float)perimetre;
     }
 
-    public ArrayList<String> getProperties(){
-        return this.properties;
+    @Override
+    public String getPropertieLV1() {
+        return propertiesLV1.get(r.nextInt(propertiesLV1.size()));
     }
 
-    private void addProperties()
-    {
-        for (FigureProperties foo: FigureProperties.values()) {
-            if (foo.getFigureName().equals(ListFigure.CERCLE.toString())){
-                this.properties.add(foo.getProperties());
-            }
-        }
+    @Override
+    public String getPropertieLV2() {
+        return propertiesLV2.get(r.nextInt(propertiesLV2.size()));
     }
+
+    @Override
+    public String getPropertieLV3() {
+        return propertiesLV3.get(r.nextInt(propertiesLV3.size()));
+    }
+
+    @Override
+    public String getFalsePropertieLV1() {
+        return falsePropertiesLV1.get(r.nextInt(falsePropertiesLV1.size()));
+    }
+
+    @Override
+    public String getFalsePropertieLV2() {
+        return falsePropertiesLV2.get(r.nextInt(falsePropertiesLV2.size()));
+    }
+
+    @Override
+    public String getFalsePropertieLV3() {
+        return falsePropertiesLV3.get(r.nextInt(falsePropertiesLV3.size()));
+    }
+
+
 
     @Override
     public String getName() {

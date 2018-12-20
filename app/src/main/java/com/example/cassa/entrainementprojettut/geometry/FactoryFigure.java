@@ -33,22 +33,24 @@ public class FactoryFigure {
                 f = new Cercle();
                 break;
             case 2:
-                f = new Losange();
+                f = new Rectangle();
                 break;
             case 3:
-                f = new Parallelogramme();
+                f = new TriangleI();
+
                 break;
             case 4:
-                f = new Quadrilatere();
+                f = new TriangleR();
+
                 break;
             case 5:
-                f = new Rectangle();
+                f = new Losange();
                 break;
             case 6:
                 f = new Trapeze();
                 break;
             case 7:
-                f = new TriangleI();
+                f = new Parallelogramme();
                 break;
             case 8:
                 f = new TriangleIR();
@@ -57,7 +59,7 @@ public class FactoryFigure {
                 f = new TriangleQ();
                 break;
             case 10:
-                f = new TriangleR();
+                f = new Quadrilatere();
                 break;
             default:
                 f = null;

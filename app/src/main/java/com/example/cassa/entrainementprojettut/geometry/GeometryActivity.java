@@ -26,9 +26,11 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
     private Chronometer chronometer;
     private Button trueAnswer;
     private Button falseAnswer;
+    private TextView score;
 
+    Random r;
     private boolean propertie;
-    int score;
+    int scoreValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
         setContentView(R.layout.activity_geometry);
         showMenu();
         initializeGame();
+        r = new Random();
         music = R.raw.bensound_retrosoul;
         if(isSong()){
             startBackgroundMusic(this,music);
@@ -48,6 +51,7 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
         name = findViewById(R.id.activity_geometry_textview_figurename);
         trueAnswer = findViewById(R.id.activity_geometry_button_true);
         falseAnswer = findViewById(R.id.activity_geometry_button_false);
+        score = findViewById(R.id.activity_geometry_textview_score);
 
 
         dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -84,27 +88,39 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
     }
 
     public void setProperties(){
-        properties.setText(ctrlFigure.getTruePropertie());
+        if(r.nextBoolean()){
+            propertie = true;
+            properties.setText(ctrlFigure.getTruePropertie());
+        }
+        else{
+            propertie = true;
+            properties.setText(ctrlFigure.getFalsePropertie());
+        }
+
     }
 
     @Override
     public void onClick(View v) {
         boolean answer;
-        if(v.getContentDescription().equals(R.string.Vrai)){
-            answer = true;
+        View buttonVrai = findViewById(R.id.activity_geometry_button_true);
+        View buttonFaux = findViewById(R.id.activity_geometry_button_false);
+        if( v == buttonVrai || v == buttonFaux){
+
+            if( v == buttonVrai ) answer = true;
+            else answer = false;
+            if(answer == propertie){
+                showText(getString(R.string.Well_played));
+                scoreValue += 5;
+            }
+            else{
+                showText(getString(R.string.Too_bad));
+                scoreValue -= 5;
+            }
         }
         else{
-            answer = false;
-        }
-        if(answer == propertie){
-            showText(getString(R.string.Well_played));
-            score += 5;
-        }
-        else{
-            showText(getString(R.string.Too_bad));
-            score -= 5;
         }
 
+        score.setText("Score = " + scoreValue);
         generateFigure();
     }
 
