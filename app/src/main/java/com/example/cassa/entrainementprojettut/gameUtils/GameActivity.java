@@ -69,6 +69,25 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
         }, 1500);
     }
 
+
+
+    protected  void showTextdurration(String text, int time){
+
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+
+        toast = Toast.makeText(context, text, duration);
+        toast.show();
+
+        Handler toastStop = new Handler();
+        toastStop.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                toast.cancel();
+            }
+        }, time);
+    }
+
     protected int levelChosen = 0;
     protected AlertDialog dialog;
 
@@ -95,22 +114,24 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(activityContext);
         mBuilder.setCancelable(false);
         mBuilder.setNegativeButton("Retour au menu",new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which){
-                        Intent back = new Intent(getApplicationContext(), MainActivity.class);
+            @Override
+            public void onClick(DialogInterface dialog, int which){
+                Intent back = new Intent(getApplicationContext(), MainActivity.class);
 
-                        startActivity(back);
-                        finish();
-                    }
-                });
+                startActivity(back);
+                finish();
+            }
+        });
 
-            String colorsTab[] = {"#77dd6c", "#eebf38", "#ee3838", "#c847ea", "#47aaea"};
+        String colorsTab[] = {"#77dd6c", "#eebf38", "#ee3838", "#c847ea", "#47aaea"};
 
         lvlChoiceView = getLayoutInflater().inflate(R.layout.level_choice_popup, null);
 
         LinearLayout container = lvlChoiceView.findViewById(R.id.level_popup_activity_linearlayout);
         for(int i = 0; i < levelsNames.length; i++) {
             final Button lvlButton = (Button) this.getLayoutInflater().inflate(R.layout.level_choice_button, container, false);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+            params.leftMargin = 20;
             lvlButton.setText(levelsNames[i]);
             lvlButton.setTag(i + 1);
             lvlButton.getBackground().setColorFilter(Color.parseColor(colorsTab[i]), PorterDuff.Mode.MULTIPLY);
@@ -121,8 +142,9 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
                     dialog.dismiss();
                 }
             });
+
             if(container != null) {
-                container.addView(lvlButton);
+                container.addView(lvlButton,params);
             }
         }
 
@@ -372,16 +394,14 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
 
     }
 
-    protected void launchGhost(final Activity srcActivity, int arrivalTime,int IAImage){
+    protected void launchGhost(final Activity srcActivity, int arrivalTime, int IAImage){
 
         startChrono(srcActivity,arrivalTime);
-
         this.IAImage = findViewById(IAImage);
 
 
         float screenWidth = getScreenWidth();
         int IApictureWidth = this.IAImage.getDrawable().getIntrinsicWidth();
-
 
         moveImage(this.IAImage,screenWidth-IApictureWidth,arrivalTime,0);
 

@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.cassa.entrainementprojettut.astronomie.AstronomieActivity;
 import com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonActivity;
 import com.example.cassa.entrainementprojettut.connect4.Connect4Activity;
 import com.example.cassa.entrainementprojettut.flag.FlagActivity;
@@ -60,6 +61,7 @@ public class MainActivity extends ActivityUtil {
         Button btnConjugaison = findViewById(R.id.activity_main_conjugaison);
         Button btnGeometry = findViewById(R.id.activity_main_geometry);
         Button btnConnect4 = findViewById(R.id.activity_main_connect4);
+        Button astronomie=findViewById(R.id.activity_main_astronomie);
         Button scoreTest = findViewById(R.id.activity_main_score_btn);
         final ImageButton ImgBtnsong = findViewById(R.id.activity_main_song_imgbtn);
         ImageView owlImg = findViewById(R.id.chouettes_menu);
@@ -203,6 +205,17 @@ public class MainActivity extends ActivityUtil {
                 finish();
             }
         });
+        astronomie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent astronomieActivityIntent = new Intent(MainActivity.this, AstronomieActivity.class);
+                startActivity(astronomieActivityIntent);
+
+                playerEvent.start();
+                finish();
+            }
+        });
 
         scoreTest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -215,6 +228,9 @@ public class MainActivity extends ActivityUtil {
                 finish();
             }
         });
+
+
+
 
         ImgBtnsong.setOnClickListener(new View.OnClickListener() {
             @Override @TargetApi(16)
