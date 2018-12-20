@@ -111,11 +111,6 @@ public class DrawingView extends View {
             canvas.drawLine(this.getWidth(), this.getHeight(), this.getWidth(), this.getHeight()/2, paintBord);
             canvas.drawLine(this.getWidth(), this.getHeight()/2, 0, 0, paintBord);
         }
-        else if (figure!=null && figure.getName().equals(ListFigure.TRIANGLEQ.toString())) {
-            canvas.drawLine(0, height, 3*width/4, 3*height/4, paintBord);
-            canvas.drawLine(3*width/4, 3*height/4, width, height, paintBord);
-            canvas.drawLine(width, height, 0, height, paintBord);
-        }
         //----------------------------------------------------------
         else if (figure!=null && figure.getName().equals(ListFigure.RECTANGLE.toString())) {
             topLeft[0]=35;
@@ -225,6 +220,33 @@ public class DrawingView extends View {
             canvas.drawText(String.valueOf(petitCote),bottomRight[0] - hypotenuse*34/3.5f,(int)(hauteur * 34)/2,paintNumber);
             canvas.drawText("m",bottomRight[0]+30 - hypotenuse*34/3.5f,(int)(hauteur * 34)/2,paintNumber);
 
+        }
+        else if (figure!=null && figure.getName().equals(ListFigure.TRIANGLEQ.toString())) {
+            //Solution bis, encore quelques erreurs de cote
+            /*topMiddle[0]=figure.getCote()[0]*34 + 35;
+            topMiddle[1]=35;
+
+            if(figure.getCote()[0] + figure.getCote()[1] > 9) {
+                bottomRight[0] = figure.getCote()[1] * 34 + 70;
+            }else{
+                bottomRight[0] = figure.getCote()[1] * 34 + 35 + topMiddle[0];
+            }
+            bottomRight[1]= figure.getCote()[1]*34 + 35 + topMiddle[1];
+
+            bottomLeft[0]=figure.getCote()[1]*34 + 35 - topMiddle[0];
+            bottomLeft[1]=figure.getCote()[2]*34 - 35 + topMiddle[1];
+
+            draw3Side(canvas, paintBord, topMiddle,bottomLeft,bottomRight);
+            draw3Side(canvas, paintInside, topMiddle,bottomLeft,bottomRight);
+
+            //Les côtes :
+            canvas.drawText("C0= " + String.valueOf(figure.getCote()[0]) + "m,",35,height-5,paintNumber);
+            canvas.drawText("C1= " + String.valueOf(figure.getCote()[1]) + "m,",155,height-5,paintNumber);
+            canvas.drawText("C2= " + String.valueOf(figure.getCote()[2]) + "m",280,height-5,paintNumber);
+            */
+            canvas.drawLine(0, height, 3*width/4, 3*height/4, paintBord);
+            canvas.drawLine(3*width/4, 3*height/4, width, height, paintBord);
+            canvas.drawLine(width, height, 0, height, paintBord);
         }
         else if (figure!=null && figure.getName().equals(ListFigure.TRIANGLER.toString())) {
             int[] cote =  figure.getCote();
