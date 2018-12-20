@@ -22,6 +22,8 @@ public class TriangleR extends TriangleQ {
     public TriangleR(){
         r = new Random();
 
+        changeCote();
+
         propertiesLV1 = new ArrayList<String>();
         propertiesLV1.add(FigureProperties.TRIANGLER_P_1.getProperties());
 
@@ -45,6 +47,14 @@ public class TriangleR extends TriangleQ {
     }
 
 
+    private void changeCote(){
+        int petitCote = r.nextInt(6) + 5;
+        int autreCote = r.nextInt(6) + 5;
+        int hypothenuse = (int)Math.round(Math.sqrt(petitCote*petitCote + autreCote*autreCote)*1000)/1000;
+        this.getCote()[0] = petitCote;
+        this.getCote()[1] = autreCote;
+        this.getCote()[2] = hypothenuse;
+    }
 
     @Override
     public String getName() {

@@ -21,7 +21,7 @@ public class TriangleI extends TriangleQ {
     public TriangleI(){
 
         r = new Random();
-
+        changeCote();
         propertiesLV1 = new ArrayList<String>();
         propertiesLV1.add(FigureProperties.TRIANGLEI_P_1.getProperties());
 
@@ -43,6 +43,14 @@ public class TriangleI extends TriangleQ {
         falsePropertiesLV3 = new ArrayList<String>();
         falsePropertiesLV3.add(FigureProperties.TRIANGLEI_FP_3.getProperties());
     }
+    private void changeCote(){
+        int petitCote = r.nextInt(6) + 5;
+        int base = r.nextInt(6) + 5;
+        this.getCote()[0] = petitCote;
+        this.getCote()[1] = petitCote;
+        this.getCote()[2] = base;
+    }
+
     @Override
     public String getName() {
         return ListFigure.TRIANGLEI.toString();

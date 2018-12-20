@@ -269,7 +269,8 @@ public class DrawingView extends View {
 
             //Les côtes :
             canvas.drawText(String.valueOf(figure.getCote()[0]) + " m",(autreCote * 34)/2,70 + petitCote*34,paintNumber);
-            canvas.drawText(String.valueOf(figure.getCote()[0]),0,(petitCote * 34)/2,paintNumber);
+            canvas.drawText(String.valueOf(figure.getCote()[2]) + " m",(hypotenuse* 34)/2,petitCote*34/2,paintNumber);
+            canvas.drawText(String.valueOf(figure.getCote()[1]),0,(petitCote * 34)/2,paintNumber);
             canvas.drawText("m",0,(petitCote * 34)/2 + 30,paintNumber);
         }
     }
