@@ -93,7 +93,7 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
             properties.setText(ctrlFigure.getTruePropertie());
         }
         else{
-            propertie = true;
+            propertie = false;
             properties.setText(ctrlFigure.getFalsePropertie());
         }
 
