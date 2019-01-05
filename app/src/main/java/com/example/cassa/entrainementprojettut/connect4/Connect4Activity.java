@@ -229,6 +229,8 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
             showText("match nulle");
         }*/
     }
+
+
     protected  final  Handler handlers = new Handler();
     public void iaPlaying(){
         int column = controlerConnect4.calculateCheckersPosition(levelChosen);
@@ -236,59 +238,40 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
         int row = controlerConnect4.insertCheckers(column,coloria);
 
         final  ImageView t=board[row][column];
-
+        final Connect4Activity etat=this;
         handlers.postDelayed(new Runnable() {
             @Override
             public void run(){
                 t.setColorFilter(computerColor);
                 //enableImage();
-                enableImage();
+                if(controlerConnect4.hasWinner()==1 ||controlerConnect4.hasWinner()==0){
+                    showTextdurration("L'ordinateur a gagné",2000);
+
+                    handlers.postDelayed(new Runnable(){
+                        @Override
+                        public void run() {
+                            showLooseScreen(etat);
+                        }
+                    },5000);
+                }else  if(controlerConnect4.hasWinner()==2) {
+                    handlers.postDelayed(new Runnable(){
+                        @Override
+                        public void run() {
+                            showNullSreen(etat);
+
+                        }
+                    },2000);
+                    showTextdurration("match nul",2000);
+                }else {
+                    enableImage();
+                }
+
             }
         },1000);
 
 
 
-        if(controlerConnect4.hasWinner()==1 ||controlerConnect4.hasWinner()==0){
 
-
-            showTextdurration("L'ordinateur a gagné",2000);
-
-
-
-
-            final Connect4Activity loose=this;
-            handlers.postDelayed(new Runnable(){
-                @Override
-                public void run() {
-                    showLooseScreen(loose);
-                }
-            },10000);
-
-           /* try {
-                Thread.sleep(100000);
-
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }*/
-
-
-
-
-        }else  if(controlerConnect4.hasWinner()==2) {
-            final Connect4Activity nulls=this;
-            handlers.postDelayed(new Runnable(){
-                @Override
-                public void run() {
-                    showNullSreen(nulls);
-
-                }
-            },2000);
-
-
-            showTextdurration("match nul",2000);
-        }else {
-
-        }
         //showText("ia joue");
 
 
