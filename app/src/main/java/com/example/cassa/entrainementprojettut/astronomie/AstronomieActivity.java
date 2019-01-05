@@ -1,6 +1,7 @@
 package com.example.cassa.entrainementprojettut.astronomie;
 
 import android.content.DialogInterface;
+import android.os.Handler;
 import android.os.SystemClock;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +26,15 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
     private  float scale ;
     private  String goodAnswer="test";
     private  int nbgoodAnswer=0;
+    private   final Handler handlers = new Handler();
+    private Runnable pause=new Runnable() {
+        @Override
+        public void run() {
+         enableImage();
+         generatedNewGame();
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +100,8 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
     public  void checkAnswer(String planetname){
         if(this.goodAnswer.equals(planetname)&& this.nbgoodAnswer<10){
             this.nbgoodAnswer++;
-            this.generatedNewGame();
+            handlers.postDelayed(pause,3000);
+            //this.generatedNewGame();
             showText(getString(R.string.Well_played));
         }else if(this.nbgoodAnswer==10){
             unableLoose();
@@ -101,7 +112,7 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
             showResultScreen(this);
         }else {
             showText("mauvaise réponse");
-            generatedNewGame();
+            handlers.postDelayed(pause,3000);
         }
     }
 
@@ -117,7 +128,7 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
         if(v instanceof ImageView){
 
             // Log.d("astronmie", v.getBackground().getClass().getName());
-
+            disableImage();
             String paysSelectione = (String) v.getTag();
             Log.d("astronmie",    paysSelectione+" ");
             Log.d("astronmie",getResources().getResourceEntryName(v.getId()));
@@ -129,10 +140,20 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
         }
     }
 
+
+
+
     private void enableImage(){
         int i;
         for(i=0; i<tab.length; i++) {
             tab[i].setEnabled(true);
+
+        }
+    }
+    private void disableImage(){
+        int i;
+        for(i=0; i<tab.length; i++) {
+            tab[i].setEnabled(false);
 
         }
     }
