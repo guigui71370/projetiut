@@ -59,7 +59,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/earth"
+            android:src="@drawable/terre"
             tools:layout_editor_absoluteX="127dp"
             tools:layout_editor_absoluteY="192dp" />
 
@@ -68,7 +68,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_weight="1"
-            android:src="@drawable/earth"
+            android:src="@drawable/terre"
             android:layout_marginLeft="10dp"
             tools:layout_editor_absoluteX="127dp"
             tools:layout_editor_absoluteY="192dp" />
@@ -79,7 +79,7 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/earth"
+            android:src="@drawable/terre"
             tools:layout_editor_absoluteX="127dp"
             tools:layout_editor_absoluteY="192dp" />
 
@@ -89,7 +89,7 @@
             android:layout_height="100dp"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:src="@drawable/earth"
+            android:src="@drawable/terre"
             tools:layout_editor_absoluteX="127dp"
             tools:layout_editor_absoluteY="192dp" />
 

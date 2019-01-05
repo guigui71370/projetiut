@@ -11,12 +11,12 @@ public class Bankplanet {
 
     public  Bankplanet(){
 
-        listplanet.add(R.drawable.mercury);
+        listplanet.add(R.drawable.mercure);
         listplanet.add(R.drawable.venus);
-        listplanet.add(R.drawable.earth);
+        listplanet.add(R.drawable.terre);
         listplanet.add(R.drawable.mars);
         listplanet.add(R.drawable.jupiter);
-        listplanet.add(R.drawable.saturn);
+        listplanet.add(R.drawable.saturne);
         listplanet.add(R.drawable.uranus);
         listplanet.add(R.drawable.neptune);
     }

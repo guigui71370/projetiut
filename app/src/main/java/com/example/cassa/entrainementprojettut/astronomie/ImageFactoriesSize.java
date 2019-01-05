@@ -7,7 +7,7 @@ public class ImageFactoriesSize {
 
     public  static void factorisize(ImageView d,String name,float density){
 
-            if(name.equals("mercury")) {
+            if(name.equals("mercure")) {
 
                 d.getLayoutParams().height = (int) (50*density);
                 d.getLayoutParams().width=(int) (50*density);
@@ -17,7 +17,7 @@ public class ImageFactoriesSize {
                 d.getLayoutParams().width=(int) (70*density);
 
             }
-            else if(name.equals("earth")){
+            else if(name.equals("terre")){
 
 
                 d.getLayoutParams().height =(int) (80*density);
@@ -41,7 +41,7 @@ public class ImageFactoriesSize {
 
 
 
-            }else if(name.equals("saturn")){
+            }else if(name.equals("saturne")){
 
 
                 d.getLayoutParams().height =(int) (150*density);

@@ -63,8 +63,8 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
         tab=new ImageView[]{image1,image2,image3,image14};
         chronometer=findViewById(R.id.activity_astronomie_chrono_chronometer2);
 
-        image1.setImageResource(R.drawable.mercury);
-        String te= getResources().getResourceEntryName(R.drawable.mercury);
+        image1.setImageResource(R.drawable.mercure);
+        String te= getResources().getResourceEntryName(R.drawable.mercure);
 
         ImageFactoriesSize.factorisize(image1,te,scale );
         image1.setOnClickListener(this);
@@ -89,7 +89,6 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
 
     public  void checkAnswer(String planetname){
         if(this.goodAnswer.equals(planetname)&& this.nbgoodAnswer<10){
-            Log.d("astronmie","ok");
             this.nbgoodAnswer++;
             this.generatedNewGame();
             showText(getString(R.string.Well_played));
@@ -125,13 +124,13 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
 
             checkAnswer(paysSelectione);
         }else {
-            Log.d("astronmie","eror");
+            Log.d("astronmie","error");
 
         }
     }
 
     private void enableImage(){
-        int i, j;
+        int i;
         for(i=0; i<tab.length; i++) {
             tab[i].setEnabled(true);
 

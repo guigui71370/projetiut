@@ -42,7 +42,7 @@ public class controler {
         return  list;
     }
 
-  //  String test=   context.getResources().getResourceEntryName(R.drawable.mercury);
+  //  String test=   context.getResources().getResourceEntryName(R.drawable.mercure);
 
 
 }
