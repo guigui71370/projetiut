@@ -375,35 +375,23 @@ public class GameActivity extends ActivityUtil implements AppCompatCallback,
 
     }
 
-    protected void launchTimer(final Activity srcActivity, int arrivalTime, int playerImage, int IAImage){
+    protected void launchTimer(final Activity srcActivity, int arrivalTime, int IAImage){
 
         startChrono(srcActivity,arrivalTime);
-
-        this.playerImage = findViewById(playerImage);
         this.IAImage = findViewById(IAImage);
 
 
         float screenWidth = getScreenWidth();
         int IApictureWidth = this.IAImage.getDrawable().getIntrinsicWidth();
-
-
-        playerImagePosition = this.playerImage.getX();
-
 
         moveImage(this.IAImage,screenWidth-IApictureWidth,arrivalTime,0);
 
     }
 
-    protected void launchGhost(final Activity srcActivity, int arrivalTime, int IAImage){
-
-        startChrono(srcActivity,arrivalTime);
-        this.IAImage = findViewById(IAImage);
-
-
-        float screenWidth = getScreenWidth();
-        int IApictureWidth = this.IAImage.getDrawable().getIntrinsicWidth();
-
-        moveImage(this.IAImage,screenWidth-IApictureWidth,arrivalTime,0);
+    protected void launchImageJoueur(int playerImage)
+    {
+        this.playerImage = findViewById(playerImage);
+        playerImagePosition = this.playerImage.getX();
 
     }
     protected void unableLoose(){

@@ -199,7 +199,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
                             unableScoreMode();
                             chronometer.stop();
                             timeScore = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 1000;
-                            initializeScoreValues("puissances 4", levelChosen);
+                            initializeScoreValues("Puissance 4", levelChosen);
                             showResultScreen(win);
                         }},2000);
 

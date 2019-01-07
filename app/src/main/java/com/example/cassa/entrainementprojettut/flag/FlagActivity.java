@@ -51,8 +51,8 @@ public class FlagActivity extends GameActivity implements View.OnClickListener {
                 if (levelChosen != 0) {
 
                     generateNewGame();
-                    initializeScoreValues("Flag",levelChosen);
-                    launchGhost(FlagActivity.this,30000,R.id.activity_flag_IA_img);
+                    initializeScoreValues("Drapeaux",levelChosen);
+                    launchTimer(FlagActivity.this,30000,R.id.activity_flag_IA_img);
 
                 } else {
                     FlagActivity.this.onStop();
