@@ -14,7 +14,7 @@ import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 
 public class AstronomieActivity extends GameActivity implements View.OnClickListener {
 
-    controler ctrl;
+    Controler ctrl;
     private Chronometer chronometer;
     ImageView image1 ;
     ImageView image2 ;
@@ -29,7 +29,7 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_astrnomie);
+        setContentView(R.layout.activity_astronomie);
         showMenu();
         initializeGame();
         music = R.raw.bensound_retrosoul;
@@ -69,7 +69,7 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
     }
 
     public  void generatedNewGame(){
-        ctrl = new controler(this);
+        ctrl = new Controler(this);
         goodAnswer = getResources().getResourceEntryName(ctrl.calculGoodanswer());
         text.setText(goodAnswer);
         int[]reponse = ctrl.reponseshufle();
