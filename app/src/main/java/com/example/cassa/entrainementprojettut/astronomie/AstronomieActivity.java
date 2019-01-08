@@ -1,8 +1,8 @@
 package com.example.cassa.entrainementprojettut.astronomie;
 
 import android.content.DialogInterface;
-import android.os.SystemClock;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.Chronometer;
@@ -22,11 +22,9 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
     ImageView image14 ;
     TextView text;
     ImageView tab[];
-    private  float scale ;
-    private  String goodAnswer="test";
-    private  int nbgoodAnswer=0;
-
-
+    private float scale ;
+    private String goodAnswer = "test";
+    private int nbgoodAnswer = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +36,6 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
         if(isSong()){
             startBackgroundMusic(this,music);
         }
-
 
         dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
@@ -55,52 +52,35 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
             }
         });
 
-
-
-
-
-
-        image1 =findViewById(R.id.imageView);
-        image2 =findViewById(R.id.imageView4);
-        image3 =findViewById(R.id.imageView3);
-        image14 =findViewById(R.id.imageView5);
+        image1 = findViewById(R.id.imageView);
+        image2 = findViewById(R.id.imageView4);
+        image3 = findViewById(R.id.imageView3);
+        image14 = findViewById(R.id.imageView5);
         scale = getResources().getDisplayMetrics().density;
-        text=findViewById(R.id.textView);
+        text = findViewById(R.id.textView);
 
-        tab=new ImageView[]{image1,image2,image3,image14};
-        chronometer=findViewById(R.id.activity_astronomie_chrono_chronometer2);
-
-
-
-
+        tab = new ImageView[]{image1,image2,image3,image14};
+        chronometer = findViewById(R.id.activity_astronomie_chrono_chronometer2);
 
         image1.setImageResource(R.drawable.mercury);
-        String te= getResources().getResourceEntryName(R.drawable.mercury);
+        String te = getResources().getResourceEntryName(R.drawable.mercury);
 
         ImageFactoriesSize.factorisize(image1,te,scale );
-
-
-
     }
-
-
 
     public  void generatedNewGame(){
-        ctrl=new controler(this);
-        goodAnswer=getResources().getResourceEntryName(ctrl.calculGoodanswer());
+        ctrl = new controler(this);
+        goodAnswer = getResources().getResourceEntryName(ctrl.calculGoodanswer());
         text.setText(goodAnswer);
-        int[]reponce=ctrl.reponceshufle();
+        int[]reponse = ctrl.reponseshufle();
 
-        for(int i=0;i<reponce.length;i++){
-            tab[i].setImageResource(reponce[i]);
-             ImageFactoriesSize.factorisize(image1,getResources().getResourceEntryName(reponce[i]),scale );
+        for(int i=0;i<reponse.length;i++){
+            tab[i].setImageResource(reponse[i]);
+             ImageFactoriesSize.factorisize(image1,getResources().getResourceEntryName(reponse[i]),scale );
         }
-
     }
 
-
     public  void checkAnswer(String planetname){
-
         if(this.goodAnswer.equals(planetname)&& this.nbgoodAnswer<10){
             this.nbgoodAnswer++;
             this.generatedNewGame();
@@ -112,20 +92,13 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
             initializeScoreValues("astronomie", levelChosen);
             showResultScreen(this);
         }else {
-
-
-
             generatedNewGame();
         }
-
-
-
     }
-
 
     private void showMenu(){
         String[] menu = new String[1];
-        menu[0]= "niveau 1";
+        menu[0] = "niveau 1";
 
         displayLevelchoice(this,menu);
     }
@@ -133,11 +106,10 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         if(v instanceof ImageView){
-            Log.d("astronmie",getResources().getResourceEntryName(v.getId()));
+            Log.d("astronomie",getResources().getResourceEntryName(v.getId()));
             checkAnswer(getResources().getResourceEntryName(v.getId()));
         }else {
-            Log.d("astronmie","eror");
-
+            Log.d("astronomie","eror");
         }
     }
 }
