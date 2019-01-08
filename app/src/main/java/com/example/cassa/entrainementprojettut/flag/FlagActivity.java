@@ -51,8 +51,8 @@ public class FlagActivity extends GameActivity implements View.OnClickListener {
                 if (levelChosen != 0) {
 
                     generateNewGame();
-                    initializeScoreValues("Flag",levelChosen);
-                    launchTimer(FlagActivity.this,30000,R.id.acivity_flag_player_img,R.id.activity_flag_IA_img);
+                    initializeScoreValues("Drapeaux",levelChosen);
+                    launchTimer(FlagActivity.this,30000,R.id.activity_flag_IA_img);
 
                 } else {
                     FlagActivity.this.onStop();
@@ -61,6 +61,7 @@ public class FlagActivity extends GameActivity implements View.OnClickListener {
 
             }
         });
+
 
 
     }
@@ -129,10 +130,6 @@ public class FlagActivity extends GameActivity implements View.OnClickListener {
     protected  void checkAnswer(ImageView v, String country){
 
         if(country == gGoodAnswer){
-            if(numericalScore <50 && getScreenWidth()>(playerImagePosition+ (getScreenWidth() / 11))) {
-                moveImage(playerImage, playerImagePosition + (getScreenWidth() / 10), 600, playerImagePosition);
-                playerImagePosition = playerImagePosition + (getScreenWidth() / 10);
-            }
 
             showText(getString(R.string.Well_played));
             numericalScore = numericalScore + 5;
@@ -145,6 +142,7 @@ public class FlagActivity extends GameActivity implements View.OnClickListener {
                 hasWon = true;
 
             }
+
         }
         else{
             showText(getString(R.string.Too_bad));

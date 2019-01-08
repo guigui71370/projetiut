@@ -17,7 +17,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.cassa.entrainementprojettut.astronomie.AstrnomieActivity;
+import com.example.cassa.entrainementprojettut.astronomie.AstronomieActivity;
 import com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonActivity;
 import com.example.cassa.entrainementprojettut.connect4.Connect4Activity;
 import com.example.cassa.entrainementprojettut.flag.FlagActivity;
@@ -209,7 +209,7 @@ public class MainActivity extends ActivityUtil {
             @Override
             public void onClick(View view) {
 
-                Intent astronomieActivityIntent = new Intent(MainActivity.this, AstrnomieActivity.class);
+                Intent astronomieActivityIntent = new Intent(MainActivity.this, AstronomieActivity.class);
                 startActivity(astronomieActivityIntent);
 
                 playerEvent.start();

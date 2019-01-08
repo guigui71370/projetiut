@@ -20,9 +20,6 @@
     <string name="fourth_year_of_primary_school">CM1</string>
     <string name="fifth_year_of_primary_school">CM2</string>
     <string name="Level_score">niveau record</string>
-    <string name="Your_score_is">Ton score est de </string>
-    <string name="Well_played_you_succedeed">Bravo, tu as réussi en </string>
-    <string name="seconds">secondes!</string>
     <string name="starPicture">imageEtoile</string>
     <string name="ghostPicture">imageFantome</string>
     <string name="pondPicture">imageGrenouille</string>
@@ -46,6 +43,7 @@
     <string name="geography_game">Géographie</string>
     <string name="piano_game">Piano</string>
     <string name="connect4_game">Puissance 4</string>
+    <string name="astronomie_game">Astronomie</string>
     <string name="choice_levels">Choisis ton niveau</string>
     <string name="return_menu">Retour au menu</string>
     <string name="play_again">Rejouer</string>
@@ -56,5 +54,8 @@
     <string name="text_viewscore">veulliez cliquer sur un boutton pour affiché les scores</string>
     <string name="Score_activity">Scores</string>
     <string name="geometry_game">Géométrie</string>
-    <string name="astronomie_game">Astronomie</string>
+    <string name="figureProperty">Propriété de la figure</string>
+    <string name="figureName">Nom de la figure</string>
+    <string name="Vrai">Vrai</string>
+    <string name="Faux">Faux</string>
 </resources>

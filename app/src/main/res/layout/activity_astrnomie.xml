@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".astronomie.AstrnomieActivity">
+    tools:context=".astronomie.AstronomieActivity">
 
     <Chronometer
         android:id="@+id/activity_astronomie_chrono_chronometer2"
