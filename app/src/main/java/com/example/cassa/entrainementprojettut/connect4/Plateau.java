@@ -416,7 +416,7 @@ public class Plateau {
 
         // Determine score through amount of available chips
         for (int i = 0; i < 4; i++) {
-            if (this.plateau[row][column] == cia) {
+            if (this.plateau[row][column] == getCouleuropser(cia)) {
                 winning_array_human.add(new Integer[]{row, column});
                 human_points++; // Add for each human chip
             } else if (this.plateau[row][column] == cia) {

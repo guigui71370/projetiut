@@ -1,5 +1,6 @@
 package com.example.cassa.entrainementprojettut.connect4.ia;
 
+import android.util.Log;
 import com.example.cassa.entrainementprojettut.connect4.Plateau;
 
 public class IaLevel5 implements I_Ia {
@@ -9,10 +10,11 @@ public class IaLevel5 implements I_Ia {
     private boolean round;
     private int iterations;
     int rows = 6; // Height
-    int columns = 7; // Width
+    int columnsboard = 7; // Width
+    int result;
     char coloruse;
     public IaLevel5(){
-        depth = 4; // Search depth
+        depth = 2; // Search depth
         score = 100000; // Win/loss score
         round = false; // false: Human, true: Computer
         iterations = 0;
@@ -23,13 +25,21 @@ public class IaLevel5 implements I_Ia {
 
     @Override
     public int getColumn() {
-        return 0;
+        return result;
     }
 
     @Override
     public void calculateColumn(Plateau plateau) {
+        iterations=0;
         this.coloruse=plateau.getCia();
-        columns=maximizePlay(plateau,depth)[0];
+        int tab[]=maximizePlay(plateau,depth);
+        result=tab[0];
+        Log.d("ia5","iterations :"+iterations);
+        Log.d("ia5","score :"+score);
+        Log.d("ia5","columns :"+result);
+        Log.d("ia5","columns :"+result);
+
+
     }
 
 
@@ -57,7 +67,7 @@ public class IaLevel5 implements I_Ia {
         int max[] = {-1, -99999};
 
         // For all possible moves
-        for (int column = 0; column < this.columns; column++) {
+        for (int column = 0; column < this.columnsboard; column++) {
             Plateau new_board =new Plateau(board); // Create new board
 
             if (new_board.insertCheckers(column,coloruse)!=-1) {
@@ -70,6 +80,7 @@ public class IaLevel5 implements I_Ia {
                 if (max[0] == -1 || next_move[1] > max[1]) {
                     max[0] = column;
                     max[1] = next_move[1];
+
                 }
             }
         }
@@ -85,7 +96,7 @@ public class IaLevel5 implements I_Ia {
         // Column, score
         int min[] = {-1, 99999};
 
-        for (int column = 0; column < this.columns; column++) {
+        for (int column = 0; column < this.columnsboard; column++) {
             Plateau new_board =new Plateau(board); // Create new board
 
             if (new_board.insertCheckers(column,coloruse)!=-1) {
