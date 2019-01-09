@@ -14,7 +14,7 @@ public class IaLevel5 implements I_Ia {
     int result;
     char coloruse;
     public IaLevel5(){
-        depth = 2; // Search depth
+        depth = 3; // Search depth
         score = 100000; // Win/loss score
         round = false; // false: Human, true: Computer
         iterations = 0;
