@@ -295,4 +295,168 @@ public class Plateau {
         }
 
     }
+    private static final int scoreP4=100000;
+    public int score() {
+        int points = 0;
+
+        int vertical_points = 0;
+        int horizontal_points = 0;
+        int diagonal_points1 = 0;
+        int diagonal_points2 = 0;
+
+        // Board-size: 7x6 (height x width)
+        // Array indices begin with 0
+        // => e.g. height: 0, 1, 2, 3, 4, 5
+
+        // Vertical points
+        // Check each column for vertical score
+        //
+        // Possible situations
+        //  0  1  2  3  4  5  6
+        // [x][ ][ ][ ][ ][ ][ ] 0
+        // [x][x][ ][ ][ ][ ][ ] 1
+        // [x][x][x][ ][ ][ ][ ] 2
+        // [x][x][x][ ][ ][ ][ ] 3
+        // [ ][x][x][ ][ ][ ][ ] 4
+        // [ ][ ][x][ ][ ][ ][ ] 5
+        for (int row = 0; row < this.plateau.length - 3; row++) {
+            // Für jede Column überprüfen
+            for (int column = 0; column < this.plateau[1].length; column++) {
+                // Die Column bewerten und zu den Punkten hinzufügen
+                int score = this.scorePosition(row, column, 1, 0);
+                if (score == scoreP4) return scoreP4;
+                if (score == -scoreP4) return -scoreP4;
+                vertical_points += score;
+            }
+        }
+
+        // Horizontal points
+        // Check each row's score
+        //
+        // Possible situations
+        //  0  1  2  3  4  5  6
+        // [x][x][x][x][ ][ ][ ] 0
+        // [ ][x][x][x][x][ ][ ] 1
+        // [ ][ ][x][x][x][x][ ] 2
+        // [ ][ ][ ][x][x][x][x] 3
+        // [ ][ ][ ][ ][ ][ ][ ] 4
+        // [ ][ ][ ][ ][ ][ ][ ] 5
+        for (int row = 0; row <  this.plateau.length; row++) {
+            for (int column = 0; column < this.plateau[1].length - 3; column++) {
+                int score = this.scorePosition(row, column, 0, 1);
+                if (score == scoreP4) return scoreP4;
+                if (score == -scoreP4) return -scoreP4;
+                horizontal_points += score;
+            }
+        }
+
+
+
+        // Diagonal points 1 (left-bottom)
+        //
+        // Possible situation
+        //  0  1  2  3  4  5  6
+        // [x][ ][ ][ ][ ][ ][ ] 0
+        // [ ][x][ ][ ][ ][ ][ ] 1
+        // [ ][ ][x][ ][ ][ ][ ] 2
+        // [ ][ ][ ][x][ ][ ][ ] 3
+        // [ ][ ][ ][ ][ ][ ][ ] 4
+        // [ ][ ][ ][ ][ ][ ][ ] 5
+        for (int row = 0; row <  this.plateau.length - 3; row++) {
+            for (int column = 0; column < this.plateau[1].length - 3; column++) {
+                int score = this.scorePosition(row, column, 1, 1);
+                if (score == scoreP4) return scoreP4;
+                if (score == -scoreP4) return -scoreP4;
+                diagonal_points1 += score;
+            }
+        }
+
+        // Diagonal points 2 (right-bottom)
+        //
+        // Possible situation
+        //  0  1  2  3  4  5  6
+        // [ ][ ][ ][x][ ][ ][ ] 0
+        // [ ][ ][x][ ][ ][ ][ ] 1
+        // [ ][x][ ][ ][ ][ ][ ] 2
+        // [x][ ][ ][ ][ ][ ][ ] 3
+        // [ ][ ][ ][ ][ ][ ][ ] 4
+        // [ ][ ][ ][ ][ ][ ][ ] 5
+        for (int row = 3; row <  this.plateau.length; row++) {
+            for (int column = 0; column <= this.plateau[1].length - 4; column++) {
+                int score = this.scorePosition(row, column, -1, +1);
+                if (score == scoreP4) return scoreP4;
+                if (score == -scoreP4) return -scoreP4;
+                diagonal_points2 += score;
+            }
+
+        }
+
+        points = horizontal_points + vertical_points + diagonal_points1 + diagonal_points2;
+        return points;
+    }
+
+
+
+    /**
+     * Return a score for various positions (either horizontal, vertical or diagonal by moving through our board).
+     *
+     * @param {number} row
+     * @param {number} column
+     * @param {number} delta_y
+     * @param {number} delta_x
+     * @return {number}
+     */
+    private int scorePosition(int row, int column, int delta_y, int delta_x) {
+        int human_points = 0;
+        int computer_points = 0;
+
+        // Save winning positions to arrays for later usage
+        ArrayList<Integer[]> winning_array_human =new ArrayList<Integer[]>();
+        ArrayList<Integer[]> winning_array_cpu =new ArrayList<Integer[]>();
+
+        // Determine score through amount of available chips
+        for (int i = 0; i < 4; i++) {
+            if (this.plateau[row][column] == cia) {
+                winning_array_human.add(new Integer[]{row, column});
+                human_points++; // Add for each human chip
+            } else if (this.plateau[row][column] == cia) {
+                winning_array_cpu.add(new Integer[]{row, column});
+                computer_points++; // Add for each computer chip
+            }
+
+            // Moving through our board
+            row += delta_y;
+            column += delta_x;
+        }
+
+        // Marking winning/returning score
+        if (human_points == 4) {
+            //this.game.winning_array = this.game.winning_array_human;
+            // Computer won (100000)
+            return -scoreP4;
+        } else if (computer_points == 4) {
+            //this.game.winning_array = this.game.winning_array_cpu;
+            // Human won (-100000)
+            return scoreP4;
+        } else {
+            // Return normal points
+            return computer_points;
+        }
+    }
+
+
+    public  boolean isFinished (int depth,int score) {
+        if (depth == 0 || score == scoreP4 || score == -scoreP4 || this.summcheker()==6*7) {
+            return true;
+        }
+        return false;
+    }
+
+    public char getCouleuropser(char c){
+        if(c=='r')
+            return 'y';
+        else
+            return 'r';
+
+    }
 }
