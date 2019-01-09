@@ -14,7 +14,7 @@ public class IaLevel5 implements I_Ia {
     int result;
     char coloruse;
     public IaLevel5(){
-        depth = 3; // Search depth
+        depth = 4; // Search depth
         score = 100000; // Win/loss score
         round = false; // false: Human, true: Computer
         iterations = 0;
@@ -35,7 +35,7 @@ public class IaLevel5 implements I_Ia {
         int tab[]=maximizePlay(plateau,depth);
         result=tab[0];
         Log.d("ia5","iterations :"+iterations);
-        Log.d("ia5","score :"+score);
+        Log.d("ia5","score :"+tab[1]);
         Log.d("ia5","columns :"+result);
         Log.d("ia5","columns :"+result);
 

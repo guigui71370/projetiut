@@ -295,6 +295,13 @@ public class Plateau {
         }
 
     }
+
+
+    /**
+     * Returns the overall score for our board.
+     *
+     * @return {number}
+     */
     private static final int scoreP4=100000;
     public int score() {
         int points = 0;
