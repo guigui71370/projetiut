@@ -1,6 +1,9 @@
 package com.example.cassa.entrainementprojettut.connect4;
 
 
+
+
+
 import com.example.cassa.entrainementprojettut.connect4.ia.I_Ia;
 
 import java.util.ArrayList;
@@ -9,6 +12,15 @@ public class Plateau {
 
     private char[][] plateau;
     private I_Ia iaDeLaPartie;
+    private char coloruse;//variable utiliser par le min-max pour savoir a qui il doit ajouter le pion
+
+    public char getColoruse() {
+        return coloruse;
+    }
+
+    public void setColoruse(char coloruse) {
+        this.coloruse = coloruse;
+    }
 
 
     private char cia;
@@ -33,6 +45,7 @@ public class Plateau {
         }
         iaDeLaPartie = copie.iaDeLaPartie;
         cia = copie.cia;
+        this.coloruse=copie.coloruse;
     }
 
     public char getCia() {
@@ -50,7 +63,7 @@ public class Plateau {
 
 
     public int calculateCheckersPosition(int levelChosen) {
-        //On calcule la position ou le pion doit etre placé selon le niveau de difficulté
+        //On calcule la position ou le pion doit etre placÃ© selon le niveau de difficultÃ©
         //I_Ia level=FactoryIa.factory ( levelChosen);
         iaDeLaPartie.calculateColumn(new Plateau(this));
         return iaDeLaPartie.getColumn();
@@ -60,7 +73,7 @@ public class Plateau {
 
     /*
      *
-     * vérifie si la couleur du joueur passer en paramètre a gagné ou non
+     * vÃ©rifie si la couleur du joueur passer en paramÃ¨tre a gagnÃ© ou non
      * faire les traitement sur this.plateau
      *
      *
@@ -274,6 +287,17 @@ public class Plateau {
 
     }
 
+    public int insertCheckersIa(int column, char color) {
+        int i=insertCheckers(column, color);
+
+        if(i==-1) {
+            return -1;
+        }else {
+            this.coloruse=getCouleuropser(this.coloruse);
+            return i;
+        }
+    }
+
     private int removeCheckers(int column) {
         int result = 0;
         boolean test = false;
@@ -327,9 +351,9 @@ public class Plateau {
         // [ ][x][x][ ][ ][ ][ ] 4
         // [ ][ ][x][ ][ ][ ][ ] 5
         for (int row = 0; row < this.plateau.length - 3; row++) {
-            // Für jede Column überprüfen
+            // check for each column
             for (int column = 0; column < this.plateau[1].length; column++) {
-                // Die Column bewerten und zu den Punkten hinzufügen
+                // Rate the column and add to the points
                 int score = this.scorePosition(row, column, 1, 0);
                 if (score == scoreP4) return scoreP4;
                 if (score == -scoreP4) return -scoreP4;
