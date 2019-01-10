@@ -36,4 +36,6 @@ dependencies {
     implementation "android.arch.persistence.room:runtime:$lifecycle_version"
     annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version"
     annotationProcessor "android.arch.persistence.room:compiler:$lifecycle_version"
+
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
