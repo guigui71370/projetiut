@@ -108,6 +108,14 @@
                 android:text="@string/astronomie_game" />
 
             <Button
+                android:id="@+id/activity_main_mythology"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorGreen"
+                android:text="@string/mythology_game" />
+
+            <Button
                 android:id="@+id/activity_main_score_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

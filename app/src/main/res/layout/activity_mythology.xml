@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Chronometer
+        android:id="@+id/activity_mythology_chronometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:textColor="@color/colorGray"
+        android:textSize="@dimen/font_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/activity_mythology_textview_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="25dp"
+        android:text="TextView"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_mythology_chronometer"
+        tools:text="Qui suis-je ?" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="match_constraint"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_mythology_textview_title">
+
+        <TextView
+            android:id="@+id/activity_mythology_textview_divinity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="446dp"
+            tools:layout_editor_absoluteY="274dp" />
+    </ScrollView>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="25dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <Button
+            android:id="@+id/activity_mythology_button_divinity1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:text="Button"
+            app:layout_constraintEnd_toStartOf="@+id/activity_mythology_button_divinity2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/activity_mythology_button_divinity2"
+            android:layout_width="84dp"
+            android:layout_height="51dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_mythology_button_divinity1"
+            app:layout_constraintEnd_toStartOf="@+id/activity_mythology_button_divinity3"
+            app:layout_constraintStart_toEndOf="@+id/activity_mythology_button_divinity1" />
+
+        <Button
+            android:id="@+id/activity_mythology_button_divinity3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_mythology_button_divinity2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/activity_mythology_button_divinity2" />
+
+        <Button
+            android:id="@+id/activity_mythology_button_divinity4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="25dp"
+            android:text="Button"
+            app:layout_constraintEnd_toStartOf="@+id/activity_mythology_button_divinity5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_mythology_button_divinity1" />
+
+        <Button
+            android:id="@+id/activity_mythology_button_divinity5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_mythology_button_divinity4"
+            app:layout_constraintEnd_toStartOf="@+id/activity_mythology_button_divinity6"
+            app:layout_constraintStart_toEndOf="@+id/activity_mythology_button_divinity4" />
+
+        <Button
+            android:id="@+id/activity_mythology_button_divinity6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_mythology_button_divinity5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/activity_mythology_button_divinity5" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.constraint.ConstraintLayout>
