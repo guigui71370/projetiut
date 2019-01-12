@@ -7,25 +7,6 @@
         android:layout_height="match_parent"
         tools:context=".anglais.EnglishActivity"
         android:visibility="visible">
-    <ImageView
-            android:id="@+id/acivity_addition_pos1_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            app:srcCompat="@mipmap/star"
-            android:contentDescription="@string/starPicture" />
-
-    <ImageView
-            android:id="@+id/activity_addition_ordi_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="20dp"
-            android:contentDescription="@string/ghostPicture"
-            app:layout_constraintTop_toBottomOf="@+id/acivity_addition_pos1_img"
-            app:srcCompat="@mipmap/ghost" />
 
     <Chronometer
             android:id="@+id/chronometer2"
@@ -36,79 +17,26 @@
             android:textColor="@color/colorGray"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="110dp"
-            app:layout_constraintTop_toBottomOf="@+id/acivity_addition_pos1_img"/>
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            />
 
-    <TextView
-            android:text="TextView"
+    <android.support.constraint.ConstraintLayout
+            android:layout_height="wrap_content"
+            android:id="@+id/layout_niveau"
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:id="@+id/a_question"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/chronometer2"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintVertical_chainStyle="packed"/>
-
-    <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"
-            android:id="@+id/linearLayout4"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/a_question"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp">
 
-        <Button
-                android:text="Button"
-                android:layout_margin="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
 
-                android:id="@+id/a_reponce1"
-                />
+    </android.support.constraint.ConstraintLayout>
 
-        <Button
-                android:text="Button"
-                android:layout_margin="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/a_reponce2"
-                />
 
-        <Button
-                android:text="Button"
-                android:layout_margin="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/a_reponce3"
-                />
-
-        <Button
-                android:text="Button"
-                android:layout_margin="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/a_reponce4"
-                />
-
-        <Button
-                android:text="Button"
-                android:layout_margin="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/a_reponce5"
-                />
-
-    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
