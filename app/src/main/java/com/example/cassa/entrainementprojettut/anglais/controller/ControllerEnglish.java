@@ -1,11 +1,11 @@
-package com.example.cassa.entrainementprojettut.anglais;
+package com.example.cassa.entrainementprojettut.anglais.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ControllerEnglish {
 
-    ControllerEnglish(int diff){
+    public ControllerEnglish(int diff){
 
     }
 

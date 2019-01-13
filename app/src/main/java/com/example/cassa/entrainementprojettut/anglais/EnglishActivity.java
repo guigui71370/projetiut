@@ -11,7 +11,9 @@ import android.widget.*;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.example.cassa.entrainementprojettut.R;
+import com.example.cassa.entrainementprojettut.anglais.controller.ControllerEnglish;
 import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
+
 
 import java.util.List;
 
@@ -80,12 +82,22 @@ public class EnglishActivity extends GameActivity {
                 generateBasicGame(levelChosen);
                 break;
             case 4:
-
+                generateTestGame();
                 break;
             default:
 
                 break;
         }
+    }
+
+    private void generateTestGame() {
+
+
+
+
+
+
+        
     }
 
     private void generateBasicGame(int diff) {
