@@ -1,12 +1,17 @@
 package com.example.cassa.entrainementprojettut.anglais.controller;
 
+import com.example.cassa.entrainementprojettut.anglais.Niveau.FactoryGameNiveau;
+import com.example.cassa.entrainementprojettut.anglais.Niveau.I_Niveau;
+import com.example.cassa.entrainementprojettut.database.AppDatabase;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ControllerEnglish {
-
-    public ControllerEnglish(int diff){
-
+    I_Niveau game;
+    public ControllerEnglish(int diff, final AppDatabase database){
+        game=FactoryGameNiveau.generateGameNiveau(diff,database);
+        game.GenerateGame();
     }
 
 
@@ -31,3 +36,4 @@ public class ControllerEnglish {
 
 
 }
+

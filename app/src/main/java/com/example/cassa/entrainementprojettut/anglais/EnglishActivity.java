@@ -15,6 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.example.cassa.entrainementprojettut.R;
 import com.example.cassa.entrainementprojettut.anglais.controller.ControllerEnglish;
+import com.example.cassa.entrainementprojettut.database.AppDatabase;
 import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class EnglishActivity extends GameActivity {
     private ControllerEnglish ctrl;
     private int xDelta;
     private int yDelta;
-
+    private AppDatabase database;
 
     private int rightAnswerCounter;
 
@@ -43,7 +44,7 @@ public class EnglishActivity extends GameActivity {
         setContentView(R.layout.activity_english);
         ButterKnife.bind(this);
         initializeGame();
-
+        database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
         showMenu();
 
         /*initializeSizeOfATag();
@@ -107,7 +108,7 @@ public class EnglishActivity extends GameActivity {
 
     private void generateBasicGame(int diff) {
         enableButton();
-        ctrl = new ControllerEnglish(diff);
+        ctrl = new ControllerEnglish(diff,database);
         question.setText(ctrl.getQuestion());
         List<String[]> result = ctrl.GetFalseAnswsers();
         int shufle = (int) (Math.random() * 4);
