@@ -1,11 +1,14 @@
 package com.example.cassa.entrainementprojettut.anglais;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.support.constraint.ConstraintLayout;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.*;
 import butterknife.BindView;
@@ -14,7 +17,7 @@ import com.example.cassa.entrainementprojettut.R;
 import com.example.cassa.entrainementprojettut.anglais.controller.ControllerEnglish;
 import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 
-
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -28,6 +31,8 @@ public class EnglishActivity extends GameActivity {
     private Button tabButton[];
     private TextView question;
     private ControllerEnglish ctrl;
+    private int xDelta;
+    private int yDelta;
 
 
     private int rightAnswerCounter;
@@ -97,7 +102,7 @@ public class EnglishActivity extends GameActivity {
 
 
 
-        
+
     }
 
     private void generateBasicGame(int diff) {
@@ -194,11 +199,13 @@ public class EnglishActivity extends GameActivity {
 
     }
 
-
+     ArrayList<View> test=new ArrayList<>();
     private void generateLayoutLevel4() {
 
 
-        GridLayout conteneurRect = (GridLayout) getLayoutInflater().inflate(R.layout.layout_level1anglais, mainLayout, false);
+        RelativeLayout conteneurRect = (RelativeLayout) getLayoutInflater().inflate(R.layout.layout_level1anglais, mainLayout, false);
+        //conteneurRect.findViewById()
+         GridLayout gridlayout= (GridLayout) conteneurRect.getChildAt(0);
 
         mainLayout.addView(conteneurRect);
 
@@ -206,10 +213,10 @@ public class EnglishActivity extends GameActivity {
         int margin = 10 * scale;
 
         int row = 0;
-        GridLayout.Spec colSpec = conteneurRect.spec(2);
+        GridLayout.Spec colSpec = gridlayout.spec(2);
 
-        for (row = 0; row < conteneurRect.getRowCount(); row++) {
-            GridLayout.Spec rowSpec = conteneurRect.spec(row);
+        for (row = 0; row < gridlayout.getRowCount(); row++) {
+            GridLayout.Spec rowSpec = gridlayout.spec(row);
 
 
             ImageView image = new ImageView(this);
@@ -220,13 +227,109 @@ public class EnglishActivity extends GameActivity {
 
             layoutParams.setMargins(margin, margin, margin, margin);
             image.setLayoutParams(layoutParams);
+            image.setTag("test"+row);
+
+            gridlayout.addView(image, layoutParams);
+
+            test.add(image);
 
 
-            conteneurRect.addView(image, layoutParams);
+
+
+
         }
+        //RelativeLayout layout= (RelativeLayout) conteneurRect.getChildAt(0);
 
+        for(int i=1;i<conteneurRect.getChildCount();i++){
+            conteneurRect.getChildAt(i).setOnTouchListener(onTouchListener());
 
+        }
         ///canvas.drawRect(rect, paint);
+    }
+
+
+
+
+
+    private View.OnTouchListener onTouchListener(){
+        return new View.OnTouchListener() {
+
+            @SuppressLint("ClickableViewAccessibility")
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+
+
+
+
+
+
+                int t2[] = new int[2];
+                view.getLocationInWindow(t2);
+
+                //Log.d("pos1","pos 1"+t2[0]);
+                //Log.d("pos1","pos 1"+t2[1]);
+
+                final int x=(int) motionEvent.getRawX();
+                final int y=(int) motionEvent.getRawY();
+
+                switch(motionEvent.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        RelativeLayout.LayoutParams lParams=(RelativeLayout.LayoutParams)view.getLayoutParams();
+                        xDelta=x-lParams.leftMargin;
+                        yDelta=y-lParams.topMargin;
+                        Log.d("move12","is touch");
+                        break;
+
+                    case MotionEvent.ACTION_MOVE:
+                        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
+
+                        layoutParams.leftMargin=x-xDelta;
+                        layoutParams.topMargin=y-yDelta;
+
+                        Log.d("move12","is move");
+                        view.setLayoutParams(layoutParams);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                    /*Toast toast;
+                    toast=Toast.makeText(getApplicationContext(),"x="+((x-xDelta)*12)/retourTailleEcran()+"/12 y="+((y-yDelta)*12)/getHauteurEcran()+"/12",Toast.LENGTH_SHORT);
+                    toast.show();*/
+                        int t[] = new int[2];
+                        test.get(0).getLocationOnScreen(t);
+
+                        Log.d("pos1","pos 1"+t[0]);
+                        Log.d("pos1","pos 1"+t[1]);
+
+                        test.get(2).getLocationOnScreen(t);
+
+                        Log.d("pos1","pos 1"+t[0]);
+                        Log.d("pos1","pos 1"+t[1]);
+
+
+
+                        int tagCoords[] = new int[2];
+                        view.getLocationOnScreen(tagCoords);
+                        float leftSide = tagCoords[0];
+                        float rightSide = leftSide + view.getWidth();
+                        float upperSide = tagCoords[1];
+                        float downSide = upperSide + view.getHeight();
+
+
+                        /*if (checkVictoryBox((float[])view.getTag(),leftSide, rightSide, upperSide, downSide)){
+                            view.setEnabled(false);
+
+                            view.setBackgroundColor(Color.GREEN);
+                            playerEvent.start();
+                        }
+                        else{
+                            int position = getPositionTag((float[])view.getTag());
+                            replaceTag(view,position);
+                        }*/
+                }
+                mainLayout.invalidate();
+                return true;
+            }
+        };
     }
 
     private void showMenu() {
