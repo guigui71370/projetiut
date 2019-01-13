@@ -1,8 +1,12 @@
 package com.example.cassa.entrainementprojettut.mythology;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
@@ -50,6 +54,7 @@ public class MythologyActivity extends GameActivity implements View.OnClickListe
                     displayGuess();
                     chronometer.setBase(SystemClock.elapsedRealtime());
                     chronometer.start();
+                    activateButtons();
                 } else {
                     MythologyActivity.this.onStop();
                     dialog.show();
@@ -80,6 +85,26 @@ public class MythologyActivity extends GameActivity implements View.OnClickListe
         buttonArray = new Button[]{divininty1, divininty2, divininty3, divininty4, divininty5, divininty6};
     }
 
+    private void activateButtons() {
+        divininty1.setEnabled(true);
+        divininty1.setOnClickListener(this);
+
+        divininty2.setEnabled(true);
+        divininty2.setOnClickListener(this);
+
+        divininty3.setEnabled(true);
+        divininty3.setOnClickListener(this);
+
+        divininty4.setEnabled(true);
+        divininty4.setOnClickListener(this);
+
+        divininty5.setEnabled(true);
+        divininty5.setOnClickListener(this);
+
+        divininty6.setEnabled(true);
+        divininty6.setOnClickListener(this);
+    }
+
 
 
 
@@ -91,7 +116,7 @@ public class MythologyActivity extends GameActivity implements View.OnClickListe
             Button button = (Button) v;
             String answer = button.getText().toString();
             if(ctrl.isCorrect(answer)){
-                if (ctrl.hasNextQuestion()){
+                if (ctrl.nextQuestion()){
                     displayGuess();
                 }
                 else{
@@ -105,13 +130,16 @@ public class MythologyActivity extends GameActivity implements View.OnClickListe
 
             }
             else{
-                unableLoose();
-                showLooseScreen(this);
+                v.setBackgroundColor(Color.RED);
+                // on affiche la bonne réponse et game over
+                showCorrectAnswer();
             }
         }
 
 
     }
+
+
 
 
     /**
@@ -121,18 +149,17 @@ public class MythologyActivity extends GameActivity implements View.OnClickListe
 
         String text = ctrl.getHint();
         ArrayList<String> divinities = ctrl.getAnswers();
-        Iterator<String> itr = divinities.iterator();
 
         // on affiche l'indice
         hint.setText(text);
 
         // on affiche les réponses possibles, au maximum six
-        int i = 0;
-        String s;
-        while (i<6 && itr.hasNext()){
-            s = itr.next();
-            buttonArray[i].setText(s);
-        }
+        divininty1.setText(divinities.get(0));
+        divininty2.setText(divinities.get(1));
+        divininty3.setText(divinities.get(2));
+        divininty4.setText(divinities.get(3));
+        divininty5.setText(divinities.get(4));
+        divininty6.setText(divinities.get(5));
 
     }
 
@@ -152,6 +179,38 @@ public class MythologyActivity extends GameActivity implements View.OnClickListe
         return result;
     }
 
+    private void showCorrectAnswer() {
+        int i = 0;
+        boolean find = false;
+        String answer;
+        while (!find && i<6){
+            answer = buttonArray[i].getText().toString();
+            if(ctrl.isCorrect(answer)){
+                buttonArray[i].setBackgroundColor(Color.GREEN);
+                find = true;
+            }
+            i++;
+        }
+
+         new CountDownTimer(2000, 1000) {
+
+             @Override
+             public void onTick(long millisUntilFinished) {
+                 //do nothing
+             }
+
+             @Override
+             public void onFinish() {
+                 displayLoose();
+             }
+         }.start();
+    }
+
+    private void displayLoose() {
+        unableLoose();
+        showLooseScreen(this);
+    }
+
 
     private void showMenu(){
         String[] menu = new String[3];
@@ -160,4 +219,6 @@ public class MythologyActivity extends GameActivity implements View.OnClickListe
         menu[2]= getString(R.string.Level_3);
         displayLevelchoice(this,menu);
     }
+
+
 }
