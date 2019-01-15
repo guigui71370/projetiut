@@ -2,12 +2,15 @@ package com.example.cassa.entrainementprojettut.anglais;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.*;
@@ -29,7 +32,7 @@ public class EnglishActivity extends GameActivity {
     ConstraintLayout mainLayout;
 
     private MediaPlayer playerEvent;
-    private Button tabButton[];
+    private View tabButton[];
     private TextView question;
     private ControllerEnglish ctrl;
     private int xDelta;
@@ -115,7 +118,8 @@ public class EnglishActivity extends GameActivity {
 
         result.add(shufle, ctrl.getTrueanswsers());
         for (int i = 0; i < tabButton.length; i++) {
-            tabButton[i].setText(result.get(i)[0]);
+            Button btn= (Button) tabButton[i];
+            btn.setText(result.get(i)[0]);
             tabButton[i].setOnClickListener(actionbutton());
             tabButton[i].setTag(result.get(i)[1]);
         }
@@ -134,13 +138,13 @@ public class EnglishActivity extends GameActivity {
     }
 
     private void enableButton() {
-        for (Button button : tabButton) {
+        for (View button : tabButton) {
             button.setEnabled(true);
         }
     }
 
     private void disableButton() {
-        for (Button button : tabButton) {
+        for (View button : tabButton) {
             button.setEnabled(false);
         }
     }
@@ -234,16 +238,40 @@ public class EnglishActivity extends GameActivity {
 
             test.add(image);
 
-
+            image.setTag("TextView"+row);
 
 
 
         }
         //RelativeLayout layout= (RelativeLayout) conteneurRect.getChildAt(0);
+        float maxWidth = 0.1f * getScreenWidth() ;
+        int horizontalSpaceBetweenCols =(int) maxWidth + 10;
+        tabButton = new TextView[5];
+        for(int i=0;i<5;i++){
 
-        for(int i=1;i<conteneurRect.getChildCount();i++){
-            conteneurRect.getChildAt(i).setOnTouchListener(onTouchListener());
+            TextView tabTextView =new TextView(this);
+            tabTextView.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL);
+            tabTextView.setMinWidth(200);
+            tabTextView.setTextSize(20);
+            //conteneurRect.getChildAt(i).setOnTouchListener(onTouchListener());
+            tabTextView.setText("test");
+            tabTextView.setOnTouchListener(onTouchListener());
 
+            tabTextView.setTag("TextView"+i);
+
+
+            RelativeLayout.LayoutParams textViewParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+            textViewParams.setMargins((2* horizontalSpaceBetweenCols), ((i-(2*(-1))) * 100), 0, 0);
+
+            tabTextView.setLayoutParams(textViewParams);
+            conteneurRect.addView(tabTextView,textViewParams);
+            tabButton[i]=tabTextView;
+
+
+
+
+            //conteneurRect.addView(tabTextView);
         }
         ///canvas.drawRect(rect, paint);
     }
@@ -258,18 +286,10 @@ public class EnglishActivity extends GameActivity {
             @SuppressLint("ClickableViewAccessibility")
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-
-
-
-
-
-
                 int t2[] = new int[2];
                 view.getLocationInWindow(t2);
-
                 //Log.d("pos1","pos 1"+t2[0]);
                 //Log.d("pos1","pos 1"+t2[1]);
-
                 final int x=(int) motionEvent.getRawX();
                 final int y=(int) motionEvent.getRawY();
 
@@ -295,16 +315,7 @@ public class EnglishActivity extends GameActivity {
                     /*Toast toast;
                     toast=Toast.makeText(getApplicationContext(),"x="+((x-xDelta)*12)/retourTailleEcran()+"/12 y="+((y-yDelta)*12)/getHauteurEcran()+"/12",Toast.LENGTH_SHORT);
                     toast.show();*/
-                        int t[] = new int[2];
-                        test.get(0).getLocationOnScreen(t);
 
-                        Log.d("pos1","pos 1"+t[0]);
-                        Log.d("pos1","pos 1"+t[1]);
-
-                        test.get(2).getLocationOnScreen(t);
-
-                        Log.d("pos1","pos 1"+t[0]);
-                        Log.d("pos1","pos 1"+t[1]);
 
 
 
@@ -314,15 +325,16 @@ public class EnglishActivity extends GameActivity {
                         float rightSide = leftSide + view.getWidth();
                         float upperSide = tagCoords[1];
                         float downSide = upperSide + view.getHeight();
+                        Log.d("pos1","pos 1"+tagCoords[0]);
+                       /* Log.d("pos1","pos 1"+tagCoords[1]);*/
 
-
-                        /*if (checkVictoryBox((float[])view.getTag(),leftSide, rightSide, upperSide, downSide)){
+                     if (checkVictoryBox(leftSide, rightSide, upperSide, downSide,(String)view.getTag())){
                             view.setEnabled(false);
 
                             view.setBackgroundColor(Color.GREEN);
                             playerEvent.start();
                         }
-                        else{
+                        /*else{
                             int position = getPositionTag((float[])view.getTag());
                             replaceTag(view,position);
                         }*/
@@ -332,6 +344,54 @@ public class EnglishActivity extends GameActivity {
             }
         };
     }
+
+   private boolean checkVictoryBox( float leftSideTxtView, float rightSideTxtView,
+                                    float upperSideTxtView, float downSideTxtView,String tag) {
+        //victoryBox = vicotryBoxHitBoxTolerance(victoryBox); //victoryBox
+       float[] victoryBox;
+       victoryBox = this.getlocation(test.get(0));
+       for(int i=0;i<test.size();i++){
+           victoryBox = this.getlocation(test.get(i));
+       if(isarectangle(victoryBox, leftSideTxtView, rightSideTxtView, upperSideTxtView, downSideTxtView) && test.get(i).getTag().equals(tag) ){
+            showText("Bravo!");
+            rightAnswerCounter++;
+
+
+
+
+            if(rightAnswerCounter ==5){
+                unableLoose();
+                unableScoreMode();
+                time.stop();
+                timeScore =  (SystemClock.elapsedRealtime() - time.getBase())/1000;
+                showResultScreen(this);
+            }
+            return true;
+        }}
+        showText("Essaie encore!");
+        return false;
+    }
+
+    private boolean isarectangle(@NonNull float[] victoryBox, float leftSideTxtView, float rightSideTxtView, float upperSideTxtView, float downSideTxtView) {
+        return leftSideTxtView >= victoryBox[0]&& leftSideTxtView <= victoryBox[2]  &&  upperSideTxtView>=victoryBox[1]  && downSideTxtView<=victoryBox[3];
+    }
+
+
+    private float [] getlocation(@NonNull View v){
+        int t[] = new int[2];
+        v.getLocationOnScreen(t);
+
+        Log.d("pos1","pos 1"+t[0]);
+        /*Log.d("pos1","pos 1"+t[1]);*/
+        float leftSide = t[0];
+        float rightSide = leftSide + v.getWidth();
+        float upperSide = t[1];
+        float downSide = upperSide + v.getHeight();
+
+
+        return new float[]{leftSide,upperSide,rightSide,downSide};
+    }
+
 
     private void showMenu() {
         String[] menu = new String[4];

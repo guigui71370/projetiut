@@ -16,8 +16,11 @@ public interface EnglishwordDao {
     @Query("SELECT * FROM EnglishWord")
     List<EnglishWord> getAllWord();
 
-    @Query("SELECT * FROM EnglishWord Where Word = :exclude")
+    @Query("SELECT * FROM EnglishWord Where Word = :exclude ORDER BY RANDOM() LIMIT 3")
     List<EnglishWord> getAllWordWhithoutOne(String exclude);
+    @Query("SELECT * FROM EnglishWord ORDER BY RANDOM() LIMIT 1")
+    EnglishWord findARandomword();
+
 
 
 }

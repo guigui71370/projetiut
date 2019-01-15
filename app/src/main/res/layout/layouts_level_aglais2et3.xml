@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/layout_niveau2"
@@ -27,7 +28,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp"
+            android:textSize="24sp"/>
 
     <LinearLayout
             android:orientation="horizontal"
@@ -50,7 +52,7 @@
                 android:layout_height="wrap_content"
 
                 android:id="@+id/a_reponce1"
-                />
+                android:background="#ff0000"/>
 
         <Button
                 android:text="Button"
@@ -58,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/a_reponce2"
-                />
+                android:background="#00ff00"/>
 
         <Button
                 android:text="Button"
@@ -66,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/a_reponce3"
-                />
+                android:background="#0000ff"/>
 
         <Button
                 android:text="Button"
@@ -74,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/a_reponce4"
-                />
+                android:background="#ffff00"/>
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
