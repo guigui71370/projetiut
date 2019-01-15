@@ -18,6 +18,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.example.cassa.entrainementprojettut.R;
 import com.example.cassa.entrainementprojettut.anglais.controller.ControllerEnglish;
+import com.example.cassa.entrainementprojettut.anglais.mot.AddwordDatabase;
 import com.example.cassa.entrainementprojettut.database.AppDatabase;
 import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 
@@ -33,6 +34,7 @@ public class EnglishActivity extends GameActivity {
 
     private MediaPlayer playerEvent;
     private View tabButton[];
+    private TextView tabTextview[];
     private TextView question;
     private ControllerEnglish ctrl;
     private int xDelta;
@@ -49,7 +51,7 @@ public class EnglishActivity extends GameActivity {
         initializeGame();
         database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
         showMenu();
-
+        AddwordDatabase.database_ajout();
         /*initializeSizeOfATag();
         initializeGameAfterMenuDismiss();*/
         initializeGameAfterMenuDismiss();
@@ -101,8 +103,27 @@ public class EnglishActivity extends GameActivity {
 
     private void generateTestGame() {
 
+        ctrl = new ControllerEnglish(4,database);
 
+        List<String[]> result = ctrl.GetFalseAnswsers();
+        for (int i = 0; i < tabButton.length; i++) {
 
+            tabTextview[i].setText(result.get(i)[1]);
+            test.get(i).setTag(result.get(i)[1]);
+
+        }
+        int y=0;
+        while(result.size()!=0){
+;            int i= (int) (Math.random()*result.size());
+
+            TextView btn= (TextView) tabButton[y];
+            btn.setText(result.get(i)[0]);
+            btn.setTag(result.get(i)[1]);
+            result.remove(i);
+            y++;
+        }
+
+       /* */
 
 
 
@@ -114,6 +135,7 @@ public class EnglishActivity extends GameActivity {
         ctrl = new ControllerEnglish(diff,database);
         question.setText(ctrl.getQuestion());
         List<String[]> result = ctrl.GetFalseAnswsers();
+        Log.d("size11",result.size()+"");
         int shufle = (int) (Math.random() * 4);
 
         result.add(shufle, ctrl.getTrueanswsers());
@@ -238,7 +260,7 @@ public class EnglishActivity extends GameActivity {
 
             test.add(image);
 
-            image.setTag("TextView"+row);
+            ///image.setTag("TextView"+row);
 
 
 
@@ -257,7 +279,7 @@ public class EnglishActivity extends GameActivity {
             tabTextView.setText("test");
             tabTextView.setOnTouchListener(onTouchListener());
 
-            tabTextView.setTag("TextView"+i);
+            //tabTextView.setTag("TextView"+i);
 
 
             RelativeLayout.LayoutParams textViewParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
@@ -273,6 +295,14 @@ public class EnglishActivity extends GameActivity {
 
             //conteneurRect.addView(tabTextView);
         }
+
+        tabTextview=new TextView[5];
+        tabTextview[0]=findViewById(R.id.mot1);
+        tabTextview[1]=findViewById(R.id.mot2);
+        tabTextview[2]=findViewById(R.id.mot3);
+        tabTextview[3]=findViewById(R.id.mot4);
+        tabTextview[4]=findViewById(R.id.mot5);
+
         ///canvas.drawRect(rect, paint);
     }
 

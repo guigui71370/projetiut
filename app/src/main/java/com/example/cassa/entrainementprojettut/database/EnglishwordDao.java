@@ -13,13 +13,15 @@ public interface EnglishwordDao {
     @Update(onConflict = OnConflictStrategy.REPLACE)
     void updateInfinitif(EnglishWord Word);
 
-    @Query("SELECT * FROM EnglishWord")
+    @Query("SELECT * FROM EnglishWord ORDER BY RANDOM()")
     List<EnglishWord> getAllWord();
 
-    @Query("SELECT * FROM EnglishWord Where Word = :exclude ORDER BY RANDOM() LIMIT 3")
+    @Query("SELECT * FROM EnglishWord Where Word != :exclude ORDER BY RANDOM()")
     List<EnglishWord> getAllWordWhithoutOne(String exclude);
     @Query("SELECT * FROM EnglishWord ORDER BY RANDOM() LIMIT 1")
     EnglishWord findARandomword();
+    @Query("DELETE FROM EnglishWord ")
+    void removeAllword();
 
 
 

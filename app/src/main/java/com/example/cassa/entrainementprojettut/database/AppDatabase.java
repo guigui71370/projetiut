@@ -5,7 +5,7 @@ import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 
-@Database(entities = {Score.class, Infinitif.class, VerbeConjugue.class,EnglishWord.class}, version = 2, exportSchema = false)
+@Database(entities = {Score.class, Infinitif.class, VerbeConjugue.class,EnglishWord.class}, version = 3, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE;
     public abstract ScoreDao getScoreDao();

@@ -16,19 +16,29 @@ public class ControllerEnglish {
 
 
     public String getQuestion(){
-        return "aurevoir";
+        return  game.GetGoodReponce()[1];
     }
 
     public String[] getTrueanswsers(){
-        return new String[]{"good-bye","aurevoir"};
+
+        return  game.GetGoodReponce();
+
+        //return new String[]{"good-bye","aurevoir"};
+
+
+
     }
 
     public List<String[]> GetFalseAnswsers(){
         String i[]={"22","22"};
-        ArrayList<String[]> result=new ArrayList<>();
+        List<String[]> result=new ArrayList<>();
         result.add(i);
         result.add(i);
         result.add(i);
+
+        result=game.GetBadAnswers();
+
+
         return result;
     }
 

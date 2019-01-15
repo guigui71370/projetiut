@@ -15,9 +15,13 @@ public class EnglishWord {
     String traduction;
 
 
-    public EnglishWord(String Word, String traduction) {
-        this.Word = Word;
 
+    @NonNull
+    int song;
+
+    public EnglishWord(String Word, String traduction,int song) {
+        this.Word = Word;
+        this.song=song;
         this.traduction = traduction;
     }
 
@@ -46,5 +50,12 @@ public class EnglishWord {
 
     public void setTraduction(@NonNull String traduction) {
         this.traduction = traduction;
+    }
+    public int getSong() {
+        return song;
+    }
+
+    public void setSong(int song) {
+        this.song = song;
     }
 }
