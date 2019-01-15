@@ -43,6 +43,9 @@ public class EnglishActivity extends GameActivity {
 
     private int rightAnswerCounter;
 
+    private MediaPlayer jouer;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +62,7 @@ public class EnglishActivity extends GameActivity {
             startBackgroundMusic(EnglishActivity.this, R.raw.geography_music);
         }
         playerEvent = MediaPlayer.create(EnglishActivity.this, R.raw.envent_sound);
+
     }
 
     private void initializeGameAfterMenuDismiss() {
@@ -90,10 +94,12 @@ public class EnglishActivity extends GameActivity {
                 generateBasicGame(levelChosen);
                 break;
             case 3:
+                if(bgPlayer!=null)
+                    bgPlayer.stop();
                 generateBasicGame(levelChosen);
                 break;
             case 4:
-                generateTestGame();
+                generateGameLevel4();
                 break;
             default:
 
@@ -101,7 +107,7 @@ public class EnglishActivity extends GameActivity {
         }
     }
 
-    private void generateTestGame() {
+    private void generateGameLevel4() {
 
         ctrl = new ControllerEnglish(4,database);
 
@@ -131,9 +137,32 @@ public class EnglishActivity extends GameActivity {
     }
 
     private void generateBasicGame(int diff) {
-        enableButton();
+
         ctrl = new ControllerEnglish(diff,database);
-        question.setText(ctrl.getQuestion());
+
+        if(diff==3) {
+            if(jouer!=null){
+                jouer.stop();
+            }
+            int Ressource=Integer.parseInt(ctrl.getTrueanswsers()[2]);
+
+            question.setText("Rejouer le sons");
+            if(Ressource!=0)
+                jouer=MediaPlayer.create(EnglishActivity.this, Ressource);
+            else
+                jouer=MediaPlayer.create(EnglishActivity.this,  R.raw.envent_sound);
+            jouer.setLooping(false);
+            jouer.start();
+            question.setOnClickListener(actionRejouer());
+            question.setEnabled(true);
+
+        }else{
+            question.setText(ctrl.getQuestion());
+
+        }
+
+
+        question.setTag(ctrl.getQuestion());
         List<String[]> result = ctrl.GetFalseAnswsers();
         Log.d("size11",result.size()+"");
         int shufle = (int) (Math.random() * 4);
@@ -145,7 +174,7 @@ public class EnglishActivity extends GameActivity {
             tabButton[i].setOnClickListener(actionbutton());
             tabButton[i].setTag(result.get(i)[1]);
         }
-
+        enableButton();
     }
 
     private View.OnClickListener actionbutton() {
@@ -155,6 +184,17 @@ public class EnglishActivity extends GameActivity {
                 disableButton();
 
                 isgoodAnswer((String) v.getTag());
+            }
+        };
+    }
+
+
+
+    private View.OnClickListener actionRejouer() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jouer.start();
             }
         };
     }
@@ -173,10 +213,13 @@ public class EnglishActivity extends GameActivity {
 
 
     private void isgoodAnswer(String tag) {
-        if (tag.equals(question.getText())) {
+        if (tag.equals(question.getTag())) {
             showText("bonne reponse");
             rightAnswerCounter++;
             if (rightAnswerCounter == 10) {
+                if(levelChosen==3){
+                    jouer.stop();
+                }
                 unableLoose();
                 unableScoreMode();
                 time.stop();

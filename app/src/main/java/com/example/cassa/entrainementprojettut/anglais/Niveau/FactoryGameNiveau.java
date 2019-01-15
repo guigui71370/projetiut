@@ -12,11 +12,11 @@ public class FactoryGameNiveau {
             case 2:
                 return new NIVEAU2(database);
             case 3:
-                return null;
+                return new Niveau3(database);
             case 4:
                 return new Niveau4(database);
             default:
-                return null;
+                return new Niveau1(database);
 
         }
 
