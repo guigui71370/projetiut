@@ -41,6 +41,7 @@ public class MythologyControler {
             question = set.getNextQuestion();
         }
         else{
+            currentTimeInALevel = 0;
             currentLevel++;
             if(currentLevel <= levelChosen){
                 set = factory.createSetMythology(currentLevel);

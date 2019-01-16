@@ -3,6 +3,7 @@ package com.example.cassa.entrainementprojettut.mythology;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.SystemClock;
@@ -70,7 +71,7 @@ public class MythologyActivity extends GameActivity implements View.OnClickListe
      * initialise les vues et démarre la musique
      */
     private void init() {
-        music = R.raw.bensound_cute;
+        music = R.raw.bensound_happiness;
         if(isSong()) {
             startBackgroundMusic(this, music);
         }
@@ -127,7 +128,6 @@ public class MythologyActivity extends GameActivity implements View.OnClickListe
                     initializeScoreValues("Mythologie", levelChosen);
                     showResultScreen(this);
                 }
-
             }
             else{
                 v.setBackgroundColor(Color.RED);

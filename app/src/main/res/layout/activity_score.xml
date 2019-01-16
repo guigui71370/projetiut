@@ -108,6 +108,14 @@
                 android:layout_marginTop="20dp"
                 android:background="@color/colorGreen"
                 android:text="@string/geometry_game" />
+
+            <Button
+                android:id="@+id/score_my"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorGreen"
+                android:text="@string/mythology_game" />
         </LinearLayout>
     </ScrollView>
 
