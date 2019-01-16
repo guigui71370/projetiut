@@ -1,71 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.cassa.entrainementprojettut">
+          package="com.example.cassa.entrainementprojettut">
 
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape">
+                android:name=".MainActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="landscape">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
-            android:name=".operationGame.AdditionActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape" />
-
+                android:name=".operationGame.AdditionActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="landscape"/>
         <activity
-            android:name=".mysteryWord.MysteryWordActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape" />
-
+                android:name=".mysteryWord.MysteryWordActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="landscape"/>
         <activity
-            android:name=".flag.FlagActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape" />
-
+                android:name=".flag.FlagActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="landscape"/>
         <activity
-            android:name=".flag.ReverseFlagActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape" />
-
+                android:name=".flag.ReverseFlagActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="landscape"/>
         <activity
-            android:name=".geography.GeographyActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape" />
+                android:name=".geography.GeographyActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="landscape"/>
+        <activity
+                android:name=".pianoGame.PianoActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="landscape"/>
+        <activity
+                android:name=".conjugaison.ConjugaisonActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="landscape"/>
+        <activity
+                android:name=".geometry.GeometryActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="landscape"/>
+        <activity
+                android:name=".connect4.Connect4Activity"
+                android:launchMode="singleTask"
+                android:screenOrientation="landscape"/>
+        <activity
+                android:name=".astronomie.AstronomieActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="landscape"/>
+        <activity
+                android:name=".score.ScoreActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="landscape"/>
+        <activity android:name=".anglais.EnglishActivity"
+                  android:launchMode="singleTask"
+                  android:screenOrientation="landscape"
+                />
 
-        <activity android:name=".pianoGame.PianoActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape"/>
-
-        <activity android:name=".conjugaison.ConjugaisonActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape"/>
-
-        <activity android:name=".geometry.GeometryActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape"/>
-
-        <activity android:name=".connect4.Connect4Activity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape"/>
-
-        <activity android:name=".astronomie.AstronomieActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape"/>
-
-        <activity android:name=".score.ScoreActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>

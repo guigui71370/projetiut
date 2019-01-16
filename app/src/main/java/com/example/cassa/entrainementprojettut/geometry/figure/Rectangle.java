@@ -56,16 +56,18 @@ public class Rectangle extends Parallelogramme {
 
     }
 
-    private void changeCote(){
+    private void changeCote() {
 
-        longueur =r.nextInt(6) + 5;
-        largeur = r.nextInt(6) + 5;
-        for(int i=0;i<this.getCote().length;i++){
-            if (i%2 == 0)
-                this.getCote()[i] = longueur;
-            if (i%2 == 1)
-                this.getCote()[i] = largeur;
-        }
+        do {
+            longueur = r.nextInt(6) + 5;
+            largeur = r.nextInt(6) + 5;
+            for (int i = 0; i < this.getCote().length; i++) {
+                if (i % 2 == 0)
+                    this.getCote()[i] = longueur;
+                if (i % 2 == 1)
+                    this.getCote()[i] = largeur;
+            }
+        } while(longueur==largeur);
     }
 
 

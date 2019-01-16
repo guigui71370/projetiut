@@ -121,7 +121,14 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
         }
 
         score.setText("Score = " + scoreValue);
+        if(scoreValue>=50)
+        {
+            unableLoose();
+
+
+        }
         generateFigure();
+
     }
 
     @Override

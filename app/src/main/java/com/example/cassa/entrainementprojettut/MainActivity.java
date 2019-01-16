@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.cassa.entrainementprojettut.anglais.EnglishActivity;
 import com.example.cassa.entrainementprojettut.astronomie.AstronomieActivity;
 import com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonActivity;
 import com.example.cassa.entrainementprojettut.connect4.Connect4Activity;
@@ -63,6 +64,7 @@ public class MainActivity extends ActivityUtil {
         Button btnConnect4 = findViewById(R.id.activity_main_connect4);
         Button astronomie=findViewById(R.id.activity_main_astronomie);
         Button scoreTest = findViewById(R.id.activity_main_score_btn);
+        Button btnAnglais=findViewById(R.id.activity_main_anglais);
         final ImageButton ImgBtnsong = findViewById(R.id.activity_main_song_imgbtn);
         ImageView owlImg = findViewById(R.id.chouettes_menu);
         owlImg.setBackgroundResource(R.drawable.animation_chouettes_menu);
@@ -222,6 +224,18 @@ public class MainActivity extends ActivityUtil {
             public void onClick(View view) {
 
                 Intent scoreActivityIntent = new Intent(MainActivity.this, ScoreActivity.class);
+                startActivity(scoreActivityIntent);
+
+                playerEvent.start();
+                finish();
+            }
+        });
+
+        btnAnglais.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent scoreActivityIntent = new Intent(MainActivity.this, EnglishActivity.class);
                 startActivity(scoreActivityIntent);
 
                 playerEvent.start();
