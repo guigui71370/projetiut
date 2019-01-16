@@ -107,73 +107,18 @@ public class Plateau {
 
 
     public int conect4In1Turn(char c) {
-        boolean test = false;
-        //int result=-1;
-        ArrayList<Integer> result = new ArrayList<Integer>();
+        for(int i =0;i<7;i++){
+            this.insertCheckers(i, c);
 
-        final String chaine1 = "" + c + c + c + " ";
-        final String chaine2 = "" + c + c + " " + c;
-        final String chaine3 = "" + c + " " + c + c;
-        final String chaine4 = " " + c + c + c;
-        ;
-
-
-        for (int x = 0; x < this.plateau.length; x++) {
-            for (int y = 0; y < this.plateau[1].length; y++) {
-                if (chaine4.charAt(0) == this.plateau[x][y]) {
-                    test = verticalDown(y, x, chaine4) || horizontalRight(y, x, chaine4) || DiagonalLeftDown(y, x, chaine4) || DiagonalRightDown(y, x, chaine4);
-                    if (test) {
-                        result.add(y);
-                    }
-                }
-                if (chaine3.charAt(0) == this.plateau[x][y]) {
-                    boolean cond1;
-                    boolean cond2;
-                    boolean cond3;
-                    cond1 = horizontalRight(y, x, chaine3) || DiagonalLeftDown(y, x, chaine3) || DiagonalRightDown(y, x, chaine3);
-                    if (cond1) {
-                        result.add(y + 1);
-                    }
-                    cond2 = horizontalRight(y, x, chaine2) || DiagonalLeftDown(y, x, chaine2) || DiagonalRightDown(y, x, chaine2);
-                    if (cond2) {
-                        result.add(y + 2);
-                    }
-                    cond3 = horizontalRight(y, x, chaine1) || DiagonalLeftDown(y, x, chaine1) || DiagonalRightDown(y, x, chaine1);
-                    if (cond3) {
-                        result.add(y + 3);
-                    }
-                }
+            if (this.win(c)) {
+                this.removeCheckers(i);
+                return i;
+            } else {
+                this.removeCheckers(i);
             }
         }
+        return -1;
 
-        //y--;
-
-        //return result;
-      /* if(result==y){
-            return result;
-        }else */
-        if (result.size() == 0) {
-            return -1;
-        } else {
-            int i = 0;
-            while (i < result.size()) {
-
-                this.insertCheckers(result.get(i), c);
-                if (this.win(c)) {
-                    //this.removeCheckers(result.get(i));
-                    return result.get(i);
-                } else {
-                    this.removeCheckers(result.get(i));
-                    i++;
-                    //return -1;
-                }
-            }
-
-            return -1;
-        }
-
-
-        //return  result;
     }
 
 
@@ -298,7 +243,7 @@ public class Plateau {
         }
     }
 
-    private int removeCheckers(int column) {
+    public int removeCheckers(int column) {
         int result = 0;
         boolean test = false;
         for (result = this.plateau.length - 1; result >= 0 && !test; result--) {
