@@ -17,6 +17,8 @@ public class TriangleR extends TriangleQ {
     protected ArrayList<String> falsePropertiesLV2;
     protected ArrayList<String> falsePropertiesLV3;
 
+    int petitCote;
+    int autreCote;
     Random r;
 
     public TriangleR(){
@@ -48,12 +50,14 @@ public class TriangleR extends TriangleQ {
 
 
     private void changeCote(){
-        int petitCote = r.nextInt(6) + 5;
-        int autreCote = r.nextInt(6) + 5;
-        int hypothenuse = (int)Math.round(Math.sqrt(petitCote*petitCote + autreCote*autreCote)*1000)/1000;
-        this.getCote()[0] = petitCote;
-        this.getCote()[1] = autreCote;
-        this.getCote()[2] = hypothenuse;
+        do {
+             petitCote = r.nextInt(6) + 5;
+             autreCote = r.nextInt(6) + 5;
+            int hypothenuse = (int) Math.round(Math.sqrt(petitCote * petitCote + autreCote * autreCote) * 1000) / 1000;
+            this.getCote()[0] = petitCote;
+            this.getCote()[1] = autreCote;
+            this.getCote()[2] = hypothenuse;
+        }while(petitCote==autreCote);
     }
 
     @Override

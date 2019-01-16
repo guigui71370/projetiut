@@ -157,7 +157,7 @@ public class EnglishActivity extends GameActivity {
             question.setEnabled(true);
 
         }else{
-            question.setText(ctrl.getQuestion());
+            question.setText("Quelle est la traduction de : "+ctrl.getQuestion()+" ?");
 
         }
 
@@ -214,7 +214,7 @@ public class EnglishActivity extends GameActivity {
 
     private void isgoodAnswer(String tag) {
         if (tag.equals(question.getTag())) {
-            showText("bonne reponse");
+            showText("Bonne réponse");
             rightAnswerCounter++;
             if (rightAnswerCounter == 10) {
                 if(levelChosen==3){
@@ -231,7 +231,7 @@ public class EnglishActivity extends GameActivity {
                 generateGame(levelChosen);
             }
         } else {
-            showText("mauvaise réponce");
+            showText("Mauvaise réponse");
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
