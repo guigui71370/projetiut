@@ -32,16 +32,18 @@ public class EnglishActivity extends GameActivity {
     @BindView(R.id.layout_niveau)
     ConstraintLayout mainLayout;
 
+
     private MediaPlayer playerEvent;
     private View tabButton[];
     private TextView tabTextview[];
     private TextView question;
+    private TextView score;
     private ControllerEnglish ctrl;
     private int xDelta;
     private int yDelta;
     private AppDatabase database;
 
-    private int rightAnswerCounter;
+    private int rightAnswerCounter=0;
 
     private MediaPlayer jouer;
 
@@ -139,7 +141,7 @@ public class EnglishActivity extends GameActivity {
     private void generateBasicGame(int diff) {
 
         ctrl = new ControllerEnglish(diff,database);
-
+        aficheScore();
         if(diff==3) {
             if(jouer!=null){
                 jouer.stop();
@@ -266,7 +268,12 @@ public class EnglishActivity extends GameActivity {
         tabButton[3] = findViewById(R.id.a_reponce4);
 
         question = findViewById(R.id.a_question);
+        score=findViewById(R.id.Score);
 
+    }
+
+    private void aficheScore(){
+        score.setText(rightAnswerCounter+"/10");
     }
 
      ArrayList<View> test=new ArrayList<>();
