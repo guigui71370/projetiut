@@ -60,4 +60,5 @@
     <string name="Faux">Faux</string>
     <string name="anglais">Anglais</string>
     <string name="mythology_game">Mythologie</string>
+    <string name="empty">" "</string>
 </resources>
