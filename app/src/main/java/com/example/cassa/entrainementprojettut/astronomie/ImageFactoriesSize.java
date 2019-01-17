@@ -2,9 +2,9 @@ package com.example.cassa.entrainementprojettut.astronomie;
 
 import android.widget.ImageView;
 
-class ImageFactoriesSize {
+public class ImageFactoriesSize {
 
-    static void factorisize(ImageView d,String name,float density){
+    public static void factorisize(ImageView d,String name,float density){
         switch (name) {
             case "Mercure":
                 d.getLayoutParams().height = (int) (50 * density);
@@ -41,4 +41,34 @@ class ImageFactoriesSize {
         }
         d.requestLayout();
    }
+
+    public static void setEmplacement(ImageView d,String name){
+        switch (name) {
+            case "Mercure":
+                d.setX(88);
+                break;
+            case "Venus":
+                d.setX(168);
+                break;
+            case "Terre":
+                d.setX(258);
+                break;
+            case "Mars":
+                d.setX(328);
+                break;
+            case "Jupiter":
+                d.setX(358);
+                break;
+            case "Saturne":
+                d.setX(358);
+                break;
+            case "Uranus":
+                d.setX(368);
+                break;
+            case "Neptune":
+                d.setX(418);
+                break;
+        }
+        d.requestLayout();
+    }
 }

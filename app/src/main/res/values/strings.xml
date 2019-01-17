@@ -1,4 +1,5 @@
 <resources>
+    <string name="empty"> </string>
     <string name="app_name">Jeux éducatifs</string>
     <string name="geography_conteneur_rect">conteneur rectangle</string>
     <string name="to_bad">Dommage, la réponse était</string>
@@ -58,4 +59,5 @@
     <string name="figureName">Nom de la figure</string>
     <string name="Vrai">Vrai</string>
     <string name="Faux">Faux</string>
+    <string name="soleil">Soleil</string>
 </resources>
