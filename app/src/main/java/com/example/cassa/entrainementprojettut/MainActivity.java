@@ -27,6 +27,7 @@ import com.example.cassa.entrainementprojettut.gameUtils.ActivityUtil;
 import com.example.cassa.entrainementprojettut.geography.GeographyActivity;
 import com.example.cassa.entrainementprojettut.geometry.GeometryActivity;
 import com.example.cassa.entrainementprojettut.mysteryWord.MysteryWordActivity;
+import com.example.cassa.entrainementprojettut.mythology.MythologyActivity;
 import com.example.cassa.entrainementprojettut.operationGame.AdditionActivity;
 import com.example.cassa.entrainementprojettut.pianoGame.PianoActivity;
 import com.example.cassa.entrainementprojettut.score.ScoreActivity;
@@ -63,6 +64,7 @@ public class MainActivity extends ActivityUtil {
         Button btnGeometry = findViewById(R.id.activity_main_geometry);
         Button btnConnect4 = findViewById(R.id.activity_main_connect4);
         Button astronomie=findViewById(R.id.activity_main_astronomie);
+        Button mythology=findViewById(R.id.activity_main_mythology);
         Button scoreTest = findViewById(R.id.activity_main_score_btn);
         Button btnAnglais=findViewById(R.id.activity_main_anglais);
         final ImageButton ImgBtnsong = findViewById(R.id.activity_main_song_imgbtn);
@@ -218,7 +220,16 @@ public class MainActivity extends ActivityUtil {
                 finish();
             }
         });
+        mythology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                Intent mythologyActivityIntent = new Intent(MainActivity.this, MythologyActivity.class);
+                startActivity(mythologyActivityIntent);
+                playerEvent.start();
+                finish();
+            }
+        });
         scoreTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
