@@ -1,3 +1,4 @@
+
 package com.example.cassa.entrainementprojettut;
 
 import android.annotation.SuppressLint;
@@ -17,7 +18,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.cassa.entrainementprojettut.astronomie.AstrnomieActivity;
+import com.example.cassa.entrainementprojettut.anglais.EnglishActivity;
+import com.example.cassa.entrainementprojettut.astronomie.AstronomieActivity;
 import com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonActivity;
 import com.example.cassa.entrainementprojettut.connect4.Connect4Activity;
 import com.example.cassa.entrainementprojettut.flag.FlagActivity;
@@ -26,6 +28,7 @@ import com.example.cassa.entrainementprojettut.gameUtils.ActivityUtil;
 import com.example.cassa.entrainementprojettut.geography.GeographyActivity;
 import com.example.cassa.entrainementprojettut.geometry.GeometryActivity;
 import com.example.cassa.entrainementprojettut.mysteryWord.MysteryWordActivity;
+import com.example.cassa.entrainementprojettut.mythology.MythologyActivity;
 import com.example.cassa.entrainementprojettut.operationGame.AdditionActivity;
 import com.example.cassa.entrainementprojettut.pianoGame.PianoActivity;
 import com.example.cassa.entrainementprojettut.score.ScoreActivity;
@@ -62,7 +65,9 @@ public class MainActivity extends ActivityUtil {
         Button btnGeometry = findViewById(R.id.activity_main_geometry);
         Button btnConnect4 = findViewById(R.id.activity_main_connect4);
         Button astronomie=findViewById(R.id.activity_main_astronomie);
+        Button mythology=findViewById(R.id.activity_main_mythology);
         Button scoreTest = findViewById(R.id.activity_main_score_btn);
+        Button btnAnglais=findViewById(R.id.activity_main_anglais);
         final ImageButton ImgBtnsong = findViewById(R.id.activity_main_song_imgbtn);
         ImageView owlImg = findViewById(R.id.chouettes_menu);
         owlImg.setBackgroundResource(R.drawable.animation_chouettes_menu);
@@ -209,19 +214,40 @@ public class MainActivity extends ActivityUtil {
             @Override
             public void onClick(View view) {
 
-                Intent astronomieActivityIntent = new Intent(MainActivity.this, AstrnomieActivity.class);
+                Intent astronomieActivityIntent = new Intent(MainActivity.this, AstronomieActivity.class);
                 startActivity(astronomieActivityIntent);
 
                 playerEvent.start();
                 finish();
             }
         });
+        mythology.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                Intent mythologyActivityIntent = new Intent(MainActivity.this, MythologyActivity.class);
+                startActivity(mythologyActivityIntent);
+                playerEvent.start();
+                finish();
+            }
+        });
         scoreTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent scoreActivityIntent = new Intent(MainActivity.this, ScoreActivity.class);
+                startActivity(scoreActivityIntent);
+
+                playerEvent.start();
+                finish();
+            }
+        });
+
+        btnAnglais.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent scoreActivityIntent = new Intent(MainActivity.this, EnglishActivity.class);
                 startActivity(scoreActivityIntent);
 
                 playerEvent.start();

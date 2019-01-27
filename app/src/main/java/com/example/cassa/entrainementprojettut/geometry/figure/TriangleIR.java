@@ -1,29 +1,41 @@
 package com.example.cassa.entrainementprojettut.geometry.figure;
 
-import android.graphics.Canvas;
-
-import com.example.cassa.entrainementprojettut.geometry.FigureProperties;
-
-import java.util.ArrayList;
+import com.example.cassa.entrainementprojettut.geometry.GeometryUtil.ListFigure;
 
 public class TriangleIR extends TriangleI {
+
     @Override
-    public int getAire() {
-        return 0;
+    public String getName() {
+        return ListFigure.TRIANGLEI.toString();
     }
 
     @Override
-    public void draw(Canvas canvas) {
-
-    }
-
-    @Override
-    public ArrayList<FigureProperties> getProperties() {
+    public String getPropertieLV1() {
         return null;
     }
 
     @Override
-    public String getName() {
-        return "TriangleIR";
+    public String getPropertieLV2() {
+        return null;
+    }
+
+    @Override
+    public String getPropertieLV3() {
+        return null;
+    }
+
+    @Override
+    public String getFalsePropertieLV1() {
+        return null;
+    }
+
+    @Override
+    public String getFalsePropertieLV2() {
+        return null;
+    }
+
+    @Override
+    public String getFalsePropertieLV3() {
+        return null;
     }
 }

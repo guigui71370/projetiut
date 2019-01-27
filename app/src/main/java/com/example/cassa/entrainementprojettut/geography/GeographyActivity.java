@@ -78,7 +78,7 @@ public class GeographyActivity extends GameActivity {
                                         @Override
                                         public void onDismiss(DialogInterface dialogInterface) {
                                             if (levelChosen != 0) {
-                                                initializeScoreValues("Geography",levelChosen);
+                                                initializeScoreValues("Géographie",levelChosen);
 
                                                 controler = new Controler(levelChosen,sideSizeOfATag);
                                                 tagList = controler.getTagList();
@@ -276,7 +276,7 @@ public class GeographyActivity extends GameActivity {
             }
             return true;
         }
-        showText("essaie encore!");
+        showText("Essaie encore!");
         return false;
     }
 

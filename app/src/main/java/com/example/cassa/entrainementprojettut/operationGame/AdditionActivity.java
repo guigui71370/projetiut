@@ -56,7 +56,8 @@ public class AdditionActivity extends GameActivity implements View.OnClickListen
             public void onDismiss(DialogInterface dialogInterface) {
                 if (levelChosen != 0) {
                     generateOperation();
-                    launchTimer(AdditionActivity.this,60000,R.id.acivity_addition_pos1_img,R.id.activity_addition_ordi_img);
+                    launchTimer(AdditionActivity.this,60000,R.id.activity_addition_ordi_img);
+                    launchImageJoueur(R.id.acivity_addition_pos1_img);
                     chronometer.setBase(SystemClock.elapsedRealtime());
                     chronometer.start();
                 } else {
@@ -154,7 +155,7 @@ public class AdditionActivity extends GameActivity implements View.OnClickListen
                 unableScoreMode();
                 chronometer.stop();
                 timeScore =  (SystemClock.elapsedRealtime() - chronometer.getBase())/1000;
-                initializeScoreValues("Operation",levelChosen);
+                initializeScoreValues("Opération",levelChosen);
                 showResultScreen(this);
 
             }

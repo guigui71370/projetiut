@@ -5,12 +5,13 @@ import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 
-@Database(entities = {Score.class, Infinitif.class, VerbeConjugue.class}, version = 1, exportSchema = false)
+@Database(entities = {Score.class, Infinitif.class, VerbeConjugue.class,EnglishWord.class}, version = 3, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase INSTANCE;
     public abstract ScoreDao getScoreDao();
     public abstract InfinitifDao getInfinitifDao();
     public abstract VerbeConjugueDao getVerbeConjugueDao();
+    public abstract EnglishwordDao getEnglishWordDao();
     private static final String DB_NAME="gameDatabase";
 
     public static AppDatabase getInstanceOfAppDatabase(Context context) {

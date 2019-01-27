@@ -1,29 +1,47 @@
 package com.example.cassa.entrainementprojettut.geometry.figure;
 
-import android.graphics.Canvas;
+import com.example.cassa.entrainementprojettut.geometry.GeometryUtil.FigureProperties;
+import com.example.cassa.entrainementprojettut.geometry.GeometryUtil.ListFigure;
 
-import com.example.cassa.entrainementprojettut.geometry.FigureProperties;
+public class Trapeze extends Quadrilatere {
 
-import java.util.ArrayList;
+    public Trapeze(){
+        super();
+    }
 
-public class Trapeze extends Parralellogramme {
+
     @Override
-    public int getAire() {
-        return 0;
+    public String getPropertieLV1() {
+        return null;
     }
 
     @Override
-    public void draw(Canvas canvas) {
-
+    public String getPropertieLV2() {
+        return null;
     }
 
     @Override
-    public ArrayList<FigureProperties> getProperties() {
+    public String getPropertieLV3() {
+        return null;
+    }
+
+    @Override
+    public String getFalsePropertieLV1() {
+        return null;
+    }
+
+    @Override
+    public String getFalsePropertieLV2() {
+        return null;
+    }
+
+    @Override
+    public String getFalsePropertieLV3() {
         return null;
     }
 
     @Override
     public String getName() {
-        return "Trapèze";
+        return ListFigure.TRAPEZE.toString();
     }
 }

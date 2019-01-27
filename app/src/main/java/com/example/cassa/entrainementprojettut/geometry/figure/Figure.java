@@ -1,17 +1,26 @@
 package com.example.cassa.entrainementprojettut.geometry.figure;
-
-import android.graphics.Canvas;
-import com.example.cassa.entrainementprojettut.geometry.FigureProperties;
-
 import java.util.ArrayList;
 
-public interface Figure {
+public abstract class Figure {
 
-    public int getAire();
+    abstract int getAire();
+    abstract int getPerimetre();
 
-    public void draw(Canvas canvas);
 
-    public ArrayList<FigureProperties> getProperties();
+    //Les cotes pas le nombre de côtés
+    public abstract int[] getCote();
 
-    String getName();
+    public abstract String getPropertieLV1();
+
+    public abstract String getPropertieLV2();
+
+    public abstract String getPropertieLV3();
+
+    public abstract String getFalsePropertieLV1();
+
+    public abstract String getFalsePropertieLV2();
+
+    public abstract String getFalsePropertieLV3();
+
+    public abstract String getName();
 }

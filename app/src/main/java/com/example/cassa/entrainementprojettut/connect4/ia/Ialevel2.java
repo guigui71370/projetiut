@@ -1,3 +1,4 @@
+
 package com.example.cassa.entrainementprojettut.connect4.ia;
 
 import com.example.cassa.entrainementprojettut.connect4.Plateau;
@@ -52,3 +53,4 @@ public class Ialevel2 implements I_Ia {
 
     }
 }
+

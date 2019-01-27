@@ -48,8 +48,10 @@ public class ReverseFlagActivity extends GameActivity implements View.OnClickLis
                 if(levelChosen != 0){
 
                     generateNewGame();
-                    initializeScoreValues("InvertFlag",levelChosen);
-                    launchGhost(ReverseFlagActivity.this,35000,R.id.activity_flag_IA_img);
+
+                    initializeScoreValues("Drapeaux inversés",levelChosen);
+                    launchTimer(ReverseFlagActivity.this,35000,R.id.activity_flag_IA_img);
+
 
                 }else{
                     ReverseFlagActivity.this.onStop();

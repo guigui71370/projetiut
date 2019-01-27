@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_astronomie_constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".astronomie.AstronomieActivity">
+
+    <ImageView
+        android:id="@+id/activity_astronomie_star_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        app:srcCompat="@mipmap/star"
+        android:contentDescription="@string/starPicture" />
+
+    <ImageView
+        android:id="@+id/activity_astronomie_ghost_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/ghostPicture"
+        app:layout_constraintTop_toBottomOf="@+id/activity_astronomie_star_img"
+        app:srcCompat="@mipmap/ghost" />
+
+    <Chronometer
+        android:id="@+id/activity_astronomie_chrono_chronometer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/font_size"
+        android:textStyle="bold"
+        android:textColor="@color/colorGray"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_astronomie_star_img"
+        android:layout_marginTop="110dp"/>
+
+    <TextView
+        android:id="@+id/activity_astronomie_planetName_textView"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        android:textSize="32sp"
+        android:text="@string/empty"
+        app:layout_constraintBottom_toTopOf="@+id/activity_astronomie_planetImageLayout_linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_astronomie_chrono_chronometer2"
+        app:layout_constraintVertical_bias="0.46"
+        tools:text="planetName" />
+
+    <LinearLayout
+        android:id="@+id/activity_astronomie_planetName_linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/activity_astronomie_planetImageLayout_linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_astronomie_chrono_chronometer2">
+
+
+        <TextView
+            android:id="@+id/activity_astronomie_planetName1_textView"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:textSize="28sp"
+            android:layout_marginStart="10dp"
+            android:text="@string/empty" />
+
+        <TextView
+            android:id="@+id/activity_astronomie_planetName2_textView"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:textSize="28sp"
+            android:layout_marginStart="10dp"
+            android:text="@string/empty" />
+
+        <TextView
+            android:id="@+id/activity_astronomie_planetName3_textView"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:textSize="28sp"
+            android:layout_marginStart="10dp"
+            android:text="@string/empty" />
+
+        <TextView
+            android:id="@+id/activity_astronomie_planetName4_textView"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:textSize="28sp"
+            android:layout_marginStart="10dp"
+            android:text="@string/empty" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/activity_astronomie_planetImageLayout_linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="32dp"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_astronomie_planetName_linearLayout">
+
+        <ImageView
+            android:id="@+id/activity_astronomie_planet1_imageView"
+            tools:ignore="ContentDescription"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            tools:layout_editor_absoluteX="127dp"
+            tools:layout_editor_absoluteY="192dp" />
+
+        <ImageView
+            android:id="@+id/activity_astronomie_planet2_imageView"
+            tools:ignore="ContentDescription"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            tools:layout_editor_absoluteX="127dp"
+            tools:layout_editor_absoluteY="192dp" />
+
+        <ImageView
+            android:id="@+id/activity_astronomie_planet3_imageView"
+            tools:ignore="ContentDescription"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            tools:layout_editor_absoluteX="127dp"
+            tools:layout_editor_absoluteY="192dp" />
+
+        <ImageView
+            android:id="@+id/activity_astronomie_planet4_imageView"
+            tools:ignore="ContentDescription"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            tools:layout_editor_absoluteX="127dp"
+            tools:layout_editor_absoluteY="192dp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/activity_astronomie_planet_imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_astronomie_planetName_linearLayout"
+        app:layout_constraintVertical_bias="0.567"
+        tools:ignore="ContentDescription" />
+
+
+</android.support.constraint.ConstraintLayout>

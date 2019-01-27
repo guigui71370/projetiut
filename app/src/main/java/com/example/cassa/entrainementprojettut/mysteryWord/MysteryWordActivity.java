@@ -78,7 +78,7 @@ public class MysteryWordActivity extends GameActivity {
                     chronometer.setBase(SystemClock.elapsedRealtime());
                     chronometer.start();
 
-                    initializeScoreValues("MysteryWord",levelChosen);
+                    initializeScoreValues("Mot mystère",levelChosen);
 
 
                 }
@@ -299,7 +299,8 @@ public class MysteryWordActivity extends GameActivity {
         }
 
         launchTimer(MysteryWordActivity.this,
-                duree, R.id.activity_mysteryWord_pos1_img, R.id.activity_mysteryWord_ordi_img);
+                duree, R.id.activity_mysteryWord_ordi_img);
+        launchImageJoueur(R.id.activity_mysteryWord_pos1_img);
 
     }
 

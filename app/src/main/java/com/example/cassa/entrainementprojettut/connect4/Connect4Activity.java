@@ -1,6 +1,6 @@
 package com.example.cassa.entrainementprojettut.connect4;
 
-import android.annotation.TargetApi;
+
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,7 +21,6 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import com.example.cassa.entrainementprojettut.MainActivity;
 import com.example.cassa.entrainementprojettut.R;
 import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
@@ -35,6 +34,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
     private MediaPlayer playerEvent;
 
     private ImageView[][] board = new ImageView[6][7];
+    private TextView etatPartie;
     ControlerConnect4 controlerConnect4;
     private int playerColor;
     private int computerColor;
@@ -70,7 +70,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
         gridLayout = findViewById(R.id.gridLayout);
         chronometer = findViewById(R.id.activity_connect4_chrono_chronometer);
         playerEvent = MediaPlayer.create(Connect4Activity.this,R.raw.envent_sound);
-
+        etatPartie =findViewById(R.id.c4_etatpartie_text);
         createGameBoard(gridLayout);
         disableImage();
     }
@@ -107,6 +107,9 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
         switch ((int)(Math.random() * 2)){
             // 0 equivaut au joueur
             case 0:
+
+                etatPartie.setText("en atente d'une action du joueur");
+
                 showTextdurration("Vous commencez à jouer",2000);
                 enableImage();
                 break;
@@ -158,11 +161,16 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
     }
 
     private void showMenu(){
-        String[] menu = new String[4];
+
+        String[] menu = new String[5];
+
         menu[0]= "Niveau 1";
         menu[1]= "Niveau 2";
         menu[2]= "Niveau 3";
         menu[3]= "Niveau 4";
+
+        menu[4]= "Niveau 5";
+
 
         displayLevelchoice(this,menu);
     }
@@ -199,7 +207,9 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
                             unableScoreMode();
                             chronometer.stop();
                             timeScore = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 1000;
-                            initializeScoreValues("puissances 4", levelChosen);
+
+                            initializeScoreValues("Puissance 4", levelChosen);
+
                             showResultScreen(win);
                         }},2000);
 
@@ -229,66 +239,72 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
             showText("match nulle");
         }*/
     }
+
+
+
     protected  final  Handler handlers = new Handler();
     public void iaPlaying(){
-        int column = controlerConnect4.calculateCheckersPosition(levelChosen);
+        final Connect4Activity etat=this;
+        this.etatPartie.setText("IA réfléchie");
 
-        int row = controlerConnect4.insertCheckers(column,coloria);
-
-        final  ImageView t=board[row][column];
-
-        handlers.postDelayed(new Runnable() {
+        new Thread(new Runnable() {
             @Override
-            public void run(){
-                t.setColorFilter(computerColor);
-                //enableImage();
-                enableImage();
+            public void run() {
+                int column = controlerConnect4.calculateCheckersPosition(levelChosen);
+
+                int row = controlerConnect4.insertCheckers(column,coloria);
+                handlers.postDelayed(new Runnable() {
+                    @Override
+                    public void run(){
+                etat.etatPartie.setText("IA joue");}}
+                ,1);
+
+
+
+                final  ImageView t=board[row][column];
+
+                handlers.postDelayed(new Runnable() {
+                    @Override
+                    public void run(){
+                        t.setColorFilter(computerColor);
+                        //enableImage();
+
+                        if(controlerConnect4.hasWinner()==1 ||controlerConnect4.hasWinner()==0){
+                            showTextdurration("L'ordinateur a gagné",2000);
+
+                            handlers.postDelayed(new Runnable(){
+                                @Override
+                                public void run() {
+                                    showLooseScreen(etat);
+                                }
+                            },5000);
+                        }else  if(controlerConnect4.hasWinner()==2) {
+                            handlers.postDelayed(new Runnable(){
+                                @Override
+                                public void run() {
+                                    showNullSreen(etat);
+
+                                }
+                            },2000);
+                            showTextdurration("match nul",2000);
+                        }else {
+                            enableImage();
+                            etat.etatPartie.setText("en atente d'une action du joueur");
+                        }
+
+                    }
+                },1000);
+
             }
-        },1000);
-
-
-
-        if(controlerConnect4.hasWinner()==1 ||controlerConnect4.hasWinner()==0){
-
-
-            showTextdurration("L'ordinateur a gagné",2000);
+        }).start();
 
 
 
 
-            final Connect4Activity loose=this;
-            handlers.postDelayed(new Runnable(){
-                @Override
-                public void run() {
-                    showLooseScreen(loose);
-                }
-            },10000);
-
-           /* try {
-                Thread.sleep(100000);
-
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }*/
 
 
 
 
-        }else  if(controlerConnect4.hasWinner()==2) {
-            final Connect4Activity nulls=this;
-            handlers.postDelayed(new Runnable(){
-                @Override
-                public void run() {
-                    showNullSreen(nulls);
-
-                }
-            },2000);
-
-
-            showTextdurration("match nul",2000);
-        }else {
-
-        }
         //showText("ia joue");
 
 

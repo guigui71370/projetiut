@@ -31,22 +31,24 @@ public class ControlerConnect4 extends Observable {
         return this.plateau.insertCheckers(column,color);
     }
     /*
-    *   description: vérifie verifie si il y a un gagnant un gagnant ou non
-    *   résultat:
-    *           -retourne -1 si la partie est toujours en cour
-    *           -retourne 0 si les rouge on gagné
-    *           -retourne 1 si les jaune on gagné
-    *           -retourne 2 si match nul
-    * */
+     *   description: vérifie verifie si il y a un gagnant un gagnant ou non
+     *   résultat:
+     *           -retourne -1 si la partie est toujours en cour
+     *           -retourne 0 si les rouge on gagné
+     *           -retourne 1 si les jaune on gagné
+     *           -retourne 2 si match nul
+     * */
     public int hasWinner(){
         if(plateau.win('y')){
-            return 2;
+
+            return 1;
         }else if(plateau.win('r')){
             return 0;
         }else if(summcheker()==(6*7)){
-            return 1;
+            return 2;
         }else
-        return -1;
+            return -1;
+
     }
     private int summcheker(){
 
