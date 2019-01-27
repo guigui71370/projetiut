@@ -29,6 +29,15 @@ public enum EnglishWord2 {
     DESSINER("Draw","Dessiner",0),
     BONJOUR("Hello","Bonjour",0),
     AUREVOIR("Goodbye","Au revoir",0),
+    ROUGE("Red","Rouge",0),
+    VERT("Green","Vert",0),
+    BLEU("Blue","Bleu",0),
+    ORANGE("Orange","Orange",0),
+    MARRON("Brown","Marron",0),
+    JAUNE("Yellow","Jaune",0),
+    BLANC("White","Blanc",0),
+    NOIR("Black","NOIR",0),
+    GRIS("Gray","Gris",0),
     ;
 
 
