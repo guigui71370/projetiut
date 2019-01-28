@@ -453,7 +453,7 @@ public class EnglishActivity extends GameActivity {
     }
 
     private boolean isarectangle(@NonNull float[] victoryBox, float leftSideTxtView, float rightSideTxtView, float upperSideTxtView, float downSideTxtView) {
-        return leftSideTxtView >= victoryBox[0]&& leftSideTxtView <= victoryBox[2]  &&  upperSideTxtView>=victoryBox[1]  && downSideTxtView<=victoryBox[3];
+        return leftSideTxtView >= victoryBox[0]+5 && leftSideTxtView <= victoryBox[2]+5  &&  upperSideTxtView>=victoryBox[1]+5  && downSideTxtView<=victoryBox[3]+5;
     }
 
 

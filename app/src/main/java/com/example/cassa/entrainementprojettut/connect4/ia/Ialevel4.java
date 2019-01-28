@@ -10,6 +10,7 @@ public class Ialevel4 implements I_Ia {
         return column;
     }
 
+
     @Override
     public void calculateColumn(Plateau plateau) {
         char joueur;
@@ -18,6 +19,8 @@ public class Ialevel4 implements I_Ia {
         else
             joueur='r';
 
+
+        plateau.setColoruse(plateau.getCia());
 
 
         int column=plateau.conect4In1Turn(plateau.getCia());
@@ -35,14 +38,14 @@ public class Ialevel4 implements I_Ia {
             // ==> l'IA
 
 
-
+            int iteration=0;
             int i = -1;
-            while (i == -1) {
+            while (i == -1  && iteration<2800) {
                 this.column = ((int) (Math.random() * 7));
                 i = plateau.insertCheckers(this.column, plateau.getCia());
                 if(i!=-1)
                 i=verifNedonepasdepuisssan4(i, plateau);
-
+                iteration++;
             }
         }
 
@@ -61,5 +64,10 @@ public class Ialevel4 implements I_Ia {
         }
 
     }
+
+
+
+
+
 }
 
