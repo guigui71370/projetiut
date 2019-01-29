@@ -72,6 +72,10 @@ public class TriangleI extends TriangleQ {
     @Override
     public String getPropertieLV2() {
         String s = propertiesLV2.get(r.nextInt(propertiesLV2.size()));
+        for (int i = 0; i <this.getCote().length ; i++) {
+            Log.d("geom88TRU",this.getCote()[i]+"");
+        }
+
         Log.d("geom88TRU",s);
         return   s;
     }

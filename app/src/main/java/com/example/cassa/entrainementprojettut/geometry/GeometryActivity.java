@@ -8,11 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
-
 import com.example.cassa.entrainementprojettut.R;
 import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 import com.example.cassa.entrainementprojettut.geometry.controller.ControlerFigure;
-import com.example.cassa.entrainementprojettut.geometry.figure.Figure;
 import com.example.cassa.entrainementprojettut.geometry.view.DrawingView;
 
 import java.util.Random;
@@ -62,7 +60,7 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
                     ctrlFigure = new ControlerFigure(levelChosen);
                     generateFigure();
                     activateButtons();
-                   // launchTimer(GeometryActivity.this,60000,R.id.activity_geometry_imageview_ghost);
+                  launchTimer(GeometryActivity.this,60000,R.id.activity_geometry_imageview_ghost);
                 } else {
                     GeometryActivity.this.onStop();
                     dialog.show();
@@ -89,19 +87,19 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
     }
 
     public void setProperties(){
-        //if(r.nextBoolean()){
+        if(r.nextBoolean()){
             propertie = true;
         String truePropertie = ctrlFigure.getTruePropertie();
         properties.setText(truePropertie);
             Log.d("geom88TRU",truePropertie);
         }
-        /*else{
+        else{
             propertie = false;
             properties.setText(ctrlFigure.getFalsePropertie());
             Log.d("geom88",ctrlFigure.getFalsePropertie());
         }
 
-    }*/
+    }
 
     @Override
     public void onClick(View v) {

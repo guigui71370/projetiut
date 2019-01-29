@@ -204,7 +204,7 @@ public class DrawingView extends View {
         }
         else if (figure!=null && figure.getName().equals(ListFigure.TRIANGLEI.toString())) {
             int[] cote =  figure.getCote();
-            Arrays.sort(cote);
+            //Arrays.sort(cote);
             int petitCote = cote[0];
             int autreCote = cote[1];
             int hypotenuse = cote[2];
