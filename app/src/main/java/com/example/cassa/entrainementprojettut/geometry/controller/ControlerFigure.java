@@ -1,5 +1,7 @@
 package com.example.cassa.entrainementprojettut.geometry.controller;
 
+import android.util.Log;
+
 import com.example.cassa.entrainementprojettut.geometry.FactoryFigure;
 import com.example.cassa.entrainementprojettut.geometry.FactorySetGeometry;
 import com.example.cassa.entrainementprojettut.geometry.figure.Carre;
@@ -56,7 +58,9 @@ public class ControlerFigure {
     }
 
     public String getTruePropertie(){
-        return set.getTruePropertie(f);
+        String truePropertie = set.getTruePropertie(f);
+        Log.d("geom88TRU",truePropertie);
+        return truePropertie;
     }
 
     public String getFalsePropertie(){

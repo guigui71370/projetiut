@@ -108,7 +108,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
             // 0 equivaut au joueur
             case 0:
 
-                etatPartie.setText("en atente d'une action du joueur");
+                etatPartie.setText("En attente d'une action du joueur");
 
                 showTextdurration("Vous commencez à jouer",2000);
                 enableImage();
@@ -245,7 +245,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
     protected  final  Handler handlers = new Handler();
     public void iaPlaying(){
         final Connect4Activity etat=this;
-        this.etatPartie.setText("IA réfléchie");
+        this.etatPartie.setText("L'ordianteur réfléchie");
 
         new Thread(new Runnable() {
             @Override
@@ -256,7 +256,7 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
                 handlers.postDelayed(new Runnable() {
                     @Override
                     public void run(){
-                etat.etatPartie.setText("IA joue");}}
+                etat.etatPartie.setText("L'ordinateur joue");}}
                 ,1);
 
 
@@ -286,10 +286,10 @@ public class Connect4Activity extends GameActivity implements View.OnClickListen
 
                                 }
                             },2000);
-                            showTextdurration("match nul",2000);
+                            showTextdurration("Match nul",2000);
                         }else {
                             enableImage();
-                            etat.etatPartie.setText("en atente d'une action du joueur");
+                            etat.etatPartie.setText("En attente d'une action du joueur");
                         }
 
                     }

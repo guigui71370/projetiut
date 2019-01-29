@@ -40,8 +40,7 @@ public class Carre extends Rectangle {
 
         falsePropertiesLV3 = new ArrayList<String>();
         falsePropertiesLV3.add(FigureProperties.CARRE_FP_2.getProperties());
-        falsePropertiesLV3.add(FigureProperties.FIGURE_P_2.getProperties()
-                + (this.getAire() + 1 + r.nextInt(5)));
+        falsePropertiesLV3.add(FigureProperties.FIGURE_P_2.getProperties() + (this.getAire() + 1 + r.nextInt(5)));
 
 
     }

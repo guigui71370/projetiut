@@ -1,5 +1,7 @@
 package com.example.cassa.entrainementprojettut.geometry.figure;
 
+import android.util.Log;
+
 import com.example.cassa.entrainementprojettut.geometry.GeometryUtil.FigureProperties;
 import com.example.cassa.entrainementprojettut.geometry.GeometryUtil.ListFigure;
 
@@ -39,8 +41,7 @@ public class TriangleI extends TriangleQ {
 
         falsePropertiesLV2 = new ArrayList<String>();
         falsePropertiesLV2.add(FigureProperties.TRIANGLEI_FP_2.getProperties());
-        propertiesLV2.add(FigureProperties.FIGURE_P_1.getProperties() + (getPerimetre()
-            + r.nextInt(4)));
+        falsePropertiesLV2.add(FigureProperties.FIGURE_P_1.getProperties() + (getPerimetre()+1+ r.nextInt(4)));
 
         falsePropertiesLV3 = new ArrayList<String>();
         falsePropertiesLV3.add(FigureProperties.TRIANGLEI_FP_3.getProperties());
@@ -63,12 +64,16 @@ public class TriangleI extends TriangleQ {
 
     @Override
     public String getPropertieLV1() {
-        return propertiesLV1.get(r.nextInt(propertiesLV1.size()));
+        String s = propertiesLV1.get(r.nextInt(propertiesLV1.size()));
+        Log.d("geom88TRU",s);
+        return s;
     }
 
     @Override
     public String getPropertieLV2() {
-        return propertiesLV2.get(r.nextInt(propertiesLV2.size()));
+        String s = propertiesLV2.get(r.nextInt(propertiesLV2.size()));
+        Log.d("geom88TRU",s);
+        return   s;
     }
 
     @Override
