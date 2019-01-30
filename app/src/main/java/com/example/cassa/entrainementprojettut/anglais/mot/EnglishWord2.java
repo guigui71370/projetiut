@@ -36,7 +36,7 @@ public enum EnglishWord2 {
     MARRON("Brown","Marron",0),
     JAUNE("Yellow","Jaune",0),
     BLANC("White","Blanc",0),
-    NOIR("Black","NOIR",0),
+    NOIR("Black","Noir",0),
     GRIS("Gray","Gris",0),
     ;
 
