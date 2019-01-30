@@ -27,6 +27,7 @@ import com.example.cassa.entrainementprojettut.flag.ReverseFlagActivity;
 import com.example.cassa.entrainementprojettut.gameUtils.ActivityUtil;
 import com.example.cassa.entrainementprojettut.geography.GeographyActivity;
 import com.example.cassa.entrainementprojettut.geometry.GeometryActivity;
+import com.example.cassa.entrainementprojettut.histoire.historyActivity;
 import com.example.cassa.entrainementprojettut.mysteryWord.MysteryWordActivity;
 import com.example.cassa.entrainementprojettut.mythology.MythologyActivity;
 import com.example.cassa.entrainementprojettut.operationGame.AdditionActivity;
@@ -68,6 +69,8 @@ public class MainActivity extends ActivityUtil {
         Button mythology=findViewById(R.id.activity_main_mythology);
         Button scoreTest = findViewById(R.id.activity_main_score_btn);
         Button btnAnglais=findViewById(R.id.activity_main_anglais);
+        Button btnHistoire=findViewById(R.id.activity_main_history);
+
         final ImageButton ImgBtnsong = findViewById(R.id.activity_main_song_imgbtn);
         ImageView owlImg = findViewById(R.id.chouettes_menu);
         owlImg.setBackgroundResource(R.drawable.animation_chouettes_menu);
@@ -248,6 +251,17 @@ public class MainActivity extends ActivityUtil {
             public void onClick(View view) {
 
                 Intent scoreActivityIntent = new Intent(MainActivity.this, EnglishActivity.class);
+                startActivity(scoreActivityIntent);
+
+                playerEvent.start();
+                finish();
+            }
+        });
+        btnHistoire.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent scoreActivityIntent = new Intent(MainActivity.this, historyActivity.class);
                 startActivity(scoreActivityIntent);
 
                 playerEvent.start();
