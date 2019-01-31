@@ -3,7 +3,7 @@ package com.example.cassa.entrainementprojettut.anglais.mot;
 import com.example.cassa.entrainementprojettut.R;
 
 public enum EnglishWord2 {
-git     MANGER("Eat","Manger", R.raw.eat),
+    MANGER("Eat","Manger", R.raw.eat),
     FRERE("Brother","Frère",R.raw.brother),
     SOEUR("Sister","Soeur",R.raw.sister),
     MAMAN("Mother","Maman",R.raw.mother),

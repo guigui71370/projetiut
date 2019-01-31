@@ -222,6 +222,7 @@ public class EnglishActivity extends GameActivity {
                 if(levelChosen==3){
                     jouer.stop();
                 }
+                aficheScore();
                 unableLoose();
                 unableScoreMode();
                 time.stop();

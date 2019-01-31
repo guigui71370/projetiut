@@ -310,6 +310,7 @@
         android:layout_marginBottom="8dp"
         android:text="Ordre des nom des planetes : "
         android:textSize="24sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/activity_astronomie_lvl3_textBoxConteneur_linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -323,6 +324,7 @@
         android:layout_marginBottom="8dp"
         android:text="Ordre des planetes : "
         android:textSize="24sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/activity_astronomie_lvl3_textBoxConteneur_linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_astronomie_lvl3_textBienPlace_textView" />
