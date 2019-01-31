@@ -34,4 +34,8 @@ public class Question {
         }
         return stringAnswers;
     }
+
+    public int getPicture() {
+        return goodAnswer.getPictureId();
+    }
 }
