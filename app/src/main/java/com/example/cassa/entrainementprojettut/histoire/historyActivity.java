@@ -28,7 +28,7 @@ public class historyActivity extends GameActivity {
     private ArrayList<ImageView> image = new ArrayList<>();
     private ArrayList<TextView> text = new ArrayList<>();
     Chronometer time;
-    String[] periode = {"préhistoire", "antiquité", "moyen-age", "temps\nmoderne", "époque\ncontenporaine"};
+    String[] periode = {"Préhistoire", "Antiquité", "Moyen\nÂge", "Temps\nmodernes", "Époque\ncontenporaine"};
     private int rightAnswerCounter = 0;
     ConstraintLayout mainlayout;
 
@@ -132,7 +132,7 @@ public class historyActivity extends GameActivity {
         controleur ctrl = new controleur();
         List<String[]> list = ctrl.reponce(2);
 
-        text.get(2).setText("la révolution");
+        text.get(2).setText("La Révolution française");
         text.get(0).setText(list.get(0)[0]);
         text.get(0).setTag(list.get(0)[1]);
 
@@ -153,8 +153,8 @@ public class historyActivity extends GameActivity {
 
     private void showMenu() {
         String[] menu = new String[2];
-        menu[0] = "niveau 1";
-        menu[1] = "niveau 2";
+        menu[0] = "Niveau 1";
+        menu[1] = "Niveau 2";
 
         displayLevelchoice(this, menu);
     }
@@ -180,7 +180,7 @@ public class historyActivity extends GameActivity {
     private void verif(View v) {
         if (text.get(0).getTag().equals(v.getTag())) {
             rightAnswerCounter++;
-            showText("Bonne réponce");
+            showText("Bonne réponse");
             text.get(1).setText(rightAnswerCounter+"/5");
             if (rightAnswerCounter == 5) {
                 unableLoose();
@@ -193,7 +193,7 @@ public class historyActivity extends GameActivity {
                 disablebutton();
             }
         } else {
-            showText("mauvaise réponce");
+            showText("Mauvaise réponse");
             new Handler().postDelayed(r,1000);
             disablebutton();
         }
