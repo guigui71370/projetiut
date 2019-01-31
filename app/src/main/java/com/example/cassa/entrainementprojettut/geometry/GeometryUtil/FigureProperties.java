@@ -8,7 +8,7 @@ public enum FigureProperties {
     CARRE_P_3("Je possède des diagonales perpendiculaires qui se coupent en leur milieu"),
 
     CARRE_FP_0("Je suis un hexagone"),
-    CARRE_FP_1("Je possède 4 angles droits et 2 côtés égaux"),
+    CARRE_FP_1("Je possède 4 angles droits et seulement 2 côtés égaux"),
     CARRE_FP_2("Je possède aucun angle droit mais tous mes cotés sont égaux"),
 
     //Cercle

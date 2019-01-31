@@ -2,23 +2,9 @@ package com.example.cassa.entrainementprojettut.geometry.controller;
 
 import com.example.cassa.entrainementprojettut.geometry.FactoryFigure;
 import com.example.cassa.entrainementprojettut.geometry.FactorySetGeometry;
-import com.example.cassa.entrainementprojettut.geometry.figure.Carre;
-import com.example.cassa.entrainementprojettut.geometry.figure.Cercle;
 import com.example.cassa.entrainementprojettut.geometry.figure.Figure;
-import com.example.cassa.entrainementprojettut.geometry.figure.Losange;
-import com.example.cassa.entrainementprojettut.geometry.figure.Parallelogramme;
-import com.example.cassa.entrainementprojettut.geometry.figure.Quadrilatere;
-import com.example.cassa.entrainementprojettut.geometry.figure.Rectangle;
-import com.example.cassa.entrainementprojettut.geometry.figure.Trapeze;
-import com.example.cassa.entrainementprojettut.geometry.figure.TriangleI;
-import com.example.cassa.entrainementprojettut.geometry.figure.TriangleIR;
-import com.example.cassa.entrainementprojettut.geometry.figure.TriangleQ;
-import com.example.cassa.entrainementprojettut.geometry.figure.TriangleR;
 import com.example.cassa.entrainementprojettut.geometry.setGeometry.I_SetGeometry;
 import com.example.cassa.entrainementprojettut.geometry.view.DrawingView;
-
-import java.util.ArrayList;
-import java.util.Random;
 
 public class ControlerFigure {
 
@@ -56,7 +42,9 @@ public class ControlerFigure {
     }
 
     public String getTruePropertie(){
-        return set.getTruePropertie(f);
+        String truePropertie = set.getTruePropertie(f);
+        //Log.d("geom88TRU",truePropertie);
+        return truePropertie;
     }
 
     public String getFalsePropertie(){

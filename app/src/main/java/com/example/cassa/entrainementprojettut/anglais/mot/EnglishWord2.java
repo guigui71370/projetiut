@@ -3,7 +3,7 @@ package com.example.cassa.entrainementprojettut.anglais.mot;
 import com.example.cassa.entrainementprojettut.R;
 
 public enum EnglishWord2 {
-    MANGER("Eat","Manger", R.raw.eat),
+git     MANGER("Eat","Manger", R.raw.eat),
     FRERE("Brother","Frère",R.raw.brother),
     SOEUR("Sister","Soeur",R.raw.sister),
     MAMAN("Mother","Maman",R.raw.mother),
@@ -39,8 +39,7 @@ public enum EnglishWord2 {
     JAUNE("Yellow","Jaune",R.raw.yellow),
     BLANC("White","Blanc",R.raw.white),
     NOIR("Black","NOIR",R.raw.black),
-    GRIS("Gray","Gris",R.raw.grey)
-    ;
+    GRIS("Gray","Gris",R.raw.grey);
 
 
 

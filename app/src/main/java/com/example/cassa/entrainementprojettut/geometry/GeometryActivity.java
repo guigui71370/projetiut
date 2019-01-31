@@ -3,15 +3,14 @@ package com.example.cassa.entrainementprojettut.geometry;
 import android.content.DialogInterface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
-
 import com.example.cassa.entrainementprojettut.R;
 import com.example.cassa.entrainementprojettut.gameUtils.GameActivity;
 import com.example.cassa.entrainementprojettut.geometry.controller.ControlerFigure;
-import com.example.cassa.entrainementprojettut.geometry.figure.Figure;
 import com.example.cassa.entrainementprojettut.geometry.view.DrawingView;
 
 import java.util.Random;
@@ -61,7 +60,7 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
                     ctrlFigure = new ControlerFigure(levelChosen);
                     generateFigure();
                     activateButtons();
-                    launchTimer(GeometryActivity.this,60000,R.id.activity_geometry_imageview_ghost);
+                  launchTimer(GeometryActivity.this,60000,R.id.activity_geometry_imageview_ghost);
                 } else {
                     GeometryActivity.this.onStop();
                     dialog.show();
@@ -90,11 +89,14 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
     public void setProperties(){
         if(r.nextBoolean()){
             propertie = true;
-            properties.setText(ctrlFigure.getTruePropertie());
+        String truePropertie = ctrlFigure.getTruePropertie();
+        properties.setText(truePropertie);
+            Log.d("geom88TRU",truePropertie);
         }
         else{
             propertie = false;
             properties.setText(ctrlFigure.getFalsePropertie());
+            Log.d("geom88",ctrlFigure.getFalsePropertie());
         }
 
     }

@@ -44,8 +44,7 @@ public class Rectangle extends Parallelogramme {
 
         falsePropertiesLV2 = new ArrayList<String>();
         falsePropertiesLV2.add(FigureProperties.RECTANGLE_FP_1.getProperties());
-        falsePropertiesLV2.add(FigureProperties.FIGURE_P_1.getProperties() + getPerimetre()
-                + (this.getPerimetre() + 1 + r.nextInt(5)));
+        falsePropertiesLV2.add(FigureProperties.FIGURE_P_1.getProperties() + (this.getPerimetre() + 1 + r.nextInt(5)));
 
         falsePropertiesLV3 = new ArrayList<String>();
         falsePropertiesLV3.add(FigureProperties.RECTANGLE_FP_2.getProperties());

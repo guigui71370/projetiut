@@ -1,4 +1,3 @@
-
 <resources>
     <string name="app_name">Jeux éducatifs</string>
     <string name="geography_conteneur_rect">conteneur rectangle</string>
@@ -62,5 +61,6 @@
     <string name="anglais">Anglais</string>
     <string name="mythology_game">Mythologie</string>
     <string name="empty">" "</string>
+    <string name="histoire">histoire</string>
 </resources>
 
