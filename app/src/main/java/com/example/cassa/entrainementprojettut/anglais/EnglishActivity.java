@@ -322,6 +322,7 @@ public class EnglishActivity extends GameActivity {
         for(int i=0;i<5;i++){
 
             TextView tabTextView =new TextView(this);
+            tabTextView.setBackgroundColor(Color.parseColor("#f3f0e8"));
             tabTextView.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL);
             tabTextView.setMinWidth(200);
             tabTextView.setTextSize(20);
@@ -453,7 +454,7 @@ public class EnglishActivity extends GameActivity {
     }
 
     private boolean isarectangle(@NonNull float[] victoryBox, float leftSideTxtView, float rightSideTxtView, float upperSideTxtView, float downSideTxtView) {
-        return leftSideTxtView >= victoryBox[0]+5 && leftSideTxtView <= victoryBox[2]+5  &&  upperSideTxtView>=victoryBox[1]+5  && downSideTxtView<=victoryBox[3]+5;
+        return leftSideTxtView >= victoryBox[0]-5 && leftSideTxtView <= victoryBox[2]+5  &&  upperSideTxtView>=victoryBox[1]-5  && downSideTxtView<=victoryBox[3]+5;
     }
 
 

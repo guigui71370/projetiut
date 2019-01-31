@@ -67,10 +67,13 @@
                 android:launchMode="singleTask"
                 android:screenOrientation="landscape"/>
         <activity
-            android:name=".mythology.MythologyActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape" />
+                android:name=".mythology.MythologyActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="landscape"/>
+        <activity android:name=".histoire.historyActivity"
+                  android:launchMode="singleTask"
+                  android:screenOrientation="landscape">
+        </activity>
     </application>
-
 
 </manifest>

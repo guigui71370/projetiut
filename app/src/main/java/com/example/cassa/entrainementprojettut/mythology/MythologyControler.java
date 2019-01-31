@@ -64,4 +64,7 @@ public class MythologyControler {
         return question.getAnswers();
     }
 
+    public int getPicture() {
+        return question.getPicture();
+    }
 }

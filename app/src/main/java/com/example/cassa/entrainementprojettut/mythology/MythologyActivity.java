@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.cassa.entrainementprojettut.R;
@@ -26,6 +27,7 @@ public class MythologyActivity extends GameActivity implements View.OnClickListe
     private Chronometer chronometer;
 
     private TextView hint;
+    private ImageView picture;
     private Button divininty1;
     private Button divininty2;
     private Button divininty3;
@@ -77,6 +79,7 @@ public class MythologyActivity extends GameActivity implements View.OnClickListe
         }
         chronometer = findViewById(R.id.activity_mythology_chronometer);
         hint = findViewById(R.id.activity_mythology_textview_divinity);
+        picture = findViewById(R.id.activity_mythology_imageView_divinity);
         divininty1 = findViewById(R.id.activity_mythology_button_divinity1);
         divininty2 = findViewById(R.id.activity_mythology_button_divinity2);
         divininty3 = findViewById(R.id.activity_mythology_button_divinity3);
@@ -160,6 +163,8 @@ public class MythologyActivity extends GameActivity implements View.OnClickListe
         divininty4.setText(divinities.get(3));
         divininty5.setText(divinities.get(4));
         divininty6.setText(divinities.get(5));
+
+        picture.setImageResource(ctrl.getPicture());
 
     }
 
