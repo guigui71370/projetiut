@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.EnumSet;
 
-public class ControlerLVL1 {
+public class ControlerLVL4 {
     private Context context;
     private ConstraintLayout constraintLayoutAstronomie;
 
@@ -56,7 +56,7 @@ public class ControlerLVL1 {
     private LinearLayout[] conteneurPlanet_lvl3;
     private ImageView[] imgPlanet;
 
-    public ControlerLVL1(Context context, ConstraintLayout constraintLayout){
+    public ControlerLVL4(Context context, ConstraintLayout constraintLayout){
         this.context = context;
         this.constraintLayoutAstronomie = constraintLayout;
         createGame();
@@ -102,8 +102,8 @@ public class ControlerLVL1 {
         float width = context.getResources().getDisplayMetrics().widthPixels;
         list = new ArrayList<PlanetBank>(EnumSet.allOf(PlanetBank.class));
         for (int j=0; j<8; j++) {
-            this.imgPlanet[j].setBackgroundResource(list.get(j).getPlanetID());
-            ImageFactoriesSize.factorisize(this.imgPlanet[j],list.get(j).toString(),scale);
+            //this.imgPlanet[j].setBackgroundResource(list.get(j).getPlanetID());
+            //ImageFactoriesSize.factorisize(this.imgPlanet[j],list.get(j).toString(),scale);
             ImageFactoriesSize.setEmplacement(context,this.imgPlanet[j],list.get(j).toString());
         }
         ViewGroup.LayoutParams linearLayoutPlaneteLayoutParams = linearLayoutPlanete.getLayoutParams();
@@ -111,6 +111,9 @@ public class ControlerLVL1 {
         Collections.shuffle(list);
         for (int i=0; i<8; i++) {
             this.txtPlanet_lvl3[i].setText(list.get(i).toString());
+            this.imgPlanet[i].setBackgroundResource(list.get(i).getPlanetID());
+            this.imgPlanet[i].setTag(list.get(i).toString());
+            ImageFactoriesSize.factorisize(this.imgPlanet[i],list.get(i).toString(),scale);
         }
     }
 

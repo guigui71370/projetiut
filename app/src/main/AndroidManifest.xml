@@ -62,10 +62,10 @@
                 android:name=".score.ScoreActivity"
                 android:launchMode="singleTask"
                 android:screenOrientation="landscape"/>
-        <activity android:name=".anglais.EnglishActivity"
-                  android:launchMode="singleTask"
-                  android:screenOrientation="landscape"
-                />
+        <activity
+                android:name=".anglais.EnglishActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="landscape"/>
         <activity
             android:name=".mythology.MythologyActivity"
             android:launchMode="singleTask"

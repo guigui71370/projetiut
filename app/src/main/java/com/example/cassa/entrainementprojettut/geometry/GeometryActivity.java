@@ -53,7 +53,6 @@ public class GeometryActivity extends GameActivity implements View.OnClickListen
         falseAnswer = findViewById(R.id.activity_geometry_button_false);
         score = findViewById(R.id.activity_geometry_textview_score);
 
-
         dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialogInterface) {

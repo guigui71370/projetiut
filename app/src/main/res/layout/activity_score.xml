@@ -124,6 +124,13 @@
                 android:layout_marginTop="20dp"
                 android:background="@color/colorGreen"
                 android:text="@string/anglais"/>
+            <Button
+                android:id="@+id/score_as"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorGreen"
+                android:text="@string/astronomie_game"/>
         </LinearLayout>
     </ScrollView>
 

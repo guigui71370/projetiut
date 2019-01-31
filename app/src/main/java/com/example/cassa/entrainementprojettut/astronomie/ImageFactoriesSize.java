@@ -1,6 +1,9 @@
 
 package com.example.cassa.entrainementprojettut.astronomie;
 
+import android.content.Context;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.widget.ImageView;
 
 public class ImageFactoriesSize {
@@ -43,10 +46,13 @@ public class ImageFactoriesSize {
         d.requestLayout();
    }
 
-    public static void setEmplacement(ImageView d,String name){
+    public static void setEmplacement(Context context, ImageView d, String name){
         switch (name) {
             case "Mercure":
                 d.setX(88);
+                DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+                float width = metrics.widthPixels;
+                Log.d("aa", "setEmplacement: "+width);
                 break;
             case "Venus":
                 d.setX(168);
@@ -71,6 +77,43 @@ public class ImageFactoriesSize {
                 break;
         }
         d.requestLayout();
+
+       /*
+        switch (name) {
+            case "Mercure":
+                d.setX(width/12);
+                Log.d("a", "setEmplacement: " +d.getX());
+                break;
+            case "Venus":
+                d.setX(width/11);
+                Log.d("a", "setEmplacement: " +d.getX());
+                break;
+            case "Terre":
+                d.setX(width/10);
+                Log.d("a", "setEmplacement: " +d.getX());
+                break;
+            case "Mars":
+                d.setX(width/9);
+                Log.d("a", "setEmplacement: " +d.getX());
+                break;
+            case "Jupiter":
+                d.setX(width/8);
+                Log.d("a", "setEmplacement: " +d.getX());
+                break;
+            case "Saturne":
+                d.setX(width/7 * 1.25f);
+                Log.d("a", "setEmplacement: " +d.getX());
+                break;
+            case "Uranus":
+                d.setX(width/6 * 1.25f);
+                Log.d("a", "setEmplacement: " +d.getX());
+                break;
+            case "Neptune":
+                d.setX(width/5 * 1.25f);
+                Log.d("a", "setEmplacement: " +d.getX());
+                break;
+        }
+        d.requestLayout();*/
     }
 }
 

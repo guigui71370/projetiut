@@ -28,6 +28,7 @@ public class ScoreActivity  extends GameActivity {
     public static final String GEOMETRY = "Géométrie";
     public static final String ENGLISH = "Anglais";
     public static final String MYTHOLOGY = "Mythologie";
+    public static final String ASTRONOMIE = "Astronomie";
     public static final String LES_RECORD_DU_JEUX = "Les records du jeu ";
     public static final String PAR_NIVEAU_SONT = " par niveau sont:\n";
     public static final String AUCUN_SCORE_N_A_ÉTÉ_ÉTABLIE_DANS_CE_JEUX_POUR_LE_MOMENT = "Aucun score n'a été établie dans ce jeu pour le moment \n ";
@@ -47,6 +48,7 @@ public class ScoreActivity  extends GameActivity {
         Button btnGeometry = findViewById(R.id.score_ge);
         Button btnAnglais = findViewById(R.id.score_an);
         Button btnMythology = findViewById(R.id.score_my);
+        Button btnAstronomie = findViewById(R.id.score_as);
 
         mAddition.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -240,6 +242,28 @@ public class ScoreActivity  extends GameActivity {
                 TextView contenuScore= findViewById(R.id.score_tw);
 
                 contenuScore.setText(LES_RECORD_DU_JEUX +GEOMETRY + PAR_NIVEAU_SONT);
+                if(list.size()>0) {
+                    for (int i = 0; i < list.size(); i++) {
+
+
+                        contenuScore.setText(contenuScore.getText()+"\n" + list.get(i).toString() + "\n");
+
+                    }
+                }else{
+                    contenuScore.setText(contenuScore.getText()+"\n"+ AUCUN_SCORE_N_A_ÉTÉ_ÉTABLIE_DANS_CE_JEUX_POUR_LE_MOMENT);
+                }
+            }
+        });
+
+        btnAstronomie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppDatabase database;
+                database = AppDatabase.getInstanceOfAppDatabase(getApplicationContext());
+                List<Score> list= database.getScoreDao().getAllScoreforgame(ASTRONOMIE);
+                TextView contenuScore= findViewById(R.id.score_tw);
+
+                contenuScore.setText(LES_RECORD_DU_JEUX +ASTRONOMIE + PAR_NIVEAU_SONT);
                 if(list.size()>0) {
                     for (int i = 0; i < list.size(); i++) {
 
