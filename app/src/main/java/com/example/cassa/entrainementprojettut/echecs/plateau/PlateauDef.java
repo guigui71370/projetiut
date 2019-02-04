@@ -1,7 +1,8 @@
 package com.example.cassa.entrainementprojettut.echecs.plateau;
 
+import com.example.cassa.entrainementprojettut.echecs.pion.*;
+
 import java.util.ArrayList;
-import jeux.pion.*;
 import java.util.Scanner;
 
 public   class  PlateauDef  {

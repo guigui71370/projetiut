@@ -1,8 +1,7 @@
 package com.example.cassa.entrainementprojettut.echecs.plateau;
 
 
-
-import jeux.pion.Piondef;
+import com.example.cassa.entrainementprojettut.echecs.pion.Piondef;
 
 public  class Case {
 
