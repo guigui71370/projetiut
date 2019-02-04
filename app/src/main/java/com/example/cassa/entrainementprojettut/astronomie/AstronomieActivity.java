@@ -165,16 +165,6 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
                 planetName4.setOnClickListener(this);
                 break;
             case 4 :
-                for (LinearLayout l: conteneurPlanet_lvl3) {
-                    l.setOnDragListener(new MyDragTextListener());
-                }
-                for (TextView t: txtPlanet_lvl3){
-                    t.setOnTouchListener(new MyTouchListener());
-                }
-                for (ImageView i: imagesPlanet){
-                    i.setOnTouchListener(new MyTouchListener());
-                    i.setOnDragListener(new MyDragImageListener());
-                }
                 verifier.setOnClickListener(this);
                 break;
         }
@@ -194,66 +184,6 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
             }
         }
     }
-
-    class MyDragImageListener implements View.OnDragListener {
-        @Override
-        public boolean onDrag(View v, DragEvent event) {
-            if (event.getLocalState() instanceof ImageView && v instanceof ImageView) {
-                ImageView target = null;
-                ImageView dragged = null;
-                int dragEvent = event.getAction();
-                switch (dragEvent) {
-                    case DragEvent.ACTION_DRAG_STARTED:
-                        return true;
-                    case DragEvent.ACTION_DRAG_ENTERED:
-                        return true;
-                    case DragEvent.ACTION_DRAG_EXITED:
-                        return true;
-                    case DragEvent.ACTION_DROP:
-                        target = (ImageView) v;
-                        dragged = (ImageView) event.getLocalState();
-
-                        Drawable target_draw = target.getBackground();
-                        Drawable dragged_draw = dragged.getBackground();
-
-                        String target_tag = (String) target.getTag();
-                        String dragged_tag = (String) dragged.getTag();
-
-                        int target_width = target.getWidth();
-                        int target_height = target.getHeight();
-
-                        int dragged_width = dragged.getWidth();
-                        int dragged_height = dragged.getHeight();
-
-                        dragged.setBackground(target_draw);
-                        target.setBackground(dragged_draw);
-
-                        dragged.setTag(target_tag);
-                        target.setTag(dragged_tag);
-
-                        dragged.getLayoutParams().width = target_width;
-                        dragged.getLayoutParams().height = target_height;
-
-                        target.getLayoutParams().width = dragged_width;
-                        target.getLayoutParams().height = dragged_height;
-
-                        break;
-                    case DragEvent.ACTION_DRAG_ENDED:
-                        Log.i("Drag Event", "Exited");
-                        break;
-                }
-                target = (ImageView) v;
-                dragged = (ImageView) event.getLocalState();
-
-                target.setVisibility(View.VISIBLE);
-                dragged.setVisibility(View.VISIBLE);
-
-            }else{
-                return false;
-            }
-                return true;
-            }
-    };
 
     class MyDragListener implements View.OnDragListener {
         @Override
@@ -284,39 +214,6 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
                         }
                         //view.setVisibility(View.VISIBLE);
                         break;
-                    case DragEvent.ACTION_DRAG_ENDED:
-                        view = (TextView) event.getLocalState();
-                        view.setVisibility(View.VISIBLE);
-                    default:
-                        break;
-                }
-            }
-            return true;
-        }
-    }
-
-    class MyDragTextListener implements View.OnDragListener {
-        @Override
-        public boolean onDrag(View v, DragEvent event) {
-            if (event.getLocalState() instanceof TextView && v instanceof LinearLayout) {
-                int action = event.getAction();
-                switch (event.getAction()) {
-                    case DragEvent.ACTION_DRAG_STARTED:
-                        return true;
-                    case DragEvent.ACTION_DRAG_ENTERED:
-                        break;
-                    case DragEvent.ACTION_DRAG_EXITED:
-                        break;
-                    case DragEvent.ACTION_DROP:
-                        // Dropped, reassign View to ViewGroup
-                        TextView view = (TextView) event.getLocalState();
-                        LinearLayout container = (LinearLayout) v;
-                        ViewGroup owner = (ViewGroup) view.getParent();
-                        owner.removeView(view);
-                        container.addView(view);
-                        Log.d("Test drop", "rightAnswer:  " + rightAnswer);
-                        break;
-                        //view.setVisibility(View.VISIBLE);
                     case DragEvent.ACTION_DRAG_ENDED:
                         view = (TextView) event.getLocalState();
                         view.setVisibility(View.VISIBLE);
@@ -423,35 +320,6 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
             case 4:
                 ConstraintLayout conteneurRect = (ConstraintLayout) getLayoutInflater().inflate(R.layout.activity_astronomie_lvl3, constraintLayout, false);
                 constraintLayout.addView(conteneurRect);
-                planeteName1_lvl3 = findViewById(R.id.activity_astronomie_lvl3_planetName1_textView);
-                planeteName2_lvl3 = findViewById(R.id.activity_astronomie_lvl3_planetName2_textView);
-                planeteName3_lvl3 = findViewById(R.id.activity_astronomie_lvl3_planetName3_textView);
-                planeteName4_lvl3 = findViewById(R.id.activity_astronomie_lvl3_planetName4_textView);
-                planeteName5_lvl3 = findViewById(R.id.activity_astronomie_lvl3_planetName5_textView);
-                planeteName6_lvl3 = findViewById(R.id.activity_astronomie_lvl3_planetName6_textView);
-                planeteName7_lvl3 = findViewById(R.id.activity_astronomie_lvl3_planetName7_textView);
-                planeteName8_lvl3 = findViewById(R.id.activity_astronomie_lvl3_planetName8_textView);
-                txtPlanet_lvl3 = new TextView[]{planeteName1_lvl3, planeteName2_lvl3, planeteName3_lvl3, planeteName4_lvl3, planeteName5_lvl3, planeteName6_lvl3, planeteName7_lvl3, planeteName8_lvl3};
-
-                planeteMercure_lvl3 = findViewById(R.id.activity_astronomie_lvl3_mercure_textViewConteneur);
-                planeteVenus_lvl3 = findViewById(R.id.activity_astronomie_lvl3_venus_textViewConteneur);
-                planeteTerre_lvl3 = findViewById(R.id.activity_astronomie_lvl3_terre_textViewConteneur);
-                planeteMars_lvl3 = findViewById(R.id.activity_astronomie_lvl3_mars_textViewConteneur);
-                planeteJupiter_lvl3 = findViewById(R.id.activity_astronomie_lvl3_jupiter_textViewConteneur);
-                planeteSaturne_lvl3 = findViewById(R.id.activity_astronomie_lvl3_saturne_textViewConteneur);
-                planeteUranus_lvl3 = findViewById(R.id.activity_astronomie_lvl3_uranus_textViewConteneur);
-                planeteNeptune_lvl3 = findViewById(R.id.activity_astronomie_lvl3_neptune_textViewConteneur);
-                conteneurPlanet_lvl3 = new LinearLayout[]{planeteMercure_lvl3, planeteVenus_lvl3, planeteTerre_lvl3, planeteMars_lvl3, planeteJupiter_lvl3, planeteSaturne_lvl3, planeteUranus_lvl3, planeteNeptune_lvl3};
-
-                this.planetImage1 = findViewById(R.id.activity_astronomie_lvl3_mercure_imageView);
-                this.planetImage2 = findViewById(R.id.activity_astronomie_lvl3_venus_imageView);
-                this.planetImage3 = findViewById(R.id.activity_astronomie_lvl3_terre_imageView);
-                this.planetImage4 = findViewById(R.id.activity_astronomie_lvl3_mars_imageView);
-                this.planetImage5 = findViewById(R.id.activity_astronomie_lvl3_jupiter_imageView);
-                this.planetImage6 = findViewById(R.id.activity_astronomie_lvl3_saturne_imageView);
-                this.planetImage7 = findViewById(R.id.activity_astronomie_lvl3_uranus_imageView);
-                this.planetImage8 = findViewById(R.id.activity_astronomie_lvl3_neptune_imageView);
-                this.imagesPlanet = new ImageView[]{planetImage1, planetImage2, planetImage3, planetImage4, planetImage5, planetImage6, planetImage7, planetImage8};
 
                 this.verifier = findViewById(R.id.activity_astronomie_lvl3_verifier_button);
                 verifier.setVisibility(View.VISIBLE);
@@ -461,6 +329,8 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
                 textBienPlacer.setVisibility(View.VISIBLE);
                 activateListerner(levelChosen);
                 ControlerLVL4 controlerAstronomie4 = new ControlerLVL4(this,constraintLayout);
+                this.imagesPlanet = controlerAstronomie4.getImagesPlanet();
+                this.conteneurPlanet_lvl3 = controlerAstronomie4.getConteneurPlanet();
                 break;
         }
     }
@@ -527,10 +397,7 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
             unableLoose();
             unableScoreMode();
             chronometer.stop();
-            //timeScore = (SystemClock.elapsedRealtime() - chronometer.getBase()) / 1000;
-            //initializeScoreValues("astronomie", levelChosen);
             showLooseScreen(this);
-            //showResultScreen(this);
         }else {
             generatedNewGame();
         }

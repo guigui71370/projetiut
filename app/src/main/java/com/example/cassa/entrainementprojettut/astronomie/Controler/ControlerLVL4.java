@@ -1,7 +1,13 @@
 package com.example.cassa.entrainementprojettut.astronomie.Controler;
 
+import android.content.ClipData;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.constraint.ConstraintLayout;
+import android.util.Log;
+import android.view.DragEvent;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -9,6 +15,7 @@ import android.widget.TextView;
 
 
 import com.example.cassa.entrainementprojettut.R;
+import com.example.cassa.entrainementprojettut.astronomie.AstronomieActivity;
 import com.example.cassa.entrainementprojettut.astronomie.AstronomieUtil.PlanetBank;
 import com.example.cassa.entrainementprojettut.astronomie.ImageFactoriesSize;
 
@@ -54,7 +61,7 @@ public class ControlerLVL4 {
 
     private TextView[] txtPlanet_lvl3;
     private LinearLayout[] conteneurPlanet_lvl3;
-    private ImageView[] imgPlanet;
+    private ImageView[] imagesPlanet;
 
     public ControlerLVL4(Context context, ConstraintLayout constraintLayout){
         this.context = context;
@@ -91,10 +98,11 @@ public class ControlerLVL4 {
         this.planet6 = constraintLayoutAstronomie.findViewById(R.id.activity_astronomie_lvl3_saturne_imageView);
         this.planet7 = constraintLayoutAstronomie.findViewById(R.id.activity_astronomie_lvl3_uranus_imageView);
         this.planet8 = constraintLayoutAstronomie.findViewById(R.id.activity_astronomie_lvl3_neptune_imageView);
-        this.imgPlanet = new ImageView[]{planet1, planet2, planet3, planet4, planet5, planet6, planet7, planet8};
+        this.imagesPlanet = new ImageView[]{planet1, planet2, planet3, planet4, planet5, planet6, planet7, planet8};
         this.linearLayoutPlanete = constraintLayoutAstronomie.findViewById(R.id.activity_astronomie_lvl3_linearLayoutPlanet_linearLayout);
 
         shuffleAnswer();
+        activateListener();
     }
 
     private void shuffleAnswer(){
@@ -102,22 +110,144 @@ public class ControlerLVL4 {
         float width = context.getResources().getDisplayMetrics().widthPixels;
         list = new ArrayList<PlanetBank>(EnumSet.allOf(PlanetBank.class));
         for (int j=0; j<8; j++) {
-            //this.imgPlanet[j].setBackgroundResource(list.get(j).getPlanetID());
-            //ImageFactoriesSize.factorisize(this.imgPlanet[j],list.get(j).toString(),scale);
-            ImageFactoriesSize.setEmplacement(context,this.imgPlanet[j],list.get(j).toString());
+            ImageFactoriesSize.setEmplacement(context,this.imagesPlanet[j],list.get(j).toString());
         }
         ViewGroup.LayoutParams linearLayoutPlaneteLayoutParams = linearLayoutPlanete.getLayoutParams();
         linearLayoutPlaneteLayoutParams.width = (int) width;
         Collections.shuffle(list);
         for (int i=0; i<8; i++) {
             this.txtPlanet_lvl3[i].setText(list.get(i).toString());
-            this.imgPlanet[i].setBackgroundResource(list.get(i).getPlanetID());
-            this.imgPlanet[i].setTag(list.get(i).toString());
-            ImageFactoriesSize.factorisize(this.imgPlanet[i],list.get(i).toString(),scale);
+            this.imagesPlanet[i].setBackgroundResource(list.get(i).getPlanetID());
+            this.imagesPlanet[i].setTag(list.get(i).toString());
+            ImageFactoriesSize.factorisize(this.imagesPlanet[i],list.get(i).toString(),scale);
         }
     }
 
-    public int getRightAnswer() {
-        return this.rightAnswer;
+    private void activateListener(){
+        for (LinearLayout l: conteneurPlanet_lvl3) {
+            l.setOnDragListener(new MyDragTextListener());
+        }
+        for (TextView t: txtPlanet_lvl3){
+            t.setOnTouchListener(new MyTouchListener());
+        }
+        for (ImageView i: imagesPlanet){
+            i.setOnTouchListener(new MyTouchListener());
+            i.setOnDragListener(new MyDragImageListener());
+        }
+    }
+
+    public ImageView[] getImagesPlanet() {
+        return this.imagesPlanet;
+    }
+
+    public LinearLayout[] getConteneurPlanet() {
+        return this.conteneurPlanet_lvl3;
+    }
+
+    class MyDragTextListener implements View.OnDragListener {
+        @Override
+        public boolean onDrag(View v, DragEvent event) {
+            if (event.getLocalState() instanceof TextView && v instanceof LinearLayout) {
+                int action = event.getAction();
+                switch (event.getAction()) {
+                    case DragEvent.ACTION_DRAG_STARTED:
+                        return true;
+                    case DragEvent.ACTION_DRAG_ENTERED:
+                        break;
+                    case DragEvent.ACTION_DRAG_EXITED:
+                        break;
+                    case DragEvent.ACTION_DROP:
+                        // Dropped, reassign View to ViewGroup
+                        TextView view = (TextView) event.getLocalState();
+                        LinearLayout container = (LinearLayout) v;
+                        ViewGroup owner = (ViewGroup) view.getParent();
+                        owner.removeView(view);
+                        container.addView(view);
+                        break;
+                    //view.setVisibility(View.VISIBLE);
+                    case DragEvent.ACTION_DRAG_ENDED:
+                        view = (TextView) event.getLocalState();
+                        view.setVisibility(View.VISIBLE);
+                    default:
+                        break;
+                }
+            }
+            return true;
+        }
+    }
+
+    class MyDragImageListener implements View.OnDragListener {
+        @Override
+        public boolean onDrag(View v, DragEvent event) {
+            if (event.getLocalState() instanceof ImageView && v instanceof ImageView) {
+                ImageView target = null;
+                ImageView dragged = null;
+                int dragEvent = event.getAction();
+                switch (dragEvent) {
+                    case DragEvent.ACTION_DRAG_STARTED:
+                        return true;
+                    case DragEvent.ACTION_DRAG_ENTERED:
+                        return true;
+                    case DragEvent.ACTION_DRAG_EXITED:
+                        return true;
+                    case DragEvent.ACTION_DROP:
+                        target = (ImageView) v;
+                        dragged = (ImageView) event.getLocalState();
+
+                        Drawable target_draw = target.getBackground();
+                        Drawable dragged_draw = dragged.getBackground();
+
+                        String target_tag = (String) target.getTag();
+                        String dragged_tag = (String) dragged.getTag();
+
+                        int target_width = target.getWidth();
+                        int target_height = target.getHeight();
+
+                        int dragged_width = dragged.getWidth();
+                        int dragged_height = dragged.getHeight();
+
+                        dragged.setBackground(target_draw);
+                        target.setBackground(dragged_draw);
+
+                        dragged.setTag(target_tag);
+                        target.setTag(dragged_tag);
+
+                        dragged.getLayoutParams().width = target_width;
+                        dragged.getLayoutParams().height = target_height;
+
+                        target.getLayoutParams().width = dragged_width;
+                        target.getLayoutParams().height = dragged_height;
+
+                        break;
+                    case DragEvent.ACTION_DRAG_ENDED:
+                        Log.i("Drag Event", "Exited");
+                        break;
+                }
+                target = (ImageView) v;
+                dragged = (ImageView) event.getLocalState();
+
+                target.setVisibility(View.VISIBLE);
+                dragged.setVisibility(View.VISIBLE);
+
+            }else{
+                return false;
+            }
+            return true;
+        }
+    }
+
+    private final class MyTouchListener implements View.OnTouchListener {
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                ClipData data = ClipData.newPlainText("", "");
+                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(
+                        view);
+                view.startDrag(data, shadowBuilder, view, 0);
+                view.setVisibility(View.INVISIBLE);
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 }
