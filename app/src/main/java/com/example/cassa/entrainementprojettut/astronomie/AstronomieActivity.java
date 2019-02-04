@@ -4,16 +4,13 @@ import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.constraint.ConstraintLayout;
 import android.util.Log;
-import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.DragShadowBuilder;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageView;
@@ -31,37 +28,6 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
 
     private Chronometer chronometer;
     private ConstraintLayout constraintLayout;
-
-
-    TextView planeteName1_lvl3;
-    TextView planeteName2_lvl3;
-    TextView planeteName3_lvl3;
-    TextView planeteName4_lvl3;
-    TextView planeteName5_lvl3;
-    TextView planeteName6_lvl3;
-    TextView planeteName7_lvl3;
-    TextView planeteName8_lvl3;
-    TextView[] txtPlanet_lvl3;
-
-    LinearLayout planeteMercure_lvl3;
-    LinearLayout planeteVenus_lvl3;
-    LinearLayout planeteTerre_lvl3;
-    LinearLayout planeteMars_lvl3;
-    LinearLayout planeteJupiter_lvl3;
-    LinearLayout planeteSaturne_lvl3;
-    LinearLayout planeteUranus_lvl3;
-    LinearLayout planeteNeptune_lvl3;
-    LinearLayout[] conteneurPlanet_lvl3;
-
-    ImageView planetImage1;
-    ImageView planetImage2;
-    ImageView planetImage3;
-    ImageView planetImage4;
-    ImageView planetImage5;
-    ImageView planetImage6;
-    ImageView planetImage7;
-    ImageView planetImage8;
-    ImageView[] imagesPlanet;
 
     Button verifier;
     TextView textBienPlacer;
@@ -81,7 +47,6 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
 
     private int nbgoodAnswer = 0;
     private String rightAnswer = "test";
-    private int rightInput = 0;
 
     protected Runnable activateButton=new Runnable() {
         @Override
@@ -89,6 +54,8 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
             activateButtons(levelChosen);
         }
     };
+    private ImageView[] imagesPlanet;
+    private LinearLayout[] conteneurPlanet_lvl4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,14 +111,6 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
     @SuppressLint("ClickableViewAccessibility")
     private void activateListerner(int levelChosen) {
         switch (levelChosen){
-            case 1:
-                for (LinearLayout l: conteneurPlanet_lvl3) {
-                    l.setOnDragListener(new MyDragListener());
-                }
-                for (TextView t: txtPlanet_lvl3){
-                    t.setOnTouchListener(new MyTouchListener());
-                }
-                break;
             case 2:
                 planet1.setOnClickListener(this);
                 planet2.setOnClickListener(this);
@@ -167,61 +126,6 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
             case 4 :
                 verifier.setOnClickListener(this);
                 break;
-        }
-    }
-
-    private final class MyTouchListener implements View.OnTouchListener {
-        public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                ClipData data = ClipData.newPlainText("", "");
-                DragShadowBuilder shadowBuilder = new DragShadowBuilder(
-                        view);
-                view.startDrag(data, shadowBuilder, view, 0);
-                view.setVisibility(View.INVISIBLE);
-                return true;
-            } else {
-                return false;
-            }
-        }
-    }
-
-    class MyDragListener implements View.OnDragListener {
-        @Override
-        public boolean onDrag(View v, DragEvent event) {
-            if (event.getLocalState() instanceof TextView && v instanceof LinearLayout) {
-                int action = event.getAction();
-                switch (event.getAction()) {
-                    case DragEvent.ACTION_DRAG_STARTED:
-                        return true;
-                    case DragEvent.ACTION_DRAG_ENTERED:
-                        break;
-                    case DragEvent.ACTION_DRAG_EXITED:
-                        break;
-                    case DragEvent.ACTION_DROP:
-                        // Dropped, reassign View to ViewGroup
-                        TextView view = (TextView) event.getLocalState();
-                        LinearLayout container = (LinearLayout) v;
-                        if(v.getContentDescription().equals(view.getText())){
-                            ViewGroup owner = (ViewGroup) view.getParent();
-                            owner.removeView(view);
-                            container.addView(view);
-                            rightInput++;
-                            checkAnswer_LVL1(rightInput);
-                            Log.d("Test drop", "rightAnswer:  " + rightAnswer);
-                        }else{
-                            Log.d("Test drop", "attendue: " + v.getContentDescription());
-                            Log.d("Test drop", "selectionne:  " + view.getText());
-                        }
-                        //view.setVisibility(View.VISIBLE);
-                        break;
-                    case DragEvent.ACTION_DRAG_ENDED:
-                        view = (TextView) event.getLocalState();
-                        view.setVisibility(View.VISIBLE);
-                    default:
-                        break;
-                }
-            }
-            return true;
         }
     }
 
@@ -274,36 +178,6 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
             case 1:
                 ConstraintLayout conteneurRect1 = (ConstraintLayout) getLayoutInflater().inflate(R.layout.activity_astronomie_lvl3, constraintLayout, false);
                 constraintLayout.addView(conteneurRect1);
-                planeteName1_lvl3 = findViewById(R.id.activity_astronomie_lvl3_planetName1_textView);
-                planeteName2_lvl3 = findViewById(R.id.activity_astronomie_lvl3_planetName2_textView);
-                planeteName3_lvl3 = findViewById(R.id.activity_astronomie_lvl3_planetName3_textView);
-                planeteName4_lvl3 = findViewById(R.id.activity_astronomie_lvl3_planetName4_textView);
-                planeteName5_lvl3 = findViewById(R.id.activity_astronomie_lvl3_planetName5_textView);
-                planeteName6_lvl3 = findViewById(R.id.activity_astronomie_lvl3_planetName6_textView);
-                planeteName7_lvl3 = findViewById(R.id.activity_astronomie_lvl3_planetName7_textView);
-                planeteName8_lvl3 = findViewById(R.id.activity_astronomie_lvl3_planetName8_textView);
-                txtPlanet_lvl3 = new TextView[]{planeteName1_lvl3, planeteName2_lvl3, planeteName3_lvl3, planeteName4_lvl3, planeteName5_lvl3, planeteName6_lvl3, planeteName7_lvl3, planeteName8_lvl3};
-
-                planeteMercure_lvl3 = findViewById(R.id.activity_astronomie_lvl3_mercure_textViewConteneur);
-                planeteVenus_lvl3 = findViewById(R.id.activity_astronomie_lvl3_venus_textViewConteneur);
-                planeteTerre_lvl3 = findViewById(R.id.activity_astronomie_lvl3_terre_textViewConteneur);
-                planeteMars_lvl3 = findViewById(R.id.activity_astronomie_lvl3_mars_textViewConteneur);
-                planeteJupiter_lvl3 = findViewById(R.id.activity_astronomie_lvl3_jupiter_textViewConteneur);
-                planeteSaturne_lvl3 = findViewById(R.id.activity_astronomie_lvl3_saturne_textViewConteneur);
-                planeteUranus_lvl3 = findViewById(R.id.activity_astronomie_lvl3_uranus_textViewConteneur);
-                planeteNeptune_lvl3 = findViewById(R.id.activity_astronomie_lvl3_neptune_textViewConteneur);
-                conteneurPlanet_lvl3 = new LinearLayout[]{planeteMercure_lvl3, planeteVenus_lvl3, planeteTerre_lvl3, planeteMars_lvl3, planeteJupiter_lvl3, planeteSaturne_lvl3, planeteUranus_lvl3, planeteNeptune_lvl3};
-
-                this.planetImage1 = findViewById(R.id.activity_astronomie_lvl3_mercure_imageView);
-                this.planetImage2 = findViewById(R.id.activity_astronomie_lvl3_venus_imageView);
-                this.planetImage3 = findViewById(R.id.activity_astronomie_lvl3_terre_imageView);
-                this.planetImage4 = findViewById(R.id.activity_astronomie_lvl3_mars_imageView);
-                this.planetImage5 = findViewById(R.id.activity_astronomie_lvl3_jupiter_imageView);
-                this.planetImage6 = findViewById(R.id.activity_astronomie_lvl3_saturne_imageView);
-                this.planetImage7 = findViewById(R.id.activity_astronomie_lvl3_uranus_imageView);
-                this.planetImage8 = findViewById(R.id.activity_astronomie_lvl3_neptune_imageView);
-                this.imagesPlanet = new ImageView[]{planetImage1, planetImage2, planetImage3, planetImage4, planetImage5, planetImage6, planetImage7, planetImage8};
-
                 activateListerner(levelChosen);
                 ControlerLVL1 controlerAstronomie1 = new ControlerLVL1(this,constraintLayout);
                 break;
@@ -330,7 +204,7 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
                 activateListerner(levelChosen);
                 ControlerLVL4 controlerAstronomie4 = new ControlerLVL4(this,constraintLayout);
                 this.imagesPlanet = controlerAstronomie4.getImagesPlanet();
-                this.conteneurPlanet_lvl3 = controlerAstronomie4.getConteneurPlanet();
+                this.conteneurPlanet_lvl4 = controlerAstronomie4.getConteneurPlanet();
                 break;
         }
     }
@@ -371,12 +245,12 @@ public class AstronomieActivity extends GameActivity implements View.OnClickList
                     if(this.imagesPlanet[i].getTransitionName().equals(this.imagesPlanet[i].getTag())) {
                         nbGoodPlanet++;
                     }
-                    TextView foo = (TextView)this.conteneurPlanet_lvl3[i].getChildAt(0);
+                    TextView foo = (TextView)this.conteneurPlanet_lvl4[i].getChildAt(0);
                     if(foo == null){
                         foo = new TextView(this);
                         foo.setText("");
                     }
-                    if(foo.getText().equals(this.conteneurPlanet_lvl3[i].getContentDescription())){
+                    if(foo.getText().equals(this.conteneurPlanet_lvl4[i].getContentDescription())){
                         nbGoodPlanetName++;
                     }
                 }

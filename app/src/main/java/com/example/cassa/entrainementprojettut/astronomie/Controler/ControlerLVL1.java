@@ -1,7 +1,12 @@
 package com.example.cassa.entrainementprojettut.astronomie.Controler;
 
+import android.content.ClipData;
 import android.content.Context;
 import android.support.constraint.ConstraintLayout;
+import android.util.Log;
+import android.view.DragEvent;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -9,6 +14,7 @@ import android.widget.TextView;
 
 
 import com.example.cassa.entrainementprojettut.R;
+import com.example.cassa.entrainementprojettut.astronomie.AstronomieActivity;
 import com.example.cassa.entrainementprojettut.astronomie.AstronomieUtil.PlanetBank;
 import com.example.cassa.entrainementprojettut.astronomie.ImageFactoriesSize;
 
@@ -18,6 +24,7 @@ import java.util.EnumSet;
 
 public class ControlerLVL1 {
     private Context context;
+    private AstronomieActivity astronomieActivity;
     private ConstraintLayout constraintLayoutAstronomie;
 
     private ArrayList<PlanetBank> list = new ArrayList<>();
@@ -50,16 +57,17 @@ public class ControlerLVL1 {
     private ImageView planet8;
     private LinearLayout linearLayoutPlanete;
 
-    private static int rightAnswer = 0;
-
-    private TextView[] txtPlanet_lvl3;
-    private LinearLayout[] conteneurPlanet_lvl3;
+    private TextView[] txtPlanet;
+    private LinearLayout[] conteneurPlanet;
     private ImageView[] imgPlanet;
+
+    private int rightInput = 0;
 
     public ControlerLVL1(Context context, ConstraintLayout constraintLayout){
         this.context = context;
         this.constraintLayoutAstronomie = constraintLayout;
         createGame();
+        astronomieActivity = (AstronomieActivity) context;
     }
 
     private void createGame() {
@@ -71,7 +79,7 @@ public class ControlerLVL1 {
         this.planeteName6_lvl3 = constraintLayoutAstronomie.findViewById(R.id.activity_astronomie_lvl3_planetName6_textView);
         this.planeteName7_lvl3 = constraintLayoutAstronomie.findViewById(R.id.activity_astronomie_lvl3_planetName7_textView);
         this.planeteName8_lvl3 = constraintLayoutAstronomie.findViewById(R.id.activity_astronomie_lvl3_planetName8_textView);
-        this.txtPlanet_lvl3 = new TextView[]{planeteName1_lvl3, planeteName2_lvl3, planeteName3_lvl3, planeteName4_lvl3, planeteName5_lvl3, planeteName6_lvl3, planeteName7_lvl3, planeteName8_lvl3};
+        this.txtPlanet = new TextView[]{planeteName1_lvl3, planeteName2_lvl3, planeteName3_lvl3, planeteName4_lvl3, planeteName5_lvl3, planeteName6_lvl3, planeteName7_lvl3, planeteName8_lvl3};
 
         this.planeteMercure_lvl3 = constraintLayoutAstronomie.findViewById(R.id.activity_astronomie_lvl3_mercure_textViewConteneur);
         this.planeteVenus_lvl3 = constraintLayoutAstronomie.findViewById(R.id.activity_astronomie_lvl3_venus_textViewConteneur);
@@ -81,7 +89,7 @@ public class ControlerLVL1 {
         this.planeteSaturne_lvl3 = constraintLayoutAstronomie.findViewById(R.id.activity_astronomie_lvl3_saturne_textViewConteneur);
         this.planeteUranus_lvl3 = constraintLayoutAstronomie.findViewById(R.id.activity_astronomie_lvl3_uranus_textViewConteneur);
         this.planeteNeptune_lvl3 = constraintLayoutAstronomie.findViewById(R.id.activity_astronomie_lvl3_neptune_textViewConteneur);
-        this.conteneurPlanet_lvl3 = new LinearLayout[]{planeteMercure_lvl3, planeteVenus_lvl3, planeteTerre_lvl3, planeteMars_lvl3, planeteJupiter_lvl3, planeteSaturne_lvl3, planeteUranus_lvl3, planeteNeptune_lvl3};
+        this.conteneurPlanet = new LinearLayout[]{planeteMercure_lvl3, planeteVenus_lvl3, planeteTerre_lvl3, planeteMars_lvl3, planeteJupiter_lvl3, planeteSaturne_lvl3, planeteUranus_lvl3, planeteNeptune_lvl3};
 
         this.planet1 = constraintLayoutAstronomie.findViewById(R.id.activity_astronomie_lvl3_mercure_imageView);
         this.planet2 = constraintLayoutAstronomie.findViewById(R.id.activity_astronomie_lvl3_venus_imageView);
@@ -95,6 +103,7 @@ public class ControlerLVL1 {
         this.linearLayoutPlanete = constraintLayoutAstronomie.findViewById(R.id.activity_astronomie_lvl3_linearLayoutPlanet_linearLayout);
 
         shuffleAnswer();
+        activateListener();
     }
 
     private void shuffleAnswer(){
@@ -110,11 +119,71 @@ public class ControlerLVL1 {
         linearLayoutPlaneteLayoutParams.width = (int) width;
         Collections.shuffle(list);
         for (int i=0; i<8; i++) {
-            this.txtPlanet_lvl3[i].setText(list.get(i).toString());
+            this.txtPlanet[i].setText(list.get(i).toString());
         }
     }
 
-    public int getRightAnswer() {
-        return this.rightAnswer;
+    private void activateListener(){
+        for (LinearLayout l: conteneurPlanet) {
+            l.setOnDragListener(new MyDragListener());
+        }
+        for (TextView t: txtPlanet){
+            t.setOnTouchListener(new MyTouchListener());
+        }
+    }
+
+    private final class MyTouchListener implements View.OnTouchListener {
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                ClipData data = ClipData.newPlainText("", "");
+                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(
+                        view);
+                view.startDrag(data, shadowBuilder, view, 0);
+                view.setVisibility(View.INVISIBLE);
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    class MyDragListener implements View.OnDragListener {
+        @Override
+        public boolean onDrag(View v, DragEvent event) {
+            if (event.getLocalState() instanceof TextView && v instanceof LinearLayout) {
+                int action = event.getAction();
+                switch (event.getAction()) {
+                    case DragEvent.ACTION_DRAG_STARTED:
+                        return true;
+                    case DragEvent.ACTION_DRAG_ENTERED:
+                        break;
+                    case DragEvent.ACTION_DRAG_EXITED:
+                        break;
+                    case DragEvent.ACTION_DROP:
+                        // Dropped, reassign View to ViewGroup
+                        TextView view = (TextView) event.getLocalState();
+                        LinearLayout container = (LinearLayout) v;
+                        if(v.getContentDescription().equals(view.getText())){
+                            ViewGroup owner = (ViewGroup) view.getParent();
+                            owner.removeView(view);
+                            container.addView(view);
+                            rightInput++;
+                            astronomieActivity.checkAnswer_LVL1(rightInput);
+                            //Log.d("Test drop", "rightAnswer:  " + rightAnswer);
+                        }else{
+                            Log.d("Test drop", "attendue: " + v.getContentDescription());
+                            Log.d("Test drop", "selectionne:  " + view.getText());
+                        }
+                        //view.setVisibility(View.VISIBLE);
+                        break;
+                    case DragEvent.ACTION_DRAG_ENDED:
+                        view = (TextView) event.getLocalState();
+                        view.setVisibility(View.VISIBLE);
+                    default:
+                        break;
+                }
+            }
+            return true;
+        }
     }
 }
