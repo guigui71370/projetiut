@@ -10,4 +10,7 @@
     <color name="black">#000000</color>
     <color name="pink">#F972E7</color>
     <color name="white">#ffffff</color>
+    <color name="brown">#b58863</color>
+    <color name="lightBrown">#f0d9b5</color>
+
 </resources>
