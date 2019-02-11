@@ -17,7 +17,7 @@ public class minmax {
 
 
 
-    private int[] maximizePlay (int[] board, int depth){
+    private int[] maximizePlay(int[] board, int depth, int alpha, int beta){
         // Call score of our board
         //int score = board.score();
 
@@ -39,21 +39,22 @@ public class minmax {
                 this.iterations++; // Debug
                 System.out.println("iterations :"+iterations);
 
-                int next_move[] = minimizePlay(new_board, depth - 1); // Recursive calling
+                int next_move[] = minimizePlay(new_board, depth - 1, 0, 0); // Recursive calling
 
                 // Evaluate new move
                 if (max[0] == -1 || next_move[1] > max[1]) {
                     max[0] = column;
                     max[1] = next_move[1];
-
+                    alpha = next_move[1];
                 }
+                if (alpha >= beta) return max;
             }
         }
 
         return max;
     }
 
-    private int[] minimizePlay(int[] board, int depth) {
+    private int[] minimizePlay(int[] board, int depth, int alpha, int beta) {
         //int score = board.score();
 
         //if (board.isFinished(depth, score)) return new int[]{-1, score};
@@ -69,12 +70,14 @@ public class minmax {
 
                 this.iterations++;
                 System.out.println("iterations :"+iterations);
-                int next_move[] = maximizePlay(new_board, depth - 1);
+                int next_move[] = maximizePlay(new_board, depth - 1, 0, 0);
 
                 if (min[0] == -1 || next_move[1] < min[1]) {
                     min[0] = column;
                     min[1] = next_move[1];
+                    beta = next_move[1];
                 }
+                if (alpha >= beta) return min;
 
             }
         }
