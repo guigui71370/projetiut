@@ -1,7 +1,7 @@
 package com.example.cassa.entrainementprojettut.histoire.model;
 
 
-import com.example.cassa.entrainementprojettut.histoire.theme.revolution;
+import com.example.cassa.entrainementprojettut.histoire.theme.Dates;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,13 +9,13 @@ import java.util.List;
 public class lvl2  implements I_lvl{
     @Override
     public List<String[]> getReponce() {
-        revolution[] values = revolution.values();
+        Dates[] values = Dates.values();
 
         ArrayList<String[]> arrayList=new ArrayList<>();
         while(arrayList.size()<4){
             int index= (int) (Math.random()*values.length);
             if(existe(arrayList,values[index].getquestion())){
-                arrayList.add(new String[]{values[index].getquestion(),values[index].getreponce()});
+                arrayList.add(new String[]{values[index].getquestion(),values[index].getreponce(),values[index].gettheme()});
             }
 
         }

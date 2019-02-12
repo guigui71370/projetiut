@@ -80,7 +80,7 @@ public class historyActivity extends GameActivity {
         text.add((TextView) layoutLvlUn.findViewById(R.id.textView5));
         text.add((TextView) layoutLvlUn.findViewById(R.id.textView6));
         text.add((TextView) layoutLvlUn.findViewById(R.id.textView7));
-
+        text.add((TextView) layoutLvlUn.findViewById(R.id.textViewEnonce));
 
         image.add((ImageView) layoutLvlUn.findViewById(R.id.imageView1));
         image.add((ImageView) layoutLvlUn.findViewById(R.id.imageView2));
@@ -132,7 +132,7 @@ public class historyActivity extends GameActivity {
         controleur ctrl = new controleur();
         List<String[]> list = ctrl.reponce(2);
 
-        text.get(2).setText("La Révolution française");
+        text.get(2).setText(list.get(0)[2]);
         text.get(0).setText(list.get(0)[0]);
         text.get(0).setTag(list.get(0)[1]);
 
@@ -177,11 +177,12 @@ public class historyActivity extends GameActivity {
             enablebutton();
         }
     };
+
     private void verif(View v) {
         if (text.get(0).getTag().equals(v.getTag())) {
             rightAnswerCounter++;
             showText("Bonne réponse");
-            text.get(1).setText(rightAnswerCounter+"/5");
+            text.get(1).setText("Nombre de bonnes réponses :"+rightAnswerCounter+"/5");
             if (rightAnswerCounter == 5) {
                 unableLoose();
                 unableScoreMode();
