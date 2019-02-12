@@ -22,6 +22,7 @@ import com.example.cassa.entrainementprojettut.anglais.EnglishActivity;
 import com.example.cassa.entrainementprojettut.astronomie.AstronomieActivity;
 import com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonActivity;
 import com.example.cassa.entrainementprojettut.connect4.Connect4Activity;
+import com.example.cassa.entrainementprojettut.echecs.ChessActivity;
 import com.example.cassa.entrainementprojettut.flag.FlagActivity;
 import com.example.cassa.entrainementprojettut.flag.ReverseFlagActivity;
 import com.example.cassa.entrainementprojettut.gameUtils.ActivityUtil;
@@ -65,11 +66,12 @@ public class MainActivity extends ActivityUtil {
         Button btnConjugaison = findViewById(R.id.activity_main_conjugaison);
         Button btnGeometry = findViewById(R.id.activity_main_geometry);
         Button btnConnect4 = findViewById(R.id.activity_main_connect4);
-        Button btnastronomie = findViewById(R.id.activity_main_astronomie);
-        Button btnmythology = findViewById(R.id.activity_main_mythology);
+        Button btnAstronomie = findViewById(R.id.activity_main_astronomie);
+        Button btnMythology = findViewById(R.id.activity_main_mythology);
         Button scoreTest = findViewById(R.id.activity_main_score_btn);
-        Button btnAnglais=findViewById(R.id.activity_main_anglais);
-        Button btnHistoire=findViewById(R.id.activity_main_history);
+        Button btnAnglais = findViewById(R.id.activity_main_anglais);
+        Button btnHistoire = findViewById(R.id.activity_main_history);
+        Button btnEchec = findViewById(R.id.activity_main_chess);
 
         final ImageButton ImgBtnsong = findViewById(R.id.activity_main_song_imgbtn);
         ImageView owlImg = findViewById(R.id.chouettes_menu);
@@ -213,7 +215,7 @@ public class MainActivity extends ActivityUtil {
                 finish();
             }
         });
-        btnastronomie.setOnClickListener(new View.OnClickListener() {
+        btnAstronomie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -224,7 +226,7 @@ public class MainActivity extends ActivityUtil {
                 finish();
             }
         });
-        btnmythology.setOnClickListener(new View.OnClickListener() {
+        btnMythology.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -262,6 +264,18 @@ public class MainActivity extends ActivityUtil {
             public void onClick(View view) {
 
                 Intent scoreActivityIntent = new Intent(MainActivity.this, historyActivity.class);
+                startActivity(scoreActivityIntent);
+
+                playerEvent.start();
+                finish();
+            }
+        });
+
+        btnEchec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent scoreActivityIntent = new Intent(MainActivity.this, ChessActivity.class);
                 startActivity(scoreActivityIntent);
 
                 playerEvent.start();

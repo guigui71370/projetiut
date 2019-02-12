@@ -70,10 +70,14 @@
                 android:name=".mythology.MythologyActivity"
                 android:launchMode="singleTask"
                 android:screenOrientation="landscape"/>
-        <activity android:name=".histoire.historyActivity"
-                  android:launchMode="singleTask"
-                  android:screenOrientation="landscape">
-        </activity>
+        <activity
+                android:name=".histoire.historyActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="landscape"/>
+        <activity
+                android:name=".echecs.ChessActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="landscape"/>
     </application>
 
 </manifest>

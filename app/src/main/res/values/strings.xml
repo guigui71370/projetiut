@@ -61,6 +61,7 @@
     <string name="anglais">Anglais</string>
     <string name="mythology_game">Mythologie</string>
     <string name="empty">" "</string>
-    <string name="histoire">histoire</string>
+    <string name="histoire">Histoire</string>
+    <string name="chess">Echec</string>
 </resources>
 
