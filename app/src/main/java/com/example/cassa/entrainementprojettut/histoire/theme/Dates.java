@@ -25,6 +25,18 @@ public enum Dates {
     DATE22("Date de la découverte de l'Amérique par Christophe Colomb","1492","Le Moyen Âge"),
     DATE23("Date du début du règne de Louix XIV","1661","Les Temps Modernes"),
     DATE24("Date de la déclaration d'indépendance des Etats-Unis","1776","Les Temps Modernes"),
+    DATE25("Date de début de la Première Guerre Mondiale","1914","Époque Contemporaine"),
+    DATE26("Date de fin de la Première Guerre Mondiale","1918","Époque Contemporaine"),
+    DATE27("Date de début de la Seconde Guerre Mondiale","1939","Époque Contemporaine"),
+    DATE28("Date de fin de la Seconde Guerre Mondiale","1945","Époque Contemporaine"),
+    DATE29("Date d'abolition de l'esclavage en France","1848","Époque Contemporaine"),
+    DATE30("Date où l'école de devient obligatoire, gratuite et laïque","1882","Époque Contemporaine"),
+
+
+
+
+
+
     ;
 
 
