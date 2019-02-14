@@ -6,7 +6,7 @@ public enum Divinity {
 
     ZEUS(
             "Zeus",
-            "Appelé Jupiter chez les Romains, je suis le roi des dieux et je possède une autorité suprême sur " +
+            "Appelé Jupiter chez les Romains, je suis le roinoir des dieux et je possède une autorité suprême sur " +
                     "tous les êtres vivants. Je suis également le dieu du ciel et maîtrise la foudre. " +
                     "Je suis très colérique et courreur de jupon bien que ma femme soit la déesse du mariage. " +
                     "Mes autres attributs sont le sceptre, le trône, l’aigle et la chèvre.",
@@ -32,7 +32,7 @@ public enum Divinity {
     ATHENA(
             "Athéna",
             "Appelé Minerve chez les Romains, je suis la déesse de la sagesse, de la stratégie guerrière" +
-                    " et de la justice. Je suis la fille du roi des dieux. " +
+                    " et de la justice. Je suis la fille du roinoir des dieux. " +
                     "Je suis souvent représenté armée de ma lance et de mon bouclier." +
                     "J'ai notamment donné mon nom à la capitale de la Grèce.",
             R.drawable.mythologie_athena),
@@ -49,7 +49,7 @@ public enum Divinity {
     HERMES(
             "Hermès",
             "Appelé Mercure chez les Romains, je suis le dieu des voyages, du commerce et des voleurs. " +
-                    "Je suis le fils du roi des dieux et j'ai pour fonction principale d'être le " +
+                    "Je suis le fils du roinoir des dieux et j'ai pour fonction principale d'être le " +
                     "messager des dieux. Je suis rapide et rusé. Mes attributs sont le caducée " +
                     "(le sceptre entouré de deux serpents), " +
                     "les sandales ailées, la bourse d’argent, le bouc, la tortue et le coq.",
@@ -142,7 +142,7 @@ public enum Divinity {
 
     ULYSSE(
             "Ulysse",
-            "Héros de la guerre de Troie et roi d'Ithaque, j'ai été maudit par Poséidon. " +
+            "Héros de la guerre de Troie et roinoir d'Ithaque, j'ai été maudit par Poséidon. " +
                     "J'ai pris plus de vingt ans pour rentrer chez moi où ma femme Pénélope attendait mon retour. " +
                     "J'ai braver de nombreux dangers dont un cyclope, des sirènes, des amazones et toutes sorte d'autres monstres. " +
                     "J'irai même jusqu'à visiter les Enfers ! " +

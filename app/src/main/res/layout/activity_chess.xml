@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -30,7 +31,128 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/activity_chess_chrono_chronometer">
-
         </GridLayout>
+
+    <LinearLayout
+        android:id="@+id/activity_chess_colonne_linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_chess_gameBoard_gridLayout"
+        app:layout_constraintStart_toEndOf="@+id/activity_chess_gameBoard_gridLayout"
+        app:layout_constraintTop_toTopOf="@+id/activity_chess_gameBoard_gridLayout">
+
+        <TextView
+            android:id="@+id/huit"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:text="8" />
+
+        <TextView
+            android:id="@+id/sept"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:text="7" />
+
+        <TextView
+            android:id="@+id/six"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:text="6" />
+
+        <TextView
+            android:id="@+id/cinq"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:text="5" />
+
+        <TextView
+            android:id="@+id/quatre"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:text="4" />
+
+        <TextView
+            android:id="@+id/trois"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:text="3" />
+
+        <TextView
+            android:id="@+id/deux"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:text="2" />
+
+        <TextView
+            android:id="@+id/un"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:text="1" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/activity_chess_ligne_linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_chess_gameBoard_gridLayout">
+
+        <TextView
+            android:id="@+id/a"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:text="a" />
+
+        <TextView
+            android:id="@+id/b"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:text="b" />
+
+        <TextView
+            android:id="@+id/c"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:text="c" />
+
+        <TextView
+            android:id="@+id/d"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:text="d" />
+
+        <TextView
+            android:id="@+id/e"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:text="e" />
+
+        <TextView
+            android:id="@+id/f"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:text="f" />
+
+        <TextView
+            android:id="@+id/g"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:text="g" />
+
+        <TextView
+            android:id="@+id/h"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:text="h" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -1,54 +1,52 @@
 package com.example.cassa.entrainementprojettut.echecs.plateau;
+import com.example.cassa.entrainementprojettut.echecs.pion.Piece;
 
+import java.util.List;
+import java.util.Observer;
 
-import com.example.cassa.entrainementprojettut.echecs.pion.Piondef;
-
-public  class Case {
-
-	private int idx;
-	private int idy;
-	private Piondef pionDessus=null;
-	private String couleurCase;
+public class Case {
 	
+	private String coord;
 	
-	public Piondef getPionDessus() {
-		return pionDessus;
-	}
-	public void setPionDessus(Piondef pionDessus) {
-		this.pionDessus = pionDessus;
-	}
+	private Piece piece;
 	
+	private List<Observer> observers;
 	
-	public int getIdx() {
-		return idx;
-	}
-	public int getIdy() {
-		return idy;
-	}
-	public String getCouleurCase() {
-		return couleurCase;
+	public Case(String nom) {
+		coord = nom;
 	}
 
-	public Case(int idx, int idy, Piondef pionDessus,boolean defcolor ) {
+	public String getCoord() {
+		return coord;
+	}
+
+	public Piece getPiece() {
+		return piece;
+	}
+
+	public void setPiece(Piece piece) {
+		this.piece = piece;
+	}
+	
+	public boolean isEmpty(){
+		return this.piece == null;
+	}
+	
+	public void addObserver() {
+		//TODO
+	}
+
+	public void avertir() {
+		// TODO Auto-generated method stub
 		
-		this.idx = idx;
-		this.idy = idy;
-		this.pionDessus = pionDessus;
-		if(defcolor) {
-			this.couleurCase="wh";
-		}else {
-			this.couleurCase="bl";
-		}
 	}
-	@Override
-	public String toString() {
-		if(this.pionDessus==null)	
-		return this.couleurCase;
-		else
-		return this.getPionDessus().getNomPion()+this.getPionDessus().getCouleur().charAt(0) ;
+
+	public boolean isAttacked() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 	
 	
-	
+
 }

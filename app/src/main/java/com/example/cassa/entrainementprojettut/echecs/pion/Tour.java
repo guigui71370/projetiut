@@ -1,12 +1,27 @@
 package com.example.cassa.entrainementprojettut.echecs.pion;
+import com.example.cassa.entrainementprojettut.echecs.plateau.Case;
 
-public class Tour extends Piondef {
+import java.util.ArrayList;
+import java.util.List;
 
-	public Tour(int x, int y,String couleur) {
-		super(x, y,"T");
-		this.setCouleur(couleur);
-		
+public class Tour extends Piece{
+
+	public Tour(String couleur) {
+		super(couleur);
 		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public int getValeur() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<Case> getPossibleMoves(int pos, Case[] board) {
+		
+		return standardMoves(pos, board, DEPLACEMENTS_TOUR);
+		
 	}
 
 }

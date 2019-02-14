@@ -14,7 +14,7 @@ public class WordBankCE1 extends ToolsWordBank implements I_WordBank {
 
     private static String shortsAndNormalWords[] = {"film", "doux", "defi", "flou", "fond", "epis", "epee",
             "fete", "fil", "gris", "bleu", "loup", "lune", "dent", "chez", "cent", "sol", "toi",
-            "roi", "cle", "six", "coq", "dos", "jus", "ici", "lit", "vis", "noir", "sac", "kiwi",
+            "roinoir", "cle", "six", "coq", "dos", "jus", "ici", "lit", "vis", "noir", "sac", "kiwi",
             "huit", "cube", "robe", "ours", "rue", "bras", "main", "bus", "nez", "rire","livre", "epine", "ferme", "finir", "fleur", "drole",
             "fusee", "froid", "futur", "soupe", "veste", "jaune", "vivre", "pomme", "hiver", "porte",
             "botte", "chaud", "lampe", "voler", "tasse", "renne", "chien", "chat", "avion", "barbe",

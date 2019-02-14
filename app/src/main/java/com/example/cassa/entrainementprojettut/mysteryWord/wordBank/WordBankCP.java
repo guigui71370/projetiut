@@ -14,7 +14,7 @@ public class WordBankCP extends ToolsWordBank implements I_WordBank {
 
     private static String shortWords[] = {"film", "doux", "defi", "flou", "fond", "epis", "epee",
             "fete", "fil", "gris", "bleu", "loup", "lune", "dent", "chez", "cent", "sol", "toi",
-            "roi", "cle", "six", "coq", "dos", "jus", "ici", "lit", "vis", "noir", "sac", "kiwi",
+            "roinoir", "cle", "six", "coq", "dos", "jus", "ici", "lit", "vis", "noir", "sac", "kiwi",
             "huit", "cube", "robe", "ours", "rue", "bras", "main", "bus", "nez", "rire"};
 
 
