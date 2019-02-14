@@ -31,7 +31,7 @@ public class ChessActivity extends GameActivity implements View.OnClickListener 
     private ImageView[][] board = new ImageView[8][8];
     private Echiquier echiquier = new Echiquier();
     private List<Case> mouvementDernierePieceClique = new ArrayList<>();
-   // private ImageView derniereImageClique = new ImageView(this);
+    private ImageView dernierePieceClique;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -219,7 +219,7 @@ public class ChessActivity extends GameActivity implements View.OnClickListener 
     public void onClick(View view) {
         if (view instanceof ImageView) {
             resetBackground();
-
+            //echiquier.resetPossibleMoves();
             int[] doubleCoordonnee = (int[]) view.getTag();
             Log.d("case", "onClick: je clique sur une la case au double coordonnee : " + String.valueOf(doubleCoordonnee[0]) + "," + String.valueOf(doubleCoordonnee[1]));
             view.setBackgroundColor(getResources().getColor(R.color.pink));
@@ -227,16 +227,32 @@ public class ChessActivity extends GameActivity implements View.OnClickListener 
             int position = getBoardOneIndiceFromDoubleIndice(doubleCoordonnee);
             Log.d("coordonnee", "case numero : " + position);
 
-            Piece pieceCorrespondante =  echiquier.getBoard()[position].getPiece();
-            Log.d("echiquier", "onClick: piece a la coordonnee clique : " + pieceCorrespondante.getClass().getSimpleName());
+            if(echiquier.getBoard()[position].getPiece() == null){
+                for (Case foo:this.mouvementDernierePieceClique) {
+                    if(getBoardOneIndiceFromDoubleIndice(getBoardDoubleIndiceFromOneIndice(foo.getCoord())) == position){
+                        echiquier.moveSelectedPiece(position);
+                        Log.d("position theorique", "onClick: " + position);
+                        ((ImageView) view).setImageDrawable(this.dernierePieceClique.getDrawable());
+                        resetBackground();
+                        this.dernierePieceClique.setImageDrawable(null);
+                        Log.d("position theorique", "onClick: " + echiquier.getBoard()[position].getPiece().getClass().getSimpleName());
+                    }
+                }
+            }else {
+                Piece pieceCorrespondante = echiquier.getBoard()[position].getPiece();
+                Log.d("echiquier", "onClick: piece a la coordonnee clique : " + pieceCorrespondante.getClass().getSimpleName());
 
-            List<Case> listMouvementPossibles = new ArrayList<>();
-            listMouvementPossibles.addAll(pieceCorrespondante.getPossibleMoves(position,echiquier.getBoard()));
+                List<Case> listMouvementPossibles = new ArrayList<>();
+                listMouvementPossibles.addAll(pieceCorrespondante.getPossibleMoves(position, echiquier.getBoard()));
+                echiquier.showPossibleMoves(position);
+                this.mouvementDernierePieceClique = listMouvementPossibles;
+                this.dernierePieceClique = (ImageView) view;
 
-            for (Case foo: listMouvementPossibles) {
-                Log.d("mouvementPossible", "onClick: cases de deplacement possible : " + foo.getCoord());
-                doubleCoordonnee = getBoardDoubleIndiceFromOneIndice(foo.getCoord());
-                board[doubleCoordonnee[0]][doubleCoordonnee[1]].setBackgroundColor(getResources().getColor(R.color.black));
+                for (Case foo : listMouvementPossibles) {
+                    Log.d("mouvementPossible", "onClick: cases de deplacement possible : " + foo.getCoord());
+                    doubleCoordonnee = getBoardDoubleIndiceFromOneIndice(foo.getCoord());
+                    board[doubleCoordonnee[0]][doubleCoordonnee[1]].setBackgroundColor(getResources().getColor(R.color.black));
+                }
             }
         }
     }
