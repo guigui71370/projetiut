@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="291.0" y="1178.0">com.example.cassa.entrainementprojettut.connect4.FactoryIa</node>
+    <node x="0.0" y="1178.0">com.example.cassa.entrainementprojettut.connect4.ControlerConnect4</node>
+    <node x="1077.0" y="937.5">com.example.cassa.entrainementprojettut.connect4.ia.IaLevel1</node>
+    <node x="757.0" y="926.5">com.example.cassa.entrainementprojettut.connect4.ia.Ialevel4</node>
+    <node x="253.0" y="937.5">com.example.cassa.entrainementprojettut.connect4.ia.Ialevel3</node>
+    <node x="0.0" y="0.0">com.example.cassa.entrainementprojettut.connect4.Plateau</node>
+    <node x="505.0" y="937.5">com.example.cassa.entrainementprojettut.connect4.ia.Ialevel2</node>
+    <node x="0.0" y="838.0">com.example.cassa.entrainementprojettut.connect4.ia.IaLevel5</node>
+    <node x="505.0" y="692.0">com.example.cassa.entrainementprojettut.connect4.ia.I_Ia</node>
+    <node x="345.0" y="0.0">com.example.cassa.entrainementprojettut.connect4.Connect4Activity</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.example.cassa.entrainementprojettut.connect4.ia.Ialevel3" target="com.example.cassa.entrainementprojettut.connect4.ia.I_Ia">
+      <point x="0.0" y="-48.0" />
+      <point x="369.0" y="818.0" />
+      <point x="574.6" y="818.0" />
+      <point x="-46.39999999999999" y="48.0" />
+    </edge>
+    <edge source="com.example.cassa.entrainementprojettut.connect4.ia.IaLevel1" target="com.example.cassa.entrainementprojettut.connect4.ia.I_Ia">
+      <point x="0.0" y="-48.0" />
+      <point x="1193.0" y="808.0" />
+      <point x="713.8000000000001" y="808.0" />
+      <point x="92.80000000000004" y="48.0" />
+    </edge>
+    <edge source="com.example.cassa.entrainementprojettut.connect4.ia.Ialevel4" target="com.example.cassa.entrainementprojettut.connect4.ia.I_Ia">
+      <point x="0.0" y="-59.0" />
+      <point x="907.0" y="818.0" />
+      <point x="667.4000000000001" y="818.0" />
+      <point x="46.400000000000034" y="48.0" />
+    </edge>
+    <edge source="com.example.cassa.entrainementprojettut.connect4.ia.IaLevel5" target="com.example.cassa.entrainementprojettut.connect4.ia.I_Ia">
+      <point x="0.0" y="-147.5" />
+      <point x="116.5" y="808.0" />
+      <point x="528.2" y="808.0" />
+      <point x="-92.8" y="48.0" />
+    </edge>
+    <edge source="com.example.cassa.entrainementprojettut.connect4.ia.Ialevel2" target="com.example.cassa.entrainementprojettut.connect4.ia.I_Ia">
+      <point x="0.0" y="-48.0" />
+      <point x="1.4210854715202004E-14" y="48.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="0.0" y="0.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>Project Files</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

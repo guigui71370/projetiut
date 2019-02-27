@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="237.0" y="626.0">com.example.cassa.entrainementprojettut.mythology.metier.I_SetMythology</node>
+    <node x="253.0" y="0.0">com.example.cassa.entrainementprojettut.mythology.MythologyActivity</node>
+    <node x="0.0" y="0.0">com.example.cassa.entrainementprojettut.mythology.metier.Divinity</node>
+    <node x="0.0" y="913.0">com.example.cassa.entrainementprojettut.mythology.metier.FactorySetMythology</node>
+    <node x="474.0" y="727.0">com.example.cassa.entrainementprojettut.mythology.metier.SetMythologyLVL2</node>
+    <node x="237.0" y="727.0">com.example.cassa.entrainementprojettut.mythology.metier.SetMythologyLVL1</node>
+    <node x="736.0" y="626.0">com.example.cassa.entrainementprojettut.mythology.metier.Question</node>
+    <node x="0.0" y="727.0">com.example.cassa.entrainementprojettut.mythology.metier.SetMythologyLVL3</node>
+    <node x="510.0" y="0.0">com.example.cassa.entrainementprojettut.mythology.MythologyControler</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.example.cassa.entrainementprojettut.mythology.metier.SetMythologyLVL3" target="com.example.cassa.entrainementprojettut.mythology.metier.I_SetMythology">
+      <point x="0.0" y="-70.5" />
+      <point x="108.5" y="702.0" />
+      <point x="273.1666666666667" y="702.0" />
+      <point x="-72.33333333333333" y="25.5" />
+    </edge>
+    <edge source="com.example.cassa.entrainementprojettut.mythology.metier.SetMythologyLVL2" target="com.example.cassa.entrainementprojettut.mythology.metier.I_SetMythology">
+      <point x="0.0" y="-70.5" />
+      <point x="582.5" y="702.0" />
+      <point x="417.8333333333333" y="702.0" />
+      <point x="72.33333333333331" y="25.5" />
+    </edge>
+    <edge source="com.example.cassa.entrainementprojettut.mythology.metier.SetMythologyLVL1" target="com.example.cassa.entrainementprojettut.mythology.metier.I_SetMythology">
+      <point x="0.0" y="-70.5" />
+      <point x="-1.4210854715202004E-14" y="25.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="0.0" y="0.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>Project Files</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

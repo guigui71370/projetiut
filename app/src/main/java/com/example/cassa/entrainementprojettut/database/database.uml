@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="604.0" y="0.0">com.example.cassa.entrainementprojettut.database.EnglishWord</node>
+    <node x="0.0" y="384.0">com.example.cassa.entrainementprojettut.database.Infinitif</node>
+    <node x="449.0" y="746.0">com.example.cassa.entrainementprojettut.database.EnglishwordDao</node>
+    <node x="644.0" y="384.0">com.example.cassa.entrainementprojettut.database.InfinitifDao</node>
+    <node x="272.0" y="0.0">com.example.cassa.entrainementprojettut.database.VerbeConjugue</node>
+    <node x="0.0" y="746.0">com.example.cassa.entrainementprojettut.database.VerbeConjugueDao</node>
+    <node x="0.0" y="952.0">com.example.cassa.entrainementprojettut.database.ScoreDao</node>
+    <node x="264.0" y="384.0">com.example.cassa.entrainementprojettut.database.AppDatabase</node>
+    <node x="0.0" y="0.0">com.example.cassa.entrainementprojettut.database.Score</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="1.0" x="243.5" y="660.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>Project Files</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
