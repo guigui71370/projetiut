@@ -3,61 +3,64 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="1209.0" y="1476.0">com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.VerbeConjugueData</node>
     <node x="0.0" y="233.0">com.example.cassa.entrainementprojettut.conjugaison.Conjugaisons.Phrase</node>
+    <node x="1589.0" y="1476.0">com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.VerbeConjugueData</node>
     <node x="773.0" y="1476.0">com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeSujet</node>
-    <node x="999.0" y="1070.0">com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.SetConjugaisonCM1</node>
-    <node x="1774.0" y="1476.0">com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.InfinitifData</node>
-    <node x="993.0" y="1476.0">com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeTemps</node>
-    <node x="666.0" y="1070.0">com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.SetConjugaisonCM2</node>
-    <node x="333.0" y="1070.0">com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.SetConjugaisonCP</node>
+    <node x="1373.0" y="1476.0">com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeTemps</node>
+    <node x="666.0" y="1070.0">com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.SetConjugaisonCM1</node>
+    <node x="0.0" y="1926.0">com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.InfinitifData</node>
+    <node x="333.0" y="1070.0">com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.SetConjugaisonCM2</node>
+    <node x="999.0" y="1070.0">com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.SetConjugaisonCP</node>
     <node x="415.0" y="1476.0">com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonController</node>
     <node x="0.0" y="1476.0">com.example.cassa.entrainementprojettut.conjugaison.Conjugaisons.Competence</node>
     <node x="1332.0" y="1070.0">com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.SetConjugaisonCE1</node>
-    <node x="0.0" y="1070.0">com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.SetConjugaisonCE2</node>
     <node x="666.0" y="771.0">com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.I_SetConjugaison</node>
+    <node x="0.0" y="1070.0">com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.SetConjugaisonCE2</node>
     <node x="1690.0" y="771.0">com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonUtil.ListeInfinitif</node>
-    <node x="0.0" y="1926.0">com.example.cassa.entrainementprojettut.conjugaison.FactorySetConjugaison</node>
+    <node x="280.0" y="1926.0">com.example.cassa.entrainementprojettut.conjugaison.FactorySetConjugaison</node>
     <node x="360.0" y="0.0">com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonActivity</node>
+    <node x="993.0" y="1476.0">com.example.cassa.entrainementprojettut.database.AppDatabase</node>
     <node x="41.0" y="0.0">com.example.cassa.entrainementprojettut.conjugaison.Conjugaisons.I_Conjugaison</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.SetConjugaisonCM1" target="com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.I_SetConjugaison">
-      <point x="0.0" y="-180.5" />
-      <point x="1155.5" y="1050.0" />
-      <point x="885.1" y="1050.0" />
-      <point x="62.599999999999994" y="124.5" />
-    </edge>
-    <edge source="com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.SetConjugaisonCM2" target="com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.I_SetConjugaison">
-      <point x="0.0" y="-180.5" />
-      <point x="0.0" y="124.5" />
-    </edge>
-    <edge source="com.example.cassa.entrainementprojettut.conjugaison.Conjugaisons.Phrase" target="com.example.cassa.entrainementprojettut.conjugaison.Conjugaisons.I_Conjugaison">
-      <point x="0.0" y="-246.5" />
-      <point x="0.0" y="91.5" />
-    </edge>
     <edge source="com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.SetConjugaisonCE1" target="com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.I_SetConjugaison">
       <point x="0.0" y="-180.5" />
       <point x="1488.5" y="1040.0" />
-      <point x="947.7" y="1040.0" />
-      <point x="125.19999999999999" y="124.5" />
+      <point x="947.6999999999999" y="1040.0" />
+      <point x="125.19999999999993" y="124.5" />
     </edge>
     <edge source="com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.SetConjugaisonCE2" target="com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.I_SetConjugaison">
       <point x="0.0" y="-180.5" />
       <point x="156.5" y="1040.0" />
       <point x="697.3" y="1040.0" />
-      <point x="-125.2" y="124.5" />
+      <point x="-125.19999999999999" y="124.5" />
     </edge>
-    <edge source="com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.SetConjugaisonCP" target="com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.I_SetConjugaison">
+    <edge source="com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.SetConjugaisonCM1" target="com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.I_SetConjugaison">
+      <point x="0.0" y="-180.5" />
+      <point x="0.0" y="124.5" />
+    </edge>
+    <edge source="com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.SetConjugaisonCM2" target="com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.I_SetConjugaison">
       <point x="0.0" y="-180.5" />
       <point x="489.5" y="1050.0" />
       <point x="759.9" y="1050.0" />
-      <point x="-62.60000000000001" y="124.5" />
+      <point x="-62.60000000000002" y="124.5" />
+    </edge>
+    <edge source="com.example.cassa.entrainementprojettut.conjugaison.Conjugaisons.Phrase" target="com.example.cassa.entrainementprojettut.conjugaison.Conjugaisons.I_Conjugaison">
+      <point x="0.0" y="-246.5" />
+      <point x="0.0" y="91.5" />
+    </edge>
+    <edge source="com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.SetConjugaisonCP" target="com.example.cassa.entrainementprojettut.conjugaison.SetsConjugaison.I_SetConjugaison">
+      <point x="0.0" y="-180.5" />
+      <point x="1155.5" y="1050.0" />
+      <point x="885.1" y="1050.0" />
+      <point x="62.60000000000002" y="124.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="-3.0" y="0.0" />
-  <SelectedNodes />
+  <settings layout="Hierarchic Group" zoom="1.0" x="557.5" y="1140.0" />
+  <SelectedNodes>
+    <node>com.example.cassa.entrainementprojettut.conjugaison.ConjugaisonActivity</node>
+  </SelectedNodes>
   <Categories>
     <Category>Fields</Category>
     <Category>Constructors</Category>
